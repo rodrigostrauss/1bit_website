@@ -8,23 +8,14 @@
 <META NAME="author" CONTENT="Rodrigo Strauss">
 <META NAME="ROBOTS" CONTENT="ALL">
     <title>A otimização do Visual C++ faz toda a diferença  ::::  Rodrigo Strauss :: www.1bit.com.br</title>
-    <link href="../../1bit.css" type="text/css" rel="stylesheet">
-    <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
-<!-- google analytics -->
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
-</script>
-<script type="text/javascript">
-_uacct = "UA-75310-1";
-urchinTracker();
-</script>
-<!-- google analytics end -->
-
-  </head>
+    <link href="../../../1bit.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="text/xml" title="RSS" href="../../../weblog_rss.1bit">
+</head>
   <body style="margin:0px 0px 0px 0px" bgcolor="#FFFFFF">
     <table cellspacing="0" cellpadding="0" width="100%" border="0">
         <tr>
           <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
-<a href="http://www.1bit.com.br"><img src="../../images/logo_novo_2.png" border="0" alt="logo" /></a>
+<a href="../../../"><img src="../../../images/logo_novo_2.png" border="0" alt="logo" /></a>
 
           </td>
         </tr>
@@ -43,8 +34,8 @@ urchinTracker();
           <td>
           <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
             <tr>
-              <td><img src="../../images/rebarba1.png" alt="rebarba"></td>
-              <td align="right"><img src="../../images/rebarba2.png" alt="rebarba"></td>
+              <td><img src="../../../images/rebarba1.png" alt="rebarba"></td>
+              <td align="right"><img src="../../../images/rebarba2.png" alt="rebarba"></td>
               </tr>
             </table>
           </td>
@@ -133,7 +124,7 @@ urchinTracker();
 <!-- 
 <td width="60">
 
-<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../images/xml.gif" border="0"/></a>
+<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../../images/xml.gif" border="0"/></a>
 </td>
 -->
 
@@ -219,7 +210,7 @@ int main()
 </pre>
 </div>
 
-<p>Depois de algumas noites e alguns fins de semana programando, eu finalmente terminei uma versão usável do meu parser. No final, eu coloquei um contador de tempo para medir <a href="http://www.1bit.com.br/content.1bit/weblog/otmizacao_pessimizacao">se eu precisava ou não otimizar o código</a>, e para comparar com o MIDL da Microsoft. Esse é o resultado que eu obtive com a versão debug (Athlon XP 2600+, Visual C++ 7.1) :
+<p>Depois de algumas noites e alguns fins de semana programando, eu finalmente terminei uma versão usável do meu parser. No final, eu coloquei um contador de tempo para medir <a href="../../../content.1bit/weblog/otmizacao_pessimizacao">se eu precisava ou não otimizar o código</a>, e para comparar com o MIDL da Microsoft. Esse é o resultado que eu obtive com a versão debug (Athlon XP 2600+, Visual C++ 7.1) :
 
 <div class="code">
 <pre>
@@ -263,7 +254,7 @@ Parsing import file spbase.idl
 <a href="http://pluralsight.com/blogs/hsutter/archive/2004/10/08/2723.aspx">Por isso</a> <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dv_vstechart/html/profileguidedoptimization.asp">que eu amo essa linguagem</a> <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vccore/html/vcgrfglwholeprogramoptimization.asp">e esse compilador</a>.</p>
 -->
 
-<!--<p><span style="xxfont-size:7pt">(Não esqueça que o código gerado pelo JIT do .NET é <a href="http://www.1bit.com.br/content.1bit/managed">bem parecido com o gerado pelo Visual C++ em configuração Debug</a>. Ah, e não esqueça também que o <a href="http://www.c-sharpcorner.com/Code/2002/Oct/StringBuilderComp.asp">overhead da System.String</a> é maior do que o do std::string)</span></p>-->
+<!--<p><span style="xxfont-size:7pt">(Não esqueça que o código gerado pelo JIT do .NET é <a href="../../../content.1bit/managed">bem parecido com o gerado pelo Visual C++ em configuração Debug</a>. Ah, e não esqueça também que o <a href="http://www.c-sharpcorner.com/Code/2002/Oct/StringBuilderComp.asp">overhead da System.String</a> é maior do que o do std::string)</span></p>-->
 
 <p>Vale lembrar que eu me esforcei para fazer o código da forma mais clara e bug-free possível. Nem acesso a arquivos foi otimizado, eu simplesmente li o arquivo inteiro em uma std::string usando <i>getline(f, str, f.widen(EOF))</i>. Eu ainda posso otimizar isso usando FileMapping e passando o ponteiro de início e fim como iterators para o boost::tokenizer.</p><br><p class="datetime">Em 26/07/2005 18:53, por  Rodrigo Strauss </p>
 </div>
@@ -306,8 +297,8 @@ google_ui_features = "rc:6";
  <td>
   <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
    <tr>
-    <td><img src="../../images/rebarba3.png"></td>
-    <td align="right"><img src="../../images/rebarba4.png"></td>
+    <td><img src="../../../images/rebarba3.png"></td>
+    <td align="right"><img src="../../../images/rebarba4.png"></td>
    </tr>
   </table>
  </td>
@@ -317,8 +308,8 @@ google_ui_features = "rc:6";
 <tr><td class="topmenu">&nbsp;</td><td>
 <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
             <tr>
-              <td><img src="../../images/rebarba1.png"></td>
-              <td align="right"><img src="../../images/rebarba2.png"></td>
+              <td><img src="../../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../../images/rebarba2.png"></td>
               </tr>
             </table>
 </td>
@@ -441,7 +432,7 @@ Comentário<br/>
 <br/>
 <input type="submit" value="Dizer"/><br/><br/><br/>
 <div style="width:500px;font-size:8pt;">
-<b>Os comentários devem ser sobre assuntos relativos ao post</b>, eu provavelmente apagarei comentários totalmente offtopic. Se quiser me enviar uma mensagem, use o <a href="http://www.1bit.com.br/content.1bit/contact">formulário de contato</a>. E não esqueça: isso é um site pessoal e eu me reservo o direito de apagar qualquer comentário ofensivo ou inapropriado.
+<b>Os comentários devem ser sobre assuntos relativos ao post</b>, eu provavelmente apagarei comentários totalmente offtopic. Se quiser me enviar uma mensagem, use o <a href="../../../content.1bit/contact">formulário de contato</a>. E não esqueça: isso é um site pessoal e eu me reservo o direito de apagar qualquer comentário ofensivo ou inapropriado.
 </div>
 </form>
 
@@ -485,8 +476,8 @@ if (name && name != 'null')
           <td>
           <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
             <tr>
-              <td><img src="../../images/rebarba3.png" alt="rebarba"></td>
-              <td align="right"><img src="../../images/rebarba4.png" alt="rebarba"></td>
+              <td><img src="../../../images/rebarba3.png" alt="rebarba"></td>
+              <td align="right"><img src="../../../images/rebarba4.png" alt="rebarba"></td>
             </tr>
           </table>
           </td>

@@ -8,23 +8,14 @@
 <META NAME="author" CONTENT="Rodrigo Strauss">
 <META NAME="ROBOTS" CONTENT="ALL">
     <title>Explicando a sopa de letrinhas da programação C/C++ para Windows: WTL  ::::  Rodrigo Strauss :: www.1bit.com.br</title>
-    <link href="../../1bit.css" type="text/css" rel="stylesheet">
-    <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
-<!-- google analytics -->
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
-</script>
-<script type="text/javascript">
-_uacct = "UA-75310-1";
-urchinTracker();
-</script>
-<!-- google analytics end -->
-
-  </head>
+    <link href="../../../1bit.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="text/xml" title="RSS" href="../../../weblog_rss.1bit">
+</head>
   <body style="margin:0px 0px 0px 0px" bgcolor="#FFFFFF">
     <table cellspacing="0" cellpadding="0" width="100%" border="0">
         <tr>
           <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
-<a href="http://www.1bit.com.br"><img src="../../images/logo_novo_2.png" border="0" alt="logo" /></a>
+<a href="../../../"><img src="../../../images/logo_novo_2.png" border="0" alt="logo" /></a>
 
           </td>
         </tr>
@@ -43,8 +34,8 @@ urchinTracker();
           <td>
           <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
             <tr>
-              <td><img src="../../images/rebarba1.png" alt="rebarba"></td>
-              <td align="right"><img src="../../images/rebarba2.png" alt="rebarba"></td>
+              <td><img src="../../../images/rebarba1.png" alt="rebarba"></td>
+              <td align="right"><img src="../../../images/rebarba2.png" alt="rebarba"></td>
               </tr>
             </table>
           </td>
@@ -133,7 +124,7 @@ urchinTracker();
 <!-- 
 <td width="60">
 
-<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../images/xml.gif" border="0"/></a>
+<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../../images/xml.gif" border="0"/></a>
 </td>
 -->
 
@@ -186,21 +177,21 @@ google_color_url = "FF5000";
 <br>
 <h5>Explicando a sopa de letrinhas da programação C/C++ para Windows: WTL</h5><p><i>Outros posts dessa mesma série:</i>
 &nbsp;
-<a href="http://www.1bit.com.br/content.1bit/weblog/sopa_de_letrinhas_atl">ATL</a>
+<a href="../../../content.1bit/weblog/sopa_de_letrinhas_atl">ATL</a>
 &nbsp;&nbsp;&nbsp;
-<a href="http://www.1bit.com.br/content.1bit/weblog/sopa_de_letrinhas_com">COM</a>
+<a href="../../../content.1bit/weblog/sopa_de_letrinhas_com">COM</a>
 &nbsp;&nbsp;&nbsp;
-<a href="http://www.1bit.com.br/content.1bit/weblog/sopa_de_letrinhas_mfc">MFC</a>
+<a href="../../../content.1bit/weblog/sopa_de_letrinhas_mfc">MFC</a>
 &nbsp;&nbsp;&nbsp;
-<a href="http://www.1bit.com.br/content.1bit/weblog/sopa_de_letrinhas_win32">Win32</a>
+<a href="../../../content.1bit/weblog/sopa_de_letrinhas_win32">Win32</a>
 
 </p>
 
-<p>WTL (Windows Template Library) é uma biblioteca de templates C++ que encapsula a parte da <a href="http://www.1bit.com.br/content.1bit/weblog/sopa_de_letrinhas_win32">Win32 API</a> que lida com interface gráfica (GDI). Ela contém classes para criar janelas, controles Win32 (botões, barras de progresso, etc), dialogs, wizards, etc.
+<p>WTL (Windows Template Library) é uma biblioteca de templates C++ que encapsula a parte da <a href="../../../content.1bit/weblog/sopa_de_letrinhas_win32">Win32 API</a> que lida com interface gráfica (GDI). Ela contém classes para criar janelas, controles Win32 (botões, barras de progresso, etc), dialogs, wizards, etc.
 
-<p>A WTL é uma extensão da <a href="http://www.1bit.com.br/content.1bit/weblog/sopa_de_letrinhas_atl">ATL</a>, que já contém algumas classes básicas para manipulação de janelas. Essas classes da ATL foram criadas inicialmente para ajudar na confecção de controles ActiveX e seus Property Pages. Sobre esse suporte básico da ATL, um programador da Microsoft chamado Nenad Stefanovic criou diversas outras classes para encapsular o restante da GDI. Esse conjunto de classes acabou se transformando no que conhecemos como WTL.
+<p>A WTL é uma extensão da <a href="../../../content.1bit/weblog/sopa_de_letrinhas_atl">ATL</a>, que já contém algumas classes básicas para manipulação de janelas. Essas classes da ATL foram criadas inicialmente para ajudar na confecção de controles ActiveX e seus Property Pages. Sobre esse suporte básico da ATL, um programador da Microsoft chamado Nenad Stefanovic criou diversas outras classes para encapsular o restante da GDI. Esse conjunto de classes acabou se transformando no que conhecemos como WTL.
 
-<p>Por ser uma extensão da ATL, a WTL segue a mesma filosofia: classes template enxutas (inspiradas pela STL), liberdade de uso das classes fora de um framework (ao contrário da <a href="http://www.1bit.com.br/content.1bit/weblog/sopa_de_letrinhas_mfc">MFC</a>) e código simples e rápido. Por ser todo baseado em templates, não é necessário usar uma LIB ou DLL, seu executável fica completamente independente. Além disso - também pelo fato de usar templates - o tamanho do executável fica muito pequeno, sendo possível criar executáveis de 70 kb ou menos sem dependência de DLLs ou runtimes. Compilando seu executável em Release, a WTL não causa nenhum overhead em relação a programas feito em Win32 puro, sem classes. Como o código da WTL é muito enxuto, a maioria das funcões acabam "sumindo" durante a compilação, pois são colocadas inline.
+<p>Por ser uma extensão da ATL, a WTL segue a mesma filosofia: classes template enxutas (inspiradas pela STL), liberdade de uso das classes fora de um framework (ao contrário da <a href="../../../content.1bit/weblog/sopa_de_letrinhas_mfc">MFC</a>) e código simples e rápido. Por ser todo baseado em templates, não é necessário usar uma LIB ou DLL, seu executável fica completamente independente. Além disso - também pelo fato de usar templates - o tamanho do executável fica muito pequeno, sendo possível criar executáveis de 70 kb ou menos sem dependência de DLLs ou runtimes. Compilando seu executável em Release, a WTL não causa nenhum overhead em relação a programas feito em Win32 puro, sem classes. Como o código da WTL é muito enxuto, a maioria das funcões acabam "sumindo" durante a compilação, pois são colocadas inline.
 
 <p>Há algum tempo atrás o projeto WTL foi colocado no SourceForge para que a comunidade C++/Win32 pudesse ajudar o Nenad nas correções e sugestões. Mesmo assim, o Nenad ainda é o coordenador e responsável pelo projeto, garantindo que a filosofia ATL/WTL não suma a medida que milhares de classes sejam adicionadas à biblioteca. Na realidade poucas classes foram adicionadas à WTL depois disso, com destaque para as classes para Wizards.
 
@@ -393,8 +384,8 @@ google_ui_features = "rc:6";
  <td>
   <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
    <tr>
-    <td><img src="../../images/rebarba3.png"></td>
-    <td align="right"><img src="../../images/rebarba4.png"></td>
+    <td><img src="../../../images/rebarba3.png"></td>
+    <td align="right"><img src="../../../images/rebarba4.png"></td>
    </tr>
   </table>
  </td>
@@ -404,8 +395,8 @@ google_ui_features = "rc:6";
 <tr><td class="topmenu">&nbsp;</td><td>
 <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
             <tr>
-              <td><img src="../../images/rebarba1.png"></td>
-              <td align="right"><img src="../../images/rebarba2.png"></td>
+              <td><img src="../../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../../images/rebarba2.png"></td>
               </tr>
             </table>
 </td>
@@ -552,7 +543,7 @@ Comentário<br/>
 <br/>
 <input type="submit" value="Dizer"/><br/><br/><br/>
 <div style="width:500px;font-size:8pt;">
-<b>Os comentários devem ser sobre assuntos relativos ao post</b>, eu provavelmente apagarei comentários totalmente offtopic. Se quiser me enviar uma mensagem, use o <a href="http://www.1bit.com.br/content.1bit/contact">formulário de contato</a>. E não esqueça: isso é um site pessoal e eu me reservo o direito de apagar qualquer comentário ofensivo ou inapropriado.
+<b>Os comentários devem ser sobre assuntos relativos ao post</b>, eu provavelmente apagarei comentários totalmente offtopic. Se quiser me enviar uma mensagem, use o <a href="../../../content.1bit/contact">formulário de contato</a>. E não esqueça: isso é um site pessoal e eu me reservo o direito de apagar qualquer comentário ofensivo ou inapropriado.
 </div>
 </form>
 
@@ -596,8 +587,8 @@ if (name && name != 'null')
           <td>
           <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
             <tr>
-              <td><img src="../../images/rebarba3.png" alt="rebarba"></td>
-              <td align="right"><img src="../../images/rebarba4.png" alt="rebarba"></td>
+              <td><img src="../../../images/rebarba3.png" alt="rebarba"></td>
+              <td align="right"><img src="../../../images/rebarba4.png" alt="rebarba"></td>
             </tr>
           </table>
           </td>

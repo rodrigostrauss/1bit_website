@@ -8,23 +8,14 @@
 <META NAME="author" CONTENT="Rodrigo Strauss">
 <META NAME="ROBOTS" CONTENT="ALL">
     <title>Windows Vista != .NET  ::::  Rodrigo Strauss :: www.1bit.com.br</title>
-    <link href="../../1bit.css" type="text/css" rel="stylesheet">
-    <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
-<!-- google analytics -->
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
-</script>
-<script type="text/javascript">
-_uacct = "UA-75310-1";
-urchinTracker();
-</script>
-<!-- google analytics end -->
-
-  </head>
+    <link href="../../../1bit.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="text/xml" title="RSS" href="../../../weblog_rss.1bit">
+</head>
   <body style="margin:0px 0px 0px 0px" bgcolor="#FFFFFF">
     <table cellspacing="0" cellpadding="0" width="100%" border="0">
         <tr>
           <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
-<a href="http://www.1bit.com.br"><img src="../../images/logo_novo_2.png" border="0" alt="logo" /></a>
+<a href="../../../"><img src="../../../images/logo_novo_2.png" border="0" alt="logo" /></a>
 
           </td>
         </tr>
@@ -43,8 +34,8 @@ urchinTracker();
           <td>
           <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
             <tr>
-              <td><img src="../../images/rebarba1.png" alt="rebarba"></td>
-              <td align="right"><img src="../../images/rebarba2.png" alt="rebarba"></td>
+              <td><img src="../../../images/rebarba1.png" alt="rebarba"></td>
+              <td align="right"><img src="../../../images/rebarba2.png" alt="rebarba"></td>
               </tr>
             </table>
           </td>
@@ -144,7 +135,7 @@ function googleTranslateElementInit() {
 <!-- 
 <td width="60">
 
-<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../images/xml.gif" border="0"/></a>
+<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../../images/xml.gif" border="0"/></a>
 </td>
 -->
 
@@ -195,15 +186,15 @@ google_color_url = "FF5000";
 </tr>
 </table>
 <br>
-<h5>Windows Vista != .NET</h5><p><a href="http://www.grimes.demon.co.uk/">Richard Grimes</a>, um conhecido <a href="http://www.amazon.com/exec/obidos/search-handle-url/index%3Dbooks%26field-author-exact%3DRichard%20Grimes/">escritor sobre tecnologia Microsoft</a> que <a href="http://www.ddj.com/documents/s=9211/ddj050201dnn/">abandonou totalmente o .NET</a> (<a href="http://www.1bit.com.br/content.1bit/weblog/dot_nerd_leaks#435">já discutimos isso aqui no site</a>) escreveu um novo artigo seguindo a teoria dele (que eu não concordo, diga-se de passagem) de que a Microsoft não confia no .NET. Nesse artigo ele faz uma medição sobre a quantidade de managed assemblies no Windows Vista, e afirma que <a href="http://www.grimes.demon.co.uk/dotnet/vistaAndDotnet.htm">o uso do .NET no Windows Vista é muito pequeno</a>, principalmente se for levado em consideração as delarações e pressões feitas pela Microsoft em cima do .NET.</p>
+<h5>Windows Vista != .NET</h5><p><a href="http://www.grimes.demon.co.uk/">Richard Grimes</a>, um conhecido <a href="http://www.amazon.com/exec/obidos/search-handle-url/index%3Dbooks%26field-author-exact%3DRichard%20Grimes/">escritor sobre tecnologia Microsoft</a> que <a href="http://www.ddj.com/documents/s=9211/ddj050201dnn/">abandonou totalmente o .NET</a> (<a href="../../../content.1bit/weblog/dot_nerd_leaks#435">já discutimos isso aqui no site</a>) escreveu um novo artigo seguindo a teoria dele (que eu não concordo, diga-se de passagem) de que a Microsoft não confia no .NET. Nesse artigo ele faz uma medição sobre a quantidade de managed assemblies no Windows Vista, e afirma que <a href="http://www.grimes.demon.co.uk/dotnet/vistaAndDotnet.htm">o uso do .NET no Windows Vista é muito pequeno</a>, principalmente se for levado em consideração as delarações e pressões feitas pela Microsoft em cima do .NET.</p>
 
 <p>Uma das frases dele é <i>"Microsoft appears to have concentrated their development effort in Vista on native code development"</i> - o que até me parece óbvio já que estamos falando de um sistema operacional. O interessante é que eu estava justamente pensando em escrever algo sobre isso. A primeira coisa que eu fiz após instalar o Vista em casa foi instalar o WinDbg e fazer dump dos symbols de vários executáveis, para saber o quanto de .NET estava sendo usado no Vista. O Windows Explorer tinha algumas partes ou extensões feitas em .NET nos builds alfa do Longhorn. Não existe mais nada de .NET no Windows Explorer, assim como não existe nada de .NET na grande maioria dos executáveis do Windows Vista.</p>
 
-<p>Com esses meus experimentos, eu fiz algumas descobertas bem interessantes: sabe quais bibliotecas tiveram seu uso aumentado consideravelmente no shell do Windows (Explorer e seus adendos) em relação ao Windows XP? <a href="http://www.1bit.com.br/content.1bit/weblog/sopa_de_letrinhas_atl">ATL</a> e <a href="http://www.1bit.com.br/content.1bit/weblog/sopa_de_letrinhas_wtl">WTL</a>. Outro executável que usa bastante ATL e WTL é o <a href="http://www.microsoft.com/technet/prodtechnol/windows2000serv/howto/mmcsteps.mspx">MMC</a>, que agora aceita snapins feitos em .NET (mas continua sendo feito em "old unmanaged code").</p>
+<p>Com esses meus experimentos, eu fiz algumas descobertas bem interessantes: sabe quais bibliotecas tiveram seu uso aumentado consideravelmente no shell do Windows (Explorer e seus adendos) em relação ao Windows XP? <a href="../../../content.1bit/weblog/sopa_de_letrinhas_atl">ATL</a> e <a href="../../../content.1bit/weblog/sopa_de_letrinhas_wtl">WTL</a>. Outro executável que usa bastante ATL e WTL é o <a href="http://www.microsoft.com/technet/prodtechnol/windows2000serv/howto/mmcsteps.mspx">MMC</a>, que agora aceita snapins feitos em .NET (mas continua sendo feito em "old unmanaged code").</p>
 
-<p>Ao invés do Dr. Grimes procurar referências usando os symbols, ele fez um programa para descobrir quais programas que fazem parte do Windows Vista usam realmente .NET. A surpresa é que a lista é muito pequena. O resultado do estudo dele não me espanta. Acho que ele exagera um pouco no FUD, mas é perfeitamente compreensível e perdoável (para mim, uma fonte claramente não-neutra) considerando o gigantesco FUD feito pela Microsoft e comunidade .NET sobre C/C++ e o "old unmanaged code". Só acho que ele podia ter falado mais de Indigo/WCF (que me parece ser feito todo em .NET) e Avalon/WPF (<a href="http://www.1bit.com.br/content.1bit/weblog/wpfe_cpp">que é 50% managed em usermode e fortemente baseado em DirectX unmanaged em kernel mode</a>). Não dá pra esquecer que o Avalon é um sistema de composição que tem quase nada de dependência do Win32.</p>
+<p>Ao invés do Dr. Grimes procurar referências usando os symbols, ele fez um programa para descobrir quais programas que fazem parte do Windows Vista usam realmente .NET. A surpresa é que a lista é muito pequena. O resultado do estudo dele não me espanta. Acho que ele exagera um pouco no FUD, mas é perfeitamente compreensível e perdoável (para mim, uma fonte claramente não-neutra) considerando o gigantesco FUD feito pela Microsoft e comunidade .NET sobre C/C++ e o "old unmanaged code". Só acho que ele podia ter falado mais de Indigo/WCF (que me parece ser feito todo em .NET) e Avalon/WPF (<a href="../../../content.1bit/weblog/wpfe_cpp">que é 50% managed em usermode e fortemente baseado em DirectX unmanaged em kernel mode</a>). Não dá pra esquecer que o Avalon é um sistema de composição que tem quase nada de dependência do Win32.</p>
 
-<p>Me parece que ele compartilha da minha opinião: o WinFX é parte do Windows da mesma forma que o .NET Framework é. Os desenvolvedores usam para desenvolver aplicações para Windows, mas a própria Microsoft não usa (a não ser em raras situações visivelmente experimentais e para substituir o VBA e VB6). Me parece que nada (ou quase nada) no Windows Vista é feito usando WinFX ou até mesmo .NET. Só o WinFX mesmo é feito em .NET. Tudo no Windows continua sendo feito no velho e carcomido Win32. Parece que <a href="http://www.1bit.com.br/content.1bit/managed">tudo que eu escrevi a dois anos continua válido</a>.</p>
+<p>Me parece que ele compartilha da minha opinião: o WinFX é parte do Windows da mesma forma que o .NET Framework é. Os desenvolvedores usam para desenvolver aplicações para Windows, mas a própria Microsoft não usa (a não ser em raras situações visivelmente experimentais e para substituir o VBA e VB6). Me parece que nada (ou quase nada) no Windows Vista é feito usando WinFX ou até mesmo .NET. Só o WinFX mesmo é feito em .NET. Tudo no Windows continua sendo feito no velho e carcomido Win32. Parece que <a href="../../../content.1bit/managed">tudo que eu escrevi a dois anos continua válido</a>.</p>
 
 <p><i>PS1: Fora o fato de que o WinFX ainda é muuuuito lento. Eu baixei o Expression da Microsoft que é 100% managed e 100% Avalon/WPF. Rodei tudo em um Turion64 com 512 de RAM e uma GeForce 256MB. O programa consome centenas de MBs de memória e nem chega a ser usável de tão lento que é. Até para desenhar o menu ele demora (sim, isso é sério). Mas, como isso deve melhorar até o RTM, é melhor esperar para ver.</i></p>
 
@@ -249,8 +240,8 @@ google_ui_features = "rc:6";
  <td>
   <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
    <tr>
-    <td><img src="../../images/rebarba3.png"></td>
-    <td align="right"><img src="../../images/rebarba4.png"></td>
+    <td><img src="../../../images/rebarba3.png"></td>
+    <td align="right"><img src="../../../images/rebarba4.png"></td>
    </tr>
   </table>
  </td>
@@ -260,8 +251,8 @@ google_ui_features = "rc:6";
 <tr><td class="topmenu">&nbsp;</td><td>
 <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
             <tr>
-              <td><img src="../../images/rebarba1.png"></td>
-              <td align="right"><img src="../../images/rebarba2.png"></td>
+              <td><img src="../../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../../images/rebarba2.png"></td>
               </tr>
             </table>
 </td>
@@ -284,7 +275,7 @@ Sim, em alguns casos o managed code (Java ou C#) pode ser mais rápido do que un
 </div>
 <div class="post_comment_strauss">
 <a name="1164"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 27/04/2006 | <a rel="nofollow" href="../#1164">#</a><br>
-Uma aplicação em código gerenciado pode se comportar tão bem como em código nativo, apesar de eu ainda não ter visto um exemplo marcante disso. Como um comentário que eu vi no blog do Don Fernandez:<br><br>"I can tell exactly what part of Visual Studio uses .Net:<br><br>Right click on your project in the Solutions pane, and click "Properties." Wait 3-5 seconds and the properties dialog pops up. How do I know this uses .Net? Because it took 3-5 seconds to load. On the same machine, MSVC 6 shows the properties dialog nearly instantly."<br><br>Talvez a intenção do .NET não fosse substituir o VB e VBA, mas ele o fez, com inúmeras vantagens e algumas desvantagens (sendo consumo de memória a pior delas).<br><br>Eu não acredito que um banco de dados do porte do SQL Server possa ter partes em managed code. O Java existe faz muito tempo e até hoje ninguém (nem do open source) se arriscou. Não acho viável. Mas só o tempo vai dizer.<br><br>Um código gerenciado pode em algumas situações ser mais rápido do que um não gerenciado. O fato é que com o não gerenciado vc está no bare metal, você tem todas as opções a seu dispor. Se um JITter gerou um código rápido para uma determinada situação, você pode analizar como ele fez isso e gerar algo parecido usando C/C++. Você não tem essa opção em código gerenciado. <br><br>Ainda acho código gerenciado inviável para o que eu faço. Veja o que eu escrevi em  <a rel="nofollow" href="http://www.1bit.com.br/content.1bit/weblog/mais_um_benchmark">http://www.1bit.com.br/content.1bit/weblog/mais_um_benchmark</a> . Muitas vezes eu tenho que otimizar código em Visual C++, imagina se fosse C#. Em C++ minhas opções de otimização de performance são muito maiores, porque a filosofia do C/C++ é não pagar pelo que você não usa. O foco do managed code não é performance, é outro. É ter um ambiente controlado, com gerenciamento de memória automático e com isolamento. Isso é ótimo para quem precisa disso. Mas eu não preciso tanto disso, e o preço a pagar é muito alto, no meu caso não compensa. Por exemplo, compare o consumo de memória do Word com um aplicativo .NET cuja única linha de código é "Application.Run(new Form());". Eu uso .NET para as coisas que eu acho que ele resolve. E em muitas coisas que eu preciso de produtividade ao invés de velocidade eu já nem uso mais .NET, uso Python.<br><br>Hoje em dia, um código feito em C e C++ na maioria das vezes rodam mais rápido do que um em Assembly. Isso não acontece com o managed code, ele ainda é bem mais lento do que o código nativo, por motivos claros e óbvios.<br><br>Bom, essa discussão está em vias de se tornar interminável. Acho que vamos ter que marcar um chopp para falar mais sobre isso :-D
+Uma aplicação em código gerenciado pode se comportar tão bem como em código nativo, apesar de eu ainda não ter visto um exemplo marcante disso. Como um comentário que eu vi no blog do Don Fernandez:<br><br>"I can tell exactly what part of Visual Studio uses .Net:<br><br>Right click on your project in the Solutions pane, and click "Properties." Wait 3-5 seconds and the properties dialog pops up. How do I know this uses .Net? Because it took 3-5 seconds to load. On the same machine, MSVC 6 shows the properties dialog nearly instantly."<br><br>Talvez a intenção do .NET não fosse substituir o VB e VBA, mas ele o fez, com inúmeras vantagens e algumas desvantagens (sendo consumo de memória a pior delas).<br><br>Eu não acredito que um banco de dados do porte do SQL Server possa ter partes em managed code. O Java existe faz muito tempo e até hoje ninguém (nem do open source) se arriscou. Não acho viável. Mas só o tempo vai dizer.<br><br>Um código gerenciado pode em algumas situações ser mais rápido do que um não gerenciado. O fato é que com o não gerenciado vc está no bare metal, você tem todas as opções a seu dispor. Se um JITter gerou um código rápido para uma determinada situação, você pode analizar como ele fez isso e gerar algo parecido usando C/C++. Você não tem essa opção em código gerenciado. <br><br>Ainda acho código gerenciado inviável para o que eu faço. Veja o que eu escrevi em  <a rel="nofollow" href="../../../content.1bit/weblog/mais_um_benchmark">../../../content.1bit/weblog/mais_um_benchmark</a> . Muitas vezes eu tenho que otimizar código em Visual C++, imagina se fosse C#. Em C++ minhas opções de otimização de performance são muito maiores, porque a filosofia do C/C++ é não pagar pelo que você não usa. O foco do managed code não é performance, é outro. É ter um ambiente controlado, com gerenciamento de memória automático e com isolamento. Isso é ótimo para quem precisa disso. Mas eu não preciso tanto disso, e o preço a pagar é muito alto, no meu caso não compensa. Por exemplo, compare o consumo de memória do Word com um aplicativo .NET cuja única linha de código é "Application.Run(new Form());". Eu uso .NET para as coisas que eu acho que ele resolve. E em muitas coisas que eu preciso de produtividade ao invés de velocidade eu já nem uso mais .NET, uso Python.<br><br>Hoje em dia, um código feito em C e C++ na maioria das vezes rodam mais rápido do que um em Assembly. Isso não acontece com o managed code, ele ainda é bem mais lento do que o código nativo, por motivos claros e óbvios.<br><br>Bom, essa discussão está em vias de se tornar interminável. Acho que vamos ter que marcar um chopp para falar mais sobre isso :-D
 </div>
 <div class="post_comment">
 <a name="1168"></a><B>Fabio Galuppo</B>  | <a rel="nofollow" href="http://fabiogaluppo.blogspot.com">website</a> | <a rel="nofollow" href="mailto:fabiogaluppo@hotmail.com">e-mail</a> | em 27/04/2006 | <a rel="nofollow" href="../#1168">#</a><br>
@@ -408,7 +399,7 @@ Comentário<br/>
 <br/>
 <input type="submit" value="Dizer"/><br/><br/><br/>
 <div style="width:500px;font-size:8pt;">
-<b>Os comentários devem ser sobre assuntos relativos ao post</b>, eu provavelmente apagarei comentários totalmente offtopic. Se quiser me enviar uma mensagem, use o <a href="http://www.1bit.com.br/content.1bit/contact">formulário de contato</a>. E não esqueça: isso é um site pessoal e eu me reservo o direito de apagar qualquer comentário ofensivo ou inapropriado.
+<b>Os comentários devem ser sobre assuntos relativos ao post</b>, eu provavelmente apagarei comentários totalmente offtopic. Se quiser me enviar uma mensagem, use o <a href="../../../content.1bit/contact">formulário de contato</a>. E não esqueça: isso é um site pessoal e eu me reservo o direito de apagar qualquer comentário ofensivo ou inapropriado.
 </div>
 </form>
 
@@ -452,8 +443,8 @@ if (name && name != 'null')
           <td>
           <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
             <tr>
-              <td><img src="../../images/rebarba3.png" alt="rebarba"></td>
-              <td align="right"><img src="../../images/rebarba4.png" alt="rebarba"></td>
+              <td><img src="../../../images/rebarba3.png" alt="rebarba"></td>
+              <td align="right"><img src="../../../images/rebarba4.png" alt="rebarba"></td>
             </tr>
           </table>
           </td>

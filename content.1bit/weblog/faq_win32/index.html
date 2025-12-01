@@ -8,23 +8,14 @@
 <META NAME="author" CONTENT="Rodrigo Strauss">
 <META NAME="ROBOTS" CONTENT="ALL">
     <title>FAQ:  Programação Win32 em C/C++  ::::  Rodrigo Strauss :: www.1bit.com.br</title>
-    <link href="../../1bit.css" type="text/css" rel="stylesheet">
-    <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
-<!-- google analytics -->
-<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
-</script>
-<script type="text/javascript">
-_uacct = "UA-75310-1";
-urchinTracker();
-</script>
-<!-- google analytics end -->
-
-  </head>
+    <link href="../../../1bit.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="text/xml" title="RSS" href="../../../weblog_rss.1bit">
+</head>
   <body style="margin:0px 0px 0px 0px" bgcolor="#FFFFFF">
     <table cellspacing="0" cellpadding="0" width="100%" border="0">
         <tr>
           <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
-<a href="http://www.1bit.com.br"><img src="../../images/logo_novo_2.png" border="0" alt="logo" /></a>
+<a href="../../../"><img src="../../../images/logo_novo_2.png" border="0" alt="logo" /></a>
 
           </td>
         </tr>
@@ -43,8 +34,8 @@ urchinTracker();
           <td>
           <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
             <tr>
-              <td><img src="../../images/rebarba1.png" alt="rebarba"></td>
-              <td align="right"><img src="../../images/rebarba2.png" alt="rebarba"></td>
+              <td><img src="../../../images/rebarba1.png" alt="rebarba"></td>
+              <td align="right"><img src="../../../images/rebarba2.png" alt="rebarba"></td>
               </tr>
             </table>
           </td>
@@ -133,7 +124,7 @@ urchinTracker();
 <!-- 
 <td width="60">
 
-<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../images/xml.gif" border="0"/></a>
+<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../../images/xml.gif" border="0"/></a>
 </td>
 -->
 
@@ -187,7 +178,7 @@ google_color_url = "FF5000";
 <h5>FAQ:  Programação Win32 em C/C++</h5><p>Continuando o meu projeto de projeto de FAQ C++, vou falar hoje sobre Win32.</p>
 
 <p><b>O que é Win32 e para que serve?</b><br>
-Já expliquei isso em <a href="http://www.1bit.com.br/content.1bit/weblog/sopa_de_letrinhas_win32">outro post</a>.</p>
+Já expliquei isso em <a href="../../../content.1bit/weblog/sopa_de_letrinhas_win32">outro post</a>.</p>
 
 <p><b>Ouvi falar que Win32 é complicado, isso é verdade?</b><br>
 Isso tem lá seu fundo de verdade, alguns assuntos são extremamente complicados, os mais usuais nem tanto. De qualquer forma, essa complicação tem motivo: como a Win32 API é o acesso mais baixo nível que se pode ter ao sistema (considerando user-mode), ela deve possibilitar que você a use para fazer tudo que é possível no Windows. Por isso, muitas vezes, você chama uma função de 8 parâmetros mais só passa 2. Esses outros 6 parâmetros são usados em situações não muito comuns, mas que devem ser cobertas pela API. Além disso, como essa API é C (e não C++), não é possível fazer overload das funções com versões mais simples para os usos mais simples, como é feito muitas vezes nas classes do .NET Framework e em bibliotecas C++.</p>
@@ -249,13 +240,13 @@ Você precisa ter prática em programação C/C++. A API Win32 é exportada como
 </p>
 
 <p><b>Quais livros de Win32 você recomenda?</b><br>
-Primeiramente: eu indico que você leia os livros que vou indicar :-) Eu acho muito mais difícil estudar Win32 com tutoriais e lendo a MSDN. Não acho que exista muito matérial para iniciantes na Internet, e, <a href="http://www.1bit.com.br/content.1bit/bom_programador">como eu já disse</a>, vale muito mais a pena comprar um livro e ler do que ficar procurando na Internet.</p>
+Primeiramente: eu indico que você leia os livros que vou indicar :-) Eu acho muito mais difícil estudar Win32 com tutoriais e lendo a MSDN. Não acho que exista muito matérial para iniciantes na Internet, e, <a href="../../../content.1bit/bom_programador">como eu já disse</a>, vale muito mais a pena comprar um livro e ler do que ficar procurando na Internet.</p>
 
 <p>O primeiro livro que você deve ler é o 
 <a href="http://www.amazon.com/exec/obidos/redirect?link_code=ur2&amp;camp=1789&amp;tag=rodrstra1bit-20&amp;creative=9325&amp;path=tg/detail/-/157231995X">Programming Windows</a><img src="http://www.assoc-amazon.com/e/ir?t=rodrstra1bit-20&amp;l=ur2&amp;o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> do Charles Petzold, considerado a Bíblia definitiva sobre o assunto. Ele já está na quinta edição, e é essencial para que você entenda como a <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/gdi/wingdistart_9ezp.asp">GDI do Windows</a> funciona. Ele é hardcore do meio pra frente (eu não tive paciência para ler a parte de toolbar), se você não tiver paciência leia até o capítulo 11 (página 566). Isso já será suficiente para entender como as coisas funcionam no Windows, e será muito útil MESMO QUE VOCÊ USE Windows Forms (afinal, WinForms nada mais é do que uma camada .NET sobre a GDI).</p>
 
 <p><b>Nossa, Win32 é complicado mesmo... <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/winui/winui/windowsuserinterface/windowing/windowclasses/usingwindow.asp">100 linhas para fazer uma janelinha branca e feia</a>? Existe algo mais fácil?</b><br>
-Existe. Hoje em dia, quase ninguém mais usa API diretamente ("à la Petzold" como é conhecido). A GDI é complexa pelo mesmo motivo que eu já expliquei, ela é muito flexível e é um dos motivos do sucesso do Windows. <a href="http://www.1bit.com.br/content.1bit/flexibilidade">Poder e flexibilidade</a> sempre têm um custo, que geralmente é a complexibilidade.</p>
+Existe. Hoje em dia, quase ninguém mais usa API diretamente ("à la Petzold" como é conhecido). A GDI é complexa pelo mesmo motivo que eu já expliquei, ela é muito flexível e é um dos motivos do sucesso do Windows. <a href="../../../content.1bit/flexibilidade">Poder e flexibilidade</a> sempre têm um custo, que geralmente é a complexibilidade.</p>
 
 <p>Para resolver isso, foram criadas, por diversas empresas, bibliotecas que encapsulam a Win32 API para facilitar o seu uso (o .NET Framework é uma delas). A biblioteca provida pelo Microsoft Visual C++ é a MFC (Microsoft Foundation Classes), que encapsula uma boa parte da Win32 API em objetos C++. Além disso, a IDE do Visual C++ possui diversos wizards que geram classes e código e facilitam muito a programação. Usar dialogs (forms) em MFC é quase tão fácil quanto VB6. Existem outras bibliotecas, como a VCL/CLX do Delphi e do C++ Builder e o WTL da Microsoft (que é a que eu mais gosto).</p>
 
@@ -265,17 +256,17 @@ Existe. Hoje em dia, quase ninguém mais usa API diretamente ("à la Petzold" co
 Depois de ler o Petzold e algo sobre MFC, leia o <a href="http://www.amazon.com/exec/obidos/redirect?link_code=ur2&amp;camp=1789&amp;tag=rodrstra1bit-20&amp;creative=9325&amp;path=ASIN/1572315482">Advanced Windows</a><img src="http://www.assoc-amazon.com/e/ir?t=rodrstra1bit-20&amp;l=ur2&amp;o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> do Jeffrey Richter, outro clássico. Pronto. Isso já é suficiente para você ser um programador Win32. Só 3 livros :-)
 
 <p><a name="faq_win32_vale"></a><b>Meus amigos dizem que a API Win32 está ultrapassada e não vale a pena estudar isso. É verdade?</b><br>
-Não, não é. Você anda convivendo demais com <a href="http://www.1bit.com.br/content.1bit/weblog/ms_marketing">Piranhas.NET</a>. Explique para os seus amigos que TODOS os aplicativos para Windows hoje são feitos em Win32, já que <b>ela é o Windows</b>. No Windows Longhorn (previsto para 2006/2007) <a href="http://msdn.microsoft.com/Longhorn/understanding/pillars/default.aspx">ALGUMAS NOVAS APIs</a> serão disponibilidas como classes .NET. O Windows vai ficar cada vez mais .NET, mas isso deve levar no mínimo uns 5 anos. Não se esqueça que o .NET foi lançado em 2001 e a maioria dos aplicativos comerciais ainda são feitos em C e C++, usando a API Win32 (que por enquanto é <b>a API do Windows</b>)</p>
+Não, não é. Você anda convivendo demais com <a href="../../../content.1bit/weblog/ms_marketing">Piranhas.NET</a>. Explique para os seus amigos que TODOS os aplicativos para Windows hoje são feitos em Win32, já que <b>ela é o Windows</b>. No Windows Longhorn (previsto para 2006/2007) <a href="http://msdn.microsoft.com/Longhorn/understanding/pillars/default.aspx">ALGUMAS NOVAS APIs</a> serão disponibilidas como classes .NET. O Windows vai ficar cada vez mais .NET, mas isso deve levar no mínimo uns 5 anos. Não se esqueça que o .NET foi lançado em 2001 e a maioria dos aplicativos comerciais ainda são feitos em C e C++, usando a API Win32 (que por enquanto é <b>a API do Windows</b>)</p>
 
 <p><a name="faq_win32_material"></a><b>Meus amigos disseram que existe mais material de estudos e livros falando de .NET do que de Win32. É verdade?</b><br>
 Não é verdade que existem mais livros sobre .NET. A API Win32 existe desde de 1993, e uma procura por livros na Amazon retornará vários livros. Procure "MFC" na Amazon, depois procure "Windows Forms" e veja a diferença. Além disso, no <a href="http://www.codeproject.com">Code Project</a> tem muito mais coisa útil em MFC do que em .NET.
 
 <p><a name="faq_win32_material"></a><b>Você me deixou em dúvida. Se o .NET é tão ruim assim, então eu devo abandoná-lo e fazer tudo em C++?</b><br>
-Primeiro: Eu nunca disse que o .NET é ruim. Na verdade eu acho ele muito bom para resolver os problemas que ele se propõe. Mas, tem seus problemas como qualquer API/Framework/Arquitetura. O grande problema é que no Brasil as pessoas acreditam no pessoal de marketing da Microsoft sem pensar se isso resolve o problema, e acham que .NET resolve todos os problemas. <a href="http://www.1bit.com.br/content.1bit/flexibilidade">Nada resolve todos os problemas</a>.
+Primeiro: Eu nunca disse que o .NET é ruim. Na verdade eu acho ele muito bom para resolver os problemas que ele se propõe. Mas, tem seus problemas como qualquer API/Framework/Arquitetura. O grande problema é que no Brasil as pessoas acreditam no pessoal de marketing da Microsoft sem pensar se isso resolve o problema, e acham que .NET resolve todos os problemas. <a href="../../../content.1bit/flexibilidade">Nada resolve todos os problemas</a>.
 
-<p>Como eu já disse, <a href="http://www.1bit.com.br/content.1bit/weblog/planeta_cpp">hoje tudo é C++ e Win32</a> e vai levar anos (talvez mais de uma década) para que o .NET seja realmente a plataforma de programação do Windows. Você acha mesmo que a Microsoft, Adobe/Macromedia e outros vão refazer todos os aplicativos em C#? Além disso, C++ ainda é a coisa mais portável que existe (em termos de código fonte), e esse é o motivo dele ter sido usado pela Mozilla Foundation (Firefox, Thunderbird, etc), pela Adobe (Photoshop), etc. E se isso conta, em Linux quase tudo é C e C++, o kernel (C), Gnome (C), KDE, (C++), etc. O fator multiplataforma do .NET ainda é incerto, e depende de implementações de terceiros (como o Mono).</p>
+<p>Como eu já disse, <a href="../../../content.1bit/weblog/planeta_cpp">hoje tudo é C++ e Win32</a> e vai levar anos (talvez mais de uma década) para que o .NET seja realmente a plataforma de programação do Windows. Você acha mesmo que a Microsoft, Adobe/Macromedia e outros vão refazer todos os aplicativos em C#? Além disso, C++ ainda é a coisa mais portável que existe (em termos de código fonte), e esse é o motivo dele ter sido usado pela Mozilla Foundation (Firefox, Thunderbird, etc), pela Adobe (Photoshop), etc. E se isso conta, em Linux quase tudo é C e C++, o kernel (C), Gnome (C), KDE, (C++), etc. O fator multiplataforma do .NET ainda é incerto, e depende de implementações de terceiros (como o Mono).</p>
 
-Eu já escrevi <a href="http://www.1bit.com.br/content.1bit/managed">um artigo sobre perspectivas para o NET</a> a quase 1 ano atrás, e acho que ela continua a mesma. As duas arquiteturas são importantes, não troque o .NET pelo Win32, aprenda os dois e use o que for melhor para cada caso. Só não fique sentado esperando o .NET virar a plataforma oficial do Windows, você vai perder vários anos de mercado e da sua vida.</p><br><p class="datetime">Em 11/07/2005 14:37, por  Rodrigo Strauss </p>
+Eu já escrevi <a href="../../../content.1bit/managed">um artigo sobre perspectivas para o NET</a> a quase 1 ano atrás, e acho que ela continua a mesma. As duas arquiteturas são importantes, não troque o .NET pelo Win32, aprenda os dois e use o que for melhor para cada caso. Só não fique sentado esperando o .NET virar a plataforma oficial do Windows, você vai perder vários anos de mercado e da sua vida.</p><br><p class="datetime">Em 11/07/2005 14:37, por  Rodrigo Strauss </p>
 </div>
           </td>
         </tr>
@@ -316,8 +307,8 @@ google_ui_features = "rc:6";
  <td>
   <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
    <tr>
-    <td><img src="../../images/rebarba3.png"></td>
-    <td align="right"><img src="../../images/rebarba4.png"></td>
+    <td><img src="../../../images/rebarba3.png"></td>
+    <td align="right"><img src="../../../images/rebarba4.png"></td>
    </tr>
   </table>
  </td>
@@ -327,8 +318,8 @@ google_ui_features = "rc:6";
 <tr><td class="topmenu">&nbsp;</td><td>
 <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
             <tr>
-              <td><img src="../../images/rebarba1.png"></td>
-              <td align="right"><img src="../../images/rebarba2.png"></td>
+              <td><img src="../../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../../images/rebarba2.png"></td>
               </tr>
             </table>
 </td>
@@ -375,7 +366,7 @@ ola Rodrigo, meu nome é Rimack e eu sou iniciante em C/C++ eu estou querendo ma
 </div>
 <div class="post_comment_strauss">
 <a name="1559"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 22/10/2006 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#1559">#</a><br>
-Dê uma lida em  <a rel="nofollow" href="http://www.1bit.com.br/content.1bit/weblog/faq_cpp_start">http://www.1bit.com.br/content.1bit/weblog/faq_cpp_start</a>
+Dê uma lida em  <a rel="nofollow" href="../../../content.1bit/weblog/faq_cpp_start">../../../content.1bit/weblog/faq_cpp_start</a>
 </div>
 <div class="post_comment">
 <a name="1574"></a><B>breno</B>  | em 02/11/2006 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#1574">#</a><br>
@@ -595,7 +586,7 @@ Comentário<br/>
 <br/>
 <input type="submit" value="Dizer"/><br/><br/><br/>
 <div style="width:500px;font-size:8pt;">
-<b>Os comentários devem ser sobre assuntos relativos ao post</b>, eu provavelmente apagarei comentários totalmente offtopic. Se quiser me enviar uma mensagem, use o <a href="http://www.1bit.com.br/content.1bit/contact">formulário de contato</a>. E não esqueça: isso é um site pessoal e eu me reservo o direito de apagar qualquer comentário ofensivo ou inapropriado.
+<b>Os comentários devem ser sobre assuntos relativos ao post</b>, eu provavelmente apagarei comentários totalmente offtopic. Se quiser me enviar uma mensagem, use o <a href="../../../content.1bit/contact">formulário de contato</a>. E não esqueça: isso é um site pessoal e eu me reservo o direito de apagar qualquer comentário ofensivo ou inapropriado.
 </div>
 </form>
 
@@ -639,8 +630,8 @@ if (name && name != 'null')
           <td>
           <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
             <tr>
-              <td><img src="../../images/rebarba3.png" alt="rebarba"></td>
-              <td align="right"><img src="../../images/rebarba4.png" alt="rebarba"></td>
+              <td><img src="../../../images/rebarba3.png" alt="rebarba"></td>
+              <td align="right"><img src="../../../images/rebarba4.png" alt="rebarba"></td>
             </tr>
           </table>
           </td>
