@@ -1,293 +1,159 @@
+
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
+  <head>
+<meta charset="utf-8">
+<META NAME="keywords" CONTENT="Rodrigo Strauss, programador, programação, Visual C++, C#, Windbg, Device Driver">
+<META NAME="description" CONTENT="Artigos sobre programação escritos por Rodrigo Strauss">
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>Rodrigo Strauss :: www.1bit.com.br</title>
+    <link href="1bit.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
 
-<head>
-  <META NAME="keywords"
-    CONTENT="Rodrigo Strauss, programador, programação, Visual C++, C#, Windbg, Device Driver, Win32">
-  <META NAME="description"
-    CONTENT="Blog sobre C++, Win32 e mercado de software, além de artigos sobre técnicas de programação e debug. Tudo escrito pelo escovador de bits Rodrigo Strauss.">
-  <META NAME="author" CONTENT="Rodrigo Strauss">
-  <META NAME="ROBOTS" CONTENT="ALL">
-  <title>Rodrigo Strauss :: www.1bit.com.br</title>
-  <link href="1bit.css" type="text/css" rel="stylesheet">
-  <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
-</head>
+  </head>
+  <body bottommargin="0" leftmargin="0" topmargin="0" rightmargin="0">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="images/logo2.png" border="0" /></a>
 
-<body style="margin:0px 0px 0px 0px" bgcolor="#FFFFFF">
-  <table cellspacing="0" cellpadding="0" width="100%" border="0">
-    <tr>
-      <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
-        <a href="http://www.1bit.com.br"><img src="images/logo_novo_2.png" border="0" alt="logo" /></a>
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.1bit/links/index.html">Links</a>
+			<span class="menusep">|</span>
 
-      </td>
-    </tr>
-    <tr>
-      <td class="topmenu"></td>
-      <td class="topmenu" align="right" height="30">
-        <a class="top_menu_link" href="content.1bit/contact">Contato</a>
-        <span class="menusep">|</span>
+		    <a class="top_menu_link" href="content.1bit/contact/index.html">Contato</a>
+			<span class="menusep">|</span>
 
-        <a class="top_menu_link" href="content.1bit/about">Sobre...</a>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    <a class="top_menu_link" href="content.1bit/busca/index.html">Busca no site</a>
+			<span class="menusep">|</span>
 
-      </td>
-    </tr>
-    <tr>
-      <td class="topmenu"></td>
-      <td>
-        <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
-          <tr>
-            <td><img src="images/rebarba1.png" alt="rebarba"></td>
-            <td align="right"><img src="images/rebarba2.png" alt="rebarba"></td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td class="menu" valign="top" width="175">
+            <a class="top_menu_link" href="content.1bit/about/index.html">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="images/rebarba1.png"></td>
+              <td align="right"><img src="images/rebarba2.png"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
 
-        <div class="left_menu_section">
-          <h2><a href="#artigos" style="text-decoration:none;">Artigos</a></h2>
-        </div>
-
-        <div class="left_menu_section">
-          <h2><a href="content.1bit/weblog" style="text-decoration:none;">Blog</a></h2>
-        </div>
-
-        <div class="left_menu_section">
-          <h2><a href="content.1bit/opensource" style="text-decoration:none;">Open Source</a></h2>
-        </div>
-
-        <!-- 
 <div class="left_menu_section">
- <h2><a href="content.1bit/aulas" style="text-decoration:none;">Aulas online (ou não) </a></h2>
+ <a href="#falatorio" style="text-decoration:none;">
+  <h2>Falatório</h2>
+ </a>
 </div>
--->
+
+<div class="left_menu_section">
+ <a href="#escovando1bit" style="text-decoration:none;">
+  <h2>Escovando 1bit</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="content.1bit/weblog/index.html" style="text-decoration:none;">
+  <h2>Blog
+</h2>
+ </a>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<h5><b>main / Main / WinMain / DllMain / DriverEntry / .CODE / BEGIN </b>
+</h5>
+<p>Saudações! Meu nome é <b>Rodrigo Strauss</b>, sou programador C++ e trabalho com desenvolvimento para plataforma Windows (Win32/ATL/WTL). Tenho experiência também em desenvolvimento de drivers e em .NET. (Para mais informações veja o <a href="http://www.1bit.com.br/content.1bit/about/index.html">Sobre...</a>)</p>
+
+<p>Aqui escrevo artigos técnicos, sobre mercado de trabalho e sobre vários assuntos que são de interesse de profissionais que levam a vida programando computadores.</p>
+
+<p>Expresso também minhas opiniões pessoais sobre as coisas que envolvem nossas carreiras, como técnicas de programação e análise, dicas e minha visão das tecnologias que estão no mercado. E além disso, tenho me esforçado bastante para me levar a sério. :-)
+</p>
+<a name="falatorio"></a>
+<h5>Falatório</h5>
+
+<h6><a href="content.1bit/bom_programador/index.html">Como ser um bom programador</a></h6>
+Algumas qualidades e alguns esforços fazem a diferença entre o programador mediano e o bom programador. O programador mediano sabe o que sabe porque precisa saber. O bom programador sabe o que sabe porque ele tem vontade de saber.
+<br>
+<br>
+
+<h6><a href="content.1bit/flexibilidade/index.html">Poder e flexibilidade</a></h6>
+Você acha que se encontrou profissionalmente e que agora trabalha com a melhor 
+linguagem de programação do mundo? Você é daqueles que tem sua linguagem do 
+coração e a protege com unhas e dentes quando ouve alguém falar mal dela? 
+Talvez um dia você mude de idéia.
+<br>
+<br>
+<h6><a href="content.1bit/nao_ouca_ninguem/index.html">Ouça o que eu digo: não ouça ninguém</a></h6>
+Nem tudo que você lê por aí pode ser assumido como verdade. Na maioria das 
+vezes, o que você está lendo não é totalmente verdadeiro. Antes de tomar algum 
+tipo de decisão, sempre tente obter o máximo de informações possíveis.<br>
+<br>
+<h6><a href="content.1bit/managed/index.html">Unmanaged e Managed: o presente, e o futuro </a>
+</h6>
+A Microsoft tem falado a 4 anos que a plataforma .NET era o futuro do Windows e 
+da própria Microsoft. Esse futuro está a caminho, mas ainda não chegou. Quem 
+sabe mais alguns anos...<br>
+<br>
+<a name="escovando1bit"></a>
+<h5>Escovando 1 bit</h5>
+<h6><a href="content.1bit/windbg1">WinDbg: Debugger de gente grande (parte 1)</a></h6>
+<p>Essa é uma introdução ao WinDbg. Como carregar um executável, controlá-lo, como visualizar o conteúdo das variáveis.</p>
+
+<h6><a href="content.1bit/windbg2">WinDbg: Debugger de gente grande (parte 2)</a></h6>
+<p>Aqui na parte 2 falaremos sobre breakpoints de vários tipos e tamanhos: visuais, via comando, em funções da API. Falaremos também das&nbsp;peculiaridades da assinatura de uma função da Win32 API.</p>
+
+<h6><a href="content.1bit/windbg3">WinDbg: Debugger de gente grande (parte 3)</a></h6>
+<p>Agora estudaremos os symbols, recurso que nos permite fazer debug vendo o código fonte ao invés de um monte de instruções x86.</p>
+
+<h5><a class="weblog_link" href="content.1bit/weblog/index.html">Blog</a></h5>
+<h6><a class="weblog_link" href="content.1bit/weblog/pj_vs_clt">Trabalhando como PJ ou como CLT</a></h6><h6><a class="weblog_link" href="content.1bit/weblog/1113861335">Adobe compra a Macromedia</a></h6><h6><a class="weblog_link" href="content.1bit/weblog/lippert_chords">Por que um programador explica teoria musical melhor do que um m&uacute;sico?</a></h6><h6><a class="weblog_link" href="content.1bit/weblog/cool_stats">Essa estat&iacute;stica &eacute; mais do que compreens&iacute;vel</a></h6><h6><a class="weblog_link" href="content.1bit/weblog/strange_stats">Algu&eacute;m pode me explicar o que &eacute; isso nas estat&iacute;sticas do meu site?</a></h6><h6><a class="weblog_link" href="content.1bit/weblog/copy_constructors_question">Mais explica&ccedil;&otilde;es sobre copy constructors</a></h6><h6><a class="weblog_link" href="content.1bit/weblog/smart_ptr_2_bug_expl">Por que o bug?</a></h6><h6><a class="weblog_link" href="content.1bit/weblog/1112943600">Eu n&atilde;o acredito...</a></h6><h6><a class="weblog_link" href="content.1bit/weblog/smart_ptr_1_bug">Tinha um bug no caminho, no caminho tinha um bug</a></h6><h6><a class="weblog_link" href="content.1bit/weblog/1112770627">C++ com sanidade: usando ATL em aplica&ccedil;&otilde;es, parte 2</a></h6><h6><a class="weblog_link" href="content.1bit/weblog/libs_google_adobe">Mais libs C++, agora vindas do Google e da Adobe</a></h6><h6><a class="weblog_link" href="content.1bit/weblog/mudanca_emprego">Nova mudan&ccedil;a de emprego</a></h6><h6><a class="weblog_link" href="content.1bit/weblog/cpp_sanidade_debug_tips">C++ com sanidade: fazendo a IDE do Visual Studio.NET trabalhar para voc&ecirc;</a></h6><h6><a class="weblog_link" href="content.1bit/weblog/more_cpp_libs">Eu acho que sei C++</a></h6><h6><a class="weblog_link" href="content.1bit/weblog/cpp_sanidade_atl_1">C++ com sanidade: usando ATL em aplica&ccedil;&otilde;es</a></h6>
 
 
-        <div id="google_translate_element"></div>
-        <script>
-          function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-              pageLanguage: 'pt',
-              gaTrack: true,
-              gaId: 'UA-75310-1',
-            }, 'google_translate_element');
-          }
-        </script>
-        <script src="/translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-        <br>
 
-        <!-- SiteSearch Google -->
-        <form method="get" action="http://www.google.com.br/custom" target="_top">
-          <table border="0" bgcolor="#eeeeee">
+
+
+
+
+
+
+</div>
+          </td>
+        </tr>
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
             <tr>
-              <td nowrap="nowrap" valign="top" align="left" height="32">
-                <a href="http://www.google.com/">
-                  <img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google"
-                    align="middle"></img></a>
-                <br />
-                <input type="hidden" name="domains" value="www.1bit.com.br"></input>
-                <label for="sbi" style="display: none">Digite os termos da sua pesquisa</label>
-                <input type="text" name="q" size="23" maxlength="255" value="" id="sbi"></input>
-              </td>
-            </tr>
-            <tr>
-              <td nowrap="nowrap">
-                <table>
-                  <tr>
-                    <td>
-                      <input type="radio" name="sitesearch" value="" id="ss0"></input>
-                      <label for="ss0" title="Pesquisar na web">
-                        <font size="-2" color="black">Web</font>
-                      </label>
-                    </td>
-                    <td>
-                      <input type="radio" name="sitesearch" value="www.1bit.com.br" checked id="ss1"></input>
-                      <label for="ss1" title="Pesquisar www.1bit.com.br">
-                        <font size="-2" color="black">www.1bit.com.br</font>
-                      </label>
-                    </td>
-                  </tr>
-                </table>
-                <label for="sbb" style="display: none">Enviar formulário de pesquisa</label>
-                <input type="submit" name="sa" value="Pesquisar" id="sbb"></input>
-                <input type="hidden" name="client" value="pub-2589539519655496"></input>
-                <input type="hidden" name="forid" value="1"></input>
-                <input type="hidden" name="ie" value="ISO-8859-1"></input>
-                <input type="hidden" name="oe" value="ISO-8859-1"></input>
-                <input type="hidden" name="cof"
-                  value="GALT:#0066CC;GL:1;DIV:#999999;VLC:336633;AH:center;BGC:FFFFFF;LBGC:FFFFFF;ALC:0066CC;LC:0066CC;T:000000;GFNT:666666;GIMP:666666;LH:50;LW:120;L:http://www.1bit.com.br/images/logo_novo_2.png;S:http://;FORID:1"></input>
-                <input type="hidden" name="hl" value="pt"></input>
-              </td>
+              <td><img src="images/rebarba3.png"></td>
+              <td align="right"><img src="images/rebarba4.png"></td>
             </tr>
           </table>
-        </form>
-        <!-- SiteSearch Google -->
-        <br>
+          </td>
+        </tr>
 
-        <br>
-        <br>
-        <center>
-
-          <a href="http://www.twitter.com/rodrigostrauss"><img
-              src="http://twitter-badges.s3.amazonaws.com/follow_me-b.png" alt="Follow rodrigostrauss on Twitter" /></a>
-          <br><br><br>
-
-          <!--
-<a href="http://whos.amung.us/show/xopqoakh"><img src="http://whos.amung.us/cwidget/xopqoakh/fffffff6915a.png" alt="page counter" width="81" height="29" border="0" /></a>
--->
-
-        </center>
-
-
-
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      </td>
-      <td valign="top">
-        <div class="content">
-          <h5><b>main / Main / WinMain / DllMain / DriverEntry / .CODE / BEGIN </b>
-          </h5>
-          <p>Sauda&#231;&#245;es! Meu nome &#233; <b>Rodrigo Strauss</b>, escovador de bits profissional, geralmente
-            usando C++. Entre uma sess&#227;o de WinDbg e uma outra sess&#227;o de Visual C++ eu mantenho esse site.</p>
-
-          <p>Aqui escrevo artigos t&#233;cnicos, sobre mercado de trabalho e sobre v&#225;rios assuntos que s&#227;o de
-            interesse de profissionais que levam a vida programando computadores. Escrevo tamb&#233;m um <a
-              href="http://www.1bit.com.br/content.1bit/weblog">blog</a> sobre programa&#231;&#227;o.</p>
-
-          <p>Nos artigos e no blog eu expresso minhas opini&#245;es pessoais sobre as coisas que envolvem nossas
-            carreiras, como t&#233;cnicas de programa&#231;&#227;o e an&#225;lise, C++, dicas e minha vis&#227;o das
-            tecnologias que est&#227;o no mercado. E al&#233;m disso, tenho me esfor&#231;ado bastante para me levar a
-            s&#233;rio. :-)</p>
-          <a name="artigos"></a>
-          <a name="falatorio"></a>
-          <h5>Artigos</h5>
-
-          <h6><a href="content.1bit/programador">Como ser um programador</a></h6>
-          Existem muitas pessoas interessadas em come&#231;ar a programar, mas elas geralmente enxergam obst&#225;culos
-          que n&#227;o existem. Na maioria das vezes, virar um programador &#233; mais f&#225;cil do que as maiorias das
-          pessoas pensa. &#201; s&#243; estudar, estudar, estudar e estudar.<br>
-          <br>
-
-          <h6><a href="content.1bit/bom_programador">Como ser um bom programador</a></h6>
-          Algumas qualidades e alguns esfor&#231;os fazem a diferen&#231;a entre o programador mediano e o bom
-          programador. O programador mediano sabe o que sabe porque precisa saber. O bom programador sabe o que sabe
-          porque ele tem vontade de saber.
-          <br>
-          <br>
-
-          <h6><a href="content.1bit/flexibilidade">Poder e flexibilidade</a></h6>
-          Voc&#234; acha que se encontrou profissionalmente e que agora trabalha com a melhor
-          linguagem de programa&#231;&#227;o do mundo? Voc&#234; &#233; daqueles que tem sua linguagem do
-          cora&#231;&#227;o e a protege com unhas e dentes quando ouve algu&#233;m falar mal dela?
-          Talvez um dia voc&#234; mude de id&#233;ia.
-          <br>
-          <br>
-          <h6><a href="content.1bit/nao_ouca_ninguem">Ou&#231;a o que eu digo: n&#227;o ou&#231;a ningu&#233;m</a></h6>
-          Nem tudo que voc&#234; l&#234; por a&#237; pode ser assumido como verdade. Na maioria das
-          vezes, o que voc&#234; est&#225; lendo n&#227;o &#233; totalmente verdadeiro. Antes de tomar algum
-          tipo de decis&#227;o, sempre tente obter o m&#225;ximo de informa&#231;&#245;es poss&#237;veis.<br>
-          <br>
-          <h6><a href="content.1bit/managed">Unmanaged e Managed: o presente, e o futuro </a>
-          </h6>
-          A Microsoft tem falado a 4 anos que a plataforma .NET era o futuro do Windows e
-          da pr&#243;pria Microsoft. Esse futuro est&#225; a caminho, mas ainda n&#227;o chegou. Quem
-          sabe mais alguns anos...<br>
-          <br>
-          <a name="escovando1bit"></a>
-          <h5>Escovando bit</h5>
-          <h6><a href="content.1bit/windbg1">WinDbg: Debugger de gente grande (parte 1)</a></h6>
-          <p>Essa &#233; uma introdu&#231;&#227;o ao WinDbg. Como carregar um execut&#225;vel, control&#225;-lo, como
-            visualizar o conte&#250;do das vari&#225;veis.</p>
-
-          <h6><a href="content.1bit/windbg2">WinDbg: Debugger de gente grande (parte 2)</a></h6>
-          <p>Aqui na parte 2 falaremos sobre breakpoints de v&#225;rios tipos e tamanhos: visuais, via comando, em
-            fun&#231;&#245;es da API. Falaremos tamb&#233;m das&nbsp;peculiaridades da assinatura de uma
-            fun&#231;&#227;o da Win32 API.</p>
-
-          <h6><a href="content.1bit/windbg3">WinDbg: Debugger de gente grande (parte 3)</a></h6>
-          <p>Agora estudaremos os symbols, recurso que nos permite fazer debug vendo o c&#243;digo fonte ao inv&#233;s
-            de um monte de instru&#231;&#245;es x86.</p>
-
-          <a name="best_blog"></a>
-          <h5>O melhor do blog</h5>
-          <p>Esses s&#227;o alguns dos posts do blog mais acessados, comentados e citados. Al&#233;m das s&#233;ries,
-            que eu gosto muito.</p>
-
-          <h6>Profiss&#227;o: escovador de bits</h6>
-          <a href="content.1bit/weblog/entreviste_a_empresa">Entreviste a empresa</a><br />
-          <a href="content.1bit/weblog/eu_nao_visto_camisa">Eu n&#227;o visto a camisa da empresa</a><br />
-          <a href="content.1bit/weblog/contos_empresas">Os contos que as empresas contam</a><br />
-          <a href="content.1bit/weblog/best_job">O melhor emprego de todos</a><br />
-          <a href="content.1bit/weblog/ambiente">Trabalhamos no ambiente correto?</a><br />
-          <a href="content.1bit/weblog/pj_vs_clt">Trabalhando como PJ ou como CLT</a><br />
-
-          <h6>C++</h6>
-          <a href="content.1bit/weblog/faq_cpp_start">FAQ: Come&#231;ando a programar em C++</a><br />
-          <a href="content.1bit/weblog/faq_win32">FAQ: Programa&#231;&#227;o Win32 em C/C++</a><br />
-          <a href="content.1bit/weblog/sopa_de_letrinhas_wtl">Explicando a sopa de letrinhas da programa&#231;&#227;o
-            C/C++ para Windows: WTL</a><br />
-          <a href="content.1bit/weblog/sopa_de_letrinhas_ATL">Explicando a sopa de letrinhas da programa&#231;&#227;o
-            C/C++ para Windows: ATL</a><br />
-          <a href="content.1bit/weblog/sopa_de_letrinhas_COM">Explicando a sopa de letrinhas da programa&#231;&#227;o
-            C/C++ para Windows: COM</a><br />
-          <a href="content.1bit/weblog/sopa_de_letrinhas_mfc">Explicando a sopa de letrinhas da programa&#231;&#227;o
-            C/C++ para Windows: MFC</a><br />
-          <a href="content.1bit/weblog/sopa_de_letrinhas_win32">Explicando a sopa de letrinhas da programa&#231;&#227;o
-            C/C++ para Windows: Win32</a><br />
-          <a href="content.1bit/weblog/remote_debug_vc71">Como fazer debug remoto com o Visual C++</a><br />
-
-
-          <h6>Otimiza&#231;&#227;o de I/O usando Win32</h6>
-          <a href="content.1bit/weblog/otimizacao_faz_diferenca">A otimiza&#231;&#227;o do Visual C++ faz toda a
-            diferen&#231;a</a><br />
-          <a href="content.1bit/weblog/otimizacao_io_1">Usando Win32 API para otimizar o I/O, parte 1</a><br />
-          <a href="content.1bit/weblog/otimizacao_io_2">Usando Win32 API para otimizar o I/O, parte 2</a><br />
-          <a href="content.1bit/weblog/otimizacao_io_3">Usando Win32 API para otimizar o I/O, parte 3</a><br />
-          <a href="content.1bit/weblog/otimizacao_io_4">Usando Win32 API para otimizar o I/O, parte 4</a><br />
-          <a href="content.1bit/weblog/otimizacao_io_5">Usando Win32 API para otimizar o I/O, parte 5</a><br />
-          <a href="content.1bit/weblog/otimizacao_io_6">Usando Win32 API para otimizar o I/O, parte 6</a><br />
-
-          <h6>Tutorial de STL</h6>
-          <a href="content.1bit/weblog/stl_tutorial_0">Tutorial de STL, parte 0: Templates</a><br />
-          <a href="content.1bit/weblog/stl_tutorial_0,5">Tutorial de STL, parte 1/2: Mais templates</a><br />
-          <a href="content.1bit/weblog/stl_tutorial_0,75">Tutorial de STL, parte 3/4: Ainda templates</a><br />
-          <a href="content.1bit/weblog/stl_tutorial_1">Tutorial de STL, parte 1: O que &#233; a STL</a><br />
-          <a href="content.1bit/weblog/stl_tutorial_2">Tutorial de STL, parte 2: Containers</a><br />
-          <a href="content.1bit/weblog/stl_tutorial_3">Tutorial de STL, parte 3: Mais containers</a><br />
-          <a href="content.1bit/weblog/stl_tutorial_4">Tutorial de STL, parte 4: Iterators</a><br />
-          <a href="content.1bit/weblog/stl_tutorial_5">Tutorial de STL, parte 5: Algoritmos</a><br />
-          <a href="content.1bit/weblog/stl_tutorial_6">Tutorial de STL, parte 6: Functors</a><br />
-
-          <p>Voc&#234; pode encontrar mais posts na <a href="http://www.1bit.com.br/content.1bit/weblog_archive">lista
-              completa de posts</a>.</p>
-        </div>
-      </td>
-    </tr>
-
-    <tr>
-      <td class="topmenu"></td>
-      <td>
-        <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
-          <tr>
-            <td><img src="images/rebarba3.png" alt="rebarba"></td>
-            <td align="right"><img src="images/rebarba4.png" alt="rebarba"></td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-
-    <tr>
-      <td class="topmenu">&nbsp;</td>
-      <td class="topmenu" height="25" align="right" style="color:#999999;">
-        ::::
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      </td>
-    </tr>
-  </table>
-</body>
-
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
 </html>
-
-x
