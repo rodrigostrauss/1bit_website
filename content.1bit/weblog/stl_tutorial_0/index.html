@@ -362,7 +362,7 @@ Você esqueceu da solução em C via #define:<br><br><br>#define soma(tipo) tipo
 Muito bem lembrado. E esse soa bem menos gambiarra do que o meu :-)
 </div>
 <div class="post_comment">
-<a name="1259"></a><B>Wanderley Caloni Junior</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | <a rel="nofollow" href="mailto:wanderley@caloni.com.br">e-mail</a> | em 09/05/2006 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_0#1259">#</a><br>
+<a name="1259"></a><B>Wanderley Caloni Junior</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | em 09/05/2006 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_0#1259">#</a><br>
 Ótimo artigo introdutório! Merece inclusive no futuro ser mais uma referência no C++ Wiki =).<br><br>Só uma pequena observação, sem querer confundir o leitor iniciante: você realmente quis exibir de modo explícito que estamos passando o tipo na chamada da função soma para clarear os pensamentos e dúvidas dos estudantes ansiosos, e por isso evitou a forma mais direta e, a meu ver, mais bonita da programação genérica em C++? Em código:<br><br>   soma(2,2);<br>   soma(2.99f, 2.99f);<br>   and so on...<br><br>Por último, parabéns pela iniciativa de falar sobre o bê-á-bá da linguagem. Já estava na hora de alguém da comunidade fazer isso (confesso que não me controlo o suficiente para não ir muito longe nas explicações e complicar tudo logo de cara).
 </div>
 <div class="post_comment_strauss">
@@ -370,7 +370,7 @@ Muito bem lembrado. E esse soa bem menos gambiarra do que o meu :-)
 Sim, eu quis deixar isso claro. Tanto que no comentário do código eu coloquei isso:<br><br>"Isso facilitaria o código que usa as funções (já que todos chamariam a função "soma"), mas não resolveria o problema do código duplicado."<br><br>Ainda estou pensando se eu crio um "Tutorial de STL, parte 1/2" pra falar desse exemplo e do exemplo dado pelo DQ. :-)
 </div>
 <div class="post_comment">
-<a name="1264"></a><B>Wanderley Caloni Jr</B>  | <a rel="nofollow" href="http://caloni.com.br">website</a> | <a rel="nofollow" href="mailto:wanderley@caloni.com.br">e-mail</a> | em 10/05/2006 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_0#1264">#</a><br>
+<a name="1264"></a><B>Wanderley Caloni Jr</B>  | <a rel="nofollow" href="http://caloni.com.br">website</a> | em 10/05/2006 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_0#1264">#</a><br>
 Eu estava me referindo ao último exemplo:<br><br>soma&lt;int&gt;(2,2);<br>soma&lt;float&gt;(2.99f, 2.99f);<br>soma&lt;double&gt;(5.9999, 6.9999);<br><br>Onde você tem a opção de deixar a identificação do tipo com o compilador:<br><br>soma(2,2); // chama soma&lt;int&gt;<br>soma(2.99f, 2.99f); // chama soma&lt;float&gt;<br>soma(5.9999, 6.9999); // chama soma&lt;double&gt;<br><br>
 </div>
 <div class="post_comment_strauss">
@@ -378,11 +378,11 @@ Eu estava me referindo ao último exemplo:<br><br>soma&lt;int&gt;(2,2);<br>soma&
 Ah tá... :-)<br><br>Mas isso vai ficar pra próxima:<br><br>"... não facilita muito o uso, já que só trocamos a sintaxe soma_TIPO para soma&lt;TIPO&gt;. Mas veremos como os templates resolvem esse problema nos próximos posts."
 </div>
 <div class="post_comment">
-<a name="1277"></a><B>Fabio Galuppo</B>  | <a rel="nofollow" href="http://fabiogaluppo.blogspot.com">website</a> | <a rel="nofollow" href="mailto:fabiogaluppo@hotmail.com">e-mail</a> | em 11/05/2006 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_0#1277">#</a><br>
+<a name="1277"></a><B>Fabio Galuppo</B>  | <a rel="nofollow" href="http://fabiogaluppo.blogspot.com">website</a> | em 11/05/2006 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_0#1277">#</a><br>
 Inferência e Koenig Lookup devem ser capítulos a parte ;-)<br><br>Muito legal esta thread!
 </div>
 <div class="post_comment">
-<a name="1314"></a><B>Amigo</B>  | <a rel="nofollow" href="mailto:xyz@xyz.com">e-mail</a> | em 24/05/2006 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_0#1314">#</a><br>
+<a name="1314"></a><B>Amigo</B>  | em 24/05/2006 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_0#1314">#</a><br>
 Veja oque te disse nos outros comentarios.<br><br>Pra mim, voce é falastrao.  Somente copia textos da internet, nada mais.<br><br>Aqui, um simples exemplo de como voce programa mal.<br><br>Veja só, de alguns exemplos que voce colocou, vieram dois programadores MUITO bons e colocaram exemplos simples aqui, ao inves da gambiarra que voce fez.<br><br>Por isso, acho que tem medo de colocar codigos produzidos por voce e verem que realmente programa mal.<br><br>Infelizmente, vejo que voce é apenas mais um "metido" a programador brasileiro, nada mais que isso.<br><br>Afinal de contas, nem pra exemplos, voce sabe disponibilizar algo bem feito.   Veja como os outros programadores mostraram caminhos que nem sequer voce conhecia.<br><br>Voce quer se passar como "o bom", "o sabidao", "o melhor", mas na verdade tem muito o que aprender.<br><br>Espero realmente ver codigos produzidos por voce nesta pagina e que realmente possa demonstrar que sabe fazer algo bom e nao somente copiar links.<br>
 </div>
 <div class="post_comment_strauss">
@@ -390,7 +390,7 @@ Veja oque te disse nos outros comentarios.<br><br>Pra mim, voce é falastrao.  S
 Isso já está virando spam. Se você colocar comentário em mais um post eu apago TODOS os seus comentários. Considere-se avisado. <br><br>Quer discutir volte para  <a rel="nofollow" href="../../../content.1bit/weblog/ddknews#1308">../../../content.1bit/weblog/ddknews#1308</a> e lá a gente conversa.
 </div>
 <div class="post_comment">
-<a name="1320"></a><B>Amigo</B>  | <a rel="nofollow" href="mailto:xyz@xyz.com">e-mail</a> | em 24/05/2006 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_0#1320">#</a><br>
+<a name="1320"></a><B>Amigo</B>  | em 24/05/2006 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_0#1320">#</a><br>
 Entenda por favor, nao é spam, é que quero demonstrar como voce fala demais e apresenta pouco conteudo.<br><br>Como te disse, é uma critica construtiva.  Somente isso.<br>
 </div>
 <div class="post_comment_strauss">
@@ -438,7 +438,7 @@ Ao invéz de vir aqui criticar pq esse filhos da puta não passam a frequentar o
 Muito bom seus artigos Rodrigo, espero que você continue a escrever mais. Estou usando eles como base de meus estudos de C++.<br><br>por falar em macros como o Daniel comentou. Eu acredito que teria uma maneira mais eficaz de se fazer a soma genérica em C:<br><br>#define	soma(a,b,tipo)	(tipo)a + (tipo)b<br><br>void main(void)<br>{<br>	float a;<br>	int b;<br>	a = soma(21.2,10.1, float);<br>	b = soma(11,10, int);<br>}<br><br>Abraços
 </div>
 <div class="post_comment">
-<a name="2788"></a><B>Eder Renato</B>  | <a rel="nofollow" href="mailto:ed.jin@yahoo.com.br">e-mail</a> | em 04/05/2011 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_0#2788">#</a><br>
+<a name="2788"></a><B>Eder Renato</B>  | em 04/05/2011 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_0#2788">#</a><br>
 Para quem está aprendendo toda ajuda é bem vinda, por favor, quanto mais críticas, mais soluções. Todos estão de parabéns.<br>Mas lembrando que crítica construtiva é aquela que antes de mais nada apresenta soluções viáveis para o propósito.<br>
 </div>
 <div class="post_comment">
@@ -446,11 +446,11 @@ Para quem está aprendendo toda ajuda é bem vinda, por favor, quanto mais crít
 Show de bola esse blog, que pena que fui conhecer só agora.<br>Gostei também das soluções em C usando macros.
 </div>
 <div class="post_comment">
-<a name="2836"></a><B>Bruno Sugai</B>  | <a rel="nofollow" href="mailto:flatcable@gmail.com">e-mail</a> | em 01/09/2011 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_0#2836">#</a><br>
+<a name="2836"></a><B>Bruno Sugai</B>  | em 01/09/2011 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_0#2836">#</a><br>
 Estou iniciando meu aprendizado na linguagem c++ e vou te contar, voce acabou de se tornar meu professor, otimo post.<br>Qualque dia lhe mando uma fruta pelo correio, valew.<br>
 </div>
 <div class="post_comment">
-<a name="3103"></a><B>Hudson Alves</B>  | <a rel="nofollow" href="mailto:hudson.alves@live.com">e-mail</a> | em 23/06/2016 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_0#3103">#</a><br>
+<a name="3103"></a><B>Hudson Alves</B>  | em 23/06/2016 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_0#3103">#</a><br>
 Parabéns pelo artigo, muito bom mesmo.
 </div>
 <div class="post_comment">

@@ -364,7 +364,7 @@ google_ui_features = "rc:6";
 
 <div class="content">
 <a name="comments"></a><h5>Comentários</h5><div class="post_comment">
-<a name="547"></a><B>Wanderley Caloni Junior</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | <a rel="nofollow" href="mailto:wanderley@caloni.com.br">e-mail</a> | em 19/08/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_io_3#547">#</a><br>
+<a name="547"></a><B>Wanderley Caloni Junior</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | em 19/08/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_io_3#547">#</a><br>
 Nessa altura do campeonato as idéias começam a borbulhar, e a vontade de estragar as surpresas que poderão vir nas próximas partes é grande. Contudo, como você não acabou, nada mais justo do que aguardar a evolução gradual do seu processo de otimização _consciente_, _localizado_ e _estatisticamente_ _comprovado_, coisas essenciais que fazem valer a pena o processo de otimizar o código, e não famigerados clichês como usar aritmética de ponteiro ao invés de subscrito etc. Mas, voltando, melhor ver as idéias antes de dar uma de "parpiteiro" de "prantão".
 </div>
 <div class="post_comment_strauss">
@@ -372,11 +372,11 @@ Nessa altura do campeonato as idéias começam a borbulhar, e a vontade de estra
 É, quem já tem experiência na área acaba meio que sabendo o final da história :-)<br><br>O que eu mais quero destacar é a importância da otimização "estatísticamente comprovada", e dar uns toques de como obter estatísticas e coisas assim. Vai ter até WinDbg no meio...
 </div>
 <div class="post_comment">
-<a name="555"></a><B>Wanderley Caloni Junior</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | <a rel="nofollow" href="mailto:wanderley@caloni.com.br">e-mail</a> | em 21/08/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_io_3#555">#</a><br>
+<a name="555"></a><B>Wanderley Caloni Junior</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | em 21/08/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_io_3#555">#</a><br>
 Esse lance de otimização por otimização e atirar pra todos os lados é triste, principalmente quando existem "pseudo-consultores" em empresas que se acham no nível de conhecimento necessário do seu código para criticá-lo em pequenas partes. Pior é quando essa crítica vem antes mesmo da finalização de uma versão beta, ou seja, antes mesmo de serem empregados os recursos para a finalização do projeto já se gasta na otimização das partes já implementadas, e muitas vezes, sem qualquer análise empírica, falam que uma parte do código está lenta sem sequer comprovar isso.
 </div>
 <div class="post_comment">
-<a name="591"></a><B>Rodrigo Pinho</B>  | <a rel="nofollow" href="mailto:pinhopro@gmail.com">e-mail</a> | em 31/08/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_io_3#591">#</a><br>
+<a name="591"></a><B>Rodrigo Pinho</B>  | em 31/08/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_io_3#591">#</a><br>
 Bem, <br><br>Olhando o código, eu vi que vc aloca a memória necessária para ler todo o conteúdo do arquivo.<br><br>Se ao inves de alocar a memória, você não utilizasse um pool de memória, você não otimizaria mais ainda ? <br><br>Isso poderia fazer diferença, considerando uma hipótese de um parser que faz leitura de diversos arquivos, a cada hora. E supondo que os arquivos tenham mais ou menos o mesmo tamanho. Acho que o tempo para alocar e desalocar memória a cada leitura de arquivo, poderia ser otimizado, utilizando um pool de memória.<br><br>Seria interessante ver o resultado deste parser com uma memória ja alocada.<br><br>O Boost, como vc deve saber, tem uma lib especifica para pool de memória.<br> <a rel="nofollow" href="http://www.boost.org/libs/pool/doc/index.html">http://www.boost.org/libs/pool/doc/index.html</a><br><br>Abraços.
 </div>
 <div class="post_comment_strauss">

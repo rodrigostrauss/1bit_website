@@ -471,7 +471,7 @@ google_ui_features = "rc:6";
 
 <div class="content">
 <a name="comments"></a><h5>Comentários</h5><div class="post_comment">
-<a name="261"></a><B>Thiago</B>  | <a rel="nofollow" href="http://paginas.terra.com.br/informatica/thiago_adams/">website</a> | <a rel="nofollow" href="mailto:thiago_adams@hotmail.com">e-mail</a> | em 06/05/2005 | <a rel="nofollow" href="../#261">#</a><br>
+<a name="261"></a><B>Thiago</B>  | <a rel="nofollow" href="http://paginas.terra.com.br/informatica/thiago_adams/">website</a> | em 06/05/2005 | <a rel="nofollow" href="../#261">#</a><br>
 Eu estava trabalhando justamente num problema assim só que um pouquinho diferente!<br>O problema é o seguinte:<br><br>// tenho uma classe base<br>class Base { virtual void F()=0; };<br><br>// e uma ou mais derivadas<br>class Derived : public Base {<br>  virtual void F(){ std::cout &lt;&lt; "Derived"; }<br>};<br><br>class CopiableClass{<br>  ...<br>  Base *p;<br>  ...<br>}<br>Como gerar o copy contructor automático para a classe CopiableClass?<br>A solução mais comum deste tipo de problema é a classe base implementar um "virtual constructor" que geralmente é chamado clone();<br>O que eu quero fazer é gerar um "CopyPointer" para resolver este tipo de problema automaticamente.<br><br>Coloquei o código preliminar no meu site:<br> <a rel="nofollow" href="http://paginas.terra.com.br/informatica/thiago_adams/value.htm">http://paginas.terra.com.br/informatica/thiago_adams/value.h...</a><br><br>A idéia original não era para ponteiros, mas agora estou pensando em alterar justamente para suportar classes base abstratas.<br>Na minha opnião seria uma classe muito útil para diversos problemas.<br>Podemos trocar idéias para gerar esta classe...<br>
 </div>
 

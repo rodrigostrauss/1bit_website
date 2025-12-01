@@ -272,7 +272,7 @@ google_ui_features = "rc:6";
 
 <div class="content">
 <a name="comments"></a><h5>Comentários</h5><div class="post_comment">
-<a name="2820"></a><B>Wanderley Caloni</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | <a rel="nofollow" href="mailto:wanderley@caloni.com.br">e-mail</a> | em 01/08/2011 | <a rel="nofollow" href="content.1bit/weblog/ccpp_medindo_tempo_gettickcount#2820">#</a><br>
+<a name="2820"></a><B>Wanderley Caloni</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | em 01/08/2011 | <a rel="nofollow" href="content.1bit/weblog/ccpp_medindo_tempo_gettickcount#2820">#</a><br>
 Essa função pega o número de tiques do sistema como um todo. Em um ambiente multithreading, multitasking e preemptivo como o Windows é, existe uma grande chance da medição ser alterada por "fatores externos" (uma gravação de cache no momento da execução do código, por exemplo).<br><br>Para obter o tempo exato que uma thread levou, inclusive com separação entre kernel mode x user mode, nada como perguntar para o próprio kernel (mas é essa a função dele, mesmo!).<br><br>A função GetThreadTimes retorna o tempo de início de uma thread, tempo de fim (se tiver sido finalizada) e os tempos que foram gastos em user e kernel mode.<br><br>A precisão é a mesma do kernel, que é de 100 nanosegundos.<br><br>[]s
 </div>
 <div class="post_comment">

@@ -315,7 +315,7 @@ google_ui_features = "rc:6";
 Fiz o primeiro download hein! Que fique registrado... hehehehe<br><br>Eu também mantenho um pequeno projeto open source (bem menos ambicioso), um wrapper da libusb para Python,  <a rel="nofollow" href="http://pyusb.berlios.de">http://pyusb.berlios.de</a>.<br><br>Parabéns pela iniciativa!
 </div>
 <div class="post_comment">
-<a name="1502"></a><B>Wanderley Caloni</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | <a rel="nofollow" href="mailto:wanderley@caloni.com.br">e-mail</a> | em 28/09/2006 | <a rel="nofollow" href="content.1bit/weblog/omniobjects_presenting#1502">#</a><br>
+<a name="1502"></a><B>Wanderley Caloni</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | em 28/09/2006 | <a rel="nofollow" href="content.1bit/weblog/omniobjects_presenting#1502">#</a><br>
 Sinto desapontá-lo, Lairson, mas cheguei primeiro. Como dizem aqueles moleques do IRC: uhHAUhuHAAHuhuAUHuHUAHuHAU. Brincadeirinha =)<br><br>Vale comentar, Strauss, que seu projeto depende do boost. Também vale comentar qual versão do boost (já que eles têm algum histórico de quebra de compatibilidade). Eu baixei a última versão e compilou tudo "prefeitamente".<br><br>[]s
 </div>
 <div class="post_comment">
@@ -351,7 +351,7 @@ Rodrigo, pode contar com a minha ajuda nos testes.
 Rodrigo,<br><br>Você já viu o Ice?  <a rel="nofollow" href="http://www.zeroc.com/">http://www.zeroc.com/</a><br><br>Enquanto um "sucessor espiritual" do CORBA, me parece bastante atraente e adequado. Eu entendo sua intenção de criar algo mais vinculado ao COM, mas certamente você poderia se inspirar não apenas no XPCOM, como também no Ice, que também introduz algumas idéias sensacionais, apesar de ter uma licença bastante restritiva (GPL, a "Viral").<br><br>Fica como uma sugestão de rumos a seguir (porque não?)<br><br>-- Aldrin Leal.
 </div>
 <div class="post_comment">
-<a name="1512"></a><B>Aldrin Leal</B>  | <a rel="nofollow" href="http://www.leal.eng.br/mnemetica/">website</a> | <a rel="nofollow" href="mailto:aldrin@leal.eng.br">e-mail</a> | em 30/09/2006 | <a rel="nofollow" href="content.1bit/weblog/omniobjects_presenting#1512">#</a><br>
+<a name="1512"></a><B>Aldrin Leal</B>  | <a rel="nofollow" href="http://www.leal.eng.br/mnemetica/">website</a> | em 30/09/2006 | <a rel="nofollow" href="content.1bit/weblog/omniobjects_presenting#1512">#</a><br>
 Com relação ao layer de rede, eu sugiro que você dê uma lida no paper do Matt Welsh sobre o SEDA ( <a rel="nofollow" href="http://www.eecs.harvard.edu/~mdw/proj/seda/">http://www.eecs.harvard.edu/~mdw/proj/seda/</a>) e também neste paper ( <a rel="nofollow" href="http://www.kegel.com/c10k.html">http://www.kegel.com/c10k.html</a>).<br><br>Vi alguns frameworks que implementam estas idéias do SEDA em ambiente de NonBlocking I/O, como o Mina (diretory.apache.org) e também o Twisted Python, mas nada em C++. Mas não toco em CPP há algum tempinho, apesar de me lembrar de ter feito algo assim em C++/CLI quando testei o Express 2005.<br><br>(Óbvio, meu bias é pro lado da performance. Performance, performance, greed for speed, yeah baby!)<br><br>-- Aldrin Leal.
 </div>
 <div class="post_comment_strauss">
@@ -359,7 +359,7 @@ Com relação ao layer de rede, eu sugiro que você dê uma lida no paper do Mat
 Sim, conheço o Ice, apesar de ele ter crescido bastante desde a última vez que eu vi. E um dos meus problemas com ele é a licença restritiva, eu prefiro software livre que seja livre para tudo, inclusive uso comercial. Ele é como o Qt, um produto comercial que tem uma licença open source para ajudar a divulgar. Nada contra, mas não está dentro do que eu penso.<br><br>No começo eu cheguei a pensar em desenvolver um remote XPCOM, mas como ele é meio restrito ao Firefox achei melhor não. Não dá pra comparar o grau de suporte que o COM tem com nada, nem XPCOM, nem CORBA, nem SOAP. Ao invés de reinventar a roda preferi contornar as limitações do COM.<br><br>Eu prefiro investir no COM/DCOM porque ele é praticamente o padrão de objetos remotos no Windows, além de ser maduro e universalmente suportado. Existe dezenas de ferramentas, frameworks e linguagens que suportam DCOM. Aí todo mundo usa o que sempre usou (seja ATL, VB6, .NET, tanto faz), só que com uma configuração de rede muito mais flexível. A idéia é que você não tenha que portar nem refazer os componentes, só os plugue numa nova runtime de comunicação.
 </div>
 <div class="post_comment">
-<a name="1518"></a><B>Wanderley Caloni</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | <a rel="nofollow" href="mailto:wanderley@caloni.com.br">e-mail</a> | em 01/10/2006 | <a rel="nofollow" href="content.1bit/weblog/omniobjects_presenting#1518">#</a><br>
+<a name="1518"></a><B>Wanderley Caloni</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | em 01/10/2006 | <a rel="nofollow" href="content.1bit/weblog/omniobjects_presenting#1518">#</a><br>
 Nesse caso uma outra idéia interessante é disponibilizar um guia de migração para os que já possuem um projeto COM/DCOM. Como a maioria deve seguir o Wizard do VS, que tal desenvolver um Wizard para o Omni? =)
 </div>
 <div class="post_comment_strauss">

@@ -250,7 +250,7 @@ google_ui_features = "rc:6";
 
 <div class="content">
 <a name="comments"></a><h5>Comentários</h5><div class="post_comment">
-<a name="221"></a><B>Thiago Adams</B>  | <a rel="nofollow" href="http://planeta.terra.com.br/informatica/thiago_adams/">website</a> | <a rel="nofollow" href="mailto:thiago_adams@hotmail.com">e-mail</a> | em 12/04/2005 | <a rel="nofollow" href="../#221">#</a><br>
+<a name="221"></a><B>Thiago Adams</B>  | <a rel="nofollow" href="http://planeta.terra.com.br/informatica/thiago_adams/">website</a> | em 12/04/2005 | <a rel="nofollow" href="../#221">#</a><br>
 O livro The Design and Evolution of C++, do Stroustrup tem todas as dúvidas filosóficas do C++.<br>Infelizmente nunca li este livro, mas já vi referência para ele em vários lugares sempre quando se tem uma dúvida do tipo "porque c++ é assim".<br><br>O copy contructor é uma solução para compatibilidade com o C. Acho que ele se enquadra bem no C++ e faz todo sentido.<br><br>Li algumas respostas do comp.lang.c++.moderated.<br>Interessante que lá tinha um exemplo de algo que eu faço, que é inicialização de variáveis assim:<br><br>int i(0);<br>double d(0.0);<br>double d = double();<br><br>Para templates é útil também pois você pode não saber o valor default do tipo. Daí basta colocar TIPO();<br>template&lt;class T&gt;<br>class X {<br> T value;<br> X () : value(T()) {}<br>}<br><br>Este conceito falha no caso de enums, para compatibilidade com o C.<br><br>enum E { a = 1, b = 2 };<br>E e = E();<br>não fica como 1 e sim com 0.<br>
 </div>
 <div class="post_comment_strauss">

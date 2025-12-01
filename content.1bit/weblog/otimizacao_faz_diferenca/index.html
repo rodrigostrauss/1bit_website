@@ -317,7 +317,7 @@ google_ui_features = "rc:6";
 
 <div class="content">
 <a name="comments"></a><h5>Comentários</h5><div class="post_comment">
-<a name="489"></a><B>Wanderley Caloni Jr</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | <a rel="nofollow" href="mailto:wanderley@caloni.com.br">e-mail</a> | em 27/07/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_faz_diferenca#489">#</a><br>
+<a name="489"></a><B>Wanderley Caloni Jr</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | em 27/07/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_faz_diferenca#489">#</a><br>
 De fato o VC otimiza que é uma beleza. Vale a pena a quem está interessado observar a diferença do assembly das versões Debug e Release de rotinas simples, como loops e chamadas de funções simples. E, é claro, STL.<br><br>Só uma coisa me deixou triste: o sizeof(std::string) da STL padrão que vem no VC 2003 tem 28 bytes!! Fiquei mais decepcionado ainda ao notar que para as classes CAtlString e CSimpleString o sizeof é igual a 4. Se você notar na definição da classe, verá que eles criam um buffer de 16 bytes para strings pequenas, o que evita a alocação dinâmica desnecessária, mas deixa a string padrão c++ bem maior que um simples ponteiro. Seria o caso de utilizar um heap de blocos de tamanho fixo para std::string's alocadas? O que levou essa implementação da STL a ter esse overhead?
 </div>
 <div class="post_comment_strauss">
@@ -325,7 +325,7 @@ De fato o VC otimiza que é uma beleza. Vale a pena a quem está interessado obs
 Eu acho esse overhead bom (?!). Muitas vezes você usa uma string pequena, e essa implementação faz com que uma string pequena seja alocada na pilha como uma string C. Eu não sabia que era assim, mas acho ótimo.<br><br>O overhead de alocação/desalocação do heap é MUITO maior do que 28 bytes na pilha. Na verdade, 28 bytes de pilha causa um overhead zero, já que alocação da pilha não gasta tempo considerável.<br><br>No livro "Modern C++ Design", o Alexandrescu implementa um "Small Object Allocator", justamente por saber que o gerenciamento de Heap do C++ é geralmente só uma camada sobre o gerenciamento do C (malloc), que funciona muito bem para alocações grandes (kbytes), mas nem-tão-bem-assim para alocações menores (bytes).
 </div>
 <div class="post_comment">
-<a name="491"></a><B>Wanderley Caloni Jr</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | <a rel="nofollow" href="mailto:wanderley@caloni.com.br">e-mail</a> | em 27/07/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_faz_diferenca#491">#</a><br>
+<a name="491"></a><B>Wanderley Caloni Jr</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | em 27/07/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_faz_diferenca#491">#</a><br>
 É, pensando por esse lado, até que é uma coisa boa. De qualquer forma, strings podem existir das mais variadas, pois tudo depende do objetivo em mente.<br><br>Só acho que seria interessante se o VC tivesse maneiras de configurar o funcionamento das classes STL. Se existe, desconheço. Procurei a respeito da std::string e não encontrei nada nos fontes.
 </div>
 <div class="post_comment">
@@ -333,7 +333,7 @@ Eu acho esse overhead bom (?!). Muitas vezes você usa uma string pequena, e ess
 Isto me lembrou um antigo post no falecido blog :) :  <a rel="nofollow" href="http://br.thespoke.net/BlogReader/SingleEntry.aspx?ID=17516">http://br.thespoke.net/BlogReader/SingleEntry.aspx?ID=17516</a><br>
 </div>
 <div class="post_comment">
-<a name="538"></a><B>Pressley Neto</B>  | <a rel="nofollow" href="mailto:pressleyneto@yahoo.com.br">e-mail</a> | em 13/08/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_faz_diferenca#538">#</a><br>
+<a name="538"></a><B>Pressley Neto</B>  | em 13/08/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_faz_diferenca#538">#</a><br>
 sou um principiante em c++<br>tenho 17 anos<br>é quero ser um exelente programador ( em c++ é claro)  
 </div>
 

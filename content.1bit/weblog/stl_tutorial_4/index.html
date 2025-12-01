@@ -420,19 +420,19 @@ google_ui_features = "rc:6";
 Olá,<br><br>Engraçado, ontem mesmo (dia 22 de novembro) tivemos uma palestra na empresa que eu trabalho sobre iterators, ele é um padrão de projeto muito interessante e que usamos no nosso dia a dia aqui, só não usamos (ou usávamos) com o STL. :-)<br><br>Parabens pelos artigos, eles são bastante interessantes.
 </div>
 <div class="post_comment">
-<a name="2003"></a><B>Diego Rocha</B>  | <a rel="nofollow" href="http://www.diegorocha.wordpress.com">website</a> | <a rel="nofollow" href="mailto:diegorocha1987@gmail.com">e-mail</a> | em 05/08/2007 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_4#2003">#</a><br>
+<a name="2003"></a><B>Diego Rocha</B>  | <a rel="nofollow" href="http://www.diegorocha.wordpress.com">website</a> | em 05/08/2007 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_4#2003">#</a><br>
 Só para quem é curioso e esta pensando " é possivel ter um mapa de vetores ??", a resposta é sim, aqui vai um exemplo bem basico de uso de mapas de vetores, <br><br>#include &lt;vector&gt;<br>#include &lt;string&gt;<br>#include &lt;iostream&gt;<br>#include &lt;map&gt;<br><br>int main()<br>{<br>	// usar &gt; &gt; com espaço para o confundir não confundir com o operator &gt;&gt;<br>	typedef std::map&lt;std::string,std::vector&lt;std::string&gt; &gt; MyMapVectors;<br>	MyMapVectors MyMap;<br>	MyMapVectors::iterator IterMap;<br>   //aqui o iterator para o vector<br>	std::vector&lt;std::string&gt;::iterator IterVector;<br>	MyMap["teste1"].push_back("teste1::teste1"); //populamos os vetores <br>	MyMap["teste1"].push_back("teste1::teste2");<br>	MyMap["teste1"].push_back("teste1::teste3");<br>	MyMap["teste2"].push_back("teste2::teste1");<br>	MyMap["teste2"].push_back("teste2::teste2");<br>	MyMap["teste2"].push_back("teste2::teste3");<br>	<br>	IterMap = MyMap.begin();<br>	while( IterMap != MyMap.end() )<br>	{<br>		std::string valor = (*IterMap).first; //aqui pegamos o Key do Map<br>		IterVector = MyMap[valor].begin();<br>		while( IterVector != MyMap[valor].end() )<br>		{<br>			std::cout &lt;&lt; *IterVector&lt;&lt;std::endl;<br>			IterVector++;<br>		}<br>		IterMap++;<br>	}<br>	return 0;<br>}<br><br>Bom é isso espero que ajude alguem, :)
 </div>
 <div class="post_comment">
-<a name="2234"></a><B>Filipe</B>  | <a rel="nofollow" href="mailto:apostolo.deec@gmail.com">e-mail</a> | em 04/04/2008 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_4#2234">#</a><br>
+<a name="2234"></a><B>Filipe</B>  | em 04/04/2008 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_4#2234">#</a><br>
 Tenho uma dúvida,<br>Eu tenho uma <br>Class A<br>{<br>public:<br>  void ChangeName (std::string newName);<br>....<br>..<br><br>private:<br>  std::string mName;<br>....<br>...<br>}<br><br>e faço um std::map &lt;std::string, A&gt; namesHashMap;<br>std::map &lt;std::string, A&gt;::iterator it;<br><br>namesHashMap.insert(pair.... A.GetName(),&A);<br>agora kero mudar nome de um qualquer<br>it = namesHashMap.begin();<br><br>it-&gt;second.ChangeName("NovoNome");<br><br>Mas agora quero actualizar o it.first;<br><br>mas Não quero ter de fazer o erase(old) e depois insert do novo.<br><br><br>Como posso fazer isso?<br><br>it-&gt;second.MudaNome("NovoNome");<br>
 </div>
 <div class="post_comment_strauss">
-<a name="2236"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | <a rel="nofollow" href="mailto:rodrigo@1bit.com.br">e-mail</a> | em 06/04/2008 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_4#2236">#</a><br>
+<a name="2236"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 06/04/2008 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_4#2236">#</a><br>
 Filipe, só com erase mesmo. Outra opção é definir o operador &lt; comparando o atributo nome de duas instâncias e usar um std::set ao invés do sdt::map. Ah, e o std::map não é hash map, é uma red black tree.
 </div>
 <div class="post_comment">
-<a name="2295"></a><B>Daniel</B>  | <a rel="nofollow" href="mailto:danielgimage@hotmail.com">e-mail</a> | em 06/06/2008 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_4#2295">#</a><br>
+<a name="2295"></a><B>Daniel</B>  | em 06/06/2008 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_4#2295">#</a><br>
 Rodrigo,<br><br>existe algum motivo para vc nao usar "using"? vi códigos seus no seminário sempre com "boost::" e agora todos com "std::"..... é para manter o controle sobre os namespaces? vc usa muitos namespaces em programas que faz?
 </div>
 <div class="post_comment_strauss">

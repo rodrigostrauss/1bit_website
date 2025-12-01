@@ -364,7 +364,7 @@ google_ui_features = "rc:6";
 
 <div class="content">
 <a name="comments"></a><h5>Comentários</h5><div class="post_comment">
-<a name="132"></a><B>Wanderley Caloni Jr</B>  | <a rel="nofollow" href="http://www.blakhalk.com.br">website</a> | <a rel="nofollow" href="mailto:blakhalk@gmail.com">e-mail</a> | em 18/01/2005 | <a rel="nofollow" href="../#132">#</a><br>
+<a name="132"></a><B>Wanderley Caloni Jr</B>  | <a rel="nofollow" href="http://www.blakhalk.com.br">website</a> | em 18/01/2005 | <a rel="nofollow" href="../#132">#</a><br>
 É uma solução eficaz. Contudo uma outra possibilidade, mais elegante talvez, seria utilizar a conhecida herança de uma classe que tem proteção de construtor:<br><br>class CopyConstructor { CopyConstructor(){} };<br><br>template &lt;typename T&gt;<br>class CSpTypeMarshaler : public CopyConstructor<br>{<br>//...<br>};<br><br>E felizmente esse conceito tb existe no boost, evitando ter que reinventar a roda =).<br><br>[]s
 </div>
 <div class="post_comment_strauss">
@@ -384,11 +384,11 @@ Mais uma sugestão. <br><br>Crie uma classe/template com o nome desejado no mesm
 Também dá para declarar e não implementar.<br>Vai ter um erro de link caso não tenha sido especializado.<br><br>Eu costumo fazer estes erros de link para contrutores default que não quero usar. Por exemplo:<br><br>class X {<br>  // nao tem implementação para o contrutor default<br>  // caso queria usar este construtor vai dar erro de link<br>  // tb é private para dificultar mais ainda o uso<br>  X(); //nao implementado<br>  int m_i;<br>public:<br>  X(int i) : m_i(i) {}   // quero ter só este construtor<br>};<br>
 </div>
 <div class="post_comment">
-<a name="169"></a><B>Thiago</B>  | <a rel="nofollow" href="http://planeta.terra.com.br/informatica/thiago_adams/">website</a> | <a rel="nofollow" href="mailto:thiago_adams@hotmail.com">e-mail</a> | em 24/02/2005 | <a rel="nofollow" href="../#169">#</a><br>
+<a name="169"></a><B>Thiago</B>  | <a rel="nofollow" href="http://planeta.terra.com.br/informatica/thiago_adams/">website</a> | em 24/02/2005 | <a rel="nofollow" href="../#169">#</a><br>
 Minha mãe me deu um nome mas eu esqueci de colocar no post.<br>:)<br>
 </div>
 <div class="post_comment">
-<a name="2465"></a><B>Andreh Poffo</B>  | <a rel="nofollow" href="mailto:andrehpoffo@gmail.com">e-mail</a> | em 25/03/2009 | <a rel="nofollow" href="../#2465">#</a><br>
+<a name="2465"></a><B>Andreh Poffo</B>  | em 25/03/2009 | <a rel="nofollow" href="../#2465">#</a><br>
 Amigo eu tenho uma dúvida:<br><br>e se por um acaso eu quisesse que a minha especialização forçada fosse de fato uma classe derivada de outra..<br>eu teria que especificar qual seria essa Classe Base.. <br>Dou um exemplo CFiltro (Como ficaria?) :<br><br>--------------------------------------------<br><br>class CFiltro<br>{<br>public: <br>  virtual bool Verify() const = 0;<br>};<br><br>class CFiltroUm : public CFiltro<br>{<br>public:<br>  virtual bool Verify() const<br>  {<br>    return true;<br>  }<br>};<br><br>class CFiltroDois : public CFiltro<br>{<br>public:<br>  virtual bool Verify() const<br>  {<br>    return false;<br>  }<br>};<br><br>template &lt;typename T&gt;<br>class CBufferRegistro<br>{<br>public:<br>   CBufferRegistro()<br>   {<br>      char por_favor_especialize_esse_template[-1];<br>   }<br>};<br><br>template &lt;&gt;<br>class CBufferRegistro&lt;CFiltro*&gt;<br>{<br>public:<br>   bool Verify()<br>   {<br>	return m_Filtro.Verify();<br>   }<br><br>private:<br>   CFiltro* m_Filtro;<br>};<br><br>CBufferRegistro&lt;CFiltroUm&gt; BufferRegistroUm;<br>CBufferRegistro&lt;CFiltroDois&gt; BufferRegistroDois;<br><br>BufferRegistroUm.Verify();	(TRUE)<br>BufferRegistroDois.Verify();	(FALSE)<br><br>--------------------------------------------<br><br>Seria com CFiltro* nos Argumentos para especialização do template mesmo?<br>ou funciona de outro jeito?
 </div>
 

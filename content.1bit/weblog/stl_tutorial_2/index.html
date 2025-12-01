@@ -304,7 +304,7 @@ google_ui_features = "rc:6";
 
 <div class="content">
 <a name="comments"></a><h5>Comentários</h5><div class="post_comment">
-<a name="1449"></a><B>Wanderley Caloni</B>  | <a rel="nofollow" href="http://caloni.com.br">website</a> | <a rel="nofollow" href="mailto:wanderley@caloni.com.br">e-mail</a> | em 17/08/2006 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_2#1449">#</a><br>
+<a name="1449"></a><B>Wanderley Caloni</B>  | <a rel="nofollow" href="http://caloni.com.br">website</a> | em 17/08/2006 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_2#1449">#</a><br>
 Ao mesmo tempo que a classe vector da STL mantém a filosofia da perfomance, ela fornece um método mais seguro, o "at", que faz a mesma coisa que o operador de subscrito, porém verifica se o índice passado não está fora do limite de dados. Caso esteja fora, lança a exceção out_of_range:<br><br>std::vector&lt;int&gt; v(5);<br><br>for( int i = 0; i &lt; 10; ++i )<br>{<br>	try<br>	{<br>		std::cout &lt;&lt; v[i] &lt;&lt; endl;<br>	}<br>	catch(std::out_of_range& e)<br>	{<br>		cout &lt;&lt; "Ops!" &lt;&lt; endl;<br>		break;<br>	}<br>}<br>
 </div>
 <div class="post_comment_strauss">
@@ -312,7 +312,7 @@ Ao mesmo tempo que a classe vector da STL mantém a filosofia da perfomance, ela
 Valeu, corrigido. Só que no seu exemplo de código você esqueceu e usou o operador [] ao invés do at()  :-)
 </div>
 <div class="post_comment">
-<a name="1452"></a><B>Wanderley Caloni</B>  | <a rel="nofollow" href="http://caloni.com.br">website</a> | <a rel="nofollow" href="mailto:wanderley@caloni.com.br">e-mail</a> | em 18/08/2006 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_2#1452">#</a><br>
+<a name="1452"></a><B>Wanderley Caloni</B>  | <a rel="nofollow" href="http://caloni.com.br">website</a> | em 18/08/2006 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_2#1452">#</a><br>
 Ehehehheheheh foi pra ver se estava esperto =P<br><br>Também temos que considerar que o código acima está naquela licença em que eu não me responsabilizo por quaisquer problemas que você venha a ter ao utilizá-lo =)<br><br>[]s
 </div>
 <div class="post_comment">
@@ -324,7 +324,7 @@ Olá Rodrigo<br><br>Eu gostei muito do seu tutorial, ele já tem continuação ?
 Sim, já está no forno. :-)
 </div>
 <div class="post_comment">
-<a name="1537"></a><B>Guilherme</B>  | <a rel="nofollow" href="mailto:guilherme@brfree.com.br">e-mail</a> | em 06/10/2006 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_2#1537">#</a><br>
+<a name="1537"></a><B>Guilherme</B>  | em 06/10/2006 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_2#1537">#</a><br>
 tem como usar o vector com uma classe?<br>tipo, vector&lt;Pessoa&gt; p...<br><br>inté.
 </div>
 <div class="post_comment_strauss">
@@ -336,7 +336,7 @@ Sim, sem problemas.
 Olá! gostei muito dos tutoriais, está de parabéns... porém estou com uma dúvida... Copiei o código da mesma forma que está descrito no tuto, ele compila normalmente mas ao executar, dá erro justamente na parte de buscar um elemento fora do vector. Usando o operador[] ele verificou o tamanho do vector e acusou o erro out_of_range, exatamente o oposto do que foi explicado. Como é possível?<br><br>Estou usando o Visual Studio 2008 Express.
 </div>
 <div class="post_comment">
-<a name="2447"></a><B>Marcos V.</B>  | <a rel="nofollow" href="mailto:marcoscaus@gmail.com">e-mail</a> | em 04/02/2009 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_2#2447">#</a><br>
+<a name="2447"></a><B>Marcos V.</B>  | em 04/02/2009 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_2#2447">#</a><br>
 Bom, eu também uso o visual C++ Exress, como você está executando o programa compilado dento do VC++ ele aponta o problema. Agora, se você for no executável e usa-lo vai receber aquela janelinha "O &lt;executavel&gt;.exe encontrou um problema e precisa ser fechado" ou seja, um bug. para evitar isso existe a função at().<br><br>Espero estar correto, caso contrário me corrijam. Os tutoriais estão ajudando muito, parabéns Strauss. 
 </div>
 <div class="post_comment">
@@ -344,7 +344,7 @@ Bom, eu também uso o visual C++ Exress, como você está executando o programa 
 Rodrigo, no trecho de código abaixo vc comete um erro em tentar acessar um valor que vc ainda n adicionou, vc reservou 10 elementos pro vector mas n adicionou nada, ou seja, ele está vazio rs.<br><br>cout &lt;&lt; "um item de v1" &lt;&lt; v1[5] &lt;&lt; endl;
 </div>
 <div class="post_comment_strauss">
-<a name="2859"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | <a rel="nofollow" href="mailto:rodrigo@1bit.com.br">e-mail</a> | em 18/10/2011 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_2#2859">#</a><br>
+<a name="2859"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 18/10/2011 | <a rel="nofollow" href="content.1bit/weblog/stl_tutorial_2#2859">#</a><br>
 Guga, o trecho está correto. Note que na declaração do vetor eu passo o número 10 no construtor. Isso inicializa o vetor com tamanho 10.<br><br>Todos os valores são inicializados dentro do vetor com o construtor padrão, o que faz com que o int fique com valor zero.
 </div>
 

@@ -265,15 +265,15 @@ google_ui_features = "rc:6";
 Vale meu comentário do artigo que iniciou isso: quanto menos óbvio, cuide melhor dos comentários.<br><br>Mas é importante o que Strauss disse: "você pode achar claro enquanto faz". Isso acontece todo o tempo, é óbvio que seja claro o código que se está mexendo naquele exato momento. Menos óbvio será na semana que vem, e menos ainda daqui a um ano.<br><br>E da mesma maneira que código organizado ajuda - e comentado é ainda melhor - deve-se organizar os comentários também, de maneira que código e comentários convivam harmoniosamente.<br><br>Por último, fazer manutenção em um código comentado significa fazer manutenção dos dois: código e comentários. Pensar dessa forma evita que existam comentários desatualizados.
 </div>
 <div class="post_comment">
-<a name="746"></a><B>Leonardo Stabile Prates</B>  | <a rel="nofollow" href="mailto:leonardo_stabile@yahoo.com.br">e-mail</a> | em 29/11/2005 | <a rel="nofollow" href="../#746">#</a><br>
+<a name="746"></a><B>Leonardo Stabile Prates</B>  | em 29/11/2005 | <a rel="nofollow" href="../#746">#</a><br>
 concordo em partes... prefiro comentar blocos de codigo do a comentar linhas individuais, atualmente as IDEs fornecem feramentas suficientes para explicar detalhes individuais de linhas de codigo (ex: eu jogo o mouse em cima de uma funcao e abre um popup com o cabecalho dela, eh claro, desde q vc comente funcao a funcao)<br><br>no caso do "variavel += 2" a propria linha ja constitui um erro de desenvolvimento: oq eh "2"?! de onde ele surgiu?! nao seria melhor criar uma macro pra explicar o numero magico?!<br>"#define DESVIO_CALCULO 2"....<br><br>ou melhor ainda:<br><br>"const int DESVIO_CALCULO = 2;" (vamos fazer direito ehehhe)<br><br>de qqer forma, concordo plenamente com a importancia do comentario, mas explicando o conceito, e nao detalhes tecnicos da implementacao, a menos q sejam relevantes.<br><br>"Você pode achar claro enquanto faz"<br>sem duvida, aposto q ja aconteceu com todo mundo eheh<br><br>no caso dos codigos da microsoft, tb curto o estilo deles, a metrica, mesmo odiando notacao hungara. no caso de codigos gnu o codigo eh mto mais esperto, mas o problema eh outro, q por sinal eu acho pior: siglas magicas!! "get_rhe_she_feh()"... isso eh desumano...
 </div>
 <div class="post_comment">
-<a name="754"></a><B>Fabricio Ferreira</B>  | <a rel="nofollow" href="mailto:fabricio.carvalho.ferreira@gmail.com">e-mail</a> | em 02/12/2005 | <a rel="nofollow" href="../#754">#</a><br>
+<a name="754"></a><B>Fabricio Ferreira</B>  | em 02/12/2005 | <a rel="nofollow" href="../#754">#</a><br>
 Como eu acho que minha frase foi o estopim para este artigo...<br><br>O maior problema que vejo com comentários no código é que muitas vezes ele atrapalha a leitura do próprio código.<br><br>Se a IDE tivesse um recurso do tipo "Hide Comments", ou "Comment Outlining" seria uma grande ajuda.<br><br>-Fabricio
 </div>
 <div class="post_comment">
-<a name="755"></a><B>Fabricio Ferreira</B>  | <a rel="nofollow" href="mailto:fabricio.carvalho.ferreira@gmail.com">e-mail</a> | em 02/12/2005 | <a rel="nofollow" href="../#755">#</a><br>
+<a name="755"></a><B>Fabricio Ferreira</B>  | em 02/12/2005 | <a rel="nofollow" href="../#755">#</a><br>
 [Apaga o comment anterior...analfabetismo total]<br><br>Como acho que minha frase foi o estopim para este artigo, vale uma réplica:<br><br>O maior problema que enfrento com os comentários, é o fato de que muitas vezes eles atrapalham a leitura do código. São muito extensos, não dizem quase nada. Sem contar os artistas ASCII, que fazem obras de arte com caracteres.<br><br>Se a IDE tivesse um recurso do tipo "Hide Comments", ou "Comment Outlining" seria uma grande ajuda.<br><br>-Fabricio
 </div>
 <div class="post_comment">
@@ -281,7 +281,7 @@ Como eu acho que minha frase foi o estopim para este artigo...<br><br>O maior pr
 Melhor do que comentários as vezes só a documentação gerada por eles por um doxygen da vida... vide a documentação da Qt e da KDElibs, que são ótimas por sinal... porém é documentação da API, e não do código, o que por mais bizarro que pareça é diferente =]
 </div>
 <div class="post_comment">
-<a name="787"></a><B>Murtog</B>  | <a rel="nofollow" href="http://murtog.blogspot.com">website</a> | <a rel="nofollow" href="mailto:murtog@gmail.com">e-mail</a> | em 07/12/2005 | <a rel="nofollow" href="../#787">#</a><br>
+<a name="787"></a><B>Murtog</B>  | <a rel="nofollow" href="http://murtog.blogspot.com">website</a> | em 07/12/2005 | <a rel="nofollow" href="../#787">#</a><br>
 Ótimo texto. Parabéns.<br>Eu, admito, sou um comentário-maníaco, escrevo comentários sempre e estou sempre aperfeiçoando eles. Apesar de que uns tempos para cá eu estar reduzindo o número deles, tentando chegar num meio termo. Que, como disse o colega, não chege a atrapalhar a leitura do código.<br><br>Abraços, ah, seria legal você continuar esse tipo de artigo, discutindo modos de programação: nomeclaturas, estruturas de classes... Garanto que as discussões serão boas.
 </div>
 <div class="post_comment">
@@ -289,7 +289,7 @@ Melhor do que comentários as vezes só a documentação gerada por eles por um 
 Legal o artigo, só vou completar com uma coisa: mesmo que vc tenha 150% de certeza sobre quem irá ler seu código também conhece seu idioma (aqui, português), escreva seus comentários em inglês.<br><br>Em outras palavras: quer comentar, faça em inglês, por favor. Linguagens de programação são em inglês (vide palavras reservadas como for, def, float...) e fazendo comentários em inglês qualquer programador de qualquer lugar do mundo poderá dar manutenção no código.<br><br>Já tive o desprazer de dar manutenção em código onde os comentários estavam escritos em Catalão :P<br>e posso dizer que mal conheço espanhol, quanto mais o dialeto citado. Resutado: ignorei os comentários e achar o bug levou quase dois meses.<br><br>[]s
 </div>
 <div class="post_comment">
-<a name="1693"></a><B>Wanderley Caloni</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | <a rel="nofollow" href="mailto:wanderley@caloni.com.br">e-mail</a> | em 17/01/2007 | <a rel="nofollow" href="../#1693">#</a><br>
+<a name="1693"></a><B>Wanderley Caloni</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | em 17/01/2007 | <a rel="nofollow" href="../#1693">#</a><br>
 Isso, a meu ver, vai depender do escopo do seu código. Não faz muito sentido escrever comentários em inglês em uma equipe de desenvolvimento de software nacional. Claro, quem sabe um dia o código vai ser mantido por pessoas que não falam português. E quem sabe um dia você não é chamado pra trabalhar em uma equipe de Moscou.<br><br>Quando eu publico artigos no Code Project, reviso meu código e traduzo os comentário, o que acaba sendo útil já que a revisão é saudável de vez em quando.
 </div>
 <div class="post_comment">
@@ -297,7 +297,7 @@ Isso, a meu ver, vai depender do escopo do seu código. Não faz muito sentido e
 Na premissa de quem devemos sempre escrever um código o mais simples e legível possível, usando nomes adequados para funções e variáveis (deixando a refatoração por conta de performance para depois dos testes de performance - que muitas vezes deixa o código ilegível), os comentários são importantes em trechos de código em que não é possível deixá-lo claro somente por meio do código em si.<br><br>Sou a favor da refatoração quando fazemos uma revisita ao código e rapidamente podemos ver que não entendemos o que o mesmo vai fazer. Um  comentário inicial numa função deveria ser suficiente em boa parte dos casos para descrever a regra de negócio ali inserida. O código é a consequencia do que ali está escrito.<br><br>As idéias que sigo estão baseadas na prática de refatoração.
 </div>
 <div class="post_comment">
-<a name="2269"></a><B>Luanildo Silva</B>  | <a rel="nofollow" href="http://www.programarebom.blogspot.com">website</a> | <a rel="nofollow" href="mailto:luanildo.silva@gmail.com">e-mail</a> | em 03/05/2008 | <a rel="nofollow" href="../#2269">#</a><br>
+<a name="2269"></a><B>Luanildo Silva</B>  | <a rel="nofollow" href="http://www.programarebom.blogspot.com">website</a> | em 03/05/2008 | <a rel="nofollow" href="../#2269">#</a><br>
 Muito legal o artigo.<br>Realmente os comentarios ajudam na leitura do codigo, muitas vezes é como se fosse a tradução dos codigos.
 </div>
 
