@@ -31,7 +31,37 @@ node server.js
 # Output: Server running at http://localhost:8000/
 ```
 
-### Step 2: Test Homepage
+### Step 2: Run Automated Link Checker (RECOMMENDED)
+```bash
+./check_links.sh
+```
+
+This script automatically checks:
+- All CSS files load correctly
+- All images are accessible
+- Homepage and article pages work
+- No broken links on the site
+
+**Exit codes:**
+- `0` = All checks passed, safe to deploy ✅
+- `1` = Found broken links, fix before deploying ❌
+
+The link checker will show detailed output like:
+```
+📄 Checking: Poder e flexibilidade
+  CSS files:
+  ✓ http://localhost:8000/1bit.css
+  Images:
+  ✓ http://localhost:8000/images/logo2.png
+  ✓ http://localhost:8000/images/rebarba1.png
+  ...
+```
+
+### Step 3: Manual Tests (if needed)
+
+If you want to manually test specific things:
+
+#### Test Homepage
 ```bash
 curl -s -o /dev/null -w "%{http_code}\n" http://localhost:8000/
 # Expected: 200
@@ -76,7 +106,23 @@ curl -s http://localhost:8000/content.1bit/bom_programador | grep 'href="../../c
 Edit files as needed in the repository.
 
 ### Step 2: Test Locally (MANDATORY)
-Run all tests from "Local Testing Workflow" above.
+```bash
+# Make sure server is running
+node server.js &
+
+# Run link checker
+./check_links.sh
+
+# If all checks pass, proceed to commit
+```
+
+**CRITICAL:** Never skip this step! The link checker will catch:
+- Broken CSS paths
+- Missing images
+- Incorrect relative links
+- 404 errors
+
+before you deploy to production.
 
 ### Step 3: Commit Changes
 ```bash
