@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+<META NAME="keywords" CONTENT="Rodrigo Strauss, programador, programação, Visual C++, C#, Windbg, Device Driver">
+<META NAME="description" CONTENT="Artigos sobre programação escritos por Rodrigo Strauss">
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>Computa&ccedil;&atilde;o n&atilde;o &eacute; uma ci&ecirc;ncia exata, parte 2  ::::  Rodrigo Strauss :: 1bit</title>
+    <link href="../../1bit.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
+
+  </head>
+  <body bottommargin="0" leftmargin="0" topmargin="0" rightmargin="0">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="../../images/logo2.png" border="0" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.1bit/links">Links</a> 
+			<span class="menusep">|</span>
+
+		    <a class="top_menu_link" href="content.1bit/contact">Contato</a> 
+			<span class="menusep">|</span>
+            
+            <a class="top_menu_link" href="content.1bit/about">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <a href="../.." style="text-decoration:none;">
+  <h2>Falatório</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="../.." style="text-decoration:none;">
+  <h2>Escovando 1 bit</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="content.1bit/weblog" style="text-decoration:none;">
+  <h2>WebLog</h2>
+ </a>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<table width="100%" border="0">
+<tr>
+<td>
+<h4><a href="content.1bit/weblog" style="text-decoration:none;">Rodrigo Strauss :::: WebLog</a></h4>
+</td>
+
+<td align="right">
+<a style="text-decoration:none;" href="content.1bit/weblog_archive">Arquivo</a><br><br>
+<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../images/xml.gif" border="0"/></a>
+
+</td>
+
+</tr>
+</table>
+<h5>Computa&ccedil;&atilde;o n&atilde;o &eacute; uma ci&ecirc;ncia exata, parte 2</h5><p>Passei quinta e sexta da semana passada fazendo um dos servi&ccedil;os mais enfadonhos que um programador pode fazer: documentar um sistema que nem fui eu que criei. &Eacute; quase uma tortura passar o dia inteiro com o Word aberto e com o Visual Studio fechado...</p>
+
+<p>Estava eu terminando a documenta&ccedil;&atilde;o, quando enrosquei o p&eacute; no cabo de for&ccedil;a do estabilizador e tudo apagou. &Eacute; claro que eu nem tinha salvo a documenta&ccedil;&atilde;o, j&aacute; que eu deixo meu micro em "hibernation" todo dia e o Word 2003 tem os recursos de recupera&ccedil;&atilde;o de documentos e salvamento autom&aacute;tico. Despreocupado, liguei o micro novamente e abri o Word na esperan&ccedil;a de ver meu documento l&aacute;, do jeito que estava antes da infeliz fatalidade.</p>
+
+<p>Pois &eacute;, ele n&atilde;o estava l&aacute;. Procurei os ~*.doc nos tempor&aacute;rios do Windows e nada. Acredito que eu nem preciso descrever meu desespero, j&aacute; que fazer documenta&ccedil;&atilde;o uma vez &eacute; enfadonho, e fazer duas vezes &eacute; torturante.</p>
+
+<p>Sem mais op&ccedil;&otilde;es, recomecei a escrever a documenta&ccedil;&atilde;o, e lembrei que o Word 2003 &eacute; o primeira vers&atilde;o que eu encontrei bugs, principalmente de redesenho de tela. Eu uso o Word desde a vers&atilde;o 6.0 para Windows 3.11, e nunca encontrei nenhum problema. At&eacute; aparecer o Word 2003. O pior n&atilde;o &eacute; o bug do redesenho, e sim o que me fez perder o documento, mesmo com a op&ccedil;&atilde;o de salvamento autom&aacute;tico ativada.</p>
+
+<p>Passou o fim de semana, terminei minha segunda vers&atilde;o da documenta&ccedil;&atilde;o, e resolvi instalar o Service Pack 1 do Office 2003. Perguntei a um amigo se esse Service Pack solicitava o CD durante a instala&ccedil;&atilde;o, porque todos os updates do Office que eu vi at&eacute; hoje pediam. Ele me disse que no micro dele e de um outro amigo nosso, o Windows Installer n&atilde;o pediu o CD. Ent&atilde;o, eu resolvi arriscar.</p>
+
+<p>&Eacute; claro que ele pediu o CD, e &eacute; claro que o CD do Office estava na sede da empresa, e n&atilde;o onde estou prestando consultoria. Afinal, &eacute; para isso que serve a Lei de Murphy.</p>
+
+<p>Cancelei a instala&ccedil;&atilde;o, fiquei assistindo a barra de progresso do Windows Installer retroceder enquanto eu torcia para que meu Office continuasse funcionando, para que eu n&atilde;o precisasse esperar que alguma boa alma me trouxesse o CD do Office ou que eu tivesse que fazer o download da MSDN.</p>
+
+<p>Depois de cancelar o update, abri o Word para testar se tudo estava funcionando. Apareceu a tela do Windows Installer esperada, algumas dezenas de segundos e pronto, l&aacute; estava o Word aberto, COM O MEU DOCUMENTO PERDIDO SEMANA PASSADA RECUPERADO</p><br><p class="datetime">Em 19/Aug/2004 00:01</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+          </td>
+        </tr>
+
+          <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png"></td>
+              <td align="right"><img src="../../images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+<tr><td class="topmenu">&nbsp;</td><td class="topmenu">&nbsp;</td></tr>
+<tr><td class="topmenu">&nbsp;</td><td>
+<table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+</td>
+</tr>
+ <tr><td class="topmenu">&nbsp;</td><td >
+<div class="content">
+<a name="comments"></a><h5>Comentários</h5>
+<h5>Algo a dizer?</h5>
+<form name="comment" method="POST" action="/comment.html">
+<input type="hidden" name="article" value="weblog/1092909674"/>
+Nome:<br/>
+<input type="text" name="name" style="width: 250px;"/><br/>
+<br/>
+
+Site ou e-mail:<br/>
+<input type="text" name="link" style="width: 250px;" /><br/>
+<br/>
+
+Comentário<br/>
+<textarea style="WIDTH: 300px; HEIGHT: 150px" name="comment" rows="9" cols="35"></textarea><br/>
+<br/>
+<input type="submit" value="Dizer"/>
+
+</form>
+
+</div>
+
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png"></td>
+              <td align="right"><img src="../../images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

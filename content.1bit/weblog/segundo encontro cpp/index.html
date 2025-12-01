@@ -1,0 +1,552 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>Rodrigo Strauss :: www.1bit.com.br</title>
+    <link href="../../1bit.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
+<!-- google analytics -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-75310-1";
+urchinTracker();
+</script>
+<!-- google analytics end -->
+
+  </head>
+  <body style="margin:0px 0px 0px 0px" bgcolor="#FFFFFF">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="../../images/logo_novo_2.png" border="0" alt="logo" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.1bit/links">Links</a> 
+			<span class="menusep">|</span>
+
+		    <a class="top_menu_link" href="content.1bit/contact">Contato</a> 
+			<span class="menusep">|</span>
+            
+		    <a class="top_menu_link" href="content.1bit/busca">Busca no site</a> 
+			<span class="menusep">|</span>
+
+            <a class="top_menu_link" href="content.1bit/about">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png" alt="rebarba"></td>
+              <td align="right"><img src="../../images/rebarba2.png" alt="rebarba"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <h2><a href="../../#artigos" style="text-decoration:none;">Artigos</a></h2>
+</div>
+
+<div class="left_menu_section">
+ <h2><a href="content.1bit/weblog" style="text-decoration:none;">Blog</a></h2>
+</div>
+
+<div class="left_menu_section">
+ <h2><a href="../../cpp/wiki" style="text-decoration:none;">Wiki C/C++</a></h2>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<h4><a href="content.1bit/weblog" style="text-decoration:none;">Rodrigo Strauss :: Blog</a></h4>
+<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../images/xml.gif" border="0"/></a>
+<br>
+<h5><a class="weblog_link" href="content.1bit/weblog/my_dailywtr">Meu Daily WTF</a></h5><p>Caso clássico do <a href="http://thedailywtf.com/">The Daily WTF</a>, acontecendo comigo agora:</p>
+<pre>
+<div class="code">
+c:\sources&gt;svn update
+svn: Working copy '.' locked
+svn: run 'svn cleanup' to remove locks (type 'svn help cleanup' for details)
+
+C:\sources&gt;svn cleanup
+svn: Your .svn/tmp directory may be missing or corrupt; <b>run 'svn cleanup' and try again</b>
+svn: Can't open file '.svn\tmp\entries': The system cannot find the path specified.
+
+C:\sources&gt;svn cleanup
+svn: Your .svn/tmp directory may be missing or corrupt; <b>run 'svn cleanup' and try again</b>
+svn: Can't open file '.svn\tmp\entries': The system cannot find the path specified.
+
+</div>
+</pre>
+
+<p>Grr..</p><p class="datetime">Em 12/07/2006 11:32&nbsp;-&nbsp;<a href="http://www.1bit.com.br/content.1bit/weblog/my_dailywtr#comments">Comentários (0)</a></p><h5><a class="weblog_link" href="content.1bit/weblog/stl_tutorial_1">Tutorial de STL, parte 1: O que é a STL</a></h5><p>A STL (Standard Template Library) é a biblioteca padrão da linguagem C++, e faz parte de todos os compiladores que seguem o padrão ISO C++. É uma biblioteca quase que totalmente baseada em templates, buscando simplicidade, produtividade e rapidez. Além disso, é um ótimo exemplo da filosofia do C++: você só paga (em termos de performance) por aquilo que você realmente usa. Justamente por ser baseada em templates, somente os templates usados gerarão código que será incluído no seu binário.</p>
+
+<p>Temos na STL alguns estilos básicos de templates, chamados concepts. Esse concepts são templates/objetos que seguem um mesmo estilo e funcionamento, mas sem um implementação de interface para garantir similaridade (falamos nissos nos primeiros posts dessa série). A similaridade é verificada pelo compilador em tempo de compilação, já que ele sabe exatamente como o objeto é composto. Vamos aos concepts básicos da STL:</p>
+<ul>
+<li><b>Containers</b>: São objetos usados para guardar conjuntos de outros objetos ou valores. Entre eles temos o vector (um array de acesso sequencial), o list (lista ligada) e o map (mapa associativo de chave e valor). Veremos vários exemplos de containers em um post especial sobre o assunto.</li>
+
+<li><b>Iterators</b>: É uma abstração criada para unificar a forma de percorrer todos os itens de um container, de forma que o mesmo algoritmo possa ser usado em diversos containers. Isso nos permite trocar de containers de acordo com o nosso uso. Por exemplos, um std::list é mais rápido do que um vector para inserir itens no meios do container. Por outros lado, como um list é uma lista ligada, para acessar o décimo item é preciso percorrer todos os itens até ele. Abstraindo o algoritmo do container o programador consegue escolher o melhor container, de acordo com o padrão de uso.</il>
+
+<li><b>Algoritmos</b>: Funções templates que manipulam de alguma forma os containers, modificando seu próprios itens ou gerando cópias. Como dito, são feitos com o mínimo possível de conhecimento sobre o container que será utilizado, para que possa ser usado de forma genérica na maior quantidade possível de situações e usos. Já falamos, de forma simplificada, sobre abstração do tipo de dados na implementação de algoritmos, e falaremos nisso em detalhes depois.</b>
+</ul>
+
+<p>Um dos pontos chaves da STL é (ao contrário da orientação a objetos clássica) separar os dados dos algortimos que o manipulam. Dessa forma, um algortimo construído de forma genérica consegue manipular vários tipos de dados em diversos tipos de containers. Isso permite que você monte seu programa juntando as peças que melhor resolvem o seu problema, e elas continuam se encaixando mesmo depois de mudadas. Eu sei que essa explicação chega a ser ridiculamente teórica e abstrata, mas eu prometo que veremos bastante código usando STL daqui para frente. Considere essa parte como aquele primeiro capítulo do livro que você precisa ler novamente depois de ler o livro inteiro. :-)
+<p class="datetime">Em 10/07/2006 23:08&nbsp;-&nbsp;<a href="http://www.1bit.com.br/content.1bit/weblog/stl_tutorial_1#comments">Comentários (2)</a></p><h5><a class="weblog_link" href="content.1bit/weblog/palestra_memoria_maua">Material da palestra ministrada na Semana de Engenharia Mauá</a></h5><p>Como prometido aos presentes, estou disponibilizando o material usado na palesta "Por dentro do Windows: Gerenciamento de Memória", ministrada na Semana de Engenharia do Instituto Mauá de Tecnologia:</p>
+<ul>
+<li><a href="http://www.1bit.com.br/downloads/por_dentro_do_windows_memoria.ppt">PPT usado na apresentação</a>.</li>
+<li><a href="http://www.sysinternals.com/Utilities/ProcessExplorer.html">Process Explorer</a>, usado para visualizar o uso da memória pelos programas. Ele pode ser baixado diretamente do site da SysInternals.</li>
+<li><a href="http://www.1bit.com.br/downloads/palestra_maua.zip">Fontes do projeto</a> (Visual C++ 2005) usado para gerar carga de trabalho sobre o Memory Manager e visualizar as modificações no WorkingSet usando o Process Explorer.</li>
+</ul>
+<p>Qualquer dúvida usem os comentários desse post ou o <a href="http://www.1bit.com.br/content.1bit/contact">formulário de contato</a>.</p><p class="datetime">Em 06/07/2006 20:27&nbsp;-&nbsp;<a href="http://www.1bit.com.br/content.1bit/weblog/palestra_memoria_maua#comments">Comentários (6)</a></p><h5><a class="weblog_link" href="content.1bit/weblog/vc2k5_features">Novos recursos da IDE do Visual C++ 2005</a></h5><p>Aos que ainda não sabem, a equipe do Visual C++ na Microsoft mantém o blog <a href="http://blogs.msdn.com/vcblog/default.aspx">"Visual C++ Team Blog"</a>. Um dos integrantes da equipe -cujo nome é impronunciável - escreveu <a href="http://blogs.msdn.com/vcblog/archive/2006/06/16/634546.aspx">um post muito bom sobre os novos recursos da IDE do Visual Studio 2005</a> para o Visual C++.</p>
+
+<p>O melhor de todos: <i>Intellisense Support for Makefile Projects</i>. Isso ajuda muito quem é obrigado a compilar por fora do Visual Studio, como é o caso de quem faz drivers. Para compilá-los é necessário usar a versão do Visual C++ que vem junto com o DDK. Além do compilador, você também é obrigado (existem gambia^H^H^H^H^H^H^H adaptações técnicas para fugir disso, mas...) a usar o <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/DevTest_g/hh/DevTest_g/Build_Use_63fc451f-8429-41a5-ad58-e410dd38f762.xml.asp">BUILD</a> para compilar, e dessa forma você não teria um projeto do Visual Studio.</p><p class="datetime">Em 19/06/2006 14:35&nbsp;-&nbsp;<a href="http://www.1bit.com.br/content.1bit/weblog/vc2k5_features#comments">Comentários (5)</a></p><h5><a class="weblog_link" href="content.1bit/weblog/stl_tutorial_0,75">Tutorial de STL, parte 3/4: Ainda templates</a></h5><p>Como prometido, nessa parte veremos como resolver o nosso problema de somar um número complexo e manter nosso código genérico.
+
+<p>Como dito na parte 1/2, temos basicamente duas soluções para esse problema. A primeira chama-se especialização de templates e é utilizada justamente em situações onde o template não consegue resolver o problema para todos os tipos de dados existentes. No nosso caso, o template de soma não é compatível com números complexos, já que precisamos somar a parte real e a parte imaginária separadamente. Para resolver esse problema criaremos uma especialização do template soma que contemple nosso complex_number:</p>
+
+<div class="code">
+<pre><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
+T soma(T x, T y)
+{
+  <span class="keyword">return</span> x + y;
+}
+
+<span class="keyword">struct</span> complex_number
+{
+  <span class="keyword">double</span> a;
+  <span class="keyword">double</span> b;
+};
+&nbsp;
+<span class="keyword">template</span> &lt;&gt;
+complex_number soma&lt;complex_number&gt;(complex_number x, complex_number y)
+{
+  complex_number c;
+  c.a = x.a + y.a;
+  c.b = x.b + y.b;
+  <span class="keyword">return</span> c;
+}
+<span class="keyword">int</span> _tmain(<span class="keyword">int</span> argc, _TCHAR* argv[])
+{
+  complex_number c1  = {10, 20}, c2  = {40, 30};
+  soma&lt;complex_number&gt;(c1, c2);
+&nbsp;
+  <span class="keyword">return</span> 0;
+}</pre>
+</div>
+
+<p>Nesse caso especializamos o template para tratar as particularidades do tipo complex_number. Note que a definição da especialização do template vem depois da definição da classe complex_number. Isso nos faz lembrar que essa especialização poderia ser fornecida juntamente com o header do complex_number, e não junto com o header do template soma. Dessa forma, quando você criar um tipo, você pode também fornecer junto com ele as especializações necessárias para que templates conhecidos usem o seu tipo.</p>
+
+<p>Outra solução - melhor na minha opinião - é fazer com que o nosso tipo complex_number suporte o operador de soma, para que ele possa ser somado como qualquer outro número. Essa solução é melhor por tentar equalizar o tipo complex_number com os demais tipos, fazendo com que ele possa ser usado por mais funções template sem precisar especializar todas elas. Nosso código ficaria dessa forma:
+
+<div class="code">
+<pre>
+<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
+T soma(T x, T y)
+{
+  <span class="keyword">return</span> x + y;
+}
+&nbsp;
+<span class="keyword">struct</span> complex_number
+{
+  <span class="keyword">double</span> a;
+  <span class="keyword">double</span> b;
+  complex_number <span class="keyword">operator</span>+(<span class="keyword">const</span> complex_number&amp; c)
+  {
+    complex_number result;
+
+    result.a = a + c.a;
+    result.b = b + c.b;
+&nbsp;
+    <span class="keyword">return</span> result;
+  }
+};
+&nbsp;
+<span class="keyword">int</span> _tmain(<span class="keyword">int</span> argc, _TCHAR* argv[])
+{
+  complex_number c1  = {10, 20}, c2  = {40, 30}, c3;
+
+  c3 = soma(c1, c2);
+&nbsp;
+  ASSERT(c3.a == 50 &amp;&amp; c3.b == 50);
+&nbsp;
+  <span class="keyword">return</span> 0;
+}
+</pre>
+</div>
+
+<p>Nesse caso o template de soma continua exatamente o mesmo, o tipo deve suportar ser usado pelo template, e não o contrário. É importante saber esse conceito, pois ele é bastante usado pela STL. Muitos templates da STL esperam que o tipo usando suporte determinados operadores ou que tenham determinados typedefs para funcionar. Isso é o que se chama de polimosfismo em tempo de compilação: ao invés deu usar interfaces (classes abstratas) para garantir a interface (forma como um tipo se apresenta) dos objetos, isso tudo é feito somente tendo os nomes iguais. Como os templates são resolvidos em tempo de compilação, essa verificação é segura e garante que tudo funcionará perfeitamente em tempo de execução. Isso também é uma limitação, já que a resolução só pode ser feita em tempo de compilação - ao contrário do dynamic_cast.</p>
+
+<p>Especialização de templates é um tópico interessante, já que é o recurso que possibilita a técnica arcana de metaprogramação, que nos permite fazer trechos dos programa que rodam em tempo de compilação. O exemplo clássico de metaprogramação usando templates é o cálculo do fatorial em tempo de compilação. Primeiro veja a implementação comum de fatorial, que é o exemplo clássico de uma função recursiva:</p>
+
+<div class="code">
+<pre>
+<span class="keyword">int</span> fatorial(<span class="keyword">int</span> n)
+{
+  <span class="keyword">if</span>(n == 0)
+    <span class="keyword">return</span> 1;
+  <span class="keyword">else</span>
+    <span class="keyword">return</span> n * fatorial(n - 1);
+}
+</pre>
+</div>
+
+<p>Note que a recursão termina quando o valor - que diminuia a cada recursão - chega a zero. Podemos usar o mesmo conceito usando especialização de templates, já que uma especialização funciona como um if para aquela condição específica:</p>
+
+<div class="code">
+<pre>
+<span class="keyword">int</span> fatorial(<span class="keyword">int</span> n)
+{
+  <span class="keyword">if</span>(n == 0)
+    <span class="keyword">return</span> 1;
+  <span class="keyword">else</span>
+    <span class="keyword">return</span> n * fatorial(n - 1);
+}
+
+&nbsp;
+<span class="comment">// template de fatorial
+</span><span class="keyword">template</span>&lt;<span class="keyword">int</span> n&gt;
+<span class="keyword">struct</span> fatorial_t
+{
+  <span class="keyword">enum</span>
+  {
+    value = n * fatorial_t&lt;n - 1&gt;::value
+  };
+};
+&nbsp;
+
+<span class="comment">// especialização para quando chegar a zero
+</span><span class="keyword">template</span>&lt;&gt;
+<span class="keyword">struct</span> fatorial_t&lt;0&gt;
+{
+  <span class="keyword">enum</span>
+  {
+    value = 1
+  };
+};
+&nbsp;
+<span class="keyword">int</span> _tmain(<span class="keyword">int</span> argc, _TCHAR* argv[])
+{
+  <span class="keyword">int</span> f1 = fatorial(1);
+  <span class="keyword">int</span> f2 = fatorial(2);
+  <span class="keyword">int</span> f3 = fatorial(3);
+  <span class="keyword">int</span> f4 = fatorial(4);
+
+&nbsp;
+  f1 = fatorial_t&lt;1&gt;::value;
+  f2 = fatorial_t&lt;2&gt;::value;
+  f3 = fatorial_t&lt;3&gt;::value;
+  f4 = fatorial_t&lt;4&gt;::value;
+&nbsp;
+  <span class="keyword">return</span> 0;
+}
+</pre>
+</div>
+
+<p>A diferença entre fatorial e fatorial_t é que o primeiro é calculado em tempo de execução, e o segundo em tempo de compilação. Quando o programa está rodando, o valor de template_t<>::value é uma constante. E antes que você pergunte, não é necessário saber metaprogramação com templates para usar STL, só usei o tópico como um exemplo das utilidades da especialização de templates - essa sim, usada pela STL.</p>
+
+<p>Acho que já vimos o que precisamos para entender a STL, no próximo post chegaremos onde realmente interessa.</p>
+<p class="datetime">Em 15/06/2006 14:52&nbsp;-&nbsp;<a href="http://www.1bit.com.br/content.1bit/weblog/stl_tutorial_0,75#comments">Comentários (0)</a></p><h5><a class="weblog_link" href="content.1bit/weblog/stl_tutorial_0,5">Tutorial de STL, parte 1/2: Mais templates</a></h5><p>No primeiro post da série vimos qual a função básica dos templates: transformar os tipos de dados em parâmetros, assim como já são os valores. Isso permite que você faça uma função - na realidade um template de função - que consiga tratar vários tipos de dados e continuar tipada. Essa é a base do <a href="http://en.wikipedia.org/wiki/Generic_programming">"generic programming"</a>, separar o algoritmo do tipo de dado. Dessa forma, qualquer tipo de dado que tenha suporte aos requisitos exigidos para o funcionamento do algoritmo pode ser usado. Esses requisitos em relação a um tipo de dado tem o nome de "concept", e será nativamente suportado pela linguagem no C++0x. Veremos mais sobre isso em breve.</p>
+
+<p>No nosso primeiro exemplo resolvemos o problema de duplicação do código da função, mas não resolvemos o problema do código que chama a função, pois só trocamos a sintaxe <i>soma_int</i> para sintaxe <i>soma&lt;int&gt;</i>. O que eu não contei na primeira parte é que o compilador C++ faz a resolução automática de tipos para os parâmetros, sempre que possível. Nosso código pode ser modificado para:</p>
+
+<div class="code">
+<pre>
+<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
+T soma(T x, T y)
+{
+&nbsp;&nbsp;<span class="keyword">return</span> x + y;
+}
+
+<span class="keyword">int</span> main()
+{
+&nbsp;&nbsp;soma(2,2);
+&nbsp;&nbsp;soma(2.99f, 2.99f);
+&nbsp;&nbsp;soma(5.9999, 6.9999);
+&nbsp;&nbsp;soma(<span class="string">'2'</span>, <span class="string">'2'</span>); <span class="code_comment">// não, o resultado não será '4'...</span>
+
+&nbsp;&nbsp;<span class="keyword">return</span> 0;
+}
+</pre>
+</div>
+
+<p>Nesse caso específico, o compilador consegue saber com certeza qual o tipo de dado envolvido nas chamadas. Dessa forma podemos deixar o trabalho por conta dele. Mas existem alguns casos que não são claros:</p>
+
+<div class="code">
+<pre>
+&nbsp;&nbsp;<span class="keyword">int</span> i = 10;
+&nbsp;&nbsp;<span class="keyword">float</span> f = 10.2;
+
+&nbsp;&nbsp;<span class="keyword">double</span> d = soma(i,f);
+
+------ Build started: Project: 1bit_stl, Configuration: Debug Win32 ------
+
+Compiling...
+1bit_stl.cpp
+1bit_stl.cpp(115) : error C2782: 'T soma(T,T)' : template parameter 'T' is ambiguous
+        1bit_stl.cpp(96) : see declaration of 'soma'
+        could be 'float'
+        or       'int'
+</pre>
+</div>
+
+<p>Oops. Sabemos que o compilador poderia ser bonzinho e promover os dois parâmetros para double, fazer a conta, e retornar o resultado. Sim, mas lembre-se da filosofia C++: você só paga por aquilo que você pedir. Nos primeiros casos o compilador fez a dedução porque era absolutamente óbvio, nesse caso não é. Conversões implícitas podem ser uma praga a te perseguir, e o compilador C++ te livra disso exigindo que você diga exatamente o que você quer.</p>
+
+<p>Outra coisa que podemos notar nesse exemplo: não existe sobrecarga de retorno de função. O fato de colocarmos o retorno da função em uma variável double não mudou em nada o comportamento da resolução de tipo. Em C++ você não pode fazer sobrecarga de função mudando somente o tipo de retorno. E esse nosso template nada mais é do que uma função vitaminada, as regras continuam valendo. Como nesse caso precisamos ser explícitos, vale a sintaxe normal:</p>
+
+<div class="code">
+<pre>
+&nbsp;&nbsp;<span class="keyword">int</span> i = 10;
+&nbsp;&nbsp;<span class="keyword">float</span> f = 10.2;
+
+&nbsp;&nbsp;<span class="keyword">double</span> d = soma&lt;<span class="keyword">double</span>&gt;(i,f);
+</pre>
+</div>
+
+<p>Dessa forma o compilador faz a promoção automática dos tipos int e float para double, o que não nos causa nenhum problema de perda de dados.</p>
+
+<p>No começo do post eu falei sobre abstrair o algoritmo do tipo de dados, e é o que fizemos com nossa função <i>soma</i>. O conceito é simples: independente do tipo do dado, os passos necessários para se fazer uma soma são os mesmos. O que muda é a forma como a soma que é feita, que é uma característica intrínseca do tipo. Esse mesmo conceito se aplica para algoritmos mais complicados, como os de ordenação. Eles comparam os valores entre si, e a comparação de valores é diferente para cada tipo de dado. Mesmo assim, o algoritmo de ordenação continua o mesmo.</p>
+
+<p>Um exemplo clássico que vou usar para ilustrar isso é uma classe para representar um número complexo. Um número complexo é representado com ai + b, sendo a e b dois números reais, e i a parte imaginária (sendo i ao quadrado igual a -1 e tendo seus <a href="http://en.wikipedia.org/wiki/Complex_number">detalhes explicados na Wikipedia como de costume</a>). As operações de soma e subtração de um número complexo são feitas da seguinte forma:</p>
+
+<p><img src="http://upload.wikimedia.org/math/c/f/4/cf497e92ab58cd0ff1ceede807acc6e4.png"/></p>
+<p><img src="http://upload.wikimedia.org/math/7/3/6/736e57d87c30b9e704315644c5508044.png"/></p>
+
+<p>Esses algoritmos acima não se encaixam com o nosso template de soma:</p>
+
+<div class="code">
+<pre>
+  complex_number c1  = {10, 20}, c2  = {40, 30};
+  soma&lt;complex_number&gt;(c1, c2);
+
+------ Build started: Project: 1bit_stl, Configuration: Debug Win32 ------
+
+Compiling...
+1bit_stl.cpp
+1bit_stl.cpp(98) : error C2676: binary '+' : 'complex_number' does not define this operator 
+  or a conversion to a type acceptable to the predefined operator
+        1bit_stl.cpp(128) : see reference to function template 
+  instantiation 'T soma<complex_number>(T,T)' being compiled
+        with
+        [
+            T=complex_number
+        ]
+
+Build Time 0:00
+1bit_stl - 1 error(s), 0 warning(s)
+
+---------------------- Done ----------------------
+
+    Build: 0 succeeded, 1 failed, 0 skipped
+</pre>
+</div>
+
+<p>Note que os passos para nosso complicadíssimo algoritmo ainda são os mesmos - passo único: efetuar a operação de soma - o que muda é forma como a soma é efetuada. Para ficar mais claro, imagine uma equação quadrada:</p>
+
+<p><img src="http://upload.wikimedia.org/math/7/7/6/7765cbab6e018c70234cfa2f82348a6c.png"/></p>
+
+<p>Nesse caso a soma é só um passo do algortimo para se chegar ao resultado. A forma como a soma é feita é diferente para números inteiros (int) ou reais (double), mas a ordem dessa soma dentro dos passos do algoritmo ainda é a mesma.</p>
+
+<p>Voltando ao nosso super algoritmo de soma, precisamos de um tratamento diferenciado para somar números complexos. Veremos as várias formas de resolver isso no próximo post.</p><p class="datetime">Em 30/05/2006 11:06&nbsp;-&nbsp;<a href="http://www.1bit.com.br/content.1bit/weblog/stl_tutorial_0,5#comments">Comentários (0)</a></p><h5><a class="weblog_link" href="content.1bit/weblog/remote_debug_vc71">Como fazer debug remoto com o Visual C++ 7.1</a></h5><p>Primeiro é necessário habilitar o servidor de debug na máquina remota:</p>
+<ul>
+<li><s>Reze um pouco...</s></li>
+<li>Compartilhe a pasta <b>"C:\Program Files\Microsoft Visual Studio .NET 2003\Common7\Packages\Debugger"</b> que está na sua máquina. Nesse exemplo, vou chamar a pasta compartilhada de <b>vc7debug</b>.</li>
+<li>Baixe o <a href="http://www.sysinternals.com/Utilities/PsExec.html">PsExec</a> do site do SysInternals. Esse aplicativo permite que você execute um programa em outra máquina pela rede, mesmo sem ter acesso via Terminal Sevices - contanto que você tenha permissões na máquina remota, é claro.</li>
+<li>Execute o msvcmon.exe na máquina remota, usando o psexec. Rode a seguinte linha de comando NA SUA MÁQUINA:<br>
+<b>psexec \\MAQUINA_REMOTA -u DOMINIO\SEU_USUARIO \\SUA_MAQUINA\vc7debug\msvcmon.exe -tcpip -anyuser -timeout -1</b></li>
+<li>O psexec vai pedir sua senha de rede, digite-a.</li>
+</ul>
+
+<p>Uma das formas de se fazer debug é dar um attach em um processo que já está rodando. Essa é a forma mais simples, e funciona assim:
+
+<ul>
+<li>No Visual Studio, menu <i>Tools &gt;&gt; Debug Processes...</i></li>
+<li>Em <i>Transport</i> coloque <b>TCP/IP</b>, e em <i>Name</i> coloque o nome da máquina remota.<li>
+<li>Clique em <i>Refresh</i> e a lista de processos da máquina remota deve aparecer.</li>
+<li>Pronto. Agora é só selecionar um e clicar em <i>Attach</i>.
+</ul>
+
+<p>A outra forma - a mais complicada - é configurar o Visual Studio para que toda vez que você fizer o debug normal (F5, F10) ele conecte na máquina remota e execute o programa lá. Faça assim:</p>
+
+
+<ul>
+<li>Antes de começar configurar o Visual Studio, compartilhe a pasta onde fica o executável na sua máquina (pasta Debug geralmente). Nesse exemplo vou compartilhar como <b>bin_debug</b>.</li>
+<li>Abra as propriedades do projeto</li>
+<li>No TreeView da esquerda escolha <i>Debugging</i>.</li>
+<li>Em <i>Working Directory</i> configure o diretório de trabalho <b>da máquina remota</b>.</li>
+<li>Em <i>Remote Settings &gt;&gt; Connection</i> escolha <b>Remote via TCP/IP</b>.</li>
+<li>Em <i>Remote Settings &gt;&gt; Remote Machine</i> coloque o nome da máquina remota.</li>
+<li>Em <i>Remote Settings &gt;&gt; Remote Command</i>, coloque <b>\\SUA_MAQUINA\bin_debug\SEU_EXECUTAVEL.exe</b>.</li>
+<li>Clique em OK, e reze um pouco. Depois disso aperte F5 ou F10 e veja se o debug começa.</li>
+</ul>
+
+<p>O problema mais comum nesse tipo de configuração é relativo a permissões. Se o Visual Studio reclamar que não consegue abrir o executável, rode o <a href="http://www.sysinternals.com/utilities/filemon.html">filemon</a> NA MÁQUINA REMOTA e veja qual o motivo da falha.</p>
+<p>Com essas configurações que eu passei, o msvcmon (servidor de debug) aceitará conexão de qualquer usuário, e isso pode ser um problema. Se precisar de mais segurança, veja os parâmetros do msvcmon (rode msvcmon /?) e configure a conexão via Named Pipes ao invés de TCP/IP.</p>
+
+<p><b>ACHO</b> que para o Visual C++ 8 os passos são os mesmos...</p><p class="datetime">Em 17/05/2006 16:08&nbsp;-&nbsp;<a href="http://www.1bit.com.br/content.1bit/weblog/remote_debug_vc71#comments">Comentários (1)</a></p><h5><a class="weblog_link" href="content.1bit/weblog/ddknews">Desenvolvedores de drivers: uma notícia boa e uma notícia ruim</a></h5><p><a href="http://kernelmustard.com/2006/02/25/5308-wdk-initial-testing/">Notícia maravilhosa</a>: O <a href="http://www.microsoft.com/whdc/devtools/ifskit/default.mspx">IFS Kit</a> - necessário para desenvolver drivers de file system, incluindo filtros - fará parte do DDK. Agora ninguém precisa mais pagar US$ 109,00 por ele (fiquei surpreso, o preço era US$ 800,00 até alguns meses atrás). Meu próximo filtro de file system vai sair beeeem mais barato. :-)</p>
+
+<p><a href="http://www.osronline.com/article.cfm?id=435">Notícia péssima</a>: Só drivers assinados com um certificado comprado da Verisign que custa US$ 500,00 por ano rodarão no Windows Vista x64. Não se esqueça que só empresas conseguem um certificado autenticado pela Verisign. Pensando bem, não vai ser tããão mais barato. :-( </p>
+<p class="datetime">Em 16/05/2006 18:01&nbsp;-&nbsp;<a href="http://www.1bit.com.br/content.1bit/weblog/ddknews#comments">Comentários (19)</a></p><h5><a class="weblog_link" href="content.1bit/weblog/stl_tutorial_0">Tutorial de STL, parte 0: Templates</a></h5><style type="text/css">
+.code_comment { color: rgb(0,128,0) } 
+.keyword { color: rgb(0,0,255) } 
+.string { color: rgb(255,0,0) } 
+</style>
+
+<p>Eu já vinha pensando a bastante tempo em escrever uma série sobre STL, e finalmente resolvi deixar de ser preguiçoso e fazê-lo :-). A STL é um dos recursos mais importantes do C++ - na minha opinião é o mais importante - e mesmo assim muitos programadores não conhecem. Mas como a STL é baseada em templates, vou falar primeiro sobre templates para depois começar a falar da STL.</p>
+
+<p>A funcionalidade de templates (algo como "gabarito" ou "modelo" em português) foi criada basicamente para resolver o problema de funções que precisam tratar diversos tipos de dados. Vamos começar pelo exemplo mais simples possível, uma função que soma dois valores. Precisamos de uma função <i>soma</i> que consiga operar sobre diversos tipos de dados. Usando linguagem C, a solução mais simples possível é:</p>
+
+<div class="code">
+<pre>
+<span class="keyword">int</span> soma_int(<span class="keyword">int</span> x, <span class="keyword">int</span> y)
+{
+&nbsp;&nbsp;<span class="keyword">return</span> x + y;
+}
+
+<span class="keyword">float</span> soma_float(<span class="keyword">float</span> x, <span class="keyword">float</span> y)
+{
+&nbsp;&nbsp;<span class="keyword">return</span> x + y;
+}
+
+<span class="keyword">double</span> soma_double(<span class="keyword">double</span> x, <span class="keyword">double</span> y)
+{
+&nbsp;&nbsp;<span class="keyword">return</span> x + y;
+}
+
+<span class="keyword">char</span> soma_char(<span class="keyword">char</span> x, <span class="keyword">char</span> y)
+{
+&nbsp;&nbsp;<span class="keyword">return</span> x + y;
+}
+
+<span class="code_comment">
+/* e assim sucessivamente...
+
+   Essas funções estão em C, que não suporta sobrecarga de funções
+   (várias funções com mesmo nome, mas com parâmetros diferentes)
+   Isso facilitaria o código que usa as funções (já que todos chamariam
+   a função "soma"), mas não resolveria o problema do código duplicado.
+*/</span>
+
+<span class="keyword">int</span> main()
+{
+&nbsp;&nbsp;
+&nbsp;&nbsp;soma_int(2,2);
+&nbsp;&nbsp;soma_float(2.99f, 2.99f);
+&nbsp;&nbsp;soma_double(5.9999, 6.9999);
+&nbsp;&nbsp;soma_char(<span class="string">'2'</span>, <span class="string">'2'</span>);
+
+&nbsp;&nbsp;<span class="keyword">return</span> 0;
+}
+</pre>
+</div>
+
+<p>Isso é muito trabalhoso (ok, você pode usar regex e gerar tudo isso, mas...), além do que você precisaria criar novas funções para cada novo tipo de dado. Além disso, uma modificação no algoritmo tornaria a manutenção um inferno para qualquer coisa mais complicada do que a soma de dois valores. O mais importante a se notar nesse trecho de código é que, apesar da declaração das funções serem diferentes, o código é exatamente o mesmo.</p>
+
+<p>Outra possibilidade (leia-se gambiarra) para quem usa C e gosta de fortes emoções, seria fazer uma função de soma que suportasse vários tipo de dados, usando ponteiro void para passar os parâmetros:
+
+<div class="code">
+<pre>
+<span class="keyword">#define</span> MAIOR_TIPO_SUPORTADO <span class="keyword">__int64</span>
+
+<span class="keyword">void</span>* soma_emocionante(<span class="keyword">void</span>* px, <span class="keyword">void</span>* py, <span class="keyword">char</span> tipo)
+{
+&nbsp;&nbsp;<span class="keyword">static</span> <span class="keyword">char</span> buffer[<span class="keyword">sizeof</span>(MAIOR_TIPO_SUPORTADO)];
+
+&nbsp;&nbsp;<span class="keyword">if</span>(tipo == <span class="string">'i'</span>)
+&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;*((<span class="keyword">int</span>*)buffer) = *((<span class="keyword">int</span>*)px) + *((<span class="keyword">int</span>*)py);
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> buffer;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;<span class="keyword">else</span> <span class="keyword">if</span>(tipo == <span class="string">'f'</span>)
+&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;*((<span class="keyword">float</span>*)buffer) = *((<span class="keyword">float</span>*)px) + *((<span class="keyword">float</span>*)py);
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> buffer;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;<span class="keyword">else</span> <span class="keyword">if</span>(tipo == <span class="string">'d'</span>)
+&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;*((<span class="keyword">double</span>*)buffer) = *((<span class="keyword">double</span>*)px) + *((<span class="keyword">double</span>*)py);
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> buffer;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;<span class="code_comment">/* se n&atilde;o suportamos o tipo, retornamos NULL */</span>
+&nbsp;&nbsp;<span class="keyword">return</span> NULL;
+}
+
+<span class="keyword">int</span> main()
+{
+&nbsp;&nbsp;<span class="keyword">int</span> a = 10, b = 20, c;
+&nbsp;&nbsp;c = *(<span class="keyword">int</span>*)soma_emocionante(&amp;a, &amp;b, <span class="string">'i'</span>);
+}
+</pre>
+</div>
+
+<p>Eu poderia encher laudas e laudas de texto apontando os defeitos desse código. Não suporta multithread (viu a variável estática?), não resolve o problema do código duplicado (só reduz o número de funções, o que é uma vantagem discutível nesse caso), você só consegue somar variáveis, é fácil de cometer um erro e tomar um GPF, etc, etc. Quanto mais formos tentando resolver esse problema usando os recursos normais do C e do C++ pré padrão ISO (quando os templates não existiam), mais o nosso código vai parecer uma grande gambiarra.</p>
+
+<p>É exatamente esse tipo de problema que os templates resolvem, eles geram todo esse código para você automaticamente, em tempo de compilação, sem remendos, sem void* e sem gambiarras. Vamos ver como ficaria esse código usando templates (agora já em C++ ISO):</p>
+
+<div class="code">
+<pre>
+<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;
+T soma(T x, T y)
+{
+&nbsp;&nbsp;<span class="keyword">return</span> x + y;
+}
+
+
+<span class="keyword">int</span> main()
+{
+&nbsp;&nbsp;soma&lt;<span class="keyword">int</span>&gt;(2,2);
+&nbsp;&nbsp;soma&lt;<span class="keyword">float</span>&gt;(2.99f, 2.99f);
+&nbsp;&nbsp;soma&lt;<span class="keyword">double</span>&gt;(5.9999, 6.9999);
+&nbsp;&nbsp;soma&lt;<span class="keyword">char</span>&gt;(<span class="string">'2'</span>, <span class="string">'2'</span>);
+
+&nbsp;&nbsp;<span class="keyword">return</span> 0;
+}
+</pre>
+</div>
+
+<p>Quando compilamos esse código, o compilador gera automaticamente o código para a função, substituindo o parâmetro T pelo tipo de dado passado como parâmetro para o template. Isso simplifica bastante o corpo da função, mas não facilita muito o uso, já que só trocamos a sintaxe <i>soma_TIPO</i> para <i>soma&lt;TIPO&gt;</i>. Mas veremos como os templates resolvem esse problema nos próximos posts.</p><p class="datetime">Em 09/05/2006 11:04&nbsp;-&nbsp;<a href="http://www.1bit.com.br/content.1bit/weblog/stl_tutorial_0#comments">Comentários (16)</a></p><h5><a class="weblog_link" href="content.1bit/weblog/5lies">As 5 mentiras</a></h5><p>Você se lembra dos <a href="http://www.1bit.com.br/content.1bit/weblog/contos_empresas">3 contos que as empresas contam</a> na hora de contratar? Agora que você já foi contratado, é bom que conheça também as <a href="http://www.fastcompany.com/magazine/10/5lies.html">5 mentiras mais comuns</a>.<p class="datetime">Em 04/05/2006 12:22&nbsp;-&nbsp;<a href="http://www.1bit.com.br/content.1bit/weblog/5lies#comments">Comentários (2)</a></p><br><a href="http://www.1bit.com.br/content.1bit/weblog?before=1146774163">Posts anteriores &gt;&gt;</a><br>
+<p>Veja a <a href="http://www.1bit.com.br/content.1bit/weblog_archive"> lista de todos os posts.</a></p>
+
+
+
+</div>
+          </td>
+        </tr>
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png" alt="rebarba"></td>
+              <td align="right"><img src="../../images/rebarba4.png" alt="rebarba"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right" style="color:#999999;">
+::::
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>

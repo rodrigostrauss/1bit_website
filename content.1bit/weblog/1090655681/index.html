@@ -1,0 +1,200 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+<META NAME="keywords" CONTENT="Rodrigo Strauss, programador, programação, Visual C++, C#, Windbg, Device Driver">
+<META NAME="description" CONTENT="Artigos sobre programação escritos por Rodrigo Strauss">
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>Tudo muda, o tempo todo  ::::  Rodrigo Strauss :: 1bit</title>
+    <link href="../../1bit.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
+
+  </head>
+  <body bottommargin="0" leftmargin="0" topmargin="0" rightmargin="0">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="../../images/logo2.png" border="0" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.1bit/links">Links</a> 
+			<span class="menusep">|</span>
+
+		    <a class="top_menu_link" href="content.1bit/contact">Contato</a> 
+			<span class="menusep">|</span>
+            
+            <a class="top_menu_link" href="content.1bit/about">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <a href="../.." style="text-decoration:none;">
+  <h2>Falatório</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="../.." style="text-decoration:none;">
+  <h2>Escovando 1 bit</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="content.1bit/weblog" style="text-decoration:none;">
+  <h2>WebLog</h2>
+ </a>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<table width="100%" border="0">
+<tr>
+<td>
+<h4><a href="content.1bit/weblog" style="text-decoration:none;">Rodrigo Strauss :::: WebLog</a></h4>
+</td>
+
+<td align="right">
+<a style="text-decoration:none;" href="content.1bit/weblog_archive">Arquivo</a><br><br>
+<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../images/xml.gif" border="0"/></a>
+
+</td>
+
+</tr>
+</table>
+<h5>Tudo muda, o tempo todo</h5><p>Eu estava lendo o <a href="http://www.amazon.com/exec/obidos/tg/detail/-/0735618038/002-2356291-3612859?v=glance">Programming the Microsoft Windows Driver Model</a>, do Walter Oney para tirar umas d&uacute;vidas sobre <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/kmarch/hh/kmarch/IRPs_ac1b8c23-bbc5-4d81-bbdd-255977d3b85c.xml.asp">IRPs</a>, e acabei abrindo o livro na parte que ele explica <a href="http://www.microsoft.com/msj/0197/exception/exception.aspx">como funcionam as exce&ccedil;&otilde;es</a> em kernel mode. Ele tamb&eacute;m falava sobre o que acontece quando uma exce&ccedil;&atilde;o &eacute; disparada e como usar blocos de __try/__except e __try/__finally para tratar uma exce&ccedil;&atilde;o.</p>
+
+    <p>Nessa parte ele explica que quando uma exce&ccedil;&atilde;o &eacute; disparada, o kernel sai procurando na pilha algu&eacute;m que a trate. Depois ele fala que isso pode gerar problemas de performance, j&aacute; que &eacute; necess&aacute;rio percorrer toda a pilha atr&aacute;s de alguma fun&ccedil;&atilde;o que lide com essa exce&ccedil;&atilde;o. Eu tamb&eacute;m me lembro que muita gente n&atilde;o usa as exce&ccedil;&otilde;es em C++ por causa de performance (fora os <a href="http://www.joelonsoftware.com/items/2003/10/13.html">motivos apontados pelo Joel</a>).</p>
+
+    <p>Performance, performance, performance. Hoje em dia, muitas dessas pessoas que falavam isso est&atilde;o usando .NET, que tem um problema de performance muito maior, j&aacute; que a runtime roda MUITO c&oacute;digo al&eacute;m do seu. (Isso me lembra de programadores C reclamando que o compilador C++ gera c&oacute;digo que eles n&atilde;o pediram, como o do copy constructor). &Eacute; engra&ccedil;ado como a no&ccedil;&atilde;o de prioridade performance/facilidade muda com o tempo. O jeito &eacute; <a href="http://www.1bit.com.br/nao_ouca_ninguem.html">n&atilde;o dar muito ouvidos</a> e testar qual metodologia e linguagem que melhor resolve o seu problema.</p><br><p class="datetime">Em 24/07/2004 00:54</p></div>
+          </td>
+        </tr>
+
+
+<tr>
+ <td class="topmenu"></td>
+ <td>
+  <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+   <tr>
+    <td><img src="../../images/rebarba3.png"></td>
+    <td align="right"><img src="../../images/rebarba4.png"></td>
+   </tr>
+  </table>
+ </td>
+</tr>
+
+<tr><td class="topmenu">&nbsp;</td><td class="topmenu">&nbsp;</td></tr>
+<tr><td class="topmenu">&nbsp;</td><td>
+<table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+</td>
+</tr>
+ <tr><td class="topmenu">&nbsp;</td><td >
+<div class="content">
+<a name="comments"></a><h5>Comentários</h5>
+<h5>Algo a dizer?</h5>
+<form name="comment" method="POST" action="/comment.html">
+<input type="hidden" name="article" value="weblog/1090655681"/>
+
+Nome:<br/>
+<input type="text" name="name" style="width: 250px;"/><br/>
+<br/>
+
+Site:<br/>
+<input type="text" name="link" style="width: 250px;" /><br/>
+<br/>
+
+E-mail:<br/>
+<input type="text" name="email" style="width: 250px;" />
+<br/><br/>
+
+<input type="checkbox" name="hideemail"/>&nbsp;Não mostre meu e-mail no site, eu tenho medo de spam...
+<br/><br/>
+
+Comentário<br/>
+<textarea style="WIDTH: 300px; HEIGHT: 150px" name="comment" rows="9" cols="35"></textarea><br/>
+<br/>
+<input type="submit" value="Dizer"/>
+
+</form>
+
+</div>
+
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png"></td>
+              <td align="right"><img src="../../images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

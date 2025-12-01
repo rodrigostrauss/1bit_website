@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>A otimização do Visual C++ faz toda a diferença  ::::  Rodrigo Strauss :: www.1bit.com.br</title>
+    <link href="../../1bit.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
+<!-- google analytics -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-75310-1";
+urchinTracker();
+</script>
+<!-- google analytics end -->
+
+  </head>
+  <body style="margin:0px 0px 0px 0px" bgcolor="#FFFFFF">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="../../images/logo_novo_2.png" border="0" alt="logo" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.1bit/contact">Contato</a> 
+			<span class="menusep">|</span>
+            
+            <a class="top_menu_link" href="content.1bit/about">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png" alt="rebarba"></td>
+              <td align="right"><img src="../../images/rebarba2.png" alt="rebarba"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <h2><a href="../../#artigos" style="text-decoration:none;">Artigos</a></h2>
+</div>
+
+<div class="left_menu_section">
+ <h2><a href="content.1bit/weblog" style="text-decoration:none;">Blog</a></h2>
+</div>
+
+<div class="left_menu_section">
+ <h2><a href="content.1bit/opensource" style="text-decoration:none;">Open Source</a></h2>
+</div>
+
+<!-- 
+<div class="left_menu_section">
+ <h2><a href="content.1bit/aulas" style="text-decoration:none;">Aulas online (ou nÃ£o) </a></h2>
+</div>
+-->
+
+<br>
+
+<!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com.br/custom" target="_top">
+<table border="0" bgcolor="#eeeeee">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<br/>
+<input type="hidden" name="domains" value="www.1bit.com.br"></input>
+<label for="sbi" style="display: none">Digite os termos da sua pesquisa</label>
+<input type="text" name="q" size="23" maxlength="255" value="" id="sbi"></input>
+</td></tr>
+<tr>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" id="ss0"></input>
+<label for="ss0" title="Pesquisar na web"><font size="-2" color="black">Web</font></label></td>
+<td>
+<input type="radio" name="sitesearch" value="www.1bit.com.br" checked id="ss1"></input>
+<label for="ss1" title="Pesquisar www.1bit.com.br"><font size="-2" color="black">www.1bit.com.br</font></label></td>
+</tr>
+</table>
+<label for="sbb" style="display: none">Enviar formulÃ¡rio de pesquisa</label>
+<input type="submit" name="sa" value="Pesquisar" id="sbb"></input>
+<input type="hidden" name="client" value="pub-2589539519655496"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#0066CC;GL:1;DIV:#999999;VLC:336633;AH:center;BGC:FFFFFF;LBGC:FFFFFF;ALC:0066CC;LC:0066CC;T:000000;GFNT:666666;GIMP:666666;LH:50;LW:120;L:http://www.1bit.com.br/images/logo_novo_2.png;S:http://;FORID:1"></input>
+<input type="hidden" name="hl" value="pt"></input>
+</td></tr></table>
+</form>
+<!-- SiteSearch Google -->
+<br>
+
+<br>
+<br>
+<center>
+
+<a href="http://www.twitter.com/rodrigostrauss"><img src="http://twitter-badges.s3.amazonaws.com/follow_me-b.png" alt="Follow rodrigostrauss on Twitter"/></a>
+<br><br><br>
+
+<!--
+<a href="http://whos.amung.us/show/xopqoakh"><img src="http://whos.amung.us/cwidget/xopqoakh/fffffff6915a.png" alt="page counter" width="81" height="29" border="0" /></a>
+-->
+
+</center>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<h4><a href="content.1bit/weblog" style="text-decoration:none;">Rodrigo Strauss :: Blog</a></h4>
+<table border="0">
+<tr>
+<!-- 
+<td width="60">
+
+<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../images/xml.gif" border="0"/></a>
+</td>
+-->
+
+<td>
+
+<a href='http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Fwww.1bit.com.br%2Fweblog_rss.1bit'  target='blank'><img id='feedlyFollow' src='http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png' alt='follow us in feedly' width='66' height='20'></a>
+
+</td>
+
+<td>
+
+<a href="https://twitter.com/rodrigostrauss" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @rodrigostrauss</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+</td>
+
+<td align="right">
+
+
+
+
+<!--
+
+<script type="text/javascript">
+google_ad_client = "pub-2589539519655496";
+google_ad_width = 468;
+google_ad_height = 15;
+google_ad_format = "468x15_0ads_al";
+google_ad_channel = "";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "FF5000";
+google_color_text = "000000";
+google_color_url = "FF5000";
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+-->
+
+
+
+
+
+
+</td>
+</tr>
+</table>
+<br>
+<h5>A otimização do Visual C++ faz toda a diferença</h5><p>Estou fazendo um parser de IDL para meu projeto de computação distribuída. Nessa primeira fase, eu interpreto o aquivo IDL e preencho várias estruturas que descrevem as interfaces e seus métodos.
+
+<p>Todo esse projeto está sendo feito em C++ padrão ISO, sem usar recursos específicos do Windows. Eu uso std::string em todo o programa, e o tratamento de erro é feito usando exceções. Para fazer o parse do arquivo eu usei o <a href="http://www.boost.org/libs/tokenizer/tokenizer.htm">boost::tokenizer</a>, que eu gostei muito. Você passa um std::string (ou dois iterators, início e fim) com o conteúdo do arquivo e ele te retorna um iterator forward-only para você percorrer os tokens do arquivo. Além disso você precisa informar quais serão os separadores de token, mas é só isso:</p>
+
+<div class="code">
+<pre>
+#include &lt;iostream&gt;
+#include &lt;boost/tokenizer.hpp&gt;
+
+#include &lt;string&gt;
+
+using namespace std;
+using namespace boost;
+
+
+int main()
+{
+   string str = "int main() { std::cout &lt;&lt; "1bit.com.br" &lt;&lt; std::endl; }";
+   tokenizer&lt;char_separator&lt;char&gt; &gt; Tokenizer(string());
+   
+   Tokenizer.assign(str,char_separator&lt;char&gt;("tr " , "n"*,;:{}/\[]()"));
+   
+   //
+   // percorre todos os tokens
+   //
+   for(tokenizer&lt;char_separator&lt;char&gt; &gt;::const_iterator i = Tokenizer.begin() ;
+       i != Tokenizer.end();
+       ++i)
+   {
+       cout &lt;&lt; *i &lt;&lt; "n";
+   }
+}
+</pre>
+</div>
+
+<p>Depois de algumas noites e alguns fins de semana programando, eu finalmente terminei uma versão usável do meu parser. No final, eu coloquei um contador de tempo para medir <a href="http://www.1bit.com.br/content.1bit/weblog/otmizacao_pessimizacao">se eu precisava ou não otimizar o código</a>, e para comparar com o MIDL da Microsoft. Esse é o resultado que eu obtive com a versão debug (Athlon XP 2600+, Visual C++ 7.1) :
+
+<div class="code">
+<pre>
+// versão debug
+Parsing import file oaidl.idl
+Parsing import file objidl.idl
+Parsing import file unknwn.idl
+Parsing import file wtypes.idl
+Parsing import file ocidl.idl
+Parsing import file oleidl.idl
+Parsing import file servprov.idl
+Parsing import file urlmon.idl
+Parsing import file msxml.idl
+Parsing import file spbase.idl
+<b>Finish (7625 ms)</b>
+</pre>
+</div>
+
+<p>Mais do que 7 segundos, muito lento. Foi então que eu resolvi mudar para versão Release e <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dv_vstechart/html/vctchoptimizingyourcodewithvisualc.asp">configurar as otimizações com carinho</a>. Veio então o resultado:</p>
+
+
+<div class="code">
+<pre>
+// versão release
+Parsing import file oaidl.idl
+Parsing import file objidl.idl
+Parsing import file unknwn.idl
+Parsing import file wtypes.idl
+Parsing import file ocidl.idl
+Parsing import file oleidl.idl
+Parsing import file servprov.idl
+Parsing import file urlmon.idl
+Parsing import file msxml.idl
+Parsing import file spbase.idl
+<b>Finish (265 ms)</b>
+</pre>
+</div>
+
+<p><b>28 vezes mais rápido!!</b> Todo o "overhead" de usar std::string desapareceu. Vendo o disassembly do código gerado, muitos dos métodos do std::string foram transformados em inline, e era como se eu estivesse usando string C nativa. Isso acaba com as desculpas de pessoas que não usam STL dizendo que ela deixa o programa mais lento. Além do overhead já ser pequeno pela simplicidade da implementação do STL, essa desculpa desaparece na versão Release. Mesmo porque, como o código da STL é simples, o compilador tem mais facilidade para otimizá-lo. Muito mais do que para otimizar a gambiarra complicada que você perderia dias e dias para fazer. </p>
+<!--
+<a href="http://pluralsight.com/blogs/hsutter/archive/2004/10/08/2723.aspx">Por isso</a> <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dv_vstechart/html/profileguidedoptimization.asp">que eu amo essa linguagem</a> <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vccore/html/vcgrfglwholeprogramoptimization.asp">e esse compilador</a>.</p>
+-->
+
+<!--<p><span style="xxfont-size:7pt">(Não esqueça que o código gerado pelo JIT do .NET é <a href="http://www.1bit.com.br/content.1bit/managed">bem parecido com o gerado pelo Visual C++ em configuração Debug</a>. Ah, e não esqueça também que o <a href="http://www.c-sharpcorner.com/Code/2002/Oct/StringBuilderComp.asp">overhead da System.String</a> é maior do que o do std::string)</span></p>-->
+
+<p>Vale lembrar que eu me esforcei para fazer o código da forma mais clara e bug-free possível. Nem acesso a arquivos foi otimizado, eu simplesmente li o arquivo inteiro em uma std::string usando <i>getline(f, str, f.widen(EOF))</i>. Eu ainda posso otimizar isso usando FileMapping e passando o ponteiro de início e fim como iterators para o boost::tokenizer.</p><br><p class="datetime">Em 26/07/2005 18:53, por  Rodrigo Strauss </p>
+</div>
+          </td>
+        </tr>
+
+
+
+<tr>
+<td class="topmenu"></td>
+<td>
+<br>
+<center>
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-2589539519655496";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text";
+google_ad_channel = "";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "FF5000";
+google_color_text = "000000";
+google_color_url = "FF5000";
+google_ui_features = "rc:6";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</center>
+</td>
+</tr>
+
+<tr>
+ <td class="topmenu"></td>
+ <td>
+  <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+   <tr>
+    <td><img src="../../images/rebarba3.png"></td>
+    <td align="right"><img src="../../images/rebarba4.png"></td>
+   </tr>
+  </table>
+ </td>
+</tr>
+
+<tr><td class="topmenu">&nbsp;</td><td class="topmenu">&nbsp;</td></tr>
+<tr><td class="topmenu">&nbsp;</td><td>
+<table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+</td>
+</tr>
+ <tr><td class="topmenu">&nbsp;</td>
+<td>
+
+<div class="content">
+<a name="comments"></a><h5>Comentários</h5><div class="post_comment">
+<a name="489"></a><B>Wanderley Caloni Jr</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | <a rel="nofollow" href="mailto:wanderley@caloni.com.br">e-mail</a> | em 27/07/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_faz_diferenca#489">#</a><br>
+De fato o VC otimiza que é uma beleza. Vale a pena a quem está interessado observar a diferença do assembly das versões Debug e Release de rotinas simples, como loops e chamadas de funções simples. E, é claro, STL.<br><br>Só uma coisa me deixou triste: o sizeof(std::string) da STL padrão que vem no VC 2003 tem 28 bytes!! Fiquei mais decepcionado ainda ao notar que para as classes CAtlString e CSimpleString o sizeof é igual a 4. Se você notar na definição da classe, verá que eles criam um buffer de 16 bytes para strings pequenas, o que evita a alocação dinâmica desnecessária, mas deixa a string padrão c++ bem maior que um simples ponteiro. Seria o caso de utilizar um heap de blocos de tamanho fixo para std::string's alocadas? O que levou essa implementação da STL a ter esse overhead?
+</div>
+<div class="post_comment_strauss">
+<a name="490"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 27/07/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_faz_diferenca#490">#</a><br>
+Eu acho esse overhead bom (?!). Muitas vezes você usa uma string pequena, e essa implementação faz com que uma string pequena seja alocada na pilha como uma string C. Eu não sabia que era assim, mas acho ótimo.<br><br>O overhead de alocação/desalocação do heap é MUITO maior do que 28 bytes na pilha. Na verdade, 28 bytes de pilha causa um overhead zero, já que alocação da pilha não gasta tempo considerável.<br><br>No livro "Modern C++ Design", o Alexandrescu implementa um "Small Object Allocator", justamente por saber que o gerenciamento de Heap do C++ é geralmente só uma camada sobre o gerenciamento do C (malloc), que funciona muito bem para alocações grandes (kbytes), mas nem-tão-bem-assim para alocações menores (bytes).
+</div>
+<div class="post_comment">
+<a name="491"></a><B>Wanderley Caloni Jr</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | <a rel="nofollow" href="mailto:wanderley@caloni.com.br">e-mail</a> | em 27/07/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_faz_diferenca#491">#</a><br>
+É, pensando por esse lado, até que é uma coisa boa. De qualquer forma, strings podem existir das mais variadas, pois tudo depende do objetivo em mente.<br><br>Só acho que seria interessante se o VC tivesse maneiras de configurar o funcionamento das classes STL. Se existe, desconheço. Procurei a respeito da std::string e não encontrei nada nos fontes.
+</div>
+<div class="post_comment">
+<a name="501"></a><B>Fabio Galuppo</B>  | em 03/08/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_faz_diferenca#501">#</a><br>
+Isto me lembrou um antigo post no falecido blog :) :  <a rel="nofollow" href="http://br.thespoke.net/BlogReader/SingleEntry.aspx?ID=17516">http://br.thespoke.net/BlogReader/SingleEntry.aspx?ID=17516</a><br>
+</div>
+<div class="post_comment">
+<a name="538"></a><B>Pressley Neto</B>  | <a rel="nofollow" href="mailto:pressleyneto@yahoo.com.br">e-mail</a> | em 13/08/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_faz_diferenca#538">#</a><br>
+sou um principiante em c++<br>tenho 17 anos<br>é quero ser um exelente programador ( em c++ é claro)  
+</div>
+
+<h5>Algo a dizer?</h5>
+<script language="JavaScript">
+function setCookie(name, value, expires, path, domain, secure) {
+  var curCookie = name + "=" + escape(value) +
+      ((expires) ? "; expires=" + expires.toGMTString() : "") +
+      ((path) ? "; path=" + path : "") +
+      ((domain) ? "; domain=" + domain : "") +
+      ((secure) ? "; secure" : "");
+  document.cookie = curCookie;
+}
+
+function getCookie(name) {
+  var dc = document.cookie;
+  var prefix = name + "=";
+  var begin = dc.indexOf("; " + prefix);
+  if (begin == -1) {
+    begin = dc.indexOf(prefix);
+    if (begin != 0) return null;
+  } else
+    begin += 2;
+  var end = document.cookie.indexOf(";", begin);
+  if (end == -1)
+    end = dc.length;
+  return unescape(dc.substring(begin + prefix.length, end));
+}
+
+function deleteCookie(name, path, domain) {
+  if (getCookie(name)) {
+    document.cookie = name + "=" +
+    ((path) ? "; path=" + path : "") +
+    ((domain) ? "; domain=" + domain : "") +
+    "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+  }
+}
+
+function CheckName()
+{
+  if(comment_form.name.value == '')
+  {
+    alert('Você esqueceu de informar o seu nome...');
+    comment_form.name.focus();
+    
+    return false;
+  }
+
+  if(comment_form.comment.value == '')
+  {
+    alert('O que você acha de escrever o comentário antes de tentar enviá-lo?');
+    comment_form.comment.focus();
+    
+    return false;
+  }
+
+  var now = new Date();
+
+  // um ano
+  now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+  setCookie("name", comment_form.name.value, now);
+  setCookie("email", comment_form.email.value, now);
+  setCookie("link", comment_form.link.value, now);
+  setCookie("hideemail", comment_form.hideemail.value, now);
+
+  return true;
+}
+
+</script>
+<form name="comment_form" method="POST" action="/comment.html" onsubmit="return CheckName();">
+<input type="hidden" name="article" value="weblog/1122414807"/>
+
+Nome:<br/>
+<input type="text" name="name" style="width: 250px;"/><br/>
+<br/>
+
+Site:<br/>
+<input type="text" name="link" style="width: 250px;" /><br/>
+<br/>
+
+E-mail:<br/>
+<input type="text" name="email" style="width: 250px;" />
+<br/><br/>
+
+Escreva o número vinte e seis:<br/>
+<input type="text" name="idade" style="width: 250px;" />
+<br/><br/>
+
+<input type="checkbox" name="hideemail"/>&nbsp;Não mostre meu e-mail no site, não serve pra nada mesmo...
+<br/><br/>
+
+Comentário<br/>
+<textarea style="WIDTH: 500px; HEIGHT: 300px" name="comment" rows="18" cols="50"></textarea><br/>
+<br/>
+<input type="submit" value="Dizer"/><br/><br/><br/>
+<div style="width:500px;font-size:8pt;">
+<b>Os comentários devem ser sobre assuntos relativos ao post</b>, eu provavelmente apagarei comentários totalmente offtopic. Se quiser me enviar uma mensagem, use o <a href="http://www.1bit.com.br/content.1bit/contact">formulário de contato</a>. E não esqueça: isso é um site pessoal e eu me reservo o direito de apagar qualquer comentário ofensivo ou inapropriado.
+</div>
+</form>
+
+<script language="JavaScript">
+// cookie de nome
+var name = getCookie("name");
+if (name && name != 'null')
+{
+  comment_form.name.value = name;
+  comment_form.email.value = getCookie("email");
+  comment_form.link.value = getCookie("link");
+  comment_form.hideemail.value = getCookie("hideemail");
+}
+
+</script>
+
+</div>
+
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png" alt="rebarba"></td>
+              <td align="right"><img src="../../images/rebarba4.png" alt="rebarba"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right" style="color:#999999;">
+::::
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>

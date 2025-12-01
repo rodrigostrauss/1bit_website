@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+<META NAME="keywords" CONTENT="Rodrigo Strauss, programador, programação, Visual C++, C#, Windbg, Device Driver">
+<META NAME="description" CONTENT="Artigos sobre programação escritos por Rodrigo Strauss">
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>Not&iacute;cias do Windows Longhorn  ::::  Rodrigo Strauss :: 1bit</title>
+    <link href="../../1bit.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
+
+  </head>
+  <body bottommargin="0" leftmargin="0" topmargin="0" rightmargin="0">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="../../images/logo2.png" border="0" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.1bit/links">Links</a> 
+			<span class="menusep">|</span>
+
+		    <a class="top_menu_link" href="content.1bit/contact">Contato</a> 
+			<span class="menusep">|</span>
+            
+            <a class="top_menu_link" href="content.1bit/about">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <a href="../.." style="text-decoration:none;">
+  <h2>Falatório</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="../.." style="text-decoration:none;">
+  <h2>Escovando 1 bit</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="content.1bit/weblog" style="text-decoration:none;">
+  <h2>WebLog</h2>
+ </a>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<table width="100%" border="0">
+<tr>
+<td>
+<h4><a href="content.1bit/weblog" style="text-decoration:none;">Rodrigo Strauss :::: WebLog</a></h4>
+</td>
+
+<td align="right">
+<a style="text-decoration:none;" href="weblog_archive">Arquivo</a><br><br>
+<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../images/xml.gif" border="0"/></a>
+
+</td>
+
+</tr>
+</table>
+<h5>Not&iacute;cias do Windows Longhorn</h5><p><a href="http://www.microsoft.com/presspass/press/2004/Aug04/08-27Target2006PR.asp">Microsoft decide que o WinFS n&atilde;o far&aacute; parte do Longhorn e que o WinFX, Avalon e Indigo ser&atilde;o disponibilizados para Windows XP e 2003</a>. Acho que isso vai dar muito o que falar. Fico feliz que o <a href="http://www.joelonsoftware.com/articles/APIWar.html">"Raymond Chen camp"</a> venceu mais uma, mas acho que a situa&ccedil;&atilde;o vai ficar bem complicada. .NET Framework 2.0 + WinFX + Avalon + Indigo, imaginem s&oacute; o tamanho do download de tudo isso. Mas isso me faz pensar em algumas coisas:
+<ul>
+<li>J&aacute; era sabido que o Indigo seria portado, isso s&oacute; foi colocado no mesmo pacote de divulga&ccedil;&atilde;o;</li>
+<li>Se o Avalon vai ser port&aacute;vel para Windows XP, isso quer dizer que n&atilde;o ser&aacute; poss&iacute;vel muita depend&ecirc;ncia do Avalon em rela&ccedil;&atilde;o ao kernel e ao DirectX, a n&atilde;o ser que ele fa&ccedil;a parte de um Service Pack (o que eu duvido que aconte&ccedil;a). Eu acho o managed code lento pra manipula&ccedil;&atilde;o de gr&aacute;ficos. Mas isso poderia ser resolvido no Longhorn, atrelando o Avalon diretamente com o DirectX. Assim a maioria do trabalho seria feito em kernel mode, o que diminuiria a quantidade de trabalho feito em managed code;</li>
+<li>Acho que isso tende a deixar as APIs managed bastante atreladas ao Win32, a n&atilde;o ser que a Microsoft fa&ccedil;a do WinFX um subsystem separado. Acredito que um subsystem managed para user mode, contando com boa parte da implementa&ccedil;&atilde;o em kernel mode apoiado em DirectX iria ficar muito interessante e com um desempenho muito bom. Mas n&atilde;o acho que a Microsoft v&aacute; por esse lado (n&atilde;o testei o Longhorn ainda), porque isso tornaria dif&iacute;cil manter a compatibilidade e fazer a integra&ccedil;&atilde;o com o Win32, j&aacute; que o WinFX estaria fora do win32k.sys;</li>
+<li>Mais uma vez o Bill Gates ter&aacute; seu t&atilde;o sonhado sistema de arquivos adiado... Mais uma vez...</li>
+<li>N&atilde;o teremos nenhuma revolu&ccedil;&atilde;o como a Microsoft diz, mas sim uma evolu&ccedil;&atilde;o. Avalon ser&aacute; a [GDI+++ + DirectX], Indigo o Remoting/SOAP vitaminado, e o WinFX ser&aacute; um WinForms 3.0. Ainda muito bom, mas sem o exagero caracter&iacute;stico do pessoal de marketing da MS.</li>
+</ul>
+<p>[editado em 10/09/2003. "WinFX ser&aacute; um WinForms 2.0" >> "WinFX ser&aacute; um WinForms 3.0"]</p><br><p class="datetime">Em 30/Aug/2004 00:43</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+          </td>
+        </tr>
+
+          <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png"></td>
+              <td align="right"><img src="../../images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+<tr><td class="topmenu">&nbsp;</td><td class="topmenu">&nbsp;</td></tr>
+<tr><td class="topmenu">&nbsp;</td><td>
+<table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+</td>
+</tr>
+ <tr><td class="topmenu">&nbsp;</td><td >
+<div class="content">
+<a name="comments"></a><h5>Comentários</h5>
+<h5>Algo a dizer?</h5>
+<form name="comment" method="POST" action="/comment.html">
+<input type="hidden" name="article" value="weblog/1093862591"/>
+Nome:<br/>
+<input type="text" name="name" style="width: 250px;"/><br/>
+<br/>
+
+Site ou e-mail:<br/>
+<input type="text" name="link" style="width: 250px;" /><br/>
+<br/>
+
+Comentário<br/>
+<textarea style="WIDTH: 300px; HEIGHT: 150px" name="comment" rows="9" cols="35"></textarea><br/>
+<br/>
+<input type="submit" value="Dizer"/>
+
+</form>
+
+</div>
+
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png"></td>
+              <td align="right"><img src="../../images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

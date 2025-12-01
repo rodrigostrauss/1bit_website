@@ -1,0 +1,562 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+<META NAME="keywords" CONTENT="Rodrigo Strauss, programador, programação, Visual C++, C#, Windbg, Device Driver">
+<META NAME="description" CONTENT="Artigos sobre programação escritos por Rodrigo Strauss">
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>Rodrigo Strauss :: 1bit</title>
+    <link href="../../1bit.css" type="text/css" rel="stylesheet">
+  </head>
+  <body bottommargin="0" leftmargin="0" topmargin="0" rightmargin="0">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="../../images/logo2.png" border="0" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.html?id=ainda_nao">Arquivo</a> 
+			<span class="menusep">|</span>
+            
+            <a class="top_menu_link" href="content.html?id=ainda_nao">Editar</a> 
+            <span class="menusep">|</span> 
+            
+            <a class="top_menu_link" href="../about/">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <a href="../../index.html" style="text-decoration:none;">
+  <h2>Falatório</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="../../index.html" style="text-decoration:none;">
+  <h2>Escovando 1 bit</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="../weblog/" style="text-decoration:none;">
+  <h2>WebLog</h2>
+ </a>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<h4>Poder e flexibilidade</h4>
+Por Rodrigo Strauss
+<h5>Era uma vez</h5>
+
+<p>Programei durante muito tempo em Visual Basic 3/4/5/6. Quase uma
+d&eacute;cada para dizer a verdade. Depois de todo esse tempo,
+finalmente chegou aquele fat&iacute;dico dia em que eu achei que o
+Visual Basic n&atilde;o me era mais suficiente. Eu j&aacute; tinha
+lido o cl&aacute;ssico <a href=
+"http://www.amazon.com/exec/obidos/tg/detail/-/0672315904/102-9523292-7940902?v=glance">
+livro do Appleman</a> sobre Win32 API e Visual Basic, mas usar API
+no VB n&atilde;o &eacute; nada confort&aacute;vel. Recorrer ao "Api
+Text Viewer" o tempo todo para gerar os famosos <em>Declares</em>
+das fun&ccedil;&otilde;es j&aacute; estava ficando cansativo. Isso
+tudo na mesma &eacute;poca em que eu peguei emprestado dois livros
+de programa&ccedil;&atilde;o Win32 (<a href=
+"http://www.amazon.com/exec/obidos/ASIN/157231995X/qid=1087585214/sr=ka-1/ref=pd_ka_1/104-1894888-9403120">esse</a>
+e <a href=
+"http://www.amazon.com/exec/obidos/ASIN/1572315482/qid=1087585175/sr=ka-1/ref=pd_ka_1/104-1894888-9403120">
+esse</a>, eu estava em boas m&atilde;os) voltados para linguagem C.
+Era tudo que eu precisava para come&ccedil;ar a estudar Visual
+C++.</p>
+
+<p>Programar em C me deu uma vis&atilde;o muito mais ampla das
+possibilidades de desenvolvimento de software. Usando C na
+plataforma Windows voc&ecirc; tem acesso completo ao sistema,
+consegue fazer qualquer coisa. Afinal, o pr&oacute;prio Windows
+&eacute; feito em C (assim como o Linux e a grande maioria dos
+sistemas operacionais). Desse dia em diante tudo mudou. Comecei a
+me sentir poderoso, afinal, eu programava na mesma linguagem que os
+caras que fizeram o Windows. Do que me servia aquele
+desprez&iacute;vel Visual Basic (leia at&eacute; o final antes de
+me odiar)? Afinal, al&eacute;m de 99,99% dos aplicativos comerciais
+serem feitos em C/C++ (Office, CorelDRAW, Photoshop, o
+pr&oacute;prio VB, o que voc&ecirc; pensar &eacute; feito em C ou
+C++), VB n&atilde;o tem pr&eacute; processador, n&atilde;o tem
+heran&ccedil;a m&uacute;ltipla, inline assembly, STL, ATL, WTL,
+templates, metaprograma&ccedil;&atilde;o, n&atilde;o faz drivers
+etc, etc. Eu n&atilde;o precisava mais do VB, eu tinha uma
+linguagem flex&iacute;vel e poderosa onde eu conseguia fazer
+qualquer coisa. Mas o poder e a flexibilidade sempre t&ecirc;m um
+pre&ccedil;o: tempo.</p>
+
+<h5>Existe uma linguagem certa para cada tarefa</h5>
+
+<p>Nenhuma linguagem de programa&ccedil;&atilde;o &eacute;
+simplesmente melhor ou pior. As linguagens podem ser melhores ou
+piores para uma determinada tarefa, mas n&atilde;o existe nenhuma
+linguagem perfeita. Acha realmente que sua linguagem &eacute; a
+melhor do mundo? Ent&atilde;o quer dizer que voc&ecirc; conhece <a
+href="http://cui.unige.ch/cgi-bin/langlist">todas as linguagens</a>
+e consegue explicar porque a sua &eacute; melhor que todas
+elas?</p>
+
+<p>Em Assembly voc&ecirc; consegue fazer qualquer coisa, mas pode
+demorar muuuuito tempo. Produtividade tamb&eacute;m &eacute; um
+recurso importante de uma linguagem, principalmente nos dias de
+hoje. A Microsoft fala insistentemente que uma das grandes
+vantagens do .NET &eacute; o aumento na produtividade do
+programador. Quanto menos tempo o programador precisar se envolver
+com detalhes de baixo n&iacute;vel, mais tempo ele ter&aacute; para
+focar-se no problema que est&aacute; resolvendo. Ao inv&eacute;s
+dele se preocupar se a fun&ccedil;&atilde;o coloca o retorno no
+registrador EAX ou no EBX, ele usar&aacute; esse tempo para criar
+mais uma tabela no SQL Server ou fazer mais uma reuni&atilde;o...
+:-)</p>
+
+<p>De alguns anos para c&aacute;, a &aacute;rea de desenvolvimento
+de software tem passado por uma grande evolu&ccedil;&atilde;o.
+Desde os anos do GW-BASIC (minha primeira linguagem) at&eacute; o
+C# e as <i>managed runtimes</i>, muita coisa mudou. Eu sei que
+ainda existem pessoas que continuam usando ferramentas de 10 anos
+atr&aacute;s, como Clipper, mas isso j&aacute; &eacute; outra
+hist&oacute;ria. A realidade &eacute; que hoje existem milhares de
+op&ccedil;&otilde;es para desenvolver um software. Java,
+PowerBuilder, C++, PHP, Visual Basic, Delphi, Perl, Ruby, .NET,
+isso sem falar nas bibliotecas de cada linguagem. A quantidade
+&eacute; imensa.</p>
+
+<p>Considerando a ordem cronol&oacute;gica da
+evolu&ccedil;&atilde;o das linguagens mais utilizadas, teremos
+resumidamente: Assembly, C, C++, VB/Delphi, Java/C#. A id&eacute;ia
+que nos vem a cabe&ccedil;a vendo essa evolu&ccedil;&atilde;o
+&eacute; de que, a medida que o tempo passa, escrever software
+comum vem ficando cada vez mais f&aacute;cil, cada vez mais
+r&aacute;pido. J&aacute; pensou desenvolver aquele sisteminha de
+cadastro de clientes que voc&ecirc; fez em Visual Basic usando
+Assembly? Isso levaria o triplo do tempo e tornaria a
+manuten&ccedil;&atilde;o do programa bem mais dif&iacute;cil.</p>
+
+<p>Agora vamos vamos mudar o foco: digamos que voc&ecirc; &eacute;
+um programador da HP, e seu gerente acha que a BIOS (que
+est&aacute; longe de ser um programinha) do seu fornecedor
+n&atilde;o resolve todos os seus problemas. Assim, voc&ecirc; foi o
+felizardo escolhido para desenvolver a nova BIOS dos micros HP,
+onde a inicializa&ccedil;&atilde;o do micro ser&aacute; bem mais
+r&aacute;pida e ser&aacute; exibido um logotipo da HP de
+alt&iacute;ssima resolu&ccedil;&atilde;o toda vez que o computador
+for inicializado. <a href=
+"http://en.wikipedia.org/wiki/Bios">BIOS</a> quer dizer <i>Basic
+Input and Output System</i>, que &eacute; basicamente o software
+que controla o seu computador ANTES que o sistema operacional seja
+carregado.</p>
+
+<p>A&iacute; voc&ecirc; pensa: &ldquo;Isso vai ser f&aacute;cil. Eu
+gravo o logotipo da HP em um GIF e uso GDI+ para mostrar
+isso&rdquo;. Como assim GDI+? Durante a inicializa&ccedil;&atilde;o
+do computador, n&atilde;o existe Windows, n&atilde;o existe sistema
+operacional. Nada de GDI, nada de runtime, nada de API. Nessa fase,
+&eacute; s&oacute; voc&ecirc; e o processador, mais ningu&eacute;m.
+E quando voc&ecirc; chega nesse ponto, s&oacute; existe um meio:
+Assembly. Onde est&aacute; seu .NET agora?</p>
+
+<h5>Tem para todos os gostos</h5>
+
+<p>Voc&ecirc; j&aacute; ouviu falar da linguagem OCaml?
+Provavelmente n&atilde;o. Existe um campeonato internacional de
+programa&ccedil;&atilde;o, o <a href=
+"http://www.dtek.chalmers.se/groups/icfpcontest/">ICFP Programming
+Contest</a>, que todo ano prop&otilde;e um problema, que pode ser
+resolvido usando qualquer linguagem de programa&ccedil;&atilde;o.
+Todos os anos, entre os vencedores, est&atilde;o as equipes que
+usaram C e <a href="http://www.ocaml.org/">OCaml</a> . &Eacute;
+perfeitamente compreens&iacute;vel que a linguagem C esteja entre
+os vencedores, j&aacute; que &eacute; a linguagem mais usada. Mas
+eu nunca conheci uma empresa que desenvolvesse alguma coisa usando
+OCaml. Sinceramente eu nem sei como pronunciar isso, e nunca tinho
+ouvido falar nessa linguagem at&eacute; ver <a href=
+"http://www.dtek.chalmers.se/groups/icfpcontest/results.html">uma
+p&aacute;gina desse concurso</a> que diz que OCaml &eacute; uma das
+melhores linguagens para desenvolvimento e prototipagem
+r&aacute;pida.</p>
+
+<p>Linguagens novas nascem a cada ano. Se voc&ecirc; montar uma
+lista com <a href="http://cui.unige.ch/langlist">todas as
+linguagens de programa&ccedil;&atilde;o que existem</a> , acho que
+voc&ecirc; vai receber um e-mail do seu chefe sobre gasto excessivo
+de folhas de sulfite. Existem centenas delas, algumas mais antigas,
+algumas mais novas, mas elas nunca param de nascer.</p>
+
+<p>Voc&ecirc; acha que a linguagem C deveria ser orientada a
+objeto? Crie o C++. Acha que o conceito de ponteiro &eacute; muito
+complicado para um programador mundano? Cansado de se preocupar com
+o gerenciamento de mem&oacute;ria? Invente o Java. Sua linguagem
+tem <em>garbage collector</em> , mas n&atilde;o suporta overload
+(sobrecarga) de operadores nem ponteiros de fun&ccedil;&atilde;o
+(delegates)? Crie o C#. Acha que o C++ deveria ter garbage
+collector? Crie a linguagem <a href=
+"http://www.digitalmars.com/d/">D</a>. Voc&ecirc; tamb&eacute;m
+acha que essa hist&oacute;ria de tirar heran&ccedil;a
+m&uacute;ltipla na linguagem D foi uma p&eacute;ssima id&eacute;ia?
+Crie sua pr&oacute;pria linguagem.</p>
+
+<h5>Gosto n&atilde;o se discute</h5>
+
+<p>Uma coisa muito interessante que acontece quando uma pessoa
+v&ecirc; uma linguagem pela primeira vez, &eacute; o amor ou
+&oacute;dio &agrave; primeira vista quanto &agrave; sintaxe. Eu sou
+um programador C++. Ent&atilde;o eu acho muito melhor a sintaxe do
+<a href=
+"http://www.html.net/manual/en/language.basic-syntax.html">PHP</a> do
+que a do <a href="http://www.ruby-lang.org">Ruby</a> j&aacute; que
+o PHP &eacute; muito mais parecido com C++. Dizem que Ruby, Tcl e
+Lua s&atilde;o linguagens de script muito interessantes, mas a
+sintaxe simplesmente n&atilde;o me agrada. Essas novas linguagens
+s&atilde;o &oacute;timas, principalmente para
+manipula&ccedil;&atilde;o de listas e outras coisas do dia a dia.
+Ao inv&eacute;s de serem gen&eacute;ricas, como o C, elas foram
+criadas para resolver um problema espec&iacute;fico e t&ecirc;m um
+escopo mais reduzido. Se uma <a href=
+"http://research.microsoft.com/Comega/">linguagem for criada
+especialmente para manipular XML</a>, muito provavelmente ela
+ser&aacute; melhor nessa tarefa do que as outras.</p>
+
+<p>Acho a proposta dessas linguagens muito boa, mas uma coisa me
+deixa incomodado: a falta do colchete e outras
+caracter&iacute;sticas que eu estou acostumado. Isso tem
+explica&ccedil;&atilde;o? Vamos ver alguns exemplos de
+c&oacute;digos retirados de <a href=
+"http://www.ntecs.de/old-hp/uu9r/lang/html/lang.en.html">uma
+p&aacute;gina com exemplos em diversas linguagens</a>:</p>
+
+<b>Ruby (c&aacute;lculo do PI)</b> 
+
+<div class="code">
+<pre>
+<font color="#804000">k, a, b, a1, b1 = <font color=
+"#c00000">2</font>, <font color="#c00000">4</font>, <font color=
+"#c00000">1</font>, <font color="#c00000">12</font>, <font color=
+"#c00000">4</font>
+<font color="#804000">while</font> <font color=
+"#c000c0">TRUE</font>
+<font color="#0000c0"># Next approximation</font>
+p, q, k = k*k, <font color="#c00000">2</font>*k+<font color=
+"#c00000">1</font>, k+<font color="#c00000">1</font>
+a, b, a1, b1 = a1, b1, p*a+q*a1, p*b+q*b1
+<font color="#0000c0"># Print common digits</font>
+d = a / b
+d1 = a1 / b1
+ <font color="#804000">while</font> d == d1
+print d
+<font color="#c000c0">$stdout</font>.flush
+a, a1 = <font color="#c00000">10</font>*(a%b), <font color=
+"#c00000">10</font>*(a1%b1)
+d, d1 = a/b, a1/b1
+<font color="#804000">end</font>
+<font color="#804000">end</font></font>
+</pre>
+</div>
+
+<b>Python (algoritmo de quicksort)</b> 
+
+<div class="code">
+<pre>
+<font color="#804000">def</font> <font color=
+"#008080">quicksort</font>(arr):
+<font color="#804000">if</font> len(arr) &lt;= 1: <font color=
+"#804000">return</font> arr
+m = arr[0]
+<font color="#804000">return</font> quicksort(filter(<font color=
+"#804000">lambda</font> i,j=m: i&lt;j, arr)) + <font color=
+"#c000c0">\</font>
+        filter(<font color=
+"#804000">lambda</font> i,j=m: i==j, arr) + <font color=
+"#c000c0">\</font>
+        quicksort(filter(<font color=
+"#804000">lambda</font> i,j=m: i&gt;j, arr))
+
+<font color=
+"#804000">print</font> quicksort([5,99,2,45,12,234,29,0])
+</pre>
+</div>
+
+<b>Lisp (Fatorial)</b> 
+
+<div class="code">
+<pre>
+<font color="#c000c0">(</font><font color=
+"#804000">defun</font> fact <font color="#c000c0">(</font>n<font
+color="#c000c0">)</font>
+<font color="#c000c0">(</font><font color=
+"#804000">loop</font> for i from <font color=
+"#c00000">2</font> to n
+    for fact <font color="#804000">=</font> <font color=
+"#c00000">1</font> then <font color="#c000c0">(</font><font color=
+"#804000">*</font> fact i<font color="#c000c0">)</font>
+    finally <font color="#c000c0">(</font><font color=
+"#804000">return</font> fact<font color="#c000c0">)))</font>
+
+<font color="#c000c0">(</font><font color=
+"#804000">format</font> <font color="#804000">t</font> <font color=
+"#c00000">"Factorial of 6 is: ~A~%"</font> <font color=
+"#c000c0">(</font>fact <font color="#c00000">6</font><font color=
+"#c000c0">))</font>
+</pre>
+</div>
+
+<b>Cobol (Hello World)</b> 
+
+<div class="code">
+<pre>
+IDENTIFICATION DIVISION.
+PROGRAM-ID. HelloWorld.
+AUTHOR. Joselito, o sem no&ccedil;&atilde;o.
+
+ENVIRONMENT DIVISION.
+CONFIGURATION SECTION.
+INPUT-OUTPUT SECTION.
+
+DATA DIVISION.
+FILE SECTION.
+WORKING-STORAGE SECTION.
+LINKAGE SECTION.
+
+PROCEDURE DIVISION.
+DISPLAY "Hello World".
+STOP RUN
+</pre>
+</div>
+
+<p>Eu consigo entender os algoritmos, e vejo caracter&iacute;sticas
+bem interessantes nas linguagens. A atribui&ccedil;&atilde;o de
+vari&aacute;veis do Ruby &eacute; bem interessante. A forma de
+definir uma lista inline na chamada da fun&ccedil;&atilde;o
+quicksort no Python tamb&eacute;m &eacute; muito boa. Bom, acho que
+se eu programasse em Lisp a tecla de par&ecirc;nteses do meu
+teclado iria ficar apagada em uma semana, e o programa em Cobol eu
+prefiro n&atilde;o comentar. Mas alguma coisa est&aacute; errada,
+alguma coisa me d&aacute; agonia: onde est&atilde;o os colchetes???
+Por que a palavra "def" ou "defun" para definir uma
+fun&ccedil;&atilde;o??? Socorro!!! S&atilde;o coisas simples que,
+aparentemente n&atilde;o seriam um problema para estudar a
+linguagem. Mas s&atilde;o. Voc&ecirc; j&aacute; deixou de ir a um
+lugar simplesmente por que n&atilde;o foi com a cara dele? &Eacute;
+exatamente a mesma coisa, s&oacute; que no caso de linguagens
+&eacute; um pouco pior.</p>
+
+<p>Mas existe uma coisa que ajuda a tirar a m&aacute;
+impress&atilde;o sobre a sintaxe de uma linguagem: a necessidade.
+Eu n&atilde;o gosto de programar em T-SQL, mas eu tenho que fazer
+isso de vez em quando. A sintaxe do T-SQL est&aacute; bem longe do
+que eu acho ideal, mas eu n&atilde;o tenho outra
+op&ccedil;&atilde;o. Hoje em dia eu ainda n&atilde;o gostou muito
+defazer isso, mas n&atilde;o tenho mais o mesmo estranhamento
+quanto a sintaxe. E mesmo se eu ainda tivesse, acho que isso
+n&atilde;o &eacute; uma desculpa suficiente boa para dispensar um
+projeto...</p>
+
+<h5>Futebol, pol&iacute;tica, religi&atilde;o e... linguagem de
+programa&ccedil;&atilde;o</h5>
+
+<p>Linguagem de programa&ccedil;&atilde;o &eacute; um assunto
+t&atilde;o delicado quanto o seu time do cora&ccedil;&atilde;o ou
+sua religi&atilde;o. Cada pessoa tem um argumento que segundo ela,
+&eacute; infal&iacute;vel para defender os recursos e as
+limita&ccedil;&otilde;es da sua linguagem. N&atilde;o importa, a
+linguagem que voc&ecirc; gosta e est&aacute; acostumado &eacute;
+sempre a melhor para resolver seus problemas, mas n&atilde;o
+necessariamente os problemas dos outros. Lembre-se: por mais que
+voc&ecirc; tenha trabalhado em 100 empresas nos &uacute;ltimos 10
+anos, voc&ecirc; nunca conhece o suficiente e nunca conhece o
+mercado inteiro.</p>
+
+<p>Existem empresas que fazem software para resolver os mais
+diversos problemas, e para cada um deles existe uma linguagem ou
+uma ferramenta que &eacute; mais adequada. E se o problema dessa
+empresa n&atilde;o &eacute; resolvido por nenhuma linguagem ou
+ferramente existente, com certeza essa empresa tem recursos para
+criar alguma coisa que resolva esse problema (VBScript rodando em
+<a href="http://en.wikipedia.org/wiki/z80">Z80</a>?).</p>
+
+<h5>Reden&ccedil;&atilde;o</h5>
+
+<p>A medida que o tempo passava, percebi que algumas coisas que
+existem no VB n&atilde;o s&atilde;o encontradas em C/C++. &Eacute;
+muito mais simples manipular strings no VB, j&aacute; que no C
+n&atilde;o existe string no sentido literal da palavra. &Eacute;
+mais f&aacute;cil desenvolver em VB. &Eacute; muito mais
+f&aacute;cil fazer com que uma pessoa se interesse por
+programa&ccedil;&atilde;o mostrando como ela faz aparecer um
+MessageBox ao clicar em um bot&atilde;o. Muito mais f&aacute;cil do
+que tentar explicar o que &eacute; um ponteiro e para que ele
+serve.</p>
+
+<p>O VB6 tem um recurso maravilhoso que n&atilde;o existe em
+nenhuma outra linguagem ou ferramenta que eu conhe&ccedil;a: seu
+programa &eacute; interpretado durante o debug e compilado para
+distribui&ccedil;&atilde;o. Isso facilita muito as coisas.
+Voc&ecirc; pode mudar o ponteiro de fun&ccedil;&atilde;o
+(arrastando a famosa seta amarela) para o in&iacute;cio da
+fun&ccedil;&atilde;o e reescrever seu c&oacute;digo sem reiniciar o
+programa. Quando voc&ecirc; quer fazer um programinha para resolver
+um problema pequeno (Como formatar um arquivo texto), &eacute;
+muito mais f&aacute;cil ir modificando o programa enquanto
+voc&ecirc; faz o debug at&eacute; que o resultado seja o que
+voc&ecirc; quer. Nada de compila&ccedil;&otilde;es demoradas, nada
+de salvar o script e rodar de novo, nada de reiniciar o seu
+programa. Isso &eacute; o que eu chamo de <em>Live
+Programming,</em> programe enquanto o seu c&oacute;digo est&aacute;
+rodando.</p>
+
+<p>Sim, &eacute; claro que voc&ecirc; consegue fazer <em>Live
+Programming</em> em C/C++ usando um debugger de gente grande (<a
+href=
+"http://www.microsoft.com/whdc/devtools/debugging/default.mspx">WinDbg</a>,
+<a href=
+"http://www.compuware.com/products/driverstudio/softice.htm">SoftIce</a>):
+Aloque uma quantidade razo&aacute;vel de mem&oacute;ria no seu
+programa, escreva c&oacute;digo assembly nessa mem&oacute;ria
+alocada e mova o ponteiro de instru&ccedil;&atilde;o do processador
+(registrador IP) para essa mem&oacute;ria. Facinho, n&eacute;?
+J&aacute; fiz algo assim programando drivers, mas isso est&aacute;
+longe de ser uma coisa comum.</p>
+
+<h5>End Sub</h5>
+
+<p>E n&atilde;o esque&ccedil;a: nada &eacute; definitivo. Meu
+desprezo pelo VB n&atilde;o foi e suas escolhas tamb&eacute;m
+n&atilde;o ser&atilde;o. A sua linguagem preferida hoje, pode estar
+ultrapassada daqui uns anos e voc&ecirc; ser&aacute; obrigado a
+mudar, ou escolher continuar vivendo no passado at&eacute; o fim da
+sua vida. Al&eacute;m do fator "tecnologia expirada", sua linguagem
+ser&aacute; a preferida at&eacute; que voc&ecirc; tenha um problema
+que ela n&atilde;o resolva. Desse dia em diante, voc&ecirc; corre o
+s&eacute;rio risco de, procurando uma linguagem que resolva o seu
+problema, encontrar uma linguagem que ser&aacute; sua nova
+preferida e definitiva.</p>
+
+</div>
+          </td>
+        </tr>
+          <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png"></td>
+              <td align="right"><img src="../../images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+<tr><td class="topmenu">&nbsp;</td><td class="topmenu">&nbsp;</td></tr>
+<tr><td class="topmenu">&nbsp;</td><td>
+<table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+</td>
+</tr>
+ <tr><td class="topmenu">&nbsp;</td><td >
+<div class="content">
+<a name="comments"></a><h5>Comentários</h5>
+<h5>Algo a dizer?</h5>
+<form name="comment" method="POST" action="comment.html">
+<input type="hidden" name="article" value="_flexibilidade"/>
+Nome:<br/>
+<input type="text" name="name" style="width: 250px;"/><br/>
+<br/>
+
+Site ou e-mail:<br/>
+<input type="text" name="link" style="width: 250px;" /><br/>
+<br/>
+
+Comentário<br/>
+<textarea style="WIDTH: 300px; HEIGHT: 150px" name="comment" rows="9" cols="35"></textarea><br/>
+<br/>
+<input type="submit" value="Dizer"/>
+
+</form>
+
+</div>
+
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png"></td>
+              <td align="right"><img src="../../images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

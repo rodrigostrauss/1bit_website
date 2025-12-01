@@ -1,0 +1,346 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+<META NAME="keywords" CONTENT="Rodrigo Strauss, programador, programação, Visual C++, C#, Windbg, Device Driver">
+<META NAME="description" CONTENT="Artigos sobre programação escritos por Rodrigo Strauss">
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>Rodrigo Strauss :: 1bit</title>
+    <link href="../../1bit.css" type="text/css" rel="stylesheet">
+  </head>
+  <body bottommargin="0" leftmargin="0" topmargin="0" rightmargin="0">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="../../images/logo2.png" border="0" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.html?id=ainda_nao">Arquivo</a> 
+			<span class="menusep">|</span>
+            
+            <a class="top_menu_link" href="content.html?id=ainda_nao">Editar</a> 
+            <span class="menusep">|</span> 
+            
+            <a class="top_menu_link" href="../about/">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <a href="../../index.html" style="text-decoration:none;">
+  <h2>Falatório</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="../../index.html" style="text-decoration:none;">
+  <h2>Escovando 1 bit</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="../weblog/" style="text-decoration:none;">
+  <h2>WebLog</h2>
+ </a>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+		<h4>WinDbg: Debugger de gente grande (parte 2)</h4>
+		<h5>Rebooting</h5>
+		<p>No primeiro artigo da série descobrimos o que é o WinDbg, suas semelhanças e 
+			diferenças com o Visual Studio, comandos básicos para controlar o programa e 
+			para visualizar as variáveis. Agora continuaremos com o uso do WinDbg, para 
+			depois entrarmos na parte mais interessante: escarafunchar a memória.</p>
+		<p>Além de tudo que já vimos e veremos sobre as funcionalidades do WinDbg, eu 
+			gostaria de mencionar uma grande vantagem do WinDbg em relação ao debugger 
+			integrado do Visual Studio: o WinDbg é um debugger independente, que pode ser 
+			usado para verificar um problema na máquina de um usuário. Você pode gravar a 
+			pasta de instalação do WinDbg e os fontes do seu programa em um CD e levá-lo 
+			para o cliente. Chegando lá, configure o WinDbg dizendo que os fontes e os PDBs 
+			estão no CD, e pronto. Depois é só levar o CD embora (NÃO ESQUEÇA DISSO), sem 
+			ter que instalar milhares de ferramentas na máquina do cliente.</p>
+		<p>Ah, e não se esqueça: o WinDbg não está restrito somente a programas 
+			desenvolvidos em Visual C++. Ele pode fazer debug de programas gerados por 
+			qualquer ferramenta que gere informações de debug em PDB. Isso inclui o Visual 
+			Basic 6, Borland C++ Builder e o Delphi.</p>
+		<h5>Breakpoints visuais</h5>
+		<p>Vamos começar nossa sessão de debug, usando <a href="content.html?id=windbg1">nosso 
+				programa de testes</a>.
+		</p>
+		<ul>
+			<li>
+			Usando o menu Open &gt;&gt; Open Executable, abra o executável que criamos.
+			<li>
+			Agora, abra o arquivo .CPP do programa, usando File &gt;&gt; Open Source File
+			<li>
+			Coloque um breakpoint (usando F9) na linha que tem a chamada para 
+			SHGetFolderPath
+			<li>
+				Pressione F5 e espere o programa parar nessa função</li></ul>
+		<p>O WinDbg faz breakpoint diretamente nos fontes, como o Visual Studio. Não se 
+			esqueça que esse recurso não funciona para executáveis compilados em versão 
+			RELEASE, já que eles não tem informação de debug. Para efetuar o debug de um 
+			executável RELEASE, é necessário configurar o compilador para gerar os symbols 
+			(Debug Information no VS.NET).</p>
+		<h5>Breakpoints em funções que não são suas</h5>
+		<p>Uma das grandes vantagens do WinDbg é que ele possibilita que você coloque 
+			breakpoints em funções da Win32 API e de DLLs com a mesma facilidade que você 
+			coloca um breakpoint nas funções do seu executável.</p>
+		<p>No nosso programa de testes, nós usamos a função SHGetFolderPath para descobrir 
+			em qual pasta o Windows está instalado e encontrar o JPG que será colocado como 
+			fundo de tela. Se você conhece ao menos um pouco da arquitetura do Windows, 
+			você deve imaginar onde isso fica gravado. Se você falou no registro, é 
+			claro, ponto para você. A chamada dessa API garante que teremos ao menos uma 
+			chamada para as APIs de acesso ao registro.</p>
+		<p>(Na realidade, só o fato de chamar CoInitialize já&nbsp;faz que com que o 
+			programa acesse o registro zilhares de vezes, já que toda a configuração do COM 
+			também está no registro. E as funções do Shell também criam vários objetos COM)</p>
+		<h5>O raciocínio do breakpoint</h5>
+		<p>
+			Checando a MSDN, encontramos duas funções que podem ser usadas para abrir uma 
+			chave de registro: RegOpenKeyEx&nbsp;e RegOpenKey. Qual será a função que o 
+			programa usa? Na dúvida podemos colocar um breakpoint nas duas, mas em 99% das 
+			vezes, a função correta é a com final Ex.
+		</p>
+		<p>Quando uma função da API&nbsp;precisa ser modificada para receber mais 
+			parâmetros, o pessoal da Microsoft implementa a função com mais parâmetros e 
+			coloca Ex no final do nome da função. Depois disso, eles criam uma função stub 
+			com a assinatura da função antiga, que somente repassa os parâmetros para a 
+			função Ex, fornecendo os parâmetros que não existiam na função original. Ou 
+			seja: no final, a função Ex sempre será chamada, já que a função sem o Ex 
+			repassa a chamada para a Ex.</p>
+		<p>Sendo assim, colocaremos o breakpoint na função RegOpenKeyEx.</p>
+		<h5>Já sei qual a função, mas em que DLL ela está?</h5>
+		<p>Agora precisamos descobrir em que DLL está a função RegOpenKeyEx. Como eu já 
+			disse no artigo anterior, é possível colocar o breakpoint com o comando BP 
+			RegOpenKeyEx, mas isso faria com que o WinDbg procurasse esse função em todas 
+			as DLLs. Além disso, nós preferimos o modo elegante... :-)</p>
+		<p>Para procurar as funções e variáveis&nbsp;de um módulo (executável ou DLL), 
+			usamos o comando X, no seguinte formato:</p>
+		<div class="code">
+			<pre>
+x [Options] Module!Symbol
+</pre>
+		</div>
+		<p>Sendo que em Module e em Symbol podemos usar o curinga *. Segue aqui a saída 
+			de comando da nossa busca pela função RegOpenKeyEx:</p>
+		<div class="code">
+			<pre>
+0:000&gt; x *!RegOpenKeyEx
+</pre>
+		</div>
+		<p>Não encontramos nada... Será que a função não existe? Vamos tentar colocar um 
+			coringa no final:</p>
+		<div class="code">
+			<pre>
+0:000&gt; x *!RegOpenKeyEx*
+77dd1a8b ADVAPI32!RegOpenKeyExW 
+77dd229a ADVAPI32!RegOpenKeyExA
+</pre>
+		</div>
+		<p>(Além disso, você pode ver mensagens de erro como "Symbol file could not be 
+			found". Por enquanto vamos ignorar esse erro. Rodando o comando de procura pela 
+			segunda vez faz com que essa mensagem não apareça mais. Arrumaremos o problema 
+			dos symbols mais tarde)</p>
+		<p>Encontramos a função com a letra A e a letra W no final. Mais uma vez devemos 
+			escolher qual a função certa.</p>
+		<h5>Unicode e ANSI</h5>
+		<p>A letra A é adicionada no nome das funções que suportam caracteres ANSI, e a 
+			letra W nas funções que aceitam caracteres UNICODE (o W vem de wide char). 
+			Como estamos usando Windows 2000/XP/2003 (você está, não está?), a função 
+			correta é a que tem W no final.</p>
+		<p>Os caracteres UNICODE ocupam 2 bytes, o que permite que um caractere UNICODE 
+			possa representar até 65536 letras ou símbolos diferentes (em oposição&nbsp;ao 
+			ANSI/ASCII, que suportam somente 255), o que permite conter confortavelmente 
+			todos os caracteres e símbolos de todas as línguas e dialetos existentes no 
+			nosso planeta. Isso acaba com aquela história de MODE CON CODEPAGE PREPARE 
+			(lembra?) para ficarmos mudando a página de caracteres dependendo do idioma 
+			escolhido.</p>
+		<p>Quando o Windows NT foi projetado (nos ido de 1989), foi feita a decisão pelo 
+			UNICODE, para facilitar a internacionalização do Windows e dos softwares que 
+			nele rodam. O mesmo não aconteceu com o Windows 95/98/Me, que herda muita 
+			coisa do Windows 3.1, baseado em ANSI.</p>
+		<p>Como estamos no Windows NT, colocaremos o breakpoint na função 
+			ADVAPI32!RegOpenKeyExW. Lembrando que caso um programa&nbsp;use as&nbsp;versões 
+			ANSI das funções e chame ADVAPI32!RegOpenKeyExA, essa função é um stub que 
+			converte as strings para UNICODE e repassa a chamada para 
+			ADVAPI32!RegOpenKeyExW.</p>
+		<p>Coloquemos então o breakpoint:</p>
+		<div class="code">
+			<pre>
+0:000&gt; bp ADVAPI32!RegOpenKeyExW
+</pre>
+		</div>
+		<p>Agora é só pressionar F5 (ou usar o comando G) e esperar que o programa pare.</p>
+		<h5>Chegando lá</h5>
+		<p>Logo depois de mandar o programa seguir, teremos uma saída parecida com essa:</p>
+		<div class="code">
+			<pre>
+Breakpoint 1 hit
+eax=0012ee18 ebx=00000057 ecx=0012edf0 edx=00000002 esi=00000000 edi=775a8afc
+eip=77dd1a8b esp=0012e990 ebp=0012ebbc iopl=0         nv up ei pl nz na pe nc
+cs=001b  ss=0023  ds=0023  es=0023  fs=0038  gs=0000             efl=00000202
+ADVAPI32!RegOpenKeyExW:
+77dd1a8b 55               push    ebp
+</pre>
+		</div>
+		<p>Como não temos os fontes do Windows, temos que nos contentar com o assembly, 
+			menu View &gt;&gt; Disassembly. Você pode perguntar do que nos adianta ver o 
+			assembly de uma função do Windows. Dou-lhe então dois motivos: descobrir como a 
+			função funciona e verificar os parâmetros que foram passados para a função. 
+			Para fazer as duas coisas você precisa conhecer assembly. Não é necessário sem 
+			mestre em assembly, mas todo programador que se preze deve saber ao menos ler 
+			código assembly.
+		</p>
+		<p>Futuramente faremos um log das chamadas da API usando o WinDbg, onde o 
+			disassembly será muito útil.</p>
+		<h5>Completando</h5>
+		<p>Meu intuito com essa série não é escrever um tratado detalhado sobre WinDbg, 
+			isso me levaria a escrever até a parte 50. Minha intenção foi mostrar essa 
+			ferramenta poderosa e desconhecida da maioria do programadores. Caso você 
+			precise de mais detalhes e informações, você pode seguir esses caminhos:</p>
+		<ul>
+			<li>
+				Existe um newsgroup da Microsoft somente para WinDbg. Você acessá-lo <a href="http://msdn.microsoft.com/newsgroups/default.aspx?dg=microsoft.public.windbg">
+					via web </a>ou usando seu cliente de news preferido (em <a href="nntp://msnews.microsoft.com">
+					nntp://msnews.microsoft.com</a>). Em inglês, é claro.
+			<li>
+			Leia a documentação que vem junto com o WinDbg, ela é bem interessante e 
+			explica vários conceitos. Existe uma parte do help que explica como identificar 
+			código assembly gerado por um compilador C/C++. Usando o comando ".hh &lt;algum 
+			comando&gt;", o help se abre com o &lt;algum comando&gt; já digitado no Índice 
+			do HTML Help, o que facilita a procura por tópicos específicos
+			<li>
+				Google (precisa falar?)</li></ul>
+		<p>E leia os próximos artigos da série!</p>
+<h5>Veja também</h5>
+<b><a href="windbg1.html">WinDbg: Debugger de gente grande (parte 1)</a></b>
+
+</div>
+          </td>
+        </tr>
+          <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png"></td>
+              <td align="right"><img src="../../images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+<tr><td class="topmenu">&nbsp;</td><td class="topmenu">&nbsp;</td></tr>
+<tr><td class="topmenu">&nbsp;</td><td>
+<table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+</td>
+</tr>
+ <tr><td class="topmenu">&nbsp;</td><td >
+<div class="content">
+<a name="comments"></a><h5>Comentários</h5>
+<h5>Algo a dizer?</h5>
+<form name="comment" method="POST" action="comment.html">
+<input type="hidden" name="article" value="_windbg2"/>
+Nome:<br/>
+<input type="text" name="name" style="width: 250px;"/><br/>
+<br/>
+
+Site ou e-mail:<br/>
+<input type="text" name="link" style="width: 250px;" /><br/>
+<br/>
+
+Comentário<br/>
+<textarea style="WIDTH: 300px; HEIGHT: 150px" name="comment" rows="9" cols="35"></textarea><br/>
+<br/>
+<input type="submit" value="Dizer"/>
+
+</form>
+
+</div>
+
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png"></td>
+              <td align="right"><img src="../../images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

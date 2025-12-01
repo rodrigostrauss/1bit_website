@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+<META NAME="keywords" CONTENT="Rodrigo Strauss, programador, programação, Visual C++, C#, Windbg, Device Driver">
+<META NAME="description" CONTENT="Artigos sobre programação escritos por Rodrigo Strauss">
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>Dicas para particionamento e organiza&ccedil;&atilde;o do HD, parte 1  ::::  Rodrigo Strauss :: 1bit</title>
+    <link href="../../1bit.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
+
+  </head>
+  <body bottommargin="0" leftmargin="0" topmargin="0" rightmargin="0">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="../../images/logo2.png" border="0" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.1bit/links">Links</a> 
+			<span class="menusep">|</span>
+
+		    <a class="top_menu_link" href="content.1bit/contact">Contato</a> 
+			<span class="menusep">|</span>
+            
+            <a class="top_menu_link" href="content.1bit/about">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <a href="../.." style="text-decoration:none;">
+  <h2>Falatório</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="../.." style="text-decoration:none;">
+  <h2>Escovando 1 bit</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="content.1bit/weblog" style="text-decoration:none;">
+  <h2>WebLog</h2>
+ </a>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<table width="100%" border="0">
+<tr>
+<td>
+<h4><a href="content.1bit/weblog" style="text-decoration:none;">Rodrigo Strauss :::: WebLog</a></h4>
+</td>
+
+<td align="right">
+<a style="text-decoration:none;" href="weblog_archive">Arquivo</a><br><br>
+<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../images/xml.gif" border="0"/></a>
+
+</td>
+
+</tr>
+</table>
+<h5>Dicas para particionamento e organiza&ccedil;&atilde;o do HD, parte 1</h5><p>Eu tenho visto por a&iacute; muita gente com HDs gigantescos, todos com uma parti&ccedil;&atilde;o s&oacute;. Apesar de isso n&atilde;o causar problemas no uso di&aacute;rio, um melhor particionamento pode ajudar bastante quem precisa de performance e organiza&ccedil;&atilde;o. Por isso eu resolvi escrever alguma coisa sobre isso. Se ficar bom, talvez eu coloque mais &aacute;gua no feij&atilde;o e tranforme isso em um artigo. (Antes eu tenho que terminar o WinDbg parte 3).</p>
+
+<h6>Dica 1: nunca crie somente uma parti&ccedil;&atilde;o</h6>
+
+<p>A primeira dica &eacute; a mais simples. Qual o motivo? Com uma parti&ccedil;&atilde;o s&oacute;, fica mais dif&iacute;cil organizar suas coisas e mais dif&iacute;cil de fazer backup e seu HD fica mais fragmentado.</p>
+
+<p>Crie no m&iacute;nimo duas parti&ccedil;&otilde;es, uma para o sistema operacional e para os programas, e outra para os seus dados. Instale o sistema operacional e os programas que voc&ecirc; mais usa na primeira parti&ccedil;&atilde;o e desfragmente a parti&ccedil;&atilde;o. Guarde seus dados na outra parti&ccedil;&atilde;o.<p>
+
+<h6>Dica 2: Mude as pastas padr&atilde;o para o "Meus Documentos", "Favoritos", etc</h6>
+
+<p>Por padr&atilde;o, o Windows coloca a pasta "My Documents" em <b>"c:\Documents And Settings\[username]\My Documents"</b>. Isso torna infernal o processo de backup, j&aacute; que se voc&ecirc; usar <b>xcopy</b> para fazer backup voc&ecirc; ter&aacute; que digitar esse caminho imenso ou coloc&aacute;-lo no .BAT.</p>
+
+<p>Resolva o problema: <a href="http://www.microsoft.com/windowsxp/downloads/powertoys/xppowertoys.mspx">baixe o TweakUI</a> no site da Microsoft, entre em My Computer >> Special Folders e saia mudando. Mude o "My Documents" para algo como "d:\rodrigo" e "My music" para algo como "d:\mp3". Mude tamb&eacute;m a localiza&ccedil;&atilde;o do "Desktop" para dentro de "My Documents", como "d:\rodrigo\desktop". Menos uma pasta separada para voc&ecirc; lembrar na hora do backup. E a pasta do desktop &eacute; a mais f&aacute;cil de esquecer na hora do backup.</p>
+
+<p>Use sempre nomes f&aacute;ceis para as pastas, e as coloque na parti&ccedil;&atilde;o de dados. Assim, voc&ecirc; pode programar o backup para copiar todas essas pastas, que s&atilde;o mais f&aacute;ceis de lembrar. Um dia voc&ecirc; vai decidir formatar o HD, e assim ficar&aacute; mais f&aacute;cil lembrar o que copiar, e voc&ecirc; ter&aacute; menos medo na hora de escolher a op&ccedil;&atilde;o "Yes, format my entire HD now!".</p>
+
+<h6>Dica 3: Fa&ccedil;a backup, fa&ccedil;a backup, fa&ccedil;a backup, fa&ccedil;a backup, fa&ccedil;a backup, fa&ccedil;a backup, fa&ccedil;a backup</h6>
+
+<p>Nunca &eacute; suficiente dizer. As pessoas geralmente s&oacute; lembram do backup quando alguma desgra&ccedil;a acontece. O backup n&atilde;o precisa ser em uma fita DAT com um software de milhares de d&oacute;lares. Um simples arquivo RAR ou ZIP com seus arquivos mais importantes enviado para um disco virtual j&aacute; resolve o problema. Voc&ecirc; pode fazer o backup dos seus documentos uma vez por semana, e das mp3 a cada m&ecirc;s. O importante &eacute; que voc&ecirc; fa&ccedil;a isso regularmente.</p>
+
+<h6>Dica 4: Teste o backup!</h6>
+
+<p>J&aacute; vi o caso de uma empresa que fazia o backup regularmente, mas nunca testou se o backup era restaurado corretamente. Adivinhe o que aconteceu na hora de restaurar o backup? Voc&ecirc; pode esquecer de configurar a ferramenta de backup para incluir as subpastas. Erros simples como esse se tornar&atilde;o catastr&oacute;ficos na hora que voc&ecirc; precisar do backup.</p>
+
+<h6>Futuramente...</h6>
+
+<p>Diferen&ccedil;as entre NTFS e FAT32, qual tipo usar em que caso, usando 3 ou mais parti&ccedil;&otilde;es</p>
+<br><p class="datetime">Em 02/Aug/2004 23:14</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+          </td>
+        </tr>
+
+          <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png"></td>
+              <td align="right"><img src="../../images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+<tr><td class="topmenu">&nbsp;</td><td class="topmenu">&nbsp;</td></tr>
+<tr><td class="topmenu">&nbsp;</td><td>
+<table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+</td>
+</tr>
+ <tr><td class="topmenu">&nbsp;</td><td >
+<div class="content">
+<a name="comments"></a><h5>Comentários</h5>
+<h5>Algo a dizer?</h5>
+<form name="comment" method="POST" action="/comment.html">
+<input type="hidden" name="article" value="weblog/1091524453"/>
+Nome:<br/>
+<input type="text" name="name" style="width: 250px;"/><br/>
+<br/>
+
+Site ou e-mail:<br/>
+<input type="text" name="link" style="width: 250px;" /><br/>
+<br/>
+
+Comentário<br/>
+<textarea style="WIDTH: 300px; HEIGHT: 150px" name="comment" rows="9" cols="35"></textarea><br/>
+<br/>
+<input type="submit" value="Dizer"/>
+
+</form>
+
+</div>
+
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png"></td>
+              <td align="right"><img src="../../images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

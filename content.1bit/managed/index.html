@@ -1,0 +1,363 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+<META NAME="keywords" CONTENT="Rodrigo Strauss, programador, programação, Visual C++, C#, Windbg, Device Driver">
+<META NAME="description" CONTENT="Artigos sobre programação escritos por Rodrigo Strauss">
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>Rodrigo Strauss :: 1bit</title>
+    <link href="../../1bit.css" type="text/css" rel="stylesheet">
+  </head>
+  <body bottommargin="0" leftmargin="0" topmargin="0" rightmargin="0">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="../../images/logo2.png" border="0" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.html?id=ainda_nao">Arquivo</a> 
+			<span class="menusep">|</span>
+            
+            <a class="top_menu_link" href="content.html?id=ainda_nao">Editar</a> 
+            <span class="menusep">|</span> 
+            
+            <a class="top_menu_link" href="../about/">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <a href="../../index.html" style="text-decoration:none;">
+  <h2>Falatório</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="../../index.html" style="text-decoration:none;">
+  <h2>Escovando 1 bit</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="../weblog/" style="text-decoration:none;">
+  <h2>WebLog</h2>
+ </a>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<h4>Managed e Unmanaged: verdades, mentiras e opiniões</h4>
+<p>Por Rodrigo Strauss</p>
+<h5>Era uma vez</h5>
+<p>Idos do ano de 2001. Eu já estava acompanhando o movimento do mercado 
+	microsoftiano a algum tempo, e a novidade do último PDC era o <a href="http://www.winnetmag.com/Article/ArticleID/19335/19335.html">
+		NGWS</a> (New Generation Windows Services). Logo depois, comparecendo às 
+	palestras da Microsoft brasileira, recebi os CDs com o beta 1 no NGWS, que 
+	agora se chamava .NET (apesar do nome NGWS ainda aparecer em vários lugares da 
+	documentação).
+</p>
+<p>
+	Achei bem interessante e comecei a brincar bastante com o C#, junto com um 
+	amigo meu. Inclusive, para toda novidade que eu descobria no WinForms ele tinha 
+	uma resposta padrão: isso é igualzinho ao Delphi. Só depois que eu fui saber 
+	que isso tinha um motivo para acontecer: <a href="http://en.wikipedia.org/wiki/Anders_Hejlsberg">
+		<span style='mso-bidi-font-weight:
+bold'>Anders Hejlsberg</a>, arquiteto do Delphi, do J++ e do C#. Como eu não 
+	entendia muita coisa de Delphi, isso não me dizia nada, e eu continuei 
+	estudando .NET.</p>
+<p>
+	Até que um belo dia, meu amigo disse que arrumou um emprego para trabalhar com 
+	C#, desenvolvendo software para mercado financeiro. Apesar da felicidade de ver 
+	meu amigo empregado, me pareceu muito estranho uma empresa desenvolver software 
+	em tecnologia beta 1. Pelo jeito o pessoal de marketing da Microsoft estava se 
+	esforçando bastante...&nbsp;E lá foi ele para desenvolver o módulo gráfico do 
+	software, todo em GDI+, com aquela velocidade e com aquele consumo de memória 
+	que só o framework beta 1 conseguia proporcionar. Nós, acostumados com C++, 
+	Visual Basic e Delphi, não conseguíamos nos conformar que um programa que 
+	desenhava simples gráficos de barra pudesse consumir 100 MBs de RAM em algumas 
+	situações.</p>
+<p>Nessa época eu tinha minha própria empresa (lembra o boom da Internet?), mas como não íamos bem das pernas, 
+	meu sócio financeiro resolveu encerrar as atividades. Não tinha jeito, eu tinha 
+	que arrumar um emprego como programador. Detalhe que naquela época eu não 
+	conhecia a <a href="http://www.apinfo.com/">APINFO</a>, nem sei se já existia. 
+	Foi aí que eu pedi pra esse meu amigo encaminhar meu curriculum na empresa onde 
+	ele trabalhava. E deu certo, fui contratado para desenvolver usando C# beta 1</p>
+<h5>Continuando</h5>
+<p>O .NET trouxe consigo uma avalanche de marketing da Microsoft em tamanho 
+	comparável somente com o lançamento do Windows 95 (lembra?). A festa foi 
+	gigantesca e a Microsoft dizia que daquele tempo em diante tudo seria .NET. Os 
+	servidores Microsoft (SQL, Exchange, etc) seriam .NET, a próxima versão do 
+	Windows para servidores seria o Windows.NET Server, as ferramentas de 
+	desenvolvimento seria todas .NET. Mas o que realmente era o .NET? Nem mesmo os 
+	funcionários da Microsoft sabiam direito. Vários relatos de funcionários da 
+	Microsoft que diziam não entender essa história de .NET foram publicados na 
+	Web.</p>
+<p>A confusão gerada foi tão grande, que a própria Microsoft acabou recuando mais 
+	tarde. Não existiu o SQL.NET, não foi lançado o Exchange.NET e o Windows.NET 
+	Server teve seu nome mudado, de última hora, para Windows 2003 Server.</p>
+<h5>E a conclusão foi...</h5>
+<p>A conclusão foi de que o .NET não passa de um ambiente gerenciado para execução 
+	e desenvolvimento de aplicações. Não cria nada de novo, não revoluciona coisa 
+	alguma. Algo que o Java fazia a tempos (tanto que o nome código do C# era 
+	JavaKiller), só que feito pelos programadores e arquitetos que só os bilhões da 
+	Microsoft conseguem pagar. Uma máquina virtual e uma biblioteca de classe, era 
+	isso.</p>
+<p>Faz parte do projeto .NET melhorar a vida dos usuários e tornar os computadores 
+	mais seguros, mas ninguém viu isso até agora.&nbsp;Quando existirem aplicativos 
+	.NET disponíveis (hoje só existem bricadeiras e leitores de RSS), será muito 
+	mais confiável usar programas baixados na Internet, já que ele não teria 
+	permissão para alterar arquivos ou mesmo enviar informações para Internet. Os 
+	mecanismo de <a href="http://www.google.com/search?&amp;q=Browser Helper Objects">Browser 
+		Helper Objects</a> (BHOs) do Internet Explorer não poderia ser usado para 
+	fazer spywares, caso os BHOs fossem desenvolvidos em .NET e rodassem em um 
+	AppDomain separado e com restrições de segurança.</p>
+<p>Os primeiros passos nesse sentido já estão sendo dados pela Microsoft.&nbsp;O <a href="http://msdn.microsoft.com/msdnmag/issues/04/02/default.aspx">
+		SQL Server 2005</a> (antes chamado de Yukon) trará a runtime do .NET 
+	embutida, o que possibilitará, entre outras coisas, escrever stored procedures 
+	em C#&nbsp;e VB.NET.&nbsp;No <a href="http://longhorn.msdn.microsoft.com/portal_nav.htm">
+		Windows Longhorn</a>&nbsp;(próxima versão do&nbsp;Windows, esperada para 
+	2006),&nbsp;a API principal será totalmente baseada em .NET. Assim, mais e mais 
+	aplicativos serão desenvolvidos em managed code, e os usuários começarão a ser 
+	beneficiados das vantagens do .NET.</p>
+<p>
+	Apesar do .NET não criar nada de novo, ele conta com aquele toque Microsoft. 
+	Entenda isso como uma ótima documentação, suporte e extensibilidade. Essa é a 
+	grande jogada, e é o que a Microsoft faz com todo produto que compra e com toda 
+	a tecnologia que ela adota. Foi assim com o .NET (um Java melhorado)&nbsp;e 
+	também com&nbsp;o Virtual PC (que não foi lançado até que ele fosse 
+	automatizável e extensível via COM).</p>
+<h5>Velho é tudo que funciona</h5>
+<p>Com a criação do .NET, os aplicativos para plataforma Windows começaram a ser 
+	classificados com managed (gerenciados, aplicativos .NET) e unmanaged (todos os 
+	outros). Os maria-vai-com-as-outras começaram a chamar os aplicativos que não 
+	eram .NET de old unmanaged code. Eles só não pararam para pensar em uma 
+	coisa: o Windows é feito em old unmanaged code, o Office também, assim como o 
+	próprio framework. Mais uma vitória do pessoal de marketing da Microsoft.</p>
+<p>Se você trabalha como desenvolvedor a bastante tempo, você já deve ter visto 
+	vários aplicativos serem refeitos em novas ferramentas, pelo simples fato de 
+	que as novas ferramentas são novas, e as velhas ferramentas são velhas. Isso 
+	acontece a toda hora, as pessoas costumam classificar de velho tudo que 
+	funciona. Fui consultor em um banco, onde eles estavam portando um software 
+	inteiro feito em VB6 para VB.NET. Só que, como a Microsoft não respeita mesmo 
+	os programadores VB, o VB7 é praticamente incompatível com o VB6. O software 
+	foi refeito, e acredito que a nova versão não deve funcionar direito até hoje. 
+	Nem preciso dizer que tinha dedo da Microsoft brasileira nessa história...</p>
+<p>Se uma empresa tem um aplicativo feito em Clipper, que funciona, talvez não seja 
+	necessário portá-lo para Windows. Mas como existe a mudança de paradigma entre 
+	a interface gráfica do DOS e a do Windows, portar um aplicativo desenvolvido em 
+	Clipper para alguma ferramenta Windows faz sentido. Isso realmente traz uma 
+	vantagem para o usuário, já que interação do usuário com o sistema pode 
+	melhorar bastante: interface mais fácil e mais intuitiva, fontes True Type, 
+	facilidade de impressão, suporte a rede, etc.</p>
+<p>Agora qual a vantagem, para o usuário, em se portar um sistema desenvolvido em 
+	VB6 para a plataforma .NET? Praticamente nenhuma. O programa terá a mesma 
+	interface gráfica, com os mesmos recursos. Em algumas situações, o programa 
+	ficará pior, já que softwares desenvolvidos para plataforma .NET geralmente 
+	ficam mais lentos do que o feito em VB6.</p>
+<p>Para os maníacos que teimam em contestar essa afirmação que .NET é mais lento, 
+	façam um teste: olhe o assembly que o JIT gera e compare com o que o compilador 
+	do Visual C++ gera na configuração DEBUG. Muito parecido, não é? Agora compile 
+	o programa Visual C++ em configuração RELEASE e compare novamente. Entendeu 
+	agora porque .NET é mais lento? Ah, você não sabe fazer isso? Então você afirma 
+	que o managed code é tão rápido quanto o unmanaged baseado em que? <a href="content.html?id=nao_ouca_ninguem">
+		Estude mais antes de fazer uma afirmação</a>. Por mais que existam alguns 
+	testes que provem o contrário, eles não podem ser levados ao pé da letra. É 
+	claro que se você testar em coisas simples, como ficar calculando Fibonacci em 
+	loop, a diferença será pequena. Agora pegue a especificação de um aplicativo e 
+	desenvolva-o C++ e em C#. Depois compare a performance dos dois. Esse sim é um 
+	teste válido. Talvez eu escreva uma série de artigos desenvolvendo algo desse 
+	tipo.</p>
+<p>O .NET traz muitas vantagens, mas para o desenvolvedor. Você escreve menos 
+	código para fazer mais coisas, não precisa ficar se preocupando com 
+	gerenciamento de memória (no VB6 também não precisava), tem dezenas de wizards 
+	e designers para fazer suas telinhas. Tem uma biblioteca de classes muito bem 
+	arquitetada e bem implementada. Mas no final das contas, é só mais uma camada 
+	de abstração sobre a Win32 API, a infra-estrutura continua a mesma. No final 
+	das contas, o Windows.Forms e a GDI+ nada mais fazem do repassar as chamadas 
+	para a USER32.DLL e a GDI32.DLL.
+</p>
+<p>E considerando que você estará refazendo o sistema, você não economizou tempo 
+	nenhum...</p>
+<h5>Coisas que funcionam</h5>
+<p>Eu acredito bastante na plataforma .NET. Gosto da arquitetura e acredito que um 
+	dia um programa .NET pode ser mais rápido do que um programa C++. Sim, porque 
+	conforme o JIT for evoluindo e a velocidade dos processadores for crescendo, o 
+	JIT poderá efetuar mais otimizações no código, e essas otimizações serão feitas 
+	baseadas no computador e no sistema operacional onde o programa será executado. 
+	Coisa que a compilação estática do Visual Basic 6 ou mesmo do Visual C++ nunca 
+	vai conseguir.</p>
+<p>(Apesar de que o <a href="http://msdn.microsoft.com/visualc/using/understanding/perf/default.aspx?pull=/library/en-us/dv_vstechart/html/profileguidedoptimization.asp">
+		Profile Guided Optimization</a> do Visual C++ 2005 (ainda em beta)&nbsp;é 
+	um recurso maravilhoso. Tanto que conseguiu aumentar a performance do SQL 
+	Server em aproximadamente 30%. Se você programa em Visual C++, não deixe de ler 
+	sobre isso)</p>
+<p>.NET é o futuro do Windows, mas eu não acho que ainda seja o presente. O 
+	presente ainda é o que está no mercado e funciona: Win32 e COM. Apesar dessas 
+	tecnologias terem desvantagens quanto ao .NET, 99,9999999% das aplicações são 
+	desenvolvidas assim. Inclusive vários aplicativos que estão 
+	sendo desenvolvidos agora, ainda são baseados em COM e Win32. Note que, nessa análise eu considero aplicativos comerciais que, 
+	provavelemente, serão baixados pela Internet por vários clientes ou usuários. 
+	No caso de uma aplicativo tipo cadastro-de-alguma-coisa encomendado por um 
+	cliente, é realmente mais fácil desenvolver usando ADO.NET e obrigá-lo a 
+	instalar o .NET Framework em todas as estações.</p>
+<p>Apesar de não ser o meu foco (pelo menos por enquanto), não podemos esquecer do 
+	Linux. A maioria dos programas em Linux são desenvolvidos em C/C++ e isso não 
+	mudará tão cedo. Apesar da Ximian/Novell ter acabado de lançar a versão final 
+	do projeto <a href="http://www.mono-project.com">Mono</a> (runtime .NET para 
+	Linux), não acredito que os programadores Linux irão entrar nessa onda da forma 
+	que o <a href="http://en.wikipedia.org/wiki/Miguel_de_Icaza">Miguel de Icaza</a> está pensando (ou mostrando que pensa).</p>
+<h5>Terminando</h5>
+<p>Eu prefiro viver o presente, mas sempre de olho no futuro. E assim será.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+          </td>
+        </tr>
+          <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png"></td>
+              <td align="right"><img src="../../images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+<tr><td class="topmenu">&nbsp;</td><td class="topmenu">&nbsp;</td></tr>
+<tr><td class="topmenu">&nbsp;</td><td>
+<table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+</td>
+</tr>
+ <tr><td class="topmenu">&nbsp;</td><td >
+<div class="content">
+<a name="comments"></a><h5>Comentários</h5><div class="comment">
+<a href=""> /dev/null</a>, em  13/07/2004<br/>Eu soh acho q vc nao deve comparar .NET (framework) com Java. Sao coisas bem distintas
+</div>
+<div class="comment">
+<a href="http://www.1bit.com.br">Rodrigo Strauss</a>, em  13/07/2004<br/>N&atilde;o acho que s&atilde;o t&atilde;o distintos assim. Ambos s&atilde;o ambientes gerenciados para execu&ccedil;&atilde;o de aplicativos, com uma biblioteca de classes. A implementa&ccedil;&atilde;o &eacute; diferente, mas o conceito &eacute; o mesmo.
+</div>
+<div class="comment">
+<a href="http://">/dev/null</a>, em  27/07/2004<br/>Nao uma coisa &eacute; linguagem, outra um framework...
+</div>
+<div class="comment">
+<a href="http://www.1bit.com.br">Rodrigo Strauss</a>, em  28/07/2004<br/>Sim, claro... Mas quando eu falo &quot;Java&quot;, quero dizer a plataforma Java, e n&atilde;o somente a linguagem Java.
+</div>
+
+<h5>Algo a dizer?</h5>
+<form name="comment" method="POST" action="comment.html">
+<input type="hidden" name="article" value="_managed"/>
+Nome:<br/>
+<input type="text" name="name" style="width: 250px;"/><br/>
+<br/>
+
+Site ou e-mail:<br/>
+<input type="text" name="link" style="width: 250px;" /><br/>
+<br/>
+
+Comentário<br/>
+<textarea style="WIDTH: 300px; HEIGHT: 150px" name="comment" rows="9" cols="35"></textarea><br/>
+<br/>
+<input type="submit" value="Dizer"/>
+
+</form>
+
+</div>
+
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png"></td>
+              <td align="right"><img src="../../images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

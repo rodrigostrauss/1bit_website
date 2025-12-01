@@ -1,0 +1,1558 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>Fontes do MidlParser  ::::  Rodrigo Strauss :: www.1bit.com.br</title>
+    <link href="../../1bit.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
+<!-- google analytics -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-75310-1";
+urchinTracker();
+</script>
+<!-- google analytics end -->
+
+  </head>
+  <body style="margin:0px 0px 0px 0px" bgcolor="#FFFFFF">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="../../images/logo_novo_2.png" border="0" alt="logo" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.1bit/contact">Contato</a> 
+			<span class="menusep">|</span>
+            
+            <a class="top_menu_link" href="content.1bit/about">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png" alt="rebarba"></td>
+              <td align="right"><img src="../../images/rebarba2.png" alt="rebarba"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <h2><a href="../../#artigos" style="text-decoration:none;">Artigos</a></h2>
+</div>
+
+<div class="left_menu_section">
+ <h2><a href="content.1bit/weblog" style="text-decoration:none;">Blog</a></h2>
+</div>
+
+<div class="left_menu_section">
+ <h2><a href="content.1bit/opensource" style="text-decoration:none;">Open Source</a></h2>
+</div>
+
+<!-- 
+<div class="left_menu_section">
+ <h2><a href="content.1bit/aulas" style="text-decoration:none;">Aulas online (ou nÃ£o) </a></h2>
+</div>
+-->
+
+
+<div id="google_translate_element"></div><script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'pt',
+    gaTrack: true,
+    gaId: 'UA-75310-1',
+  }, 'google_translate_element');
+}
+</script><script src="../..//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<br>
+
+<!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com.br/custom" target="_top">
+<table border="0" bgcolor="#eeeeee">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<br/>
+<input type="hidden" name="domains" value="www.1bit.com.br"></input>
+<label for="sbi" style="display: none">Digite os termos da sua pesquisa</label>
+<input type="text" name="q" size="23" maxlength="255" value="" id="sbi"></input>
+</td></tr>
+<tr>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" id="ss0"></input>
+<label for="ss0" title="Pesquisar na web"><font size="-2" color="black">Web</font></label></td>
+<td>
+<input type="radio" name="sitesearch" value="www.1bit.com.br" checked id="ss1"></input>
+<label for="ss1" title="Pesquisar www.1bit.com.br"><font size="-2" color="black">www.1bit.com.br</font></label></td>
+</tr>
+</table>
+<label for="sbb" style="display: none">Enviar formulÃ¡rio de pesquisa</label>
+<input type="submit" name="sa" value="Pesquisar" id="sbb"></input>
+<input type="hidden" name="client" value="pub-2589539519655496"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#0066CC;GL:1;DIV:#999999;VLC:336633;AH:center;BGC:FFFFFF;LBGC:FFFFFF;ALC:0066CC;LC:0066CC;T:000000;GFNT:666666;GIMP:666666;LH:50;LW:120;L:http://www.1bit.com.br/images/logo_novo_2.png;S:http://;FORID:1"></input>
+<input type="hidden" name="hl" value="pt"></input>
+</td></tr></table>
+</form>
+<!-- SiteSearch Google -->
+<br>
+
+<br>
+<br>
+<center>
+
+<a href="http://www.twitter.com/rodrigostrauss"><img src="http://twitter-badges.s3.amazonaws.com/follow_me-b.png" alt="Follow rodrigostrauss on Twitter"/></a>
+<br><br><br>
+
+<!--
+<a href="http://whos.amung.us/show/xopqoakh"><img src="http://whos.amung.us/cwidget/xopqoakh/fffffff6915a.png" alt="page counter" width="81" height="29" border="0" /></a>
+-->
+
+</center>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<h4><a href="content.1bit/weblog" style="text-decoration:none;">Rodrigo Strauss :: Blog</a></h4>
+<table border="0">
+<tr>
+<!-- 
+<td width="60">
+
+<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../images/xml.gif" border="0"/></a>
+</td>
+-->
+
+<td>
+
+<a href='http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Fwww.1bit.com.br%2Fweblog_rss.1bit'  target='blank'><img id='feedlyFollow' src='http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png' alt='follow us in feedly' width='66' height='20'></a>
+
+</td>
+
+<td>
+
+<a href="https://twitter.com/rodrigostrauss" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @rodrigostrauss</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+</td>
+
+<td align="right">
+
+
+
+
+<!--
+
+<script type="text/javascript">
+google_ad_client = "pub-2589539519655496";
+google_ad_width = 468;
+google_ad_height = 15;
+google_ad_format = "468x15_0ads_al";
+google_ad_channel = "";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "FF5000";
+google_color_text = "000000";
+google_color_url = "FF5000";
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+-->
+
+
+
+
+
+
+</td>
+</tr>
+</table>
+<br>
+<h5>Fontes do MidlParser</h5><style type="text/css">
+.code_comment { color: rgb(0,128,0) } 
+.keyword { color: rgb(0,0,255) } 
+.string { color: rgb(0,0,0) } 
+</style>
+
+<p>A função que dá início à interpretação do arquivo é a <a href="#ParseMidlFile">MidlParser::ParseMidlFile</a></p>
+
+<h6>CodeEntities.h</h6>
+<div class="code">
+<pre>
+<span class="keyword">#pragma</span> once
+
+<span class="keyword">struct</span> IdlAttribute
+{
+   IdlAttribute(<span class="keyword">const</span> std::string&amp; name, <span class="keyword">const</span> std::string&amp; value) : Name(name), Value(value) {}
+   IdlAttribute(<span class="keyword">const</span> std::string&amp; name) : Name(name){}
+
+   std::string Name;
+   std::string Value;
+};
+
+<span class="keyword">struct</span> IdlParameter
+{
+   IdlParameter(<span class="keyword">const</span> std::string&amp; type, <span class="keyword">const</span> std::string&amp; name) : Type(type), Name(name), IndirectionLevel(0) {}
+   IdlParameter() : IndirectionLevel(0) {}
+
+   <span class="keyword">typedef</span> std::vector&lt;IdlAttribute&gt; AttributesContainer;
+   <span class="keyword">typedef</span> AttributesContainer::iterator AttributesIterator;
+   <span class="keyword">typedef</span> AttributesContainer::const_iterator ConstAttributesIterator;
+
+   AttributesContainer Attributes;
+   
+   std::string Type;
+   std::string Name;
+   <span class="keyword">unsigned</span> <span class="keyword">int</span> IndirectionLevel;
+};
+
+<span class="keyword">struct</span> IdlMethod
+{
+   IdlMethod(<span class="keyword">const</span> std::string&amp; name, <span class="keyword">const</span> std::string&amp; returnType) : Name(name), ReturnType(returnType) {}
+   IdlMethod() {}
+
+   <span class="keyword">typedef</span> std::vector&lt;IdlAttribute&gt; AttributesContainer;
+   <span class="keyword">typedef</span> AttributesContainer::iterator AttributesIterator;
+   <span class="keyword">typedef</span> AttributesContainer::const_iterator ConstAttributesIterator;
+
+   <span class="keyword">typedef</span> std::vector&lt;IdlParameter&gt; ParametersContainer;
+   <span class="keyword">typedef</span> ParametersContainer::iterator ParametersIterator;
+   <span class="keyword">typedef</span> ParametersContainer::const_iterator ConstParametersIterator;
+
+
+   AttributesContainer Attributes;
+   std::string ReturnType;
+   std::string Name;
+   ParametersContainer Parameters;
+};
+
+<span class="keyword">struct</span> IdlInterface
+{
+   IdlInterface(<span class="keyword">const</span> std::string&amp; name) : Name(name) {}
+   IdlInterface() {}
+
+   <span class="keyword">typedef</span> std::vector&lt;IdlAttribute&gt; AttributesContainer;
+   <span class="keyword">typedef</span> AttributesContainer::iterator AttributesIterator;
+   <span class="keyword">typedef</span> AttributesContainer::const_iterator ConstAttributesIterator;
+
+   <span class="keyword">typedef</span> std::vector&lt;IdlMethod&gt; MethodsContainer;
+   <span class="keyword">typedef</span> MethodsContainer::iterator MethodsIterator;
+   <span class="keyword">typedef</span> MethodsContainer::const_iterator ConstMethodsIterator;
+
+   AttributesContainer Attributes;
+   std::string Name;
+   std::string InheritsFrom;
+   MethodsContainer Methods;
+};
+
+<span class="code_comment">//
+</span><span class="code_comment">// functor
+</span><span class="code_comment">//
+</span><span class="keyword">class</span> IdlAttributeFindByName
+{
+<span class="keyword">private</span>:
+   std::string m_strName;
+   <span class="code_comment">//
+</span>   <span class="code_comment">// Deve ser um shared_ptr pq um functor STL &eacute; passado como valor, e n&atilde;o como refer&ecirc;ncia.
+</span>   <span class="code_comment">// Se eu usar auto_ptr, na primeira c&oacute;pia o ownership do ponteiro vao para a c&oacute;pia e
+</span>   <span class="code_comment">// ficamos sem nada...
+</span>   <span class="code_comment">//
+</span>   boost::shared_ptr&lt;std::vector&lt;std::string&gt; &gt; m_MoreAttributesToFind;
+<span class="keyword">public</span>:
+   IdlAttributeFindByName(<span class="keyword">const</span> std::string&amp; name)
+      : m_strName(name)
+   {}
+
+   IdlAttributeFindByName()
+   {}
+
+   <span class="keyword">void</span> AddAttributeToFind(<span class="keyword">const</span> std::string&amp; str)
+   {
+      <span class="keyword">if</span>(m_MoreAttributesToFind.get() == NULL)
+         m_MoreAttributesToFind = boost::shared_ptr&lt;std::vector&lt;std::string&gt; &gt;(<span class="keyword">new</span> std::vector&lt;std::string&gt;());
+
+      m_MoreAttributesToFind-&gt;push_back(str);
+   }
+
+   <span class="keyword">bool</span> <span class="keyword">operator</span>()(<span class="keyword">const</span> IdlAttribute&amp; att)
+   {
+      <span class="keyword">if</span>(m_MoreAttributesToFind.get() == NULL)
+         <span class="keyword">return</span> att.Name == m_strName;
+      <span class="keyword">else</span>
+      {
+         <span class="keyword">return</span> att.Name == m_strName || 
+            std::find(m_MoreAttributesToFind-&gt;begin(), m_MoreAttributesToFind-&gt;end(), att.Name) != m_MoreAttributesToFind-&gt;end();
+      }
+
+   }
+};</pre></div>
+
+<br>
+<h6>MidlParser.h</h6>
+<div class="code">
+<pre>
+<span class="keyword">#pragma</span> once
+
+<span class="code_comment">//
+</span><span class="code_comment">// MidlParser
+</span><span class="code_comment">// 
+</span><span class="code_comment">// Faz o parser de um arquivo IDL
+</span><span class="code_comment">//
+</span><span class="keyword">class</span> MidlParser
+{
+<span class="keyword">public</span>:
+
+   <span class="keyword">class</span> ParseException : <span class="keyword">public</span> std::exception
+   {
+   <span class="keyword">private</span>:
+      <span class="keyword">unsigned</span> <span class="keyword">int</span> m_line;
+      string m_fileName;
+   <span class="keyword">public</span>:
+      ParseException(<span class="keyword">const</span> string&amp; what, MidlParser&amp; parser, <span class="keyword">const</span> string&amp; fileName) 
+         : std::exception(what.c_str()), 
+           m_line(parser.GetCurrentLine()),
+           m_fileName(fileName)
+      {
+      }
+
+      <span class="keyword">void</span> set_line(<span class="keyword">unsigned</span> <span class="keyword">int</span> line)
+      {
+         m_line = line;
+      }
+
+      <span class="keyword">unsigned</span> <span class="keyword">int</span> get_line() <span class="keyword">const</span>
+      {
+         <span class="keyword">return</span> m_line;
+      }
+
+      <span class="keyword">void</span> set_fileName(<span class="keyword">const</span> string&amp; fileName)
+      {
+         m_fileName = fileName;
+      }
+
+      <span class="keyword">const</span> string&amp; get_fileName() <span class="keyword">const</span>
+      {
+         <span class="keyword">return</span> m_fileName;
+      }
+   };
+
+<span class="keyword">private</span>:
+
+   <span class="keyword">bool</span> m_bParseAsImportFile;
+
+   string m_parsedFileName;
+
+   <span class="keyword">typedef</span> tokenizer&lt;char_separator&lt;<span class="keyword">char</span>&gt; &gt; TokenizerMidl;
+   vector&lt;string&gt; m_KnownInterfaces;
+   vector&lt;string&gt; m_KnownTypes;
+   map&lt;string, IdlInterface&gt; m_ParsedInterfaces;
+
+   vector&lt;string&gt; m_IncludePaths;
+
+   vector&lt;string&gt; m_ParsedIncludeFiles;
+
+   TokenizerMidl m_Tokenizer;
+   TokenizerMidl::iterator m_TokenIterator;
+   std::string m_strInvalidToken;
+
+   TokenizerMidl::iterator m_LineCountIterator;
+   <span class="keyword">mutable</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> m_uiCurrentLine;
+
+<span class="keyword">#ifdef</span> _DEBUG
+   <span class="code_comment">//
+</span>   <span class="code_comment">// isso facilita a visualiza&ccedil;&atilde;o em debug
+</span>   <span class="code_comment">//
+</span>   std::string m_strCurrentToken;
+   <span class="keyword">const</span> <span class="keyword">char</span>* m_szCurrentToken;
+   <span class="keyword">unsigned</span> <span class="keyword">int</span> m_uiBreakOnLine;
+<span class="keyword">#endif</span>
+
+   <span class="keyword">void</span> Log(<span class="keyword">const</span> string&amp; msg);
+
+   <span class="code_comment">//
+</span>   <span class="code_comment">// verifica se &eacute; um identificador v&aacute;lido
+</span>   <span class="code_comment">//
+</span>   <span class="keyword">const</span> string&amp; Identifier(<span class="keyword">const</span> string&amp; token);
+   <span class="keyword">const</span> string&amp; NextTokenAsIdentifier();
+   <span class="keyword">const</span> string&amp; CurrentTokenAsIdentifier();
+
+   <span class="keyword">void</span> CheckIsExpectedToken(<span class="keyword">const</span> string&amp; str, <span class="keyword">const</span> string&amp; checked, <span class="keyword">const</span> <span class="keyword">char</span>* expected_name = NULL);
+   <span class="keyword">void</span> CheckExpectedNextToken(<span class="keyword">const</span> std::string expected, <span class="keyword">const</span> <span class="keyword">char</span>* expected_name = NULL);
+   <span class="keyword">void</span> CheckExpectedCurrentToken(<span class="keyword">const</span> std::string expected, <span class="keyword">const</span> <span class="keyword">char</span>* expected_name = NULL);
+   <span class="keyword">void</span> CheckNotExpectedToken(<span class="keyword">const</span> string&amp; str, <span class="keyword">const</span> string&amp; checked, <span class="keyword">const</span> <span class="keyword">char</span>* not_expected_name = NULL);
+   <span class="keyword">void</span> CheckNotExpectedNextToken(<span class="keyword">const</span> std::string not_expected, <span class="keyword">const</span> <span class="keyword">char</span>* not_expected_name = NULL);
+   <span class="keyword">void</span> CheckNotExpectedCurrentToken(<span class="keyword">const</span> std::string not_expected, <span class="keyword">const</span> <span class="keyword">char</span>* not_expected_name = NULL);
+   
+   <span class="keyword">void</span> CheckType(<span class="keyword">const</span> string&amp; str, <span class="keyword">unsigned</span> <span class="keyword">int</span> indirectionLevel, <span class="keyword">bool</span> mustBeInterface = <span class="keyword">false</span>);
+   
+   <span class="keyword">const</span> string&amp; NextTokenAsType(<span class="keyword">unsigned</span> <span class="keyword">int</span> indirectionLevel = 0, <span class="keyword">bool</span> mustBeInterface = <span class="keyword">false</span>);   
+   <span class="keyword">const</span> string&amp; CurrentTokenAsType(<span class="keyword">unsigned</span> <span class="keyword">int</span> indirectionLevel = 0, <span class="keyword">bool</span> mustBeInterface = <span class="keyword">false</span>);
+
+   <span class="keyword">void</span> AddParsedInterface(<span class="keyword">const</span> IdlInterface&amp; iface);
+   <span class="keyword">void</span> AddKnownInterfaceName(<span class="keyword">const</span> string&amp; interfaceName);
+
+
+   <span class="keyword">unsigned</span> <span class="keyword">int</span> GetCurrentLine();
+
+
+   <span class="keyword">const</span> std::string&amp; NextToken(<span class="keyword">bool</span> checkEndOfFile = <span class="keyword">true</span>, <span class="keyword">bool</span> skipComments = <span class="keyword">true</span>);
+   <span class="keyword">const</span> std::string&amp; CurrentToken(<span class="keyword">bool</span> checkEndOfFile = <span class="keyword">true</span>, <span class="keyword">bool</span> skipComments = <span class="keyword">true</span>);
+
+   <span class="keyword">void</span> SkipUntilToken(<span class="keyword">const</span> string&amp; token);
+   <span class="keyword">void</span> SkipQuote();
+   <span class="keyword">void</span> SkipUntilClose(<span class="keyword">const</span> string&amp; open_token, <span class="keyword">const</span> string&amp; close_token);
+
+   <span class="keyword">void</span> LoadKnownInterfaces();
+   <span class="keyword">void</span> LoadKnownTypes();
+
+   <span class="keyword">void</span> ParseMethod(IdlMethod* method);
+   <span class="keyword">void</span> ParseInterface(IdlInterface* iface);
+   <span class="keyword">void</span> ParseAttributes(vector&lt;IdlAttribute&gt;* attributes);
+   <span class="keyword">void</span> ParseImportFile(<span class="keyword">const</span> string&amp; fileName);
+
+   <span class="keyword">bool</span> IsEndOfFile();
+
+   <span class="keyword">bool</span> OpenIncludeFile(<span class="keyword">const</span> string&amp; fileName, fstream* f, string* fileNameWithPath);
+   
+
+<span class="keyword">public</span>:
+
+   MidlParser();
+   <span class="keyword">void</span> AddFindPath(<span class="keyword">const</span> string&amp; path);
+   <span class="keyword">void</span> ParseMidlFile(<span class="keyword">const</span> <span class="keyword">char</span>* fileName);
+
+   <span class="keyword">const</span> std::map&lt;string, IdlInterface&gt;&amp; GetParsedInterfaces() <span class="keyword">const</span>;
+   <span class="keyword">const</span> std::vector&lt;string&gt;&amp; GetKnownInterfaces() <span class="keyword">const</span>;
+
+   <span class="keyword">void</span> Dump(ostream&amp; s) <span class="keyword">const</span>;
+   
+<span class="keyword">private</span>:
+   <span class="keyword">void</span> AddKnownType(<span class="keyword">const</span> string&amp; t);
+};
+
+</pre></div>
+<br>
+<h6>MidlParser.cpp</h6>
+<div class="code">
+<pre>
+<span class="keyword">#pragma</span> once
+<span class="keyword">#include</span> <span class="string">&quot;stdafx.h&quot;</span>
+
+<span class="keyword">#include</span> <span class="string">&quot;CodeEntities.h&quot;</span>
+<span class="keyword">#include</span> <span class="string">&quot;MidlParser.h&quot;</span>
+
+
+<span class="code_comment">//
+</span><span class="code_comment">// verifica se &eacute; um identificador v&aacute;lido
+</span><span class="code_comment">//
+</span><span class="keyword">const</span> string&amp; MidlParser::Identifier(<span class="keyword">const</span> string&amp; token)
+{
+   <span class="keyword">bool</span> isValid = <span class="keyword">true</span>;
+
+   <span class="keyword">if</span>(token.size() == 0 || (!std::isalpha(token[0]) &amp;&amp; token[0] != <span class="string">'_'</span>))
+      isValid = <span class="keyword">false</span>;
+   <span class="keyword">else</span>
+   {
+      <span class="keyword">for</span>(string::const_iterator i = token.begin() ; i != token.end() ; ++i)
+      {
+         <span class="keyword">char</span> c = *i;
+         <span class="keyword">if</span>(!std::isalpha(c) &amp;&amp; !std::isalnum(c) &amp;&amp; c != <span class="string">'_'</span>)
+         {
+            isValid = <span class="keyword">false</span>;
+            <span class="keyword">break</span>;
+         }
+      }
+   }
+
+   <span class="keyword">if</span>(!isValid)
+      <span class="keyword">throw</span> ParseException(<span class="string">&quot;invalid identifier: &quot;&quot;</span> + token + <span class="string">&quot;&quot;&quot;</span>, *<span class="keyword">this</span>, m_parsedFileName);
+
+   <span class="keyword">return</span> token;
+}
+
+<span class="keyword">const</span> string&amp; MidlParser::NextTokenAsIdentifier()
+{
+   <span class="keyword">return</span> Identifier(NextToken());
+}
+
+<span class="keyword">const</span> string&amp; MidlParser::CurrentTokenAsIdentifier()
+{
+   <span class="keyword">return</span> Identifier(CurrentToken());
+}
+
+<span class="keyword">void</span> MidlParser::CheckIsExpectedToken(<span class="keyword">const</span> string&amp; str, <span class="keyword">const</span> string&amp; checked, <span class="keyword">const</span> <span class="keyword">char</span>* expected_name)
+{
+   <span class="keyword">if</span>(str != checked)
+   {
+      string ex(<span class="string">&quot;expected: &quot;</span>);
+
+      <span class="keyword">if</span>(expected_name)
+         ex += expected_name;
+      <span class="keyword">else</span>
+      {
+         ex += <span class="string">&quot;&quot;&quot;</span>;
+         ex += checked;
+         ex += <span class="string">&quot;&quot;&quot;</span>;
+      }
+
+      <span class="keyword">throw</span> ParseException(ex, *<span class="keyword">this</span>, m_parsedFileName);
+   }
+}
+
+<span class="keyword">void</span> MidlParser::CheckExpectedNextToken(<span class="keyword">const</span> std::string expected, <span class="keyword">const</span> <span class="keyword">char</span>* expected_name)
+{
+   CheckIsExpectedToken(NextToken(), expected, expected_name);
+}
+
+<span class="keyword">void</span> MidlParser::CheckExpectedCurrentToken(<span class="keyword">const</span> std::string expected, <span class="keyword">const</span> <span class="keyword">char</span>* expected_name)
+{
+   CheckIsExpectedToken(CurrentToken(), expected, expected_name);
+}
+
+<span class="keyword">void</span> MidlParser::CheckNotExpectedToken(<span class="keyword">const</span> string&amp; str, <span class="keyword">const</span> string&amp; checked, <span class="keyword">const</span> <span class="keyword">char</span>* not_expected_name)
+{
+   <span class="keyword">if</span>(str == checked)
+   {
+      string ex(<span class="string">&quot;not expected: &quot;</span>);
+
+      <span class="keyword">if</span>(not_expected_name)
+         ex += not_expected_name;
+      <span class="keyword">else</span>
+      {
+         ex += <span class="string">&quot;&quot;&quot;</span>;
+         ex += checked;
+         ex += <span class="string">&quot;&quot;&quot;</span>;
+      }
+
+      <span class="keyword">throw</span> ParseException(ex, *<span class="keyword">this</span>, m_parsedFileName);
+   }
+}
+
+<span class="keyword">void</span> MidlParser::CheckNotExpectedNextToken(<span class="keyword">const</span> std::string not_expected, <span class="keyword">const</span> <span class="keyword">char</span>* not_expected_name)
+{
+   CheckNotExpectedToken(NextToken(), not_expected, not_expected_name);
+}
+
+<span class="keyword">void</span> MidlParser::CheckNotExpectedCurrentToken(<span class="keyword">const</span> std::string not_expected, <span class="keyword">const</span> <span class="keyword">char</span>* not_expected_name )
+{
+   CheckNotExpectedToken(CurrentToken(), not_expected, not_expected_name);
+}
+
+
+<span class="keyword">void</span> MidlParser::CheckType(<span class="keyword">const</span> string&amp; str, <span class="keyword">unsigned</span> <span class="keyword">int</span> indirectionLevel, <span class="keyword">bool</span> mustBeInterface )
+{
+
+   <span class="keyword">if</span>(std::find(m_KnownInterfaces.begin(), m_KnownInterfaces.end(), str) == m_KnownInterfaces.end())
+   {
+      <span class="keyword">if</span>(mustBeInterface == <span class="keyword">true</span>)
+         <span class="keyword">throw</span> ParseException(<span class="string">&quot;Unknwon Type: &quot;&quot;</span> + str + <span class="string">&quot;&quot;&quot;</span>, *<span class="keyword">this</span>, m_parsedFileName);
+   }
+   <span class="keyword">else</span>
+      <span class="keyword">return</span>;
+
+
+   <span class="keyword">if</span>(std::find(m_KnownTypes.begin(), m_KnownTypes.end(), str) == m_KnownTypes.end())
+      <span class="keyword">throw</span> ParseException(<span class="string">&quot;Unknwon Type: &quot;&quot;</span> + str + <span class="string">&quot;&quot;&quot;</span>, *<span class="keyword">this</span>, m_parsedFileName);
+}
+
+<span class="keyword">const</span> string&amp; MidlParser::NextTokenAsType(<span class="keyword">unsigned</span> <span class="keyword">int</span> indirectionLevel, <span class="keyword">bool</span> mustBeInterface)
+{
+   CheckType(NextToken(), indirectionLevel, mustBeInterface);
+   <span class="keyword">return</span> CurrentToken();
+}
+
+<span class="keyword">const</span> string&amp; MidlParser::CurrentTokenAsType(<span class="keyword">unsigned</span> <span class="keyword">int</span> indirectionLevel, <span class="keyword">bool</span> mustBeInterface)
+{
+   CheckType(CurrentToken(), indirectionLevel, mustBeInterface);
+   <span class="keyword">return</span> CurrentToken();
+}
+
+<span class="keyword">void</span> MidlParser::AddKnownInterfaceName(<span class="keyword">const</span> string&amp; interfaceName)
+{
+   <span class="keyword">if</span>(std::find(m_KnownInterfaces.begin(), m_KnownInterfaces.end(), interfaceName) == m_KnownInterfaces.end())
+      m_KnownInterfaces.push_back(interfaceName);
+}
+
+
+<span class="keyword">void</span> MidlParser::AddParsedInterface(<span class="keyword">const</span> IdlInterface&amp; iface)
+{
+   m_ParsedInterfaces.insert(make_pair&lt;string, IdlInterface&gt;(iface.Name, iface));
+   m_KnownInterfaces.push_back(iface.Name); 
+   AddKnownType(iface.Name);
+}
+
+
+
+<span class="keyword">unsigned</span> <span class="keyword">int</span> MidlParser::GetCurrentLine()
+{
+   <span class="keyword">for</span>( ; m_LineCountIterator != m_TokenIterator ; ++m_LineCountIterator)
+      <span class="keyword">if</span>(*m_LineCountIterator == <span class="string">&quot;n&quot;</span>)
+         m_uiCurrentLine++;
+
+   <span class="keyword">return</span> m_uiCurrentLine;
+}
+
+
+<span class="keyword">const</span> std::string&amp; MidlParser::NextToken(<span class="keyword">bool</span> checkEndOfFile, <span class="keyword">bool</span> skipComments)
+{
+   ++m_TokenIterator;
+
+   <span class="keyword">return</span> CurrentToken(checkEndOfFile, skipComments);
+}
+
+<span class="keyword">const</span> std::string&amp; MidlParser::CurrentToken(<span class="keyword">bool</span> checkEndOfFile, <span class="keyword">bool</span> skipComments)
+{
+   <span class="keyword">if</span>(IsEndOfFile())
+   {
+      <span class="keyword">if</span>(checkEndOfFile)
+         <span class="keyword">throw</span> ParseException(<span class="string">&quot;unexpected end of file&quot;</span>, *<span class="keyword">this</span>, m_parsedFileName);
+      <span class="keyword">else</span>
+         <span class="keyword">return</span> m_strInvalidToken;
+   }
+
+   <span class="keyword">if</span>(skipComments)
+   {
+      <span class="keyword">for</span>(;;)
+      {
+         <span class="keyword">if</span>(*m_TokenIterator != <span class="string">&quot;/&quot;</span> &amp;&amp; *m_TokenIterator != <span class="string">&quot;n&quot;</span>)
+            <span class="keyword">break</span>;
+         <span class="code_comment">//
+</span>         <span class="code_comment">// pula os coment&aacute;rios
+</span>         <span class="code_comment">//
+</span>         <span class="keyword">while</span>(*m_TokenIterator == <span class="string">&quot;/&quot;</span>)
+         {
+            TokenizerMidl::iterator next = m_TokenIterator;
+            next++;
+
+            <span class="keyword">if</span>(*next == <span class="string">&quot;/&quot;</span>)
+            {
+               <span class="keyword">while</span>(m_TokenIterator != m_Tokenizer.end() &amp;&amp; *++m_TokenIterator != <span class="string">&quot;n&quot;</span>);
+               
+               <span class="keyword">break</span>;
+            }
+            <span class="keyword">else</span> <span class="keyword">if</span>(*next == <span class="string">&quot;*&quot;</span>)
+            {
+               ++m_TokenIterator;
+
+               <span class="keyword">for</span>(;;)
+               {
+                  ++m_TokenIterator;
+
+                  <span class="keyword">if</span>(IsEndOfFile())
+                  {
+                     <span class="keyword">if</span>(checkEndOfFile)
+                        <span class="keyword">throw</span> ParseException(<span class="string">&quot;unexpected end of file&quot;</span>, *<span class="keyword">this</span>, m_parsedFileName);
+                     <span class="keyword">else</span>
+                        <span class="keyword">return</span> m_strInvalidToken;
+                  }
+
+                  <span class="keyword">const</span> string&amp; token = *m_TokenIterator;
+
+                  <span class="keyword">if</span>(token == <span class="string">&quot;*&quot;</span>)
+                  {
+                     ++m_TokenIterator;
+
+                     <span class="keyword">if</span>(IsEndOfFile())
+                     {
+                        <span class="keyword">if</span>(checkEndOfFile)
+                           <span class="keyword">throw</span> ParseException(<span class="string">&quot;unexpected end of file&quot;</span>, *<span class="keyword">this</span>, m_parsedFileName);
+                        <span class="keyword">else</span>
+                           <span class="keyword">return</span> m_strInvalidToken;
+                     }
+
+                     <span class="keyword">if</span>(*m_TokenIterator == <span class="string">&quot;/&quot;</span>)
+                     {
+                        ++m_TokenIterator;
+                        <span class="keyword">break</span>;
+                     }
+                  }
+               }
+            }
+            <span class="keyword">else</span>
+               <span class="keyword">break</span>;
+         }
+
+         <span class="code_comment">//
+</span>         <span class="code_comment">// pula os n
+</span>         <span class="code_comment">//
+</span>         <span class="keyword">while</span>(++m_TokenIterator != m_Tokenizer.end() &amp;&amp; *m_TokenIterator == <span class="string">&quot;n&quot;</span>);
+
+         <span class="keyword">if</span>(IsEndOfFile())
+         {
+            <span class="keyword">if</span>(checkEndOfFile)
+               <span class="keyword">throw</span> ParseException(<span class="string">&quot;unexpected end of file&quot;</span>, *<span class="keyword">this</span>, m_parsedFileName);
+            <span class="keyword">else</span>
+               <span class="keyword">return</span> m_strInvalidToken;
+         }
+      }
+   }
+
+
+
+<span class="keyword">#ifdef</span> _DEBUG
+   <span class="code_comment">//
+</span>   <span class="code_comment">// isso facilita a visualiza&ccedil;&atilde;o em debug
+</span>   <span class="code_comment">//
+</span>   m_strCurrentToken = *m_TokenIterator;
+   m_szCurrentToken = m_strCurrentToken.c_str();
+
+   <span class="keyword">if</span>(GetCurrentLine() &gt;= m_uiBreakOnLine)
+   {
+      m_uiBreakOnLine = 0xFFFFFFFF;
+      __asm <span class="keyword">int</span> 3;
+   }
+
+<span class="keyword">#endif</span>
+
+   <span class="keyword">return</span> *m_TokenIterator;
+}
+
+<span class="keyword">void</span> MidlParser::SkipUntilToken(<span class="keyword">const</span> string&amp; token)
+{
+   std::find(m_TokenIterator, m_Tokenizer.end(), token);
+}
+
+<span class="keyword">void</span> MidlParser::SkipQuote()
+{
+   <span class="keyword">bool</span> stringOpened = <span class="keyword">false</span>;
+   <span class="keyword">for</span>(;;)
+   {
+      <span class="keyword">const</span> string&amp; token = NextToken(<span class="keyword">true</span>, <span class="keyword">false</span>);
+      
+      <span class="keyword">if</span>(token == <span class="string">&quot;&quot;&quot;</span>)
+      {
+         <span class="keyword">if</span>(stringOpened)
+            <span class="keyword">return</span>;
+         <span class="keyword">else</span>
+         {
+            stringOpened = <span class="keyword">true</span>;
+            <span class="keyword">continue</span>;
+         }
+      }
+
+      <span class="code_comment">//
+</span>      <span class="code_comment">// pular escape de aspa
+</span>      <span class="code_comment">//
+</span>      <span class="keyword">if</span>(token == <span class="string">&quot;&quot;</span> &amp;&amp; NextToken(<span class="keyword">true</span>, <span class="keyword">false</span>) == <span class="string">&quot;&quot;&quot;</span>)
+         NextToken(<span class="keyword">true</span>, <span class="keyword">false</span>);
+   }
+}
+
+<span class="keyword">void</span> MidlParser::SkipUntilClose(<span class="keyword">const</span> string&amp; open_token, <span class="keyword">const</span> string&amp; close_token)
+{
+   <span class="keyword">unsigned</span> <span class="keyword">int</span> deep = 0;
+
+   <span class="keyword">for</span>(;;)
+   {
+      <span class="keyword">if</span>(CurrentToken() == open_token)
+      {
+         deep++;
+      }
+      <span class="keyword">else</span> <span class="keyword">if</span>(CurrentToken() == close_token)
+      {
+         deep--;
+
+         <span class="keyword">if</span>(deep == 0)
+            <span class="keyword">break</span>;
+      }
+
+      NextToken();
+   }
+}
+
+<span class="keyword">void</span> MidlParser::ParseMethod(IdlMethod* method)
+{
+   <span class="keyword">if</span>(CurrentToken() == <span class="string">&quot;[&quot;</span>)
+      ParseAttributes(&amp;method-&gt;Attributes);
+
+   method-&gt;ReturnType = CurrentTokenAsIdentifier();
+   method-&gt;Name = NextTokenAsIdentifier();
+
+   CheckExpectedNextToken(<span class="string">&quot;(&quot;</span>);
+
+   <span class="keyword">if</span>(NextToken() != <span class="string">&quot;)&quot;</span>)
+   {
+      <span class="keyword">for</span>(<span class="keyword">unsigned</span> <span class="keyword">int</span> uiCurrentParameter = 0 ; ; ++uiCurrentParameter)
+      {
+         IdlParameter param;
+
+         <span class="code_comment">//
+</span>         <span class="code_comment">// vamos ver se &eacute; atributos
+</span>         <span class="code_comment">//
+</span>         <span class="keyword">if</span>(CurrentToken() == <span class="string">&quot;[&quot;</span>)
+         {
+            ParseAttributes(&amp;param.Attributes);
+         }
+
+         param.Type = CurrentTokenAsIdentifier();
+         
+         <span class="keyword">while</span>(NextToken() == <span class="string">&quot;*&quot;</span>)
+            param.IndirectionLevel++;
+
+         <span class="code_comment">//
+</span>         <span class="code_comment">// tratar sintaxe Metodo(void);
+</span>         <span class="code_comment">//
+</span>         <span class="keyword">if</span>(param.Type == <span class="string">&quot;void&quot;</span> &amp;&amp; CurrentToken() == <span class="string">&quot;)&quot;</span>)
+         {
+            <span class="keyword">break</span>;
+         }
+
+         CheckType(param.Type, param.IndirectionLevel);
+
+         param.Name = CurrentTokenAsIdentifier();
+
+         method-&gt;Parameters.push_back(param);
+
+         <span class="keyword">if</span>(NextToken() == <span class="string">&quot;)&quot;</span>)
+         {
+            <span class="keyword">break</span>;
+         }
+
+         <span class="keyword">if</span>(CurrentToken() == <span class="string">&quot;,&quot;</span>)
+         {
+            NextToken();
+            <span class="keyword">continue</span>;
+         }
+
+         <span class="keyword">throw</span> ParseException(<span class="string">&quot;expected: &quot;,&quot; or &quot;)&quot;&quot;</span>, *<span class="keyword">this</span>, m_parsedFileName);
+      }
+   }
+
+   NextToken();
+   CheckExpectedCurrentToken(<span class="string">&quot;;&quot;</span>);
+   NextToken();
+}
+
+<span class="keyword">void</span> MidlParser::ParseInterface(IdlInterface* iface)
+{
+   assert(CurrentToken() == <span class="string">&quot;interface&quot;</span>);
+
+   iface-&gt;Name = NextTokenAsIdentifier();
+
+   <span class="code_comment">//
+</span>   <span class="code_comment">// heran&ccedil;a de interface
+</span>   <span class="code_comment">//
+</span>   <span class="keyword">if</span>(NextToken() == <span class="string">&quot;:&quot;</span>)
+   {
+      CheckNotExpectedNextToken(<span class="string">&quot;{&quot;</span>, <span class="string">&quot;interface name&quot;</span>);
+
+      iface-&gt;InheritsFrom = CurrentTokenAsType();
+
+      CheckType(iface-&gt;InheritsFrom, 0, <span class="keyword">true</span>);
+
+      NextToken();
+   }
+
+   CheckExpectedCurrentToken(<span class="string">&quot;{&quot;</span>);
+
+   NextToken();
+
+   <span class="code_comment">//
+</span>   <span class="code_comment">// temos que colocar a pr&oacute;pria interface na lista de tipos
+</span>   <span class="code_comment">// conhecidos, j&aacute; que um m&eacute;todo pode receber um ponteiro
+</span>   <span class="code_comment">// do pr&oacute;prio tipo
+</span>   <span class="code_comment">//
+</span>   AddKnownType(iface-&gt;Name);
+
+   
+
+   <span class="code_comment">//
+</span>   <span class="code_comment">// m&eacute;todos
+</span>   <span class="code_comment">//
+</span>   <span class="keyword">if</span>(CurrentToken() != <span class="string">&quot;}&quot;</span>)
+   {
+      <span class="keyword">for</span>(;;)
+      {
+         IdlMethod method;
+
+         ParseMethod(&amp;method);
+
+         iface-&gt;Methods.push_back(method);
+
+         <span class="code_comment">//
+</span>         <span class="code_comment">// fim da interface
+</span>         <span class="code_comment">//
+</span>         <span class="keyword">if</span>(CurrentToken() == <span class="string">&quot;}&quot;</span>)
+            <span class="keyword">break</span>;
+      }
+   }
+
+   CheckExpectedNextToken(<span class="string">&quot;;&quot;</span>);
+   NextToken();
+}
+
+<span class="keyword">void</span> MidlParser::LoadKnownInterfaces()
+{
+   <span class="code_comment">//
+</span>   <span class="code_comment">// essa maravilha de sintaxe &eacute; gra&ccedil;as ao boost::assign
+</span>   <span class="code_comment">//
+</span>   m_KnownInterfaces.clear();
+   m_KnownInterfaces += <span class="string">&quot;IUnknown&quot;</span>, <span class="string">&quot;IDispatch&quot;</span>;
+   <span class="keyword">return</span>;
+}
+
+<span class="keyword">void</span> MidlParser::LoadKnownTypes()
+{
+   <span class="code_comment">//
+</span>   <span class="code_comment">// por enquanto vou colocar os defines tb, para facilitar. Quando
+</span>   <span class="code_comment">// isso tiver um pr&eacute;-processador isso deve ser tirado
+</span>   <span class="code_comment">//
+</span>   m_KnownTypes.clear();
+   m_KnownTypes += <span class="string">&quot;BSTR&quot;</span>, <span class="string">&quot;VARIANT&quot;</span>, <span class="string">&quot;DWORD&quot;</span>, <span class="string">&quot;LONG&quot;</span>, <span class="string">&quot;ULONG&quot;</span>, <span class="string">&quot;GUID&quot;</span>, <span class="string">&quot;REFGUID&quot;</span>, 
+                   <span class="string">&quot;HRESULT&quot;</span>, <span class="string">&quot;BOOL&quot;</span>, <span class="string">&quot;LPVOID&quot;</span>, <span class="string">&quot;REFCLSID&quot;</span>, <span class="string">&quot;WCHAR&quot;</span>, <span class="string">&quot;REFIID&quot;</span>, <span class="string">&quot;VOID&quot;</span>, <span class="string">&quot;void&quot;</span>, 
+                   <span class="string">&quot;VARIANT_BOOL&quot;</span>, <span class="string">&quot;USHORT&quot;</span>, <span class="string">&quot;int&quot;</span>, <span class="string">&quot;short&quot;</span>, <span class="string">&quot;UCHAR&quot;</span>;
+
+}
+
+<span class="keyword">void</span> MidlParser::ParseAttributes(vector&lt;IdlAttribute&gt;* attributes)
+{
+   std::stringstream buffer;
+
+   assert(CurrentToken() == <span class="string">&quot;[&quot;</span>);
+
+   <span class="keyword">for</span>(;;)
+   {
+      <span class="keyword">if</span>(CurrentToken() == <span class="string">&quot;]&quot;</span>)
+         <span class="keyword">break</span>;
+
+      IdlAttribute att(NextTokenAsIdentifier());
+
+      <span class="code_comment">//
+</span>      <span class="code_comment">// se for v&iacute;rgula, acabou esse
+</span>      <span class="code_comment">//
+</span>      <span class="keyword">if</span>(NextToken() == <span class="string">&quot;,&quot;</span>)
+      {
+         attributes-&gt;push_back(att);
+         <span class="keyword">continue</span>;
+      }
+
+      <span class="code_comment">//
+</span>      <span class="code_comment">// se abre parenteses, tem valor
+</span>      <span class="code_comment">//
+</span>      <span class="keyword">if</span>(CurrentToken() == <span class="string">&quot;(&quot;</span>)
+      {
+         <span class="keyword">if</span>(NextToken() == <span class="string">&quot;)&quot;</span>)
+            <span class="keyword">throw</span> ParseException((boost::format(<span class="string">&quot;Attribute %1% has null value&quot;</span>) % CurrentToken()).str(), *<span class="keyword">this</span>, m_parsedFileName);
+
+         <span class="code_comment">//
+</span>         <span class="code_comment">// vamos encontrar o fim do par&ecirc;nteses
+</span>         <span class="code_comment">//
+</span>         buffer.clear();
+
+         <span class="keyword">while</span>(CurrentToken() != <span class="string">&quot;)&quot;</span>)
+         {
+            buffer &lt;&lt; CurrentToken();
+
+            NextToken();
+         }
+
+         NextToken();
+
+         att.Value = buffer.str();
+      }
+
+      attributes-&gt;push_back(att);
+   }
+
+   NextToken();
+}
+
+<span class="keyword">void</span> MidlParser::Log(<span class="keyword">const</span> string&amp; msg)
+{
+   cerr &lt;&lt; msg &lt;&lt; endl;
+}
+
+
+<span class="keyword">bool</span> MidlParser::IsEndOfFile()
+{
+   <span class="keyword">return</span> m_TokenIterator == m_Tokenizer.end();
+}
+
+<span class="keyword">bool</span> MidlParser::OpenIncludeFile(<span class="keyword">const</span> string&amp; fileName, fstream* f, string* fileNameWithPath)
+{
+   <span class="keyword">for</span>(vector&lt;string&gt;::const_iterator i = m_IncludePaths.begin() ; i != m_IncludePaths.end() ; ++i)
+   {
+      string str;
+      
+      f-&gt;close();
+      f-&gt;clear();
+
+      str = *i + fileName;
+
+      f-&gt;open(str.c_str(), ios::in);
+      
+      <span class="keyword">if</span>(f-&gt;good())
+      {
+         <span class="keyword">if</span>(fileNameWithPath)
+            *fileNameWithPath = str;
+
+         <span class="keyword">return</span> <span class="keyword">true</span>;
+      }
+   }
+   <span class="keyword">return</span> <span class="keyword">true</span>;
+}
+
+<a name="ParseImportFile"></a>
+<span class="keyword">void</span> MidlParser::ParseImportFile(<span class="keyword">const</span> string&amp; fileName)
+{
+   fstream f;
+   string str;
+
+   <span class="code_comment">//
+</span>   <span class="code_comment">// deve ter extens&atilde;o IDL e n&atilde;o ter sido interpretado ainda
+</span>   <span class="code_comment">//
+</span>   <span class="keyword">if</span>(fileName.length() &lt; 5 || 
+      fileName.substr(fileName.size() - 4, 4) != <span class="string">&quot;.idl&quot;</span> ||
+      std::find(m_ParsedIncludeFiles.begin(), m_ParsedIncludeFiles.end(), fileName) != m_ParsedIncludeFiles.end())
+      <span class="keyword">return</span>;
+
+   MidlParser ImportParser;
+   
+   ImportParser.m_bParseAsImportFile = <span class="keyword">true</span>;
+
+   ImportParser.m_KnownTypes = m_KnownTypes;
+   ImportParser.m_KnownInterfaces = m_KnownInterfaces;
+   ImportParser.m_ParsedIncludeFiles = m_ParsedIncludeFiles;
+
+
+   ImportParser.ParseMidlFile(fileName.c_str());
+
+   m_KnownTypes = ImportParser.m_KnownTypes;
+   m_KnownInterfaces = ImportParser.m_KnownInterfaces;
+   m_ParsedIncludeFiles = ImportParser.m_ParsedIncludeFiles;
+}
+
+
+
+<span class="code_comment">//
+</span><span class="code_comment">// 
+</span><span class="code_comment">// PUBLIC
+</span><span class="code_comment">// 
+</span><span class="code_comment">//
+</span>
+MidlParser::MidlParser() : 
+   m_Tokenizer(std::string()),
+   m_bParseAsImportFile(<span class="keyword">false</span>)
+{
+<span class="keyword">#ifdef</span> _DEBUG
+   m_uiBreakOnLine = 0xFFFFFFFF;
+<span class="keyword">#endif</span>
+
+   AddFindPath(<span class="string">&quot;C:Program FilesMicrosoft SDKinclude&quot;</span>);
+}
+
+<a name="ParseMidlFile"></a>
+<span class="keyword">void</span> MidlParser::ParseMidlFile(<span class="keyword">const</span> <span class="keyword">char</span>* fileName)
+{
+   fstream f;
+   string str;
+   std::vector&lt;IdlAttribute&gt; attributes;
+ 
+   <span class="keyword">if</span>(m_bParseAsImportFile)
+   {
+      <span class="keyword">if</span>(!OpenIncludeFile(fileName, &amp;f, &amp;m_parsedFileName))
+         <span class="keyword">throw</span> ParseException(string(<span class="string">&quot;error opening import file &quot;&quot;</span>) + fileName + <span class="string">&quot;&quot;&quot;</span>, *<span class="keyword">this</span>, m_parsedFileName);
+
+      getline(f, str, f.widen(EOF));
+
+      m_Tokenizer.assign(str,char_separator&lt;<span class="keyword">char</span>&gt;(<span class="string">&quot;\t\r &quot;</span> , <span class="string">&quot;\n\&quot;*,;:{}/[]()&quot;</span>));
+
+      m_ParsedIncludeFiles.push_back(fileName);
+
+      Log(string(<span class="string">&quot;Parsing import file &quot;</span>) + fileName);
+
+   }
+   <span class="keyword">else</span>
+   {
+      f.open(fileName, ios::in);
+
+      <span class="keyword">if</span>(f.fail())
+         <span class="keyword">throw</span> ParseException(string(<span class="string">&quot;error opening file &quot;&quot;</span>) + fileName + <span class="string">&quot;&quot;&quot;</span>, *<span class="keyword">this</span>, m_parsedFileName);
+   
+      getline(f, str, f.widen(EOF));
+      m_Tokenizer.assign(str,char_separator&lt;<span class="keyword">char</span>&gt;(<span class="string">&quot;\t\r &quot;</span> , <span class="string">&quot;\n\&quot;*,;:{}/[]()&quot;</span>));
+
+      m_parsedFileName = fileName;
+
+      LoadKnownInterfaces();
+      LoadKnownTypes();
+
+   }
+
+   
+   m_TokenIterator = m_Tokenizer.begin();
+   m_LineCountIterator = m_TokenIterator;
+   m_uiCurrentLine = 1;
+
+   <span class="keyword">for</span>(;;)
+   {
+      <span class="keyword">const</span> string token = CurrentToken(<span class="keyword">false</span>);
+
+      <span class="keyword">if</span>(IsEndOfFile())
+         <span class="keyword">break</span>;
+
+      <span class="code_comment">//
+</span>      <span class="code_comment">// in&iacute;cio de atributos
+</span>      <span class="code_comment">//
+</span>      <span class="keyword">if</span>(token == <span class="string">&quot;[&quot;</span>)
+      {
+         <span class="keyword">if</span>(m_bParseAsImportFile)
+         {
+            SkipUntilClose(<span class="string">&quot;[&quot;</span>, <span class="string">&quot;]&quot;</span>);
+            <span class="keyword">continue</span>;
+         }
+
+         attributes.clear();
+
+         ParseAttributes(&amp;attributes);
+
+         <span class="code_comment">//
+</span>         <span class="code_comment">// se n&atilde;o for atributo de uma interface vamos ignorar. 
+</span>         <span class="code_comment">// Acho melhor do que verificar antes se &eacute; uma interface e ter que &quot;rebobinar&quot;
+</span>         <span class="code_comment">// o iterator (o que, na realidade, n&atilde;o &eacute; poss&iacute;vel pq o iterator &eacute; forward-only)
+</span>         <span class="code_comment">//
+</span>         <span class="keyword">if</span>(CurrentToken() != <span class="string">&quot;interface&quot;</span>)
+            attributes.clear();
+      }
+      <span class="keyword">else</span> <span class="keyword">if</span>(token == <span class="string">&quot;cpp_quote&quot;</span>)
+      {
+         SkipQuote();
+         CheckExpectedNextToken(<span class="string">&quot;)&quot;</span>);
+      }
+      <span class="keyword">else</span> <span class="keyword">if</span>(token == <span class="string">&quot;coclass&quot;</span>)
+      {
+         SkipUntilClose(<span class="string">&quot;{&quot;</span>, <span class="string">&quot;}&quot;</span>);
+         NextToken();
+      }
+      <span class="keyword">else</span> <span class="keyword">if</span>(token == <span class="string">&quot;import&quot;</span>)
+      {
+         stringstream stm;
+         
+         CheckExpectedNextToken(<span class="string">&quot;&quot;&quot;</span>);
+         
+         <span class="keyword">while</span>(NextToken(<span class="keyword">true</span>, <span class="keyword">false</span>) != <span class="string">&quot;&quot;&quot;</span>)
+            stm &lt;&lt; CurrentToken(<span class="keyword">true</span>, <span class="keyword">false</span>);
+
+         ParseImportFile(stm.str());
+         
+         CheckExpectedNextToken(<span class="string">&quot;;&quot;</span>);
+         NextToken();
+      }
+      <span class="keyword">else</span> <span class="keyword">if</span>(token == <span class="string">&quot;#define&quot;</span>)
+      {
+         <span class="keyword">for</span>(;;)
+         {
+            <span class="keyword">if</span>(NextToken(<span class="keyword">true</span>, <span class="keyword">false</span>) == <span class="string">&quot;n&quot;</span>)
+               <span class="keyword">break</span>;
+
+            <span class="code_comment">//
+</span>            <span class="code_comment">// se for  vamos pular um token, pq se o pr&oacute;ximo
+</span>            <span class="code_comment">// for um n ele ser&aacute; pulado. Sen&atilde;o n&atilde;o tem efeito mesmo...
+</span>            <span class="code_comment">//
+</span>            <span class="keyword">if</span>(CurrentToken(<span class="keyword">true</span>, <span class="keyword">false</span>) == <span class="string">&quot;&quot;</span>)
+               NextToken(<span class="keyword">true</span>, <span class="keyword">false</span>);
+         }
+
+      }
+      <span class="keyword">else</span> <span class="keyword">if</span>(token == <span class="string">&quot;interface&quot;</span>)
+      {
+         <span class="keyword">if</span>(m_bParseAsImportFile)
+         {
+            AddKnownInterfaceName(NextTokenAsIdentifier());
+            
+            <span class="keyword">if</span>(NextToken() != <span class="string">&quot;;&quot;</span>)
+               SkipUntilClose(<span class="string">&quot;{&quot;</span>, <span class="string">&quot;}&quot;</span>);
+
+            <span class="keyword">continue</span>;
+         }
+
+         IdlInterface iface;
+
+         <span class="keyword">if</span>(attributes.empty())
+         {
+            <span class="code_comment">//
+</span>            <span class="code_comment">// se n&atilde;o tem atributos TEM QUE SER um forward declaration
+</span>            <span class="code_comment">//
+</span>            string name;
+
+            name = NextTokenAsIdentifier();
+
+            CheckExpectedNextToken(<span class="string">&quot;;&quot;</span>);
+
+            NextToken();
+
+            m_KnownInterfaces.push_back(name);
+
+            <span class="keyword">continue</span>;
+         }
+
+         <span class="code_comment">//
+</span>         <span class="code_comment">// coloca os atributos encontrados na interface
+</span>         <span class="code_comment">//
+</span>         iface.Attributes = attributes;
+         attributes.clear();
+
+         ParseInterface(&amp;iface);
+
+         AddParsedInterface(iface);
+      }
+      <span class="keyword">else</span> <span class="keyword">if</span>(token == <span class="string">&quot;enum&quot;</span>)
+      {
+         <span class="code_comment">//
+</span>         <span class="code_comment">// por enquanto s&oacute; vamos pegar o nome do enum para considerarmos
+</span>         <span class="code_comment">// como um tipo v&aacute;lido
+</span>         <span class="code_comment">//
+</span>         SkipUntilClose(<span class="string">&quot;{&quot;</span>, <span class="string">&quot;}&quot;</span>);
+         
+         <span class="keyword">if</span>(NextToken() != <span class="string">&quot;;&quot;</span>)
+         {
+            AddKnownType(CurrentTokenAsIdentifier());
+            CheckExpectedNextToken(<span class="string">&quot;;&quot;</span>);
+         }
+         NextToken();
+      }
+      <span class="keyword">else</span>
+      {
+         NextToken(<span class="keyword">false</span>);
+      }
+   }
+
+   <span class="keyword">if</span>(!m_bParseAsImportFile)
+   {
+      cout &lt;&lt; <span class="string">&quot;Finish (&quot;</span> &lt;&lt; g_dwIoTime &lt;&lt; <span class="string">&quot; / &quot;</span> &lt;&lt; dwTickCount &lt;&lt; <span class="string">&quot; / &quot;</span> &lt;&lt; std::fixed &lt;&lt; percent &lt;&lt; <span class="string">&quot;)&quot;</span> &lt;&lt; endl;
+   }
+
+   <span class="keyword">return</span>;
+}
+
+
+<span class="keyword">void</span> MidlParser::AddFindPath(<span class="keyword">const</span> string&amp; path)
+{
+   <span class="keyword">if</span>(std::find(m_IncludePaths.begin(), m_IncludePaths.end(), path) == m_IncludePaths.end())
+   {
+      <span class="keyword">if</span>(*path.rbegin() != <span class="string">''</span>)
+         m_IncludePaths.push_back(path + <span class="string">&quot;&quot;</span>);
+      <span class="keyword">else</span>
+         m_IncludePaths.push_back(path);
+   }
+}
+
+<span class="keyword">const</span> std::map&lt;string,IdlInterface&gt;&amp; MidlParser::GetParsedInterfaces() <span class="keyword">const</span>
+{
+   <span class="keyword">return</span> m_ParsedInterfaces;
+}
+
+
+<span class="keyword">const</span> std::vector&lt;string&gt;&amp; MidlParser::GetKnownInterfaces() <span class="keyword">const</span>
+{
+   <span class="keyword">return</span> m_KnownInterfaces;
+}
+
+
+<span class="code_comment">// --------------------------------------------------------------------------
+</span><span class="code_comment">// select1st, select2nd
+</span><span class="code_comment">// --------------------------------------------------------------------------
+</span><span class="keyword">#include</span> &lt;boost/call_traits.hpp&gt;
+
+<span class="keyword">template</span> &lt;<span class="keyword">class</span> Pair&gt;
+<span class="keyword">struct</span> select1st : std::unary_function&lt;Pair,<span class="keyword">typename</span> Pair::first_type&gt;
+{
+   <span class="keyword">typename</span> <span class="keyword">const</span> Pair::first_type&amp; <span class="keyword">operator</span>()(<span class="keyword">typename</span> boost::call_traits&lt;Pair&gt;::param_type x) <span class="keyword">const</span>
+   {
+      <span class="keyword">return</span> x.first;
+   }
+};
+
+<span class="keyword">template</span> &lt;<span class="keyword">class</span> Pair&gt;
+<span class="keyword">struct</span> select2nd : std::unary_function&lt;Pair,<span class="keyword">typename</span> Pair::second_type&gt;
+{
+   <span class="keyword">typename</span> <span class="keyword">const</span> Pair::second_type&amp; <span class="keyword">operator</span>()(<span class="keyword">typename</span> boost::call_traits&lt;Pair&gt;::param_type x) <span class="keyword">const</span>
+   {
+      <span class="keyword">return</span> x.second;
+   }
+};
+
+<span class="keyword">void</span> MidlParser::Dump(ostream&amp; s) <span class="keyword">const</span>
+{
+   s &lt;&lt; <span class="string">&quot;KnownInterfaces&quot;</span> &lt;&lt; endl &lt;&lt; string(30, <span class="string">'='</span>) &lt;&lt; endl;
+   std::copy(m_KnownInterfaces.begin(), m_KnownInterfaces.end(), std::ostream_iterator&lt;string&gt;(s, <span class="string">&quot;rn&quot;</span>));
+
+   s &lt;&lt; endl &lt;&lt; <span class="string">&quot;ParsedInterfaces&quot;</span> &lt;&lt; endl &lt;&lt; string(30, <span class="string">'='</span>) &lt;&lt; endl;
+
+   std::copy(
+      boost::make_transform_iterator(m_ParsedInterfaces.begin(), select1st&lt;<span class="keyword">const</span> std::map&lt;string, IdlInterface&gt;::value_type&gt;()),
+      boost::make_transform_iterator(m_ParsedInterfaces.end(), select1st&lt;<span class="keyword">const</span> std::map&lt;string, IdlInterface&gt;::value_type&gt;()),
+      std::ostream_iterator&lt;string&gt;(s, <span class="string">&quot;rn&quot;</span>));
+
+
+   s.flush();
+}
+<span class="keyword">void</span> MidlParser::AddKnownType(<span class="keyword">const</span> string&amp; t)
+{
+   <span class="keyword">if</span>(std::find(m_KnownTypes.begin(), m_KnownTypes.end(), t) ==  m_KnownTypes.end())
+   {
+      m_KnownTypes.push_back(t);
+   }
+}
+</pre>
+</div>
+<p>Página feita usando o <a href="http://planeta.terra.com.br/informatica/thiago_adams/codeatweb.htm">code@Web</a>, de autoria de Thiago Adams.</p><br><p class="datetime">Em 11/08/2005 18:56, por  Rodrigo Strauss </p>
+</div>
+          </td>
+        </tr>
+
+
+
+<tr>
+<td class="topmenu"></td>
+<td>
+<br>
+<center>
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-2589539519655496";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text";
+google_ad_channel = "";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "FF5000";
+google_color_text = "000000";
+google_color_url = "FF5000";
+google_ui_features = "rc:6";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</center>
+</td>
+</tr>
+
+<tr>
+ <td class="topmenu"></td>
+ <td>
+  <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+   <tr>
+    <td><img src="../../images/rebarba3.png"></td>
+    <td align="right"><img src="../../images/rebarba4.png"></td>
+   </tr>
+  </table>
+ </td>
+</tr>
+
+<tr><td class="topmenu">&nbsp;</td><td class="topmenu">&nbsp;</td></tr>
+<tr><td class="topmenu">&nbsp;</td><td>
+<table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+</td>
+</tr>
+ <tr><td class="topmenu">&nbsp;</td>
+<td>
+
+<div class="content">
+<a name="comments"></a><h5>Comentários</h5><div class="post_comment">
+<a name="541"></a><B>Leonardo Stabile Prates</B>  | <a rel="nofollow" href="mailto:leonardo_stabile@yahoo.com.br">e-mail</a> | em 14/08/2005 | <a rel="nofollow" href="../#541">#</a><br>
+interessante teu parser, me lembra minhas aulas de compiladores na facul, com gramaticas LR e ai vai cacetada de código...<br><br>tua solucao usando C++ puro ficou muito bem feita, principalmente a parte do "tokenizer", facilitou muito o servico...<br><br>nao curti tua rotina pra carregar os tipos e interfaces conhecidas, no bom e velho jeitão C de declarar strings fica mais simples e visual, ainda q o boost::assign deu uma ajudada... espero q a nova spec do C++ (C++0x) traga essa funcionalidade para facilitar inicializacoes, coisas do tipo:<br><br>list&lt;string&gt; t = { "blah", "blah", "blah" };<br><br>pelo menos era esse o objetivo deles... isso facilitaria muito teu codigo:<br><br>vector&lt;string&gt; m_KnownInterfaces =<br>{<br>  "IUnknown",<br>  "IDispatch"<br>};<br><br>o mesmo pra tua maquina de estados, quando fiz eu acabei definindo um id pra cada token, e criei um switch pra levar pra cada proximo estado, nao gosto mto de "else ifs" seguidos, mas dae jah eh gosto pessoal... mais uma vez: espero q no C++0x a funcionalidade de switch para strings esteja presente tambem:<br><br>switch( token )<br>{<br>  case "[":<br>   ...<br>   break;<br>  case "cpp_quote":<br>   ...<br>   break;<br>}<br><br>uma vez jah pensei em criar uma classe abstrata "Token" e derivar meus tokens, para que os estados fossem atingidos por polimorfismo, talvez eu tente no futuro. daria ateh pra resumir codigo com algum class factory bem feito...<br><br>soh nao entendi uma coisa (pode ateh parecer meio estupido, mas nao entendi mesmo): voce lancou varias excecoes no codigo mas ninguem esta capturando, vc quer q pare tudo mesmo ou delega o catch pro usuario do parser?!?
+</div>
+<div class="post_comment_strauss">
+<a name="543"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 14/08/2005 | <a rel="nofollow" href="../#543">#</a><br>
+Boost é a melhor coisa que inventaram depois do chocolate em pó.. :-) Eu virei um adepto!<br><br>Eu gosto dessa sintaxe [vector += "item1", "item2"], mas isso é gosto pessoal mesmo. O problema dessa sintaxe C é que ela só serve para inicializar, enquanto o boost:assign pode ser usado para adicionar itens, independente do lugar no código.<br><br>Eu fiz tudo com elseif para que as coisas mais simples de serem tratadas (como o #ifdef que eu ignoro) ficassem centralizadas, para diminuir a necessidade de ficar navegando no código. As entidades que são mais complexas - como interfaces e métodos - eu separei. Talvez essa não seja a melhor das soluções, mas como eu tinha dito nos posts, minha intenção foi deixar o fonte o mais claro possível e de fácil manutenção. Até para mostrar para esse povo de Java/C# que acha que qualquer código C++ é complicado de mais para escrever e para manter.<br><br>Essa classe só faz a interpretação. É isso mesmo que você falou, quem chama a classe que trata as exceções. O intuito é que toda exceção chegue até o caller, para que ele reporte ao usuário. Todo erro do parser é fatal, não existe nenhum erro que o parser possa recuperar. Olhe um exemplo de uso:<br><br>int _tmain(int argc, _TCHAR* argv[])<br>{<br>   MidlParser parser;<br><br>   if(argc &lt; 2 )<br>   {<br>      ShowUsage();<br>      return -1;<br>   }<br><br>   try<br>   {<br>      parser.ParseMidlFile(argv[1]);<br>   }<br>   catch(MidlParser::ParseException& ex)<br>   {<br>      cerr &lt;&lt; ex.get_fileName() &lt;&lt; "(" &lt;&lt; ex.get_line() &lt;&lt; ") : " &lt;&lt; ex.what() &lt;&lt; endl;<br>   }<br><br>   return 0;<br>}<br>
+</div>
+<div class="post_comment">
+<a name="545"></a><B>Leonardo Stabile Prates</B>  | <a rel="nofollow" href="mailto:leonardo_stabile@yahoo.com.br">e-mail</a> | em 14/08/2005 | <a rel="nofollow" href="../#545">#</a><br>
+o boost eh realmente um achado, ainda q eu fique com o peh atras de usar: usa a mesma logica da biblioteca padrao, eh gerenciada por um grupo comum de pessoas e eh confiavel, mas NAO eh a biblioteca padrao! de qqer forma eu gostaria de ver evolucoes em libs como a lambda e mpl... talvez um dia o paradigma funcional tambem esteja presente por completo no C++, espero.<br><br>eh um balde de agua fria pros xiitas Java/.NET q acham q vao engolir o C++, na PIOR das hipoteses a linguagem vai se restringir ao meio academico de ciencia da computacao, acabar eh muito improvavel...<br><br>problema eh q eh um paradigma q quebra com o q as pessoas estao acostumadas... algo q pra mim soa normal ninguem entende:<br><br>for_each(a.begin(), a.end(), std::cout &lt;&lt; _1 &lt;&lt; ' ');<br><br>a partir do momento q voce desenvolve sistemas em grupo isso se torna um problema...<br><br>* sim, eu deveria desenvolver em lisp e nao C++, mas a falta de flexibilidade e a porquisse na sintaxe me espantam dessa linguagem, C++ eh bem melhor. um paradigma nao resolve todos os problemas, logo a linguagem deve suportar outros paradigmas pra aumentar o escopo das solucoes...
+</div>
+<div class="post_comment_strauss">
+<a name="546"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 14/08/2005 | <a rel="nofollow" href="../#546">#</a><br>
+O boost é administrado pelo pessoal do padrão C++, e muitas classes do boost serão incluídas no padrão. Eu também não gostos de usar libs de terceiros, mas depois de ler bastante sobre boost me sinto suficientemente seguro para usá-lo.<br><br>Essa pior das hipóteses que você falou não  vai existir. Nem a SUN e a Microsoft juntas são fortes suficientes para derrubar o C++, e por parte da Microsoft nem existe esse interessa. TUDO que eles fizeram até hoje é em C ou C++. Pode ser que o uso diminua, mas existem momentos onde você precisa de algo que rode muito mais rápido.<br><br>Sim, todos os programadores C++ votam para que o ele tenha mais recursos parecidos com as linguagens funcionais. Eu nunca consegui entendê-las direito, mas acho que não estudei o suficiente... :-)
+</div>
+
+<h5>Algo a dizer?</h5>
+<script language="JavaScript">
+function setCookie(name, value, expires, path, domain, secure) {
+  var curCookie = name + "=" + escape(value) +
+      ((expires) ? "; expires=" + expires.toGMTString() : "") +
+      ((path) ? "; path=" + path : "") +
+      ((domain) ? "; domain=" + domain : "") +
+      ((secure) ? "; secure" : "");
+  document.cookie = curCookie;
+}
+
+function getCookie(name) {
+  var dc = document.cookie;
+  var prefix = name + "=";
+  var begin = dc.indexOf("; " + prefix);
+  if (begin == -1) {
+    begin = dc.indexOf(prefix);
+    if (begin != 0) return null;
+  } else
+    begin += 2;
+  var end = document.cookie.indexOf(";", begin);
+  if (end == -1)
+    end = dc.length;
+  return unescape(dc.substring(begin + prefix.length, end));
+}
+
+function deleteCookie(name, path, domain) {
+  if (getCookie(name)) {
+    document.cookie = name + "=" +
+    ((path) ? "; path=" + path : "") +
+    ((domain) ? "; domain=" + domain : "") +
+    "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+  }
+}
+
+function CheckName()
+{
+  if(comment_form.name.value == '')
+  {
+    alert('Você esqueceu de informar o seu nome...');
+    comment_form.name.focus();
+    
+    return false;
+  }
+
+  if(comment_form.comment.value == '')
+  {
+    alert('O que você acha de escrever o comentário antes de tentar enviá-lo?');
+    comment_form.comment.focus();
+    
+    return false;
+  }
+
+  var now = new Date();
+
+  // um ano
+  now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+  setCookie("name", comment_form.name.value, now);
+  setCookie("email", comment_form.email.value, now);
+  setCookie("link", comment_form.link.value, now);
+  setCookie("hideemail", comment_form.hideemail.value, now);
+
+  return true;
+}
+
+</script>
+<form name="comment_form" method="POST" action="/comment.html" onsubmit="return CheckName();">
+<input type="hidden" name="article" value="weblog/1123797389"/>
+
+Nome:<br/>
+<input type="text" name="name" style="width: 250px;"/><br/>
+<br/>
+
+Site:<br/>
+<input type="text" name="link" style="width: 250px;" /><br/>
+<br/>
+
+E-mail:<br/>
+<input type="text" name="email" style="width: 250px;" />
+<br/><br/>
+
+Escreva o número vinte e seis:<br/>
+<input type="text" name="idade" style="width: 250px;" />
+<br/><br/>
+
+<input type="checkbox" name="hideemail"/>&nbsp;Não mostre meu e-mail no site, não serve pra nada mesmo...
+<br/><br/>
+
+Comentário<br/>
+<textarea style="WIDTH: 500px; HEIGHT: 300px" name="comment" rows="18" cols="50"></textarea><br/>
+<br/>
+<input type="submit" value="Dizer"/><br/><br/><br/>
+<div style="width:500px;font-size:8pt;">
+<b>Os comentários devem ser sobre assuntos relativos ao post</b>, eu provavelmente apagarei comentários totalmente offtopic. Se quiser me enviar uma mensagem, use o <a href="http://www.1bit.com.br/content.1bit/contact">formulário de contato</a>. E não esqueça: isso é um site pessoal e eu me reservo o direito de apagar qualquer comentário ofensivo ou inapropriado.
+</div>
+</form>
+
+<script language="JavaScript">
+// cookie de nome
+var name = getCookie("name");
+if (name && name != 'null')
+{
+  comment_form.name.value = name;
+  comment_form.email.value = getCookie("email");
+  comment_form.link.value = getCookie("link");
+  comment_form.hideemail.value = getCookie("hideemail");
+}
+
+</script>
+
+</div>
+
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png" alt="rebarba"></td>
+              <td align="right"><img src="../../images/rebarba4.png" alt="rebarba"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right" style="color:#999999;">
+::::
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>

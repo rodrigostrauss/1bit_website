@@ -1,0 +1,525 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>WinDbg: Debugger de gente grande (parte 3)  ::::  Rodrigo Strauss :: www.1bit.com.br</title>
+    <link href="../../1bit.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
+<!-- google analytics -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-75310-1";
+urchinTracker();
+</script>
+<!-- google analytics end -->
+
+  </head>
+  <body style="margin:0px 0px 0px 0px" bgcolor="#FFFFFF">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="../../images/logo_novo_2.png" border="0" alt="logo" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.1bit/contact">Contato</a> 
+			<span class="menusep">|</span>
+            
+            <a class="top_menu_link" href="content.1bit/about">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png" alt="rebarba"></td>
+              <td align="right"><img src="../../images/rebarba2.png" alt="rebarba"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <h2><a href="../../#artigos" style="text-decoration:none;">Artigos</a></h2>
+</div>
+
+<div class="left_menu_section">
+ <h2><a href="content.1bit/weblog" style="text-decoration:none;">Blog</a></h2>
+</div>
+
+<div class="left_menu_section">
+ <h2><a href="content.1bit/opensource" style="text-decoration:none;">Open Source</a></h2>
+</div>
+
+<!-- 
+<div class="left_menu_section">
+ <h2><a href="content.1bit/aulas" style="text-decoration:none;">Aulas online (ou nÃ£o) </a></h2>
+</div>
+-->
+
+<br>
+
+<!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com.br/custom" target="_top">
+<table border="0" bgcolor="#eeeeee">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<br/>
+<input type="hidden" name="domains" value="www.1bit.com.br"></input>
+<label for="sbi" style="display: none">Digite os termos da sua pesquisa</label>
+<input type="text" name="q" size="23" maxlength="255" value="" id="sbi"></input>
+</td></tr>
+<tr>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" id="ss0"></input>
+<label for="ss0" title="Pesquisar na web"><font size="-2" color="black">Web</font></label></td>
+<td>
+<input type="radio" name="sitesearch" value="www.1bit.com.br" checked id="ss1"></input>
+<label for="ss1" title="Pesquisar www.1bit.com.br"><font size="-2" color="black">www.1bit.com.br</font></label></td>
+</tr>
+</table>
+<label for="sbb" style="display: none">Enviar formulÃ¡rio de pesquisa</label>
+<input type="submit" name="sa" value="Pesquisar" id="sbb"></input>
+<input type="hidden" name="client" value="pub-2589539519655496"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#0066CC;GL:1;DIV:#999999;VLC:336633;AH:center;BGC:FFFFFF;LBGC:FFFFFF;ALC:0066CC;LC:0066CC;T:000000;GFNT:666666;GIMP:666666;LH:50;LW:120;L:http://www.1bit.com.br/images/logo_novo_2.png;S:http://;FORID:1"></input>
+<input type="hidden" name="hl" value="pt"></input>
+</td></tr></table>
+</form>
+<!-- SiteSearch Google -->
+<br>
+
+<br>
+<br>
+<center>
+
+<a href="http://www.twitter.com/rodrigostrauss"><img src="http://twitter-badges.s3.amazonaws.com/follow_me-b.png" alt="Follow rodrigostrauss on Twitter"/></a>
+<br><br><br>
+
+<!--
+<a href="http://whos.amung.us/show/xopqoakh"><img src="http://whos.amung.us/cwidget/xopqoakh/fffffff6915a.png" alt="page counter" width="81" height="29" border="0" /></a>
+-->
+
+</center>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<h4>WinDbg: Debugger de gente grande (parte 3)</h4>
+
+<h5>Plano de decolagem</h5>
+<p>Nessa terceira parte veremos a funcionalidade do WinDbg responsável pelo nosso querido "source level debug": os symbols. "Source level debug" nada mais é do que o debug que estamos acostumados a fazer na IDE do Visual C++, o debug usando os fontes como referência ao invés do assembly nu e cru.</p>
+
+<h5>Symbols: para que servem?</h5>
+
+<p>Os symbols são as informações de debug e referência de uma imagem executável. Quando um executável C/C++ é compilado, ele transforma as instruções da linguagem em assembly x86, e nessa tradução, as informações de tipo de dados que são usadas na linguagem se perdem. Exemplo: A instrução x86 MOV move um inteiro 32 bits entre registradores/memória. O processador não faz a menor idéia se o int que está sendo movido provém de uma variável, de um struct, se é um ponteiro ou um cast de algum outro tipo de dados. Vamos usar um programa simples para exemplificar:</p>
+
+<div class="code">
+<pre>
+typedef struct _TEST_STRUCT
+{
+   int d;
+   int e;
+} TEST_STRUCT;
+
+int Aumenta(int i)
+{
+   return i + 2;
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+   int a;
+   int b;
+   int c;
+   TEST_STRUCT test;
+
+   a = 10;
+   b = 20;
+   c = 30;
+   a = b;
+   
+   test.d = a;
+   test.e = Aumenta(c);
+
+   return 0;
+}
+</pre>
+</div>
+
+<p>Esse programa declara alguns inteiros e um struct, e atribui diversos valores a eles. Vamos ver como fica o assembly disso (sem otimização, claro):</p>
+
+
+<div class="code" style="padding: 10pt 20pt 10pt 20pt;">
+<pre>
+;
+; inicialização da pilha debug
+;
+push    ebp
+mov     ebp,esp
+sub     esp,0xf4
+push    ebx
+push    esi
+push    edi
+lea     edi,[ebp-0xf4]
+mov     ecx,0x3d
+mov     eax,0xcccccccc
+rep     stosd
+;
+; aqui começam as atribuições
+;
+mov     dword ptr [ebp-0x8],0xa    ; atribui 10 à variável [a]
+mov     dword ptr [ebp-0x14],0x14  ; atribui 20 à variável [b]
+mov     dword ptr [ebp-0x20],0x1e  ; atribui 30 à variável [c]
+
+mov     eax,[ebp-0x14]             ; move o valor de [b] para EAX
+mov     [ebp-0x8],eax              ; move o valor de EAX para [a]
+
+mov     eax,[ebp-0x8]              ; move o valor de [a] para EAX
+mov     [ebp-0x30],eax             ; move o valor de EAX para [test.d]
+
+mov     eax,[ebp-0x20]             ; move o valor de [c] para EAX
+push    eax                        ; coloca o valor de EAX na pilha
+call    0x0041150a                 ; chama a função "Aumenta" 
+add     esp,0x4                    ; como a função é __cdecl, volta a pilha
+mov     [ebp-0x2c],eax             ; atribui o retorno de "Aumenta" à [test.e]
+</pre>
+</div>
+
+
+<p>Podemos ver claramente a atribuição das variáveis aqui. Mas isso só acontece porque temos os fontes e sabemos que as variáveis existem. Note que todos os MOVs são feitos em relação a endereços de memória e registradores. Note também que não existe diferença alguma entre a atribuição de variáveis simples e as atribuições para membros de uma estrutura. O processador é instruído a mover determinados valores para determinados endereços de memória, mas ele não sabe que naquele endereço existe uma variável. Em C/C++, essa informação das variáveis se perde durante a compilação, porque ela não é necessária para que o programa seja executado.</p>
+<p>Apesar dessa informação ser desnecessária para que o sistema operacional e o processador executem o programa, ela é muito útil na hora de fazer o debug do executável. Caso não tivéssemos o fonte desse programa seria muito difícil descobrir que as últimas atribuições são para membros de uma estrutura.</p>
+<p>Aí que entram os symbols. Eles contém as associações entre os endereços de memória e as variáveis e funções. Assim é possível saber durante uma sessão de debug, que <i>call 0x0041150a</i> é na verdade um <i>call [Aumenta]</i>.</p>
+
+<h5>Vendo os symbols funcionando</h5>
+<p>Quando um programa C/C++ é compilado em configuração DEBUG, os symbols são incluídos dentro do arquivo executável. Assim, não é necessário ter um arquivo de symbols separado. Como o Windows é compilado em RELEASE, todos os EXEs e DLLs que fazem parte dele não contém informações de debug. Mas a Microsoft disponibiliza os arquivos de symbols separadamente (somente com os nomes de funções, sem as variáveis).</p>
+<p>No WinDbg, é necessário informar a localização dos arquivos com o symbols, bem como a localização dos fontes. O Visual C++ coloca a localização dos fontes junto com os symbols dentro de um executável DEBUG, mas ele usa o caminho absoluto (que pode não ser o mesmo no momento que você estiver fazendo debug). Para informar os caminhos dos symbols e dos fontes, use os menus "File" &gt;&gt; "Symbol File Path..." e "File" &gt;&gt; "Source File Path" respectivamente.</p>
+<p>Vamos fazer um teste com o nosso programinha do <a href="windbg1">primeiro artigo da série</a>, para ver qual a grande diferença entre o "com symbols" e o "olhe mamãe, sem os symbols" durante o debug de um executável Windows. Siga os seguintes passos:</p>
+<ul>
+<li>Compile o programa, se você ainda não fez. No primeiro artigo você acha as  instruções para isso;</li>
+<li>Abra o CPP do programa (usando o menu "File" &gt;&gt; "Open Source File") e  coloque um breakpoint na linha onde o objeto do ActiveDesktop é criado;</li>
+<li>Pressione F5 e deixe o programa parar no breakpoint. Quando ele chegar coloque  o breakpoint na função RegOpenKeyExW, usando o comando "bp  ADVAPI32!RegOpenKeyExW" (como explicado na <a href="windbg3">parte 2</a>);</li>
+<li>Pressione F5 para que o programa siga até o breakpoint em RegOpenKeyExW.</li>
+</ul>
+<p>Agora que chegamos até aqui, vamos ver o que temos. O comando "k" mostra as 
+funções que estão na pilha:</p>
+
+<div class="code">
+<pre>
+0:000> k
+ChildEBP RetAddr  
+WARNING: Stack unwind information not available. Following frames may be wrong.
+0012fba0 7751c837 ADVAPI32!RegOpenKeyExW
+0012fbc0 7751c549 ole32!CoGetComCatalog+0x1f0
+0012fbd8 7751c65c ole32!CoRevokeClassObject+0xf4f
+0012fbec 7751c5e1 ole32!CoGetComCatalog+0x15
+0012fc08 77501aed ole32!CoRevokeClassObject+0xfe7
+0012fc10 77501b29 ole32!CoCreateInstance+0x17c7
+0012fc30 77500200 ole32!CoCreateInstance+0x1803
+0012fd14 7750031d ole32!OleInitialize+0xd6e
+0012fd3c 775002ec ole32!CoCreateInstanceEx+0x4f
+0012fd60 7750035a ole32!CoCreateInstanceEx+0x1e
+0012fd90 00412b32 ole32!CoCreateInstance+0x34
+0012fedc 0041f4df 1bit_windbg!wmain+0xf2 [c:\temp\code\1bit_windbg\1bit_windbg.cpp @ 47]
+0012ffc0 7c816d4f 1bit_windbg!wmainCRTStartup+0x16f [f:\vs70builds\3077\vc\crtbld\crt\src\crt0.c @ 256]
+0012fff0 00000000 kernel32!RegisterWaitForInputIdle+0x49
+</pre>
+</div>
+
+
+<p>Podemos notar que existem diversas chamadas dentro da OLE32.DLL antes de chamar advapi32!RegOpenKeyExW. Note também que a pilha da OLE32 mostra que <b>aparentemente </b> temos algumas funções recursivas (que chamam a si mesmas), como a CoCreateInstanceEx, mas não é esse o caso. Na verdade, a instrução que está em <i>ole32!CoCreateInstance+0x1803</i> chamou uma função, e a instrução dessa função que está em <i>ole32!CoCreateInstance+0x17c7</i> fez outra chamada. O que acontece nesse caso é que, como o WinDbg não possui os symbols dos endereços citados, ele usa notação "symbol mais próximo conhecido" + offset. CoCreateInstance é conhecido porque é uma função exportada da OLE32.DLL, e o WinDbg consegue saber seu endereço sem ter os symbols (podemos ver isso também usando o Depends.exe, que vem com o Visual C++ e com o Platform SDK).</p>
+<p>Vamos fazer a mágica dos symbols funcionar: primeiro crie a pasta "C:\WebSymbols" (ou outro nome de preferência) no seu computador. Depois abra "File" &gt;&gt; "Symbols File Path", adicione "srv*C:\WebSymbols*http://msdl.microsoft.com/download/symbols" em "Symbol Path". Selecione "Reload" e clique em OK (é necessário estar conectado à Internet). Vamos ver a pilha novamente:</p>
+
+
+<div class="code">
+<pre>
+ChildEBP RetAddr  
+0012fb58 7751c6bd ADVAPI32!RegOpenKeyExW
+0012fba0 7751c837 ole32!CComCatalog::TryToLoadCLB+0x66
+0012fbc0 7751c549 ole32!CComCatalog::AddRef+0x25
+0012fbd8 7751c65c ole32!CComCatalog::QueryInterface+0x106
+0012fbec 7751c5e1 ole32!GetCatalogHelper+0x15
+0012fc08 77501aed ole32!InitializeCatalogIfNecessary+0x32
+0012fc10 77501b29 ole32!GetClassInfoFromClsid+0xa
+0012fc30 77500200 ole32!LookForConfiguredClsid+0x19
+0012fd14 7750031d ole32!ICoCreateInstanceEx+0x106
+0012fd3c 775002ec ole32!CComActivator::DoCreateInstance+0x28
+0012fd60 7750035a ole32!CoCreateInstanceEx+0x1e
+0012fd90 00412b32 ole32!CoCreateInstance+0x37
+0012fedc 0041f4df 1bit_windbg!wmain+0xf2 [c:\temp\code\1bit_windbg\1bit_windbg.cpp @ 47]
+0012ffc0 7c816d4f 1bit_windbg!wmainCRTStartup+0x16f [f:\vs70builds\3077\vc\crtbld\crt\src\crt0.c @ 256]
+0012fff0 00000000 kernel32!BaseProcessStart+0x23
+</pre>
+</div>
+
+
+<p>Agora temos os nomes das funções internas da OLE32.DLL. Isso é MUITO útil na hora de diagnosticar problemas que acontecem em chamadas à Win32 API. Essa string que colocamos no "Symbol Path" instrui o WinDbg a procurar no servidor de symbols da Microsoft os symbols não encontrados localmente. Veja depois o conteúdo de "c:\WebSymbols" para ver como o WinDbg organiza os symbols baixados. Os symbols para a maioria dos EXEs e DLLs que fazem parte do Windows estão disponíveis no Symbol Server da Microsoft.</p>
+
+<h5>Gerando seus próprios symbols</h5>
+<p>Os arquivos de symbols são extremamente úteis quando é necessário fazer debug de uma versão RELEASE do seu software, mas no computador de um cliente. Isso pode ser necessário para diagnosticar um erro que só acontece em um cliente específico, e não é possível simular em outro lugar.</p>
+
+<p>Uma boa idéia é ter no controle de versões (SourceSafe, CVS, Subversion, etc) os executáveis que são enviados para os clientes, assim como os respectivos symbols. Assim, quando for necessário diagnosticar o problema <i>in loco</i>, é só gravar um CD com a pasta do WinDbg (não precisa instalar, grave a pasta "Program Files\Debugging Tools for Windows" e execute de lá mesmo), os symbols da versão RELEASE e os fontes usados para compilar essa versão.</p>
+
+<p>Para gerar os symbols no Visual C++ 6.0, entre nas propriedades do projeto, aba "Link", escolha a categoria "Debug" e selecione a opção "Debug Info"</p>
+<p><img src="../../images/windbg3_1.png"></img></p>
+
+<p>Para gerar os symbols no Visual C++ 7.x (VS.NET 2002/2003), entre nas propriedades do projeto, "Linker" >> "Debugging" no TreeView do lado esquerdo e configure "Generate Debug Info" como "YES (/DEBUG)".</p>
+<p><img src="../../images/windbg3_2.png"></img></p>
+
+<p>Em ambos os casos o Visual C++ gerará um arquivo PDB na pasta onde o programa está sendo compilado.</p>
+
+
+
+
+
+
+
+
+
+
+</div>
+          </td>
+        </tr>
+
+
+
+<tr>
+<td class="topmenu"></td>
+<td>
+<br>
+<center>
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-2589539519655496";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text";
+google_ad_channel = "";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "FF5000";
+google_color_text = "000000";
+google_color_url = "FF5000";
+google_ui_features = "rc:6";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</center>
+</td>
+</tr>
+
+<tr>
+ <td class="topmenu"></td>
+ <td>
+  <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+   <tr>
+    <td><img src="../../images/rebarba3.png"></td>
+    <td align="right"><img src="../../images/rebarba4.png"></td>
+   </tr>
+  </table>
+ </td>
+</tr>
+
+<tr><td class="topmenu">&nbsp;</td><td class="topmenu">&nbsp;</td></tr>
+<tr><td class="topmenu">&nbsp;</td><td>
+<table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+</td>
+</tr>
+ <tr><td class="topmenu">&nbsp;</td>
+<td>
+
+<div class="content">
+<a name="comments"></a><h5>Comentários</h5><div class="post_comment">
+<a name="194"></a><B>Evandro Nascimento</B>  | em 24/03/2005 | <a rel="nofollow" href="content.1bit/windbg3#194">#</a><br>
+Parabéns, fantasticas as materias gostei muito!<br><br>Continue escrevendo sobre este assunto, pois o conhecimento de tal ferramenta é fundamental aos desenvolvedores. Gostaria de obter mais informações sobre debugger de crash-dump. Pois venho usando o windbg para tal finalidade e quero obter mais informaçõe de tecnicas sobre esta finalidade. Quanto debugar processos, gostaria de obter informações sobre como fazer break-point condicional.<br><br>[ ]s,<br>Evandro Nascimento
+</div>
+<div class="post_comment">
+<a name="1672"></a><B>Ronivaldo Jorge</B>  | em 03/01/2007 | <a rel="nofollow" href="content.1bit/windbg3#1672">#</a><br>
+Evandro, gostaria de saber se existe alguma forma de chamar e janela de impressao do windows de forma manual, por exemplo de tiver um arquivo .doc e for palo DOS e digitar "teste.doc" automaticamente abre o word com o arquivo teste.doc. existe alguma forma de chamar a jenela que seleciona a impressora no windows da mesma forma?<br><br>Sei que isso nao é comentario, mas nao sei quem pode me ajudar e vi que tens conhecimento em manipulacao de funções internas no windows.<br><br><br>Desde ja agradeço<br>
+</div>
+
+<h5>Algo a dizer?</h5>
+<script language="JavaScript">
+function setCookie(name, value, expires, path, domain, secure) {
+  var curCookie = name + "=" + escape(value) +
+      ((expires) ? "; expires=" + expires.toGMTString() : "") +
+      ((path) ? "; path=" + path : "") +
+      ((domain) ? "; domain=" + domain : "") +
+      ((secure) ? "; secure" : "");
+  document.cookie = curCookie;
+}
+
+function getCookie(name) {
+  var dc = document.cookie;
+  var prefix = name + "=";
+  var begin = dc.indexOf("; " + prefix);
+  if (begin == -1) {
+    begin = dc.indexOf(prefix);
+    if (begin != 0) return null;
+  } else
+    begin += 2;
+  var end = document.cookie.indexOf(";", begin);
+  if (end == -1)
+    end = dc.length;
+  return unescape(dc.substring(begin + prefix.length, end));
+}
+
+function deleteCookie(name, path, domain) {
+  if (getCookie(name)) {
+    document.cookie = name + "=" +
+    ((path) ? "; path=" + path : "") +
+    ((domain) ? "; domain=" + domain : "") +
+    "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+  }
+}
+
+function CheckName()
+{
+  if(comment_form.name.value == '')
+  {
+    alert('Você esqueceu de informar o seu nome...');
+    comment_form.name.focus();
+    
+    return false;
+  }
+
+  if(comment_form.comment.value == '')
+  {
+    alert('O que você acha de escrever o comentário antes de tentar enviá-lo?');
+    comment_form.comment.focus();
+    
+    return false;
+  }
+
+  var now = new Date();
+
+  // um ano
+  now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+  setCookie("name", comment_form.name.value, now);
+  setCookie("email", comment_form.email.value, now);
+  setCookie("link", comment_form.link.value, now);
+  setCookie("hideemail", comment_form.hideemail.value, now);
+
+  return true;
+}
+
+</script>
+<form name="comment_form" method="POST" action="/comment.html" onsubmit="return CheckName();">
+<input type="hidden" name="article" value="windbg3"/>
+
+Nome:<br/>
+<input type="text" name="name" style="width: 250px;"/><br/>
+<br/>
+
+Site:<br/>
+<input type="text" name="link" style="width: 250px;" /><br/>
+<br/>
+
+E-mail:<br/>
+<input type="text" name="email" style="width: 250px;" />
+<br/><br/>
+
+Escreva o número vinte e seis:<br/>
+<input type="text" name="idade" style="width: 250px;" />
+<br/><br/>
+
+<input type="checkbox" name="hideemail"/>&nbsp;Não mostre meu e-mail no site, não serve pra nada mesmo...
+<br/><br/>
+
+Comentário<br/>
+<textarea style="WIDTH: 500px; HEIGHT: 300px" name="comment" rows="18" cols="50"></textarea><br/>
+<br/>
+<input type="submit" value="Dizer"/><br/><br/><br/>
+<div style="width:500px;font-size:8pt;">
+<b>Os comentários devem ser sobre assuntos relativos ao post</b>, eu provavelmente apagarei comentários totalmente offtopic. Se quiser me enviar uma mensagem, use o <a href="http://www.1bit.com.br/content.1bit/contact">formulário de contato</a>. E não esqueça: isso é um site pessoal e eu me reservo o direito de apagar qualquer comentário ofensivo ou inapropriado.
+</div>
+</form>
+
+<script language="JavaScript">
+// cookie de nome
+var name = getCookie("name");
+if (name && name != 'null')
+{
+  comment_form.name.value = name;
+  comment_form.email.value = getCookie("email");
+  comment_form.link.value = getCookie("link");
+  comment_form.hideemail.value = getCookie("hideemail");
+}
+
+</script>
+
+</div>
+
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png" alt="rebarba"></td>
+              <td align="right"><img src="../../images/rebarba4.png" alt="rebarba"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right" style="color:#999999;">
+::::
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>

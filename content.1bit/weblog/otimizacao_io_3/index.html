@@ -1,0 +1,551 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>Usando Win32 API para otimizar o I/O, parte 3  ::::  Rodrigo Strauss :: www.1bit.com.br</title>
+    <link href="../../1bit.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
+<!-- google analytics -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-75310-1";
+urchinTracker();
+</script>
+<!-- google analytics end -->
+
+  </head>
+  <body style="margin:0px 0px 0px 0px" bgcolor="#FFFFFF">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="../../images/logo_novo_2.png" border="0" alt="logo" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.1bit/contact">Contato</a> 
+			<span class="menusep">|</span>
+            
+            <a class="top_menu_link" href="content.1bit/about">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png" alt="rebarba"></td>
+              <td align="right"><img src="../../images/rebarba2.png" alt="rebarba"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <h2><a href="../../#artigos" style="text-decoration:none;">Artigos</a></h2>
+</div>
+
+<div class="left_menu_section">
+ <h2><a href="content.1bit/weblog" style="text-decoration:none;">Blog</a></h2>
+</div>
+
+<div class="left_menu_section">
+ <h2><a href="content.1bit/opensource" style="text-decoration:none;">Open Source</a></h2>
+</div>
+
+<!-- 
+<div class="left_menu_section">
+ <h2><a href="content.1bit/aulas" style="text-decoration:none;">Aulas online (ou nÃ£o) </a></h2>
+</div>
+-->
+
+<br>
+
+<!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com.br/custom" target="_top">
+<table border="0" bgcolor="#eeeeee">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<br/>
+<input type="hidden" name="domains" value="www.1bit.com.br"></input>
+<label for="sbi" style="display: none">Digite os termos da sua pesquisa</label>
+<input type="text" name="q" size="23" maxlength="255" value="" id="sbi"></input>
+</td></tr>
+<tr>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" id="ss0"></input>
+<label for="ss0" title="Pesquisar na web"><font size="-2" color="black">Web</font></label></td>
+<td>
+<input type="radio" name="sitesearch" value="www.1bit.com.br" checked id="ss1"></input>
+<label for="ss1" title="Pesquisar www.1bit.com.br"><font size="-2" color="black">www.1bit.com.br</font></label></td>
+</tr>
+</table>
+<label for="sbb" style="display: none">Enviar formulÃ¡rio de pesquisa</label>
+<input type="submit" name="sa" value="Pesquisar" id="sbb"></input>
+<input type="hidden" name="client" value="pub-2589539519655496"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#0066CC;GL:1;DIV:#999999;VLC:336633;AH:center;BGC:FFFFFF;LBGC:FFFFFF;ALC:0066CC;LC:0066CC;T:000000;GFNT:666666;GIMP:666666;LH:50;LW:120;L:http://www.1bit.com.br/images/logo_novo_2.png;S:http://;FORID:1"></input>
+<input type="hidden" name="hl" value="pt"></input>
+</td></tr></table>
+</form>
+<!-- SiteSearch Google -->
+<br>
+
+<br>
+<br>
+<center>
+
+<a href="http://www.twitter.com/rodrigostrauss"><img src="http://twitter-badges.s3.amazonaws.com/follow_me-b.png" alt="Follow rodrigostrauss on Twitter"/></a>
+<br><br><br>
+
+<!--
+<a href="http://whos.amung.us/show/xopqoakh"><img src="http://whos.amung.us/cwidget/xopqoakh/fffffff6915a.png" alt="page counter" width="81" height="29" border="0" /></a>
+-->
+
+</center>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<h4><a href="content.1bit/weblog" style="text-decoration:none;">Rodrigo Strauss :: Blog</a></h4>
+<table border="0">
+<tr>
+<!-- 
+<td width="60">
+
+<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../images/xml.gif" border="0"/></a>
+</td>
+-->
+
+<td>
+
+<a href='http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Fwww.1bit.com.br%2Fweblog_rss.1bit'  target='blank'><img id='feedlyFollow' src='http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png' alt='follow us in feedly' width='66' height='20'></a>
+
+</td>
+
+<td>
+
+<a href="https://twitter.com/rodrigostrauss" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @rodrigostrauss</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+</td>
+
+<td align="right">
+
+
+
+
+<!--
+
+<script type="text/javascript">
+google_ad_client = "pub-2589539519655496";
+google_ad_width = 468;
+google_ad_height = 15;
+google_ad_format = "468x15_0ads_al";
+google_ad_channel = "";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "FF5000";
+google_color_text = "000000";
+google_color_url = "FF5000";
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+-->
+
+
+
+
+
+
+</td>
+</tr>
+</table>
+<br>
+<h5>Usando Win32 API para otimizar o I/O, parte 3</h5><style type="text/css">
+.code_comment { color: rgb(0,128,0) } 
+.keyword { color: rgb(0,0,255) } 
+.string { color: rgb(255,0,0) } 
+</style>
+
+<p><a href="http://www.1bit.com.br/content.1bit/weblog/otimizacao_faz_diferenca">Parte Zero</a>
+
+&nbsp;&nbsp;&nbsp;
+<a href="http://www.1bit.com.br/content.1bit/weblog/otimizacao_io_1">Parte 1</a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://www.1bit.com.br/content.1bit/weblog/otimizacao_io_2">Parte 2</a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://www.1bit.com.br/content.1bit/weblog/otimizacao_io_3">Parte 3</a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://www.1bit.com.br/content.1bit/weblog/otimizacao_io_4">Parte 4</a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://www.1bit.com.br/content.1bit/weblog/otimizacao_io_5">Parte 5</a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://www.1bit.com.br/content.1bit/weblog/otimizacao_io_6">Parte 6</a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://www.1bit.com.br/content.1bit/weblog/midlparser_source">Fontes do parser</a>
+</p>
+
+
+<p>Agora que já tivemos bastante bla-bla-bla e medições, está na hora de fazer alguma otimização. A primeira otimização que faremos consiste em mudar os acessos aos arquivos - que hoje são feitos usando a runtime do C++ - para usar a Win32 API diretamente. Duas modificações serão feitas:</p>
+
+<ul>
+<li>Usar CreateFile/ReadFile para ler o conteúdo do arquivo;</li>
+<li>Usar VirtualAlloc para alocar memória ao invés de alocar do heap (que é o que a std::string faz).</li>
+</ul>
+
+<p>Como um trecho de código vale sempre mais do que <a href="http://en.wikipedia.org/wiki/Speed_of_sound">~340 m/s</a>, vou mostrá-lo antes e explicar depois:</p>
+
+<div class="code">
+<pre>
+<span class="keyword">void</span> MidlParser::ParseMidlFile(<span class="keyword">const</span> <span class="keyword">char</span>* fileName)
+{
+   HANDLE hFile;
+   <span class="keyword">char</span>* szFileContent;
+   DWORD dwFileSize;
+   DWORD dwReaded;
+
+   <span class="keyword">if</span>(m_bParseAsImportFile)
+   {
+      <span class="code_comment">//
+</span>      <span class="code_comment">// vamos procurar o arquivos nas pasta determinadas para include
+</span>      <span class="code_comment">//
+</span>      <span class="keyword">for</span>(vector::const_iterator i = m_IncludePaths.begin() ; 
+          i != m_IncludePaths.end() ; 
+          ++i)
+      {
+         string str = *i + fileName;
+
+         hFile = CreateFile(str.c_str(), GENERIC_READ, FILE_SHARE_READ, 
+                            NULL, OPEN_EXISTING, NULL, NULL);
+
+         <span class="keyword">if</span>(hFile != INVALID_HANDLE_VALUE)
+            <span class="keyword">break</span>;
+      }
+
+      <span class="keyword">if</span>(hFile == INVALID_HANDLE_VALUE)
+         <span class="keyword">throw</span> ParseException(string(<span class="string">&quot;error opening import file \&quot;&quot;</span>) + fileName 
+                              + <span class="string">&quot;\&quot;&quot;</span>, *<span class="keyword">this</span>, m_parsedFileName);
+
+      dwFileSize = GetFileSize(hFile, NULL);
+
+      <span class="code_comment">//
+</span>      <span class="code_comment">// ao inv&eacute;s de alocar do Heap (que &eacute; para aloca&ccedil;&otilde;es pequenas), 
+</span>      <span class="code_comment">// vou alocar direto da mem&oacute;ria virtual. O Heap Manager usa 
+</span>      <span class="code_comment">// mem&oacute;ria virtual para isso, ent&atilde;o estaremos 
+</span>      <span class="code_comment">// &quot;pulando&quot; um n&iacute;vel de abstra&ccedil;&atilde;o.
+</span>      <span class="code_comment">//
+</span>      <span class="code_comment">//szFileContent = (char*)HeapAlloc(GetProcessHeap(), NULL, dwFileSize);
+</span>
+      szFileContent = (<span class="keyword">char</span>*)VirtualAlloc(NULL, dwFileSize + (dwFileSize % 4096), 
+                                          MEM_COMMIT, PAGE_READWRITE);
+
+      <span class="code_comment">//
+</span>      <span class="code_comment">// vamos ler o arquivo inteiro de uma vez
+</span>      <span class="code_comment">//
+</span>      ReadFile(hFile, szFileContent, dwFileSize, &amp;dwReaded, NULL);
+      ...
+   }
+   <span class="keyword">else</span>
+   {
+      hFile.Create(fileName, GENERIC_READ, FILE_SHARE_READ, OPEN_EXISTING);
+
+      <span class="keyword">if</span>(hFile.m_h == INVALID_HANDLE_VALUE)
+         <span class="keyword">throw</span> ParseException(string(<span class="string">&quot;error opening file \&quot;&quot;</span>) + fileName + 
+                              <span class="string">&quot;\&quot;&quot;</span>, *<span class="keyword">this</span>, m_parsedFileName);
+
+      dwFileSize = GetFileSize(hFile, NULL);
+
+&nbsp;&nbsp;<span class="code_comment">//szFileContent = (char*)HeapAlloc(GetProcessHeap(), NULL, dwFileSize);
+</span>      szFileContent = (<span class="keyword">char</span>*)VirtualAlloc(NULL, dwFileSize + (dwFileSize % 4096), 
+                                          MEM_COMMIT, PAGE_READWRITE);
+      
+      ReadFile(hFile, szFileContent, dwFileSize, &amp;dwReaded, NULL);
+
+      ...
+   }
+</pre>
+</div>
+
+<p>Algumas coisas importantes devem ser notadas nessa implementação. A primeira é que, além de mudar o acesso para usar CreateFile/ReadFile, eu pego antes o tamanho do arquivo, para ler tudo de uma vez. Não sabemos (por enquanto) como a runtime do C++ faz a leitura, mas ler o arquivo todo de uma vez só é a melhor forma. Outro detalhe da implementação é que eu uso VirtualAlloc para alocar memória e não HeapAlloc/new/malloc.</p>
+
+<p>Antes de explicar o motivo de usar VirtualAlloc, uma explicação sobre gerenciamento de memória no Windows. A função mais <i>low-level</i> para alocar memória em user mode é a VirtualAlloc. Ela aloca memória no endereçamento do processo, com a granulação de uma página de memória (no Windows, em user mode, e em arquitetura x86, uma página de memória é de 4kb). Sendo assim, só podemos alocar múltipos de uma página. Por isso eu coloquei um <i>dwFileSize + (dwFileSize % 4096)</i> no tamanho, para arredondar a quantidade alocada para o primeiro múltiplo de 4kb maior do que a quantidade necessária.</p>
+
+<p>Como muitas vezes os programas precisam de áreas de memória menores do que 4kb, usar no mínimo esse valor em cada alocação seria um desperdício muito grande. Por isso existem os heaps, que são pools de memória que servem alocações em granulações menores. Apesar de (na maioria das vezes) reduzir o desperdício de memória, o heap é mais lento do que o VirtualAlloc, porque uma alocação envolve algorimos de procura de blocos livres e desfragmentação da memória alocada para o heap. </p>
+
+<p>O Windows possui gerenciamento de heap nativo, tanto em user mode quanto em kernel mode. Em user mode a função que aloca memória de um heap é a <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/memory/base/heapalloc.asp">HeapAlloc(HANDLE,DWORD,SIZE_T)</a>, onde o primeiro parâmetro é um HANDLE para um heap. Você pode usar o heap default do processo (chamando GetProcessHeap()) ou criar um heap usando HeapCreate(). A runtime do C/C++ usa o HeapAlloc, mas cria um heap separado do heap padrão do processo.</p>
+
+<p>Usei o VirtualAlloc porque ele é mais rápido do que o heap (já que aloca uma página diretamente e não tem problemas de fragmentação) e não envolve mais esforço de programação. Além disso, o desperdício da memória que ficará entre o que usamos e o fim da página será praticamente desprezível. Leremos aproximadamente 400kb, ou seja, 100 páginas. Mesmo se 100% das páginas forem desperdiçadas (o que é impossível acontecer), estaríamos usando 400kb a mais. Eu medi o desperdício para os arquivos do SDK, e ele é de 5,21% (o que é realmente desprezzzzível, como diria o Patolino).</p>
+
+<p>Voltando à otimização de I/O, aqui está a medição que eu fiz depois dessas otimizações:</p>
+
+<div class="code">
+<p><b>Média de tempo (50 chamadas):</b></p>
+<p>
+<b>228,01 ms</b> - versão usando a runtime do C++
+<br>
+<b>214,68 ms</b> - versão usando Win32 API
+</p>
+
+<p><b>Melhoria: 6,21%</b></p>
+</div>
+
+<p>Para primeira tentativa de otimização, 6,21% não é tão mal... Na próxima parte veremos se podemos fazer melhor.</p><br><p class="datetime">Em 17/08/2005 23:07, por  Rodrigo Strauss </p>
+</div>
+          </td>
+        </tr>
+
+
+
+<tr>
+<td class="topmenu"></td>
+<td>
+<br>
+<center>
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-2589539519655496";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text";
+google_ad_channel = "";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "FF5000";
+google_color_text = "000000";
+google_color_url = "FF5000";
+google_ui_features = "rc:6";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</center>
+</td>
+</tr>
+
+<tr>
+ <td class="topmenu"></td>
+ <td>
+  <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+   <tr>
+    <td><img src="../../images/rebarba3.png"></td>
+    <td align="right"><img src="../../images/rebarba4.png"></td>
+   </tr>
+  </table>
+ </td>
+</tr>
+
+<tr><td class="topmenu">&nbsp;</td><td class="topmenu">&nbsp;</td></tr>
+<tr><td class="topmenu">&nbsp;</td><td>
+<table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+</td>
+</tr>
+ <tr><td class="topmenu">&nbsp;</td>
+<td>
+
+<div class="content">
+<a name="comments"></a><h5>Comentários</h5><div class="post_comment">
+<a name="547"></a><B>Wanderley Caloni Junior</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | <a rel="nofollow" href="mailto:wanderley@caloni.com.br">e-mail</a> | em 19/08/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_io_3#547">#</a><br>
+Nessa altura do campeonato as idéias começam a borbulhar, e a vontade de estragar as surpresas que poderão vir nas próximas partes é grande. Contudo, como você não acabou, nada mais justo do que aguardar a evolução gradual do seu processo de otimização _consciente_, _localizado_ e _estatisticamente_ _comprovado_, coisas essenciais que fazem valer a pena o processo de otimizar o código, e não famigerados clichês como usar aritmética de ponteiro ao invés de subscrito etc. Mas, voltando, melhor ver as idéias antes de dar uma de "parpiteiro" de "prantão".
+</div>
+<div class="post_comment_strauss">
+<a name="549"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 19/08/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_io_3#549">#</a><br>
+É, quem já tem experiência na área acaba meio que sabendo o final da história :-)<br><br>O que eu mais quero destacar é a importância da otimização "estatísticamente comprovada", e dar uns toques de como obter estatísticas e coisas assim. Vai ter até WinDbg no meio...
+</div>
+<div class="post_comment">
+<a name="555"></a><B>Wanderley Caloni Junior</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | <a rel="nofollow" href="mailto:wanderley@caloni.com.br">e-mail</a> | em 21/08/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_io_3#555">#</a><br>
+Esse lance de otimização por otimização e atirar pra todos os lados é triste, principalmente quando existem "pseudo-consultores" em empresas que se acham no nível de conhecimento necessário do seu código para criticá-lo em pequenas partes. Pior é quando essa crítica vem antes mesmo da finalização de uma versão beta, ou seja, antes mesmo de serem empregados os recursos para a finalização do projeto já se gasta na otimização das partes já implementadas, e muitas vezes, sem qualquer análise empírica, falam que uma parte do código está lenta sem sequer comprovar isso.
+</div>
+<div class="post_comment">
+<a name="591"></a><B>Rodrigo Pinho</B>  | <a rel="nofollow" href="mailto:pinhopro@gmail.com">e-mail</a> | em 31/08/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_io_3#591">#</a><br>
+Bem, <br><br>Olhando o código, eu vi que vc aloca a memória necessária para ler todo o conteúdo do arquivo.<br><br>Se ao inves de alocar a memória, você não utilizasse um pool de memória, você não otimizaria mais ainda ? <br><br>Isso poderia fazer diferença, considerando uma hipótese de um parser que faz leitura de diversos arquivos, a cada hora. E supondo que os arquivos tenham mais ou menos o mesmo tamanho. Acho que o tempo para alocar e desalocar memória a cada leitura de arquivo, poderia ser otimizado, utilizando um pool de memória.<br><br>Seria interessante ver o resultado deste parser com uma memória ja alocada.<br><br>O Boost, como vc deve saber, tem uma lib especifica para pool de memória.<br> <a rel="nofollow" href="http://www.boost.org/libs/pool/doc/index.html">http://www.boost.org/libs/pool/doc/index.html</a><br><br>Abraços.
+</div>
+<div class="post_comment_strauss">
+<a name="593"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 31/08/2005 | <a rel="nofollow" href="content.1bit/weblog/otimizacao_io_3#593">#</a><br>
+Sim, essa é uma boa otimização a ser feita. Mas um simples pool não funcionaria, já que o objetivo dele é reusar memória, e na maioria dos casos do parser, não há reuso. A função ParseMidlFile é chamada recursivamente na maioria das vezes, e isso faz com que ele mantenha os arquivos em memória enquanto tenho que ler os outros. O que ajudaria seria alocar +- 1MB de uma vez só e usar um sistema de pilha para controlar quem usa o quanto. Só tem que testar se o algoritmo, mesmo que simples, não é mais lento do que a chamada simples ao VirtualAlloc.<br><br>Mesmo assim essa otimização precisa ser medida, já que eu não tenho certeza se o próprio Memory Manager do Windows já não faz esse tipo de pool. Algumas implementações de heap já fazem pool, é preciso medir se a implementação de memória virtual também faz. Mas é uma boa ideía.
+</div>
+
+<h5>Algo a dizer?</h5>
+<script language="JavaScript">
+function setCookie(name, value, expires, path, domain, secure) {
+  var curCookie = name + "=" + escape(value) +
+      ((expires) ? "; expires=" + expires.toGMTString() : "") +
+      ((path) ? "; path=" + path : "") +
+      ((domain) ? "; domain=" + domain : "") +
+      ((secure) ? "; secure" : "");
+  document.cookie = curCookie;
+}
+
+function getCookie(name) {
+  var dc = document.cookie;
+  var prefix = name + "=";
+  var begin = dc.indexOf("; " + prefix);
+  if (begin == -1) {
+    begin = dc.indexOf(prefix);
+    if (begin != 0) return null;
+  } else
+    begin += 2;
+  var end = document.cookie.indexOf(";", begin);
+  if (end == -1)
+    end = dc.length;
+  return unescape(dc.substring(begin + prefix.length, end));
+}
+
+function deleteCookie(name, path, domain) {
+  if (getCookie(name)) {
+    document.cookie = name + "=" +
+    ((path) ? "; path=" + path : "") +
+    ((domain) ? "; domain=" + domain : "") +
+    "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+  }
+}
+
+function CheckName()
+{
+  if(comment_form.name.value == '')
+  {
+    alert('Você esqueceu de informar o seu nome...');
+    comment_form.name.focus();
+    
+    return false;
+  }
+
+  if(comment_form.comment.value == '')
+  {
+    alert('O que você acha de escrever o comentário antes de tentar enviá-lo?');
+    comment_form.comment.focus();
+    
+    return false;
+  }
+
+  var now = new Date();
+
+  // um ano
+  now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+  setCookie("name", comment_form.name.value, now);
+  setCookie("email", comment_form.email.value, now);
+  setCookie("link", comment_form.link.value, now);
+  setCookie("hideemail", comment_form.hideemail.value, now);
+
+  return true;
+}
+
+</script>
+<form name="comment_form" method="POST" action="/comment.html" onsubmit="return CheckName();">
+<input type="hidden" name="article" value="weblog/1124330866"/>
+
+Nome:<br/>
+<input type="text" name="name" style="width: 250px;"/><br/>
+<br/>
+
+Site:<br/>
+<input type="text" name="link" style="width: 250px;" /><br/>
+<br/>
+
+E-mail:<br/>
+<input type="text" name="email" style="width: 250px;" />
+<br/><br/>
+
+Escreva o número vinte e seis:<br/>
+<input type="text" name="idade" style="width: 250px;" />
+<br/><br/>
+
+<input type="checkbox" name="hideemail"/>&nbsp;Não mostre meu e-mail no site, não serve pra nada mesmo...
+<br/><br/>
+
+Comentário<br/>
+<textarea style="WIDTH: 500px; HEIGHT: 300px" name="comment" rows="18" cols="50"></textarea><br/>
+<br/>
+<input type="submit" value="Dizer"/><br/><br/><br/>
+<div style="width:500px;font-size:8pt;">
+<b>Os comentários devem ser sobre assuntos relativos ao post</b>, eu provavelmente apagarei comentários totalmente offtopic. Se quiser me enviar uma mensagem, use o <a href="http://www.1bit.com.br/content.1bit/contact">formulário de contato</a>. E não esqueça: isso é um site pessoal e eu me reservo o direito de apagar qualquer comentário ofensivo ou inapropriado.
+</div>
+</form>
+
+<script language="JavaScript">
+// cookie de nome
+var name = getCookie("name");
+if (name && name != 'null')
+{
+  comment_form.name.value = name;
+  comment_form.email.value = getCookie("email");
+  comment_form.link.value = getCookie("link");
+  comment_form.hideemail.value = getCookie("hideemail");
+}
+
+</script>
+
+</div>
+
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png" alt="rebarba"></td>
+              <td align="right"><img src="../../images/rebarba4.png" alt="rebarba"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right" style="color:#999999;">
+::::
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,511 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>Como fazer drivers para Windows NT/2000/XP/2003, parte 1  ::::  Rodrigo Strauss :: www.1bit.com.br</title>
+    <link href="../../1bit.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
+<!-- google analytics -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-75310-1";
+urchinTracker();
+</script>
+<!-- google analytics end -->
+
+  </head>
+  <body style="margin:0px 0px 0px 0px" bgcolor="#FFFFFF">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="../../images/logo_novo_2.png" border="0" alt="logo" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.1bit/contact">Contato</a> 
+			<span class="menusep">|</span>
+            
+            <a class="top_menu_link" href="content.1bit/about">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png" alt="rebarba"></td>
+              <td align="right"><img src="../../images/rebarba2.png" alt="rebarba"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <h2><a href="../../#artigos" style="text-decoration:none;">Artigos</a></h2>
+</div>
+
+<div class="left_menu_section">
+ <h2><a href="content.1bit/weblog" style="text-decoration:none;">Blog</a></h2>
+</div>
+
+<div class="left_menu_section">
+ <h2><a href="content.1bit/opensource" style="text-decoration:none;">Open Source</a></h2>
+</div>
+
+<!-- 
+<div class="left_menu_section">
+ <h2><a href="content.1bit/aulas" style="text-decoration:none;">Aulas online (ou nÃ£o) </a></h2>
+</div>
+-->
+
+
+<div id="google_translate_element"></div><script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'pt',
+    gaTrack: true,
+    gaId: 'UA-75310-1',
+  }, 'google_translate_element');
+}
+</script><script src="../..//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<br>
+
+<!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com.br/custom" target="_top">
+<table border="0" bgcolor="#eeeeee">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<br/>
+<input type="hidden" name="domains" value="www.1bit.com.br"></input>
+<label for="sbi" style="display: none">Digite os termos da sua pesquisa</label>
+<input type="text" name="q" size="23" maxlength="255" value="" id="sbi"></input>
+</td></tr>
+<tr>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" id="ss0"></input>
+<label for="ss0" title="Pesquisar na web"><font size="-2" color="black">Web</font></label></td>
+<td>
+<input type="radio" name="sitesearch" value="www.1bit.com.br" checked id="ss1"></input>
+<label for="ss1" title="Pesquisar www.1bit.com.br"><font size="-2" color="black">www.1bit.com.br</font></label></td>
+</tr>
+</table>
+<label for="sbb" style="display: none">Enviar formulÃ¡rio de pesquisa</label>
+<input type="submit" name="sa" value="Pesquisar" id="sbb"></input>
+<input type="hidden" name="client" value="pub-2589539519655496"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#0066CC;GL:1;DIV:#999999;VLC:336633;AH:center;BGC:FFFFFF;LBGC:FFFFFF;ALC:0066CC;LC:0066CC;T:000000;GFNT:666666;GIMP:666666;LH:50;LW:120;L:http://www.1bit.com.br/images/logo_novo_2.png;S:http://;FORID:1"></input>
+<input type="hidden" name="hl" value="pt"></input>
+</td></tr></table>
+</form>
+<!-- SiteSearch Google -->
+<br>
+
+<br>
+<br>
+<center>
+
+<a href="http://www.twitter.com/rodrigostrauss"><img src="http://twitter-badges.s3.amazonaws.com/follow_me-b.png" alt="Follow rodrigostrauss on Twitter"/></a>
+<br><br><br>
+
+<!--
+<a href="http://whos.amung.us/show/xopqoakh"><img src="http://whos.amung.us/cwidget/xopqoakh/fffffff6915a.png" alt="page counter" width="81" height="29" border="0" /></a>
+-->
+
+</center>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<h4><a href="content.1bit/weblog" style="text-decoration:none;">Rodrigo Strauss :: Blog</a></h4>
+<table border="0">
+<tr>
+<!-- 
+<td width="60">
+
+<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../images/xml.gif" border="0"/></a>
+</td>
+-->
+
+<td>
+
+<a href='http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Fwww.1bit.com.br%2Fweblog_rss.1bit'  target='blank'><img id='feedlyFollow' src='http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png' alt='follow us in feedly' width='66' height='20'></a>
+
+</td>
+
+<td>
+
+<a href="https://twitter.com/rodrigostrauss" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @rodrigostrauss</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+</td>
+
+<td align="right">
+
+
+
+
+<!--
+
+<script type="text/javascript">
+google_ad_client = "pub-2589539519655496";
+google_ad_width = 468;
+google_ad_height = 15;
+google_ad_format = "468x15_0ads_al";
+google_ad_channel = "";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "FF5000";
+google_color_text = "000000";
+google_color_url = "FF5000";
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+-->
+
+
+
+
+
+
+</td>
+</tr>
+</table>
+<br>
+<h5>Como fazer drivers para Windows NT/2000/XP/2003, parte 1</h5><p>
+A dúvida mais frequente que eu recebo pelo formulário de contato é: "como eu faço para desenvolver drivers para Windows?". Vou publicar algumas dicas aqui para quem está iniciando.
+</p>
+<h6>Pré requisitos</h6>
+
+<p>
+Primeiramente eu espero que você seja um <a href="http://www.1bit.com.br/content.1bit/bom_programador">bom programador</a>, programar drivers não é fácil. :-)
+</p>
+
+<p>
+Para fazer um driver, você precisa SABER programar drivers (programação kernel mode). Parece óbvio mas não é. Eu recebo todo mês pelo correio a newsletter da OSR, e a do mês passado era uma edição especial com o dobro do tamanho normal, falando sobre teste de drivers. E lá eu li algo muito interessante: <b>em kernel mode, é impossível fazer programação cowboy</b>. Programação cowboy é quando você não entende muito do assunto, pega um código exemplo daquilo que você quer e sai ajustando e remendando até que fique bom, e depois entrega para o cliente. Quando a coisa roda em kernel mode, isso nunca vai ficar bom, a não ser que você saiba mesmo o que está fazendo. Eu conheço uma empresa que está remendando um driver faz mais de dois anos, e até hoje não funciona direito.
+</p>
+
+<p>
+Você precisa ser um bom programador C, ponto. Caso você ainda tenha dúvida sobre ponteiros ou estruturas de dados, programação de drivers é um péssimo lugar para treinar isso. O indicado é que você consiga fazer um programa Win32 com certa facilidade antes de se aventurar a programar drivers. Alguns conceitos de passagem de parâmetros IN e OUT usando estruturas e ponteiros void que viram ponteiro para estruturas mágicas também são usados em Win32. Ah, e se você não souber o que é uma lista ligada, <a href="http://en.wikipedia.org/wiki/Linked_list">veja antes na wikipedia</a>, você vai usar isso muito.
+</p>
+<p>
+(E antes que alguém pergunte, experiência com C#, VB.NET, VB6 ou Java não vai te ajudar em muita coisa além do treino em  lógica de programação)
+</p>
+
+<h6>Onde encontrar informações</h6>
+<p>Agora que você já passou pelo blá-blá-blá, vamos ao que realmente interessa. Se você quer programar em kernel mode você terá que estudar bastante, e é melhor que comece o quanto antes.</p>
+
+<p><b>Livros</b></p>
+<p><b><a href="http://www.amazon.com/exec/obidos/ASIN/0735619174">Microsoft Windows Internals</a></b> - Esse é o primeiro que você deve ler e reler. Não trata especificamente sobre programação kernel mode, mas descreve o funcionamento do kernel do Windows. E é ESSENCIAL que você saiba isso.</p>
+
+<p><b><a href="http://www.amazon.com/exec/obidos/tg/detail/-/0735618038">Programming the Windows Driver Model</a></b> - Esse trata especificamente de programação kernel mode. Windows Driver Model (WDM) é um modelo de programação de drivers (mais voltado para drivers que controlam hardware). Caso seu driver siga as regras do WDM, seu driver pode ser compilado para Windows 2000 ou superior e Windows 98 e superior. Mesmo que seu driver não seja para um hardware (um firewall é um driver e não controla hardware), vale a pena ler esse livro, ele explica muito bem como funciona a sincronização e o I/O em kernel mode.</p>
+
+<p>Existem mais livros, esses dois são os que eu tenho e uso para consulta. Procure na Amazon.</p>
+
+<p><b>Internet</b></p>
+<p><b><a href="http://www.osronline.com">OSR Online</a></b> - Empresa dos Estados Unidos que além de dar treinamentos sobre desenvolvimento kernel mode, disponibiliza bastante material sobre isso.</p>
+
+<p><b><a href="http://www.wd-3.com">Windows Drivers Developer's Digest (W3D)</a></b> - Artigos escritos por autoridades do assunto, como Walter Oney e Thomas Divine.</p>
+
+<p><b>Listas de discussão</b> - Nessa categoria temos as <a href="http://www.osronline.com/page.cfm?name=ListServer">listas da OSR</a>, o <a href="http://msdn.microsoft.com/newsgroups/default.aspx?dg=microsoft.public.development.device.drivers&lang=en&cr=US">newsgroup da Microsoft sobre drivers</a> e a <a href="http://groups.yahoo.com/group/discussion-pcausa">lista da PCAUSA</a> (específica para a parte de rede e afins).</p>
+
+<p>Na continuação dessa série, falarei sobre o DDK e como colocar a mão na massa.</p>
+
+
+
+<br><p class="datetime">Em 21/11/2004 15:47, por  Rodrigo Strauss </p>
+</div>
+          </td>
+        </tr>
+
+
+
+<tr>
+<td class="topmenu"></td>
+<td>
+<br>
+<center>
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-2589539519655496";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text";
+google_ad_channel = "";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "FF5000";
+google_color_text = "000000";
+google_color_url = "FF5000";
+google_ui_features = "rc:6";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</center>
+</td>
+</tr>
+
+<tr>
+ <td class="topmenu"></td>
+ <td>
+  <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+   <tr>
+    <td><img src="../../images/rebarba3.png"></td>
+    <td align="right"><img src="../../images/rebarba4.png"></td>
+   </tr>
+  </table>
+ </td>
+</tr>
+
+<tr><td class="topmenu">&nbsp;</td><td class="topmenu">&nbsp;</td></tr>
+<tr><td class="topmenu">&nbsp;</td><td>
+<table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+</td>
+</tr>
+ <tr><td class="topmenu">&nbsp;</td>
+<td>
+
+<div class="content">
+<a name="comments"></a><h5>Comentários</h5><div class="post_comment">
+<a name="1727"></a><B>wil</B>  | em 26/01/2007 | <a rel="nofollow" href="../#1727">#</a><br>
+Ótimo conteúdo,muito bem explicado e o melhor totalmente em portugues.Parabens Rodrigo,e obrigado por compartilhar o seu conhecimento com os demais<br><br><br>flw
+</div>
+<div class="post_comment">
+<a name="1840"></a><B>Fabio Pandolfo</B>  | <a rel="nofollow" href="mailto:blackshape@ibest.com.br">e-mail</a> | em 05/04/2007 | <a rel="nofollow" href="../#1840">#</a><br>
+Cara, que legal o artigo!!!<br>Muito interessante...<br>Eu tenho um aparelho gravador de DVD Panasonic DMR-ES15, que tem uma entrada firewire, mas ele somente te dá uma saida analógica se você ligar uma câmera digital nele, não funciona no computador... eu tava pensando em fazer um driver no computador pra poder mandar o sinal do pc pra ele... espero que seja possivel!!!
+</div>
+<div class="post_comment">
+<a name="1868"></a><B>Lucas Klassmann</B>  | <a rel="nofollow" href="http://lucasklassmann.googlepages.com">website</a> | em 25/04/2007 | <a rel="nofollow" href="../#1868">#</a><br>
+Legal esse artigo Rodrigo, aproveitei para ler o artigo sobre bons programadores.<br>Estou a muito tempo procurando material para ver como funciona e quem sabe desenvolver meu driver.<br>Eu tambem estou procurando materiais sobre programação de Sistemas Operacionais, consegui varios e entre ele manuais de como desenvolver devices driver para placas de redes.<br>Eu não sou o mestre em programação, mas acho que posso me incluir na lista de bons programadores, eu sou curioso pela informática (principalmente programação) desde os 13 anos(agora estou com 19), ja pratiquei C\C++, Delphi, Python, TCL\Tk, Java, JScript, HTML e muitas outras.<br>A Linguagem que mais sei trabalhar é Delphi, pois fiz um cursor técnico( um detalhe a mais no curriculo :P) e a linguagem utilizada era o Delphi, mas minha paixão mesmo é C e tambem me fascino por Assembly.<br>Eu estava procurando algum artigo que mostra-se algo para o programador saber o seu nivel, eu tenho essa dificuldade, estudo muito, mas não sei se posso me considerar iniciante, medio ou avançado.<br>Essa dificuldade vem por que conheço pessoas que trabalham na área a muito tempo e até mesmo dão aulas,  mas não sabem coisas que aprendi a muito tempo e que sei na ponta da lingua.<br>Bom é isso ai, ótimo artigo.<br>Até mais.<br><br>Lucas Klassmann - LFK<br>
+</div>
+<div class="post_comment">
+<a name="1975"></a><B>Thiago</B>  | em 19/07/2007 | <a rel="nofollow" href="../#1975">#</a><br>
+Bom artigo e fico surpreso em ver isso em PT-BR. Afinal, Drivers programming é um assunto quase que "proibido" de compartilhar, a nao ser em listas de discussões.
+</div>
+<div class="post_comment_strauss">
+<a name="1977"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 19/07/2007 | <a rel="nofollow" href="../#1977">#</a><br>
+Veja <a rel="nofollow" href="http://www.driverentry.com.br"> www.driverentry.com.br</a>
+</div>
+<div class="post_comment">
+<a name="2533"></a><B>Demetryus</B>  | em 14/10/2009 | <a rel="nofollow" href="../#2533">#</a><br>
+Olá amigo, eu estou procurando cursos para desenvolvimento de drivers aqui no Brasil,,,você teria algum para me recomendar? eu não procuro certificação apenas o conhecimento mesmo...<br><br>Você poderia por favor comentar o que é o WDK? e qual a diferença para o DDK?<br><br>Obrigado <br>Demetryus
+</div>
+<div class="post_comment_strauss">
+<a name="2534"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 14/10/2009 | <a rel="nofollow" href="../#2534">#</a><br>
+Fale com o Fernando, <a rel="nofollow" href="http://www.driverentry.com.br"> www.driverentry.com.br</a>
+</div>
+<div class="post_comment">
+<a name="2852"></a><B>Breno</B>  | em 21/09/2011 | <a rel="nofollow" href="../#2852">#</a><br>
+Muito bom o artigo, tentarei desenvolver o driver, mas só para treinamento, pois ainda estou iniciando na programação e as minhas logicas de programação são um pouco ainda limitadas.
+</div>
+<div class="post_comment">
+<a name="2938"></a><B>Programmer</B>  | <a rel="nofollow" href="http://programmer.com">website</a> | <a rel="nofollow" href="mailto:programmer@programmer.com">e-mail</a> | em 11/05/2012 | <a rel="nofollow" href="../#2938">#</a><br>
+Que bosta esse topico, não ajudou em nada a não ser falar mal de quem ja programa e outras linguagens diferentes de C. Fácil assim, falou um monte e não disse nada, não me ajudou a criar um driver. Apenas listou um monte de livros, e blá-blá-blá... coisa que o próprio google pode nos fornecer, então nota zero para o tópico. Melhor, nota -1 porque ainda me fez perder tempo lendo...
+</div>
+<div class="post_comment_strauss">
+<a name="2939"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 11/05/2012 | <a rel="nofollow" href="../#2939">#</a><br>
+Me desculpe ter desperdiçado seu precioso tempo. Tenho certeza que você tem vários projetos de software importantíssimos para fazer. 
+</div>
+<div class="post_comment">
+<a name="2955"></a><B>Gustavo</B>  | em 04/07/2012 | <a rel="nofollow" href="../#2955">#</a><br>
+Olá Rodrigo,<br><br>Infelizmente não achei seu tópico bom. Espero que vc saiba ler e aceitar críticas, mas o título de seu tópico nos leva a ter uma expectativa que de forma alguma é desenvolvida no decorrer do artigo.<br><br>"Como fazer drivers..." leva a uma ideia mais prática e objetiva.<br><br>Quase 50% desta primeira parte apenas enfraquece o desejo qualquer pessoa que pretenda iniciar o processo de aprendizagem sobre o assunto.<br><br>Creio que um título mais apropriado seria:<br><br>"Introdução às ferramentas e bibliografias necessárias para o desenvolvimento de drivers para Windows NT/2000/XP/2003, parte 1"<br><br>Trabalho com a programação em C para reconhecimento de dispositivos baseados em Linux / Android. Espero que compreenda minha insatisfação quanto às expectativas frustradas.
+</div>
+<div class="post_comment">
+<a name="2970"></a><B>a</B>  | <a rel="nofollow" href="http://a.a">website</a> | em 18/08/2012 | <a rel="nofollow" href="../#2970">#</a><br>
+Uma bosta o seu artigo.
+</div>
+<div class="post_comment">
+<a name="3020"></a><B>void</B>  | <a rel="nofollow" href="http://gethostbyname(\&quot;\&quot;)">website</a> | em 23/02/2013 | <a rel="nofollow" href="../#3020">#</a><br>
+Excelentes indicações. Apenas pecou no título que realmente da o entende que estaria o passo a passo no desenvolvimento dos drivers.<br><br>Parabéns.
+</div>
+<div class="post_comment">
+<a name="3061"></a><B>Anta  Rodrigues</B>  | <a rel="nofollow" href="http://no site">website</a> | <a rel="nofollow" href="mailto:a.hrodrigues@yahoo.com.br">e-mail</a> | em 21/01/2015 | <a rel="nofollow" href="../#3061">#</a><br>
+Ola!!  Rodrigo,   um  bom  tempo!!<br><br> Tambem estou a  muito tempo  tentando escrever alguns arquivos  para rodar um device no  win mas tá meio dificio e   estou quase arrncando os cabelos da cabeça e dando a preula,<br>tenho que escrever alguns arquivos no device que é para tro-<br>car informaçoes com o host e tudo  sozinho é de  matar quaquer<br>um. Gostaria de uma informaçao, nao   dá para eu enviar um conjunto de byts combinado para fora da usb e receber outro<br>completamente fora do padrao ieee ?  sem ack tokem pid..., somente troca de pacotes de byts como por exemplo uma determinada combinaçao e aguarda outra se nao tiver retorno escrever o que  foi programado como; sem resposta ou descone-<br>nectado.  Na  realidade isso poderia ser mais facio mas...<br>aguardo  alguma dica até entao meu  brigado!!!<br>
+</div>
+
+<h5>Algo a dizer?</h5>
+<script language="JavaScript">
+function setCookie(name, value, expires, path, domain, secure) {
+  var curCookie = name + "=" + escape(value) +
+      ((expires) ? "; expires=" + expires.toGMTString() : "") +
+      ((path) ? "; path=" + path : "") +
+      ((domain) ? "; domain=" + domain : "") +
+      ((secure) ? "; secure" : "");
+  document.cookie = curCookie;
+}
+
+function getCookie(name) {
+  var dc = document.cookie;
+  var prefix = name + "=";
+  var begin = dc.indexOf("; " + prefix);
+  if (begin == -1) {
+    begin = dc.indexOf(prefix);
+    if (begin != 0) return null;
+  } else
+    begin += 2;
+  var end = document.cookie.indexOf(";", begin);
+  if (end == -1)
+    end = dc.length;
+  return unescape(dc.substring(begin + prefix.length, end));
+}
+
+function deleteCookie(name, path, domain) {
+  if (getCookie(name)) {
+    document.cookie = name + "=" +
+    ((path) ? "; path=" + path : "") +
+    ((domain) ? "; domain=" + domain : "") +
+    "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+  }
+}
+
+function CheckName()
+{
+  if(comment_form.name.value == '')
+  {
+    alert('Você esqueceu de informar o seu nome...');
+    comment_form.name.focus();
+    
+    return false;
+  }
+
+  if(comment_form.comment.value == '')
+  {
+    alert('O que você acha de escrever o comentário antes de tentar enviá-lo?');
+    comment_form.comment.focus();
+    
+    return false;
+  }
+
+  var now = new Date();
+
+  // um ano
+  now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+  setCookie("name", comment_form.name.value, now);
+  setCookie("email", comment_form.email.value, now);
+  setCookie("link", comment_form.link.value, now);
+  setCookie("hideemail", comment_form.hideemail.value, now);
+
+  return true;
+}
+
+</script>
+<form name="comment_form" method="POST" action="/comment.html" onsubmit="return CheckName();">
+<input type="hidden" name="article" value="weblog/1101062879"/>
+
+Nome:<br/>
+<input type="text" name="name" style="width: 250px;"/><br/>
+<br/>
+
+Site:<br/>
+<input type="text" name="link" style="width: 250px;" /><br/>
+<br/>
+
+E-mail:<br/>
+<input type="text" name="email" style="width: 250px;" />
+<br/><br/>
+
+Escreva o número vinte e seis:<br/>
+<input type="text" name="idade" style="width: 250px;" />
+<br/><br/>
+
+<input type="checkbox" name="hideemail"/>&nbsp;Não mostre meu e-mail no site, não serve pra nada mesmo...
+<br/><br/>
+
+Comentário<br/>
+<textarea style="WIDTH: 500px; HEIGHT: 300px" name="comment" rows="18" cols="50"></textarea><br/>
+<br/>
+<input type="submit" value="Dizer"/><br/><br/><br/>
+<div style="width:500px;font-size:8pt;">
+<b>Os comentários devem ser sobre assuntos relativos ao post</b>, eu provavelmente apagarei comentários totalmente offtopic. Se quiser me enviar uma mensagem, use o <a href="http://www.1bit.com.br/content.1bit/contact">formulário de contato</a>. E não esqueça: isso é um site pessoal e eu me reservo o direito de apagar qualquer comentário ofensivo ou inapropriado.
+</div>
+</form>
+
+<script language="JavaScript">
+// cookie de nome
+var name = getCookie("name");
+if (name && name != 'null')
+{
+  comment_form.name.value = name;
+  comment_form.email.value = getCookie("email");
+  comment_form.link.value = getCookie("link");
+  comment_form.hideemail.value = getCookie("hideemail");
+}
+
+</script>
+
+</div>
+
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png" alt="rebarba"></td>
+              <td align="right"><img src="../../images/rebarba4.png" alt="rebarba"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right" style="color:#999999;">
+::::
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,615 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>Explicando a sopa de letrinhas da programação C/C++ para Windows: WTL  ::::  Rodrigo Strauss :: www.1bit.com.br</title>
+    <link href="../../1bit.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
+<!-- google analytics -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-75310-1";
+urchinTracker();
+</script>
+<!-- google analytics end -->
+
+  </head>
+  <body style="margin:0px 0px 0px 0px" bgcolor="#FFFFFF">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="../../images/logo_novo_2.png" border="0" alt="logo" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.1bit/contact">Contato</a> 
+			<span class="menusep">|</span>
+            
+            <a class="top_menu_link" href="content.1bit/about">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png" alt="rebarba"></td>
+              <td align="right"><img src="../../images/rebarba2.png" alt="rebarba"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <h2><a href="../../#artigos" style="text-decoration:none;">Artigos</a></h2>
+</div>
+
+<div class="left_menu_section">
+ <h2><a href="content.1bit/weblog" style="text-decoration:none;">Blog</a></h2>
+</div>
+
+<div class="left_menu_section">
+ <h2><a href="content.1bit/opensource" style="text-decoration:none;">Open Source</a></h2>
+</div>
+
+<!-- 
+<div class="left_menu_section">
+ <h2><a href="content.1bit/aulas" style="text-decoration:none;">Aulas online (ou nÃ£o) </a></h2>
+</div>
+-->
+
+<br>
+
+<!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com.br/custom" target="_top">
+<table border="0" bgcolor="#eeeeee">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<br/>
+<input type="hidden" name="domains" value="www.1bit.com.br"></input>
+<label for="sbi" style="display: none">Digite os termos da sua pesquisa</label>
+<input type="text" name="q" size="23" maxlength="255" value="" id="sbi"></input>
+</td></tr>
+<tr>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" id="ss0"></input>
+<label for="ss0" title="Pesquisar na web"><font size="-2" color="black">Web</font></label></td>
+<td>
+<input type="radio" name="sitesearch" value="www.1bit.com.br" checked id="ss1"></input>
+<label for="ss1" title="Pesquisar www.1bit.com.br"><font size="-2" color="black">www.1bit.com.br</font></label></td>
+</tr>
+</table>
+<label for="sbb" style="display: none">Enviar formulÃ¡rio de pesquisa</label>
+<input type="submit" name="sa" value="Pesquisar" id="sbb"></input>
+<input type="hidden" name="client" value="pub-2589539519655496"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#0066CC;GL:1;DIV:#999999;VLC:336633;AH:center;BGC:FFFFFF;LBGC:FFFFFF;ALC:0066CC;LC:0066CC;T:000000;GFNT:666666;GIMP:666666;LH:50;LW:120;L:http://www.1bit.com.br/images/logo_novo_2.png;S:http://;FORID:1"></input>
+<input type="hidden" name="hl" value="pt"></input>
+</td></tr></table>
+</form>
+<!-- SiteSearch Google -->
+<br>
+
+<br>
+<br>
+<center>
+
+<a href="http://www.twitter.com/rodrigostrauss"><img src="http://twitter-badges.s3.amazonaws.com/follow_me-b.png" alt="Follow rodrigostrauss on Twitter"/></a>
+<br><br><br>
+
+<!--
+<a href="http://whos.amung.us/show/xopqoakh"><img src="http://whos.amung.us/cwidget/xopqoakh/fffffff6915a.png" alt="page counter" width="81" height="29" border="0" /></a>
+-->
+
+</center>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<h4><a href="content.1bit/weblog" style="text-decoration:none;">Rodrigo Strauss :: Blog</a></h4>
+<table border="0">
+<tr>
+<!-- 
+<td width="60">
+
+<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../images/xml.gif" border="0"/></a>
+</td>
+-->
+
+<td>
+
+<a href='http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Fwww.1bit.com.br%2Fweblog_rss.1bit'  target='blank'><img id='feedlyFollow' src='http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png' alt='follow us in feedly' width='66' height='20'></a>
+
+</td>
+
+<td>
+
+<a href="https://twitter.com/rodrigostrauss" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @rodrigostrauss</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+</td>
+
+<td align="right">
+
+
+
+
+<!--
+
+<script type="text/javascript">
+google_ad_client = "pub-2589539519655496";
+google_ad_width = 468;
+google_ad_height = 15;
+google_ad_format = "468x15_0ads_al";
+google_ad_channel = "";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "FF5000";
+google_color_text = "000000";
+google_color_url = "FF5000";
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+-->
+
+
+
+
+
+
+</td>
+</tr>
+</table>
+<br>
+<h5>Explicando a sopa de letrinhas da programação C/C++ para Windows: WTL</h5><p><i>Outros posts dessa mesma série:</i>
+&nbsp;
+<a href="http://www.1bit.com.br/content.1bit/weblog/sopa_de_letrinhas_atl">ATL</a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://www.1bit.com.br/content.1bit/weblog/sopa_de_letrinhas_com">COM</a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://www.1bit.com.br/content.1bit/weblog/sopa_de_letrinhas_mfc">MFC</a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://www.1bit.com.br/content.1bit/weblog/sopa_de_letrinhas_win32">Win32</a>
+
+</p>
+
+<p>WTL (Windows Template Library) é uma biblioteca de templates C++ que encapsula a parte da <a href="http://www.1bit.com.br/content.1bit/weblog/sopa_de_letrinhas_win32">Win32 API</a> que lida com interface gráfica (GDI). Ela contém classes para criar janelas, controles Win32 (botões, barras de progresso, etc), dialogs, wizards, etc.
+
+<p>A WTL é uma extensão da <a href="http://www.1bit.com.br/content.1bit/weblog/sopa_de_letrinhas_atl">ATL</a>, que já contém algumas classes básicas para manipulação de janelas. Essas classes da ATL foram criadas inicialmente para ajudar na confecção de controles ActiveX e seus Property Pages. Sobre esse suporte básico da ATL, um programador da Microsoft chamado Nenad Stefanovic criou diversas outras classes para encapsular o restante da GDI. Esse conjunto de classes acabou se transformando no que conhecemos como WTL.
+
+<p>Por ser uma extensão da ATL, a WTL segue a mesma filosofia: classes template enxutas (inspiradas pela STL), liberdade de uso das classes fora de um framework (ao contrário da <a href="http://www.1bit.com.br/content.1bit/weblog/sopa_de_letrinhas_mfc">MFC</a>) e código simples e rápido. Por ser todo baseado em templates, não é necessário usar uma LIB ou DLL, seu executável fica completamente independente. Além disso - também pelo fato de usar templates - o tamanho do executável fica muito pequeno, sendo possível criar executáveis de 70 kb ou menos sem dependência de DLLs ou runtimes. Compilando seu executável em Release, a WTL não causa nenhum overhead em relação a programas feito em Win32 puro, sem classes. Como o código da WTL é muito enxuto, a maioria das funcões acabam "sumindo" durante a compilação, pois são colocadas inline.
+
+<p>Há algum tempo atrás o projeto WTL foi colocado no SourceForge para que a comunidade C++/Win32 pudesse ajudar o Nenad nas correções e sugestões. Mesmo assim, o Nenad ainda é o coordenador e responsável pelo projeto, garantindo que a filosofia ATL/WTL não suma a medida que milhares de classes sejam adicionadas à biblioteca. Na realidade poucas classes foram adicionadas à WTL depois disso, com destaque para as classes para Wizards.
+
+<p>Muitas classes da WTL reproduzem funcionalidades disponíveis na MFC, como as classes CRect, CString (que a partir do Visual C++ 7.0 faz parte da ATL e não da MFC) e muitas outras. O suporte a janelas também é bem parecido com a MFC, usando mapas de mensagens. Não é difícil para um programador MFC usar WTL, a adaptação é fácil.
+
+<p>Apesar de todas as vantagens que eu citei, existem algumas desvantagens. Apesar dessa biblioteca ter nascido dentro da Microsoft, ela nunca ofereceu suporte para a WTL. Ela chegou a ser disponibilizada junto com o Platform SDK e o download ainda pode ser feito diretamente nos servidores da Microsoft, mas a biblioteca oficial da Microsoft para C++ ainda é a MFC. Mesmo assim existe um comunidade grande voltada para a WTL, e sempre que eu tive problemas uma pergunta ou uma busca na lista de discussão foi suficiente - pelo próprio fato de ser uma biblioteca simples e enxuta.</p>
+
+<p>Outro problema da WTL sempre foi a falta de suporte da IDE para ela. A MFC provê diversos wizard e funcionalidades na IDE para assinatura de eventos e criação de classes, suporte que nunca foi dado à WTL. Esse problema foi resolvido por uma santa alma que disponibilizou no CodeProject o WTLHelper, que chega a ser melhor do que o suporte do Visual Studio para a MFC (ClassWizard ou suporte do Visual Studio 7+). Mesmo assim, não deixa de ser um produto não-oficial e que passa longe do controle de qualidade da Microsoft.</p>
+
+<p>Como um trecho de código vale mais do que <a href="http://www.devconnections.com/shows/cppfall2005/default.asp?s=67">20</a> palavras, vamos a um programa simples feito em WTL:</p>
+
+<style type="text/css">
+.code_comment { color: rgb(0,128,0) } 
+.keyword { color: rgb(0,0,255) } 
+.string { color: rgb(255,0,0) } 
+</style>
+
+<div class="code">
+<pre>
+<span class="keyword">#define</span> WINVER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0x0400
+<span class="keyword">#define</span> _WIN32_WINNT&nbsp;&nbsp;0x0400
+<span class="keyword">#define</span> _WIN32_IE&nbsp;&nbsp;&nbsp;&nbsp;0x0400
+<span class="keyword">#define</span> UNICODE
+<span class="keyword">#define</span> _UNICODE
+
+<span class="keyword">#include</span> &lt;atlbase.h&gt;
+<span class="keyword">#include</span> &lt;atlapp.h&gt;
+<span class="keyword">#include</span> &lt;atlmisc.h&gt;
+<span class="keyword">#include</span> &lt;atlstr.h&gt;
+
+<span class="keyword">extern</span> CAppModule _Module;
+
+<span class="keyword">#include</span> &lt;atlwin.h&gt;
+<span class="keyword">#include</span> &lt;atlframe.h&gt;
+<span class="keyword">#include</span> &lt;atlctrls.h&gt;
+<span class="keyword">#include</span> &lt;atldlgs.h&gt;
+<span class="keyword">#include</span> &lt;atlctrlw.h&gt;
+
+CAppModule _Module;
+
+<span class="keyword">class</span> CMainFrame : <span class="keyword">public</span> CFrameWindowImpl&lt;CMainFrame&gt;
+{
+<span class="keyword">public</span>:
+&nbsp;&nbsp;WTL::CButton m_btnTest;
+&nbsp;&nbsp;WTL::CEdit m_edtTest;
+
+&nbsp;&nbsp;<span class="code_comment">//
+</span>&nbsp;&nbsp;<span class="code_comment">// faz a janela ficar com o fundo cinza de dialog
+</span>&nbsp;&nbsp;<span class="code_comment">// (ao inv&eacute;s de branco padr&atilde;o)
+</span>&nbsp;&nbsp;<span class="code_comment">//
+</span>&nbsp;&nbsp;DECLARE_FRAME_WND_CLASS_EX(NULL, 0, NULL, COLOR_BTNFACE)
+
+&nbsp;&nbsp;BEGIN_MSG_MAP(CMainFrame)
+&nbsp;&nbsp;&nbsp;&nbsp;MESSAGE_HANDLER(WM_CREATE, OnCreate)
+&nbsp;&nbsp;&nbsp;&nbsp;COMMAND_HANDLER(1, BN_CLICKED, OnButtonClick)
+&nbsp;&nbsp;&nbsp;&nbsp;CHAIN_MSG_MAP(CFrameWindowImpl&lt;CMainFrame&gt;)
+&nbsp;&nbsp;END_MSG_MAP()
+
+&nbsp;&nbsp;LRESULT OnCreate(UINT, WPARAM, LPARAM, BOOL&amp;)
+&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;SetWindowText(L<span class="string">&quot;WTL Rules!&quot;</span>);
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_comment">//
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_comment">// cria um bot&atilde;o e um edit
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_comment">//
+</span>&nbsp;&nbsp;&nbsp;&nbsp;m_edtTest.Create(m_hWnd, CRect(10,10,200,32), NULL, 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ES_LEFT | WS_VISIBLE | WS_CHILDWINDOW, WS_EX_CLIENTEDGE , 2);
+&nbsp;&nbsp;&nbsp;&nbsp;m_edtTest.SetWindowText(L<span class="string">&quot;digite algo aqui&quot;</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;m_edtTest.SetFocus();
+&nbsp;&nbsp;&nbsp;&nbsp;m_edtTest.SetSel(0, m_edtTest.GetWindowTextLength());
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_btnTest.Create(m_hWnd, CRect(120,45,200,80), NULL, 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BS_PUSHBUTTON | WS_VISIBLE | WS_CHILDWINDOW, NULL, 1);
+&nbsp;&nbsp;&nbsp;&nbsp;m_btnTest.SetWindowText(L<span class="string">&quot;Bot&atilde;o&quot;</span>);
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_comment">//
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_comment">// usa o fonte padr&atilde;o de dialog 
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_comment">// (tem que fazer isso porque criamos um janela, n&atilde;o um dialog)
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_comment">//
+</span>&nbsp;&nbsp;&nbsp;&nbsp;m_edtTest.SetFont((HFONT)GetStockObject(DEFAULT_GUI_FONT));
+&nbsp;&nbsp;&nbsp;&nbsp;m_btnTest.SetFont((HFONT)GetStockObject(DEFAULT_GUI_FONT));
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> 0;
+&nbsp;&nbsp;}
+
+&nbsp;&nbsp;LRESULT OnButtonClick(WORD, WORD, HWND, BOOL&amp;)
+&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;ATL::CString str;
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_edtTest.GetWindowText(str);
+&nbsp;&nbsp;&nbsp;&nbsp;MessageBox(str);;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> 0;
+&nbsp;&nbsp;}
+};
+
+<span class="keyword">int</span> Run()
+{
+&nbsp;&nbsp;CMessageLoop theLoop;
+&nbsp;&nbsp;CMainFrame wndMain;
+&nbsp;&nbsp;
+&nbsp;&nbsp;<span class="code_comment">//
+</span>&nbsp;&nbsp;<span class="code_comment">// no WTL, existe um objeto separado que controla o message loop
+</span>&nbsp;&nbsp;<span class="code_comment">// vamos adicion&aacute;-lo ao _Module, que &eacute; o objeto global do ATL que
+</span>&nbsp;&nbsp;<span class="code_comment">// controla toda a aplica&ccedil;&atilde;o
+</span>&nbsp;&nbsp;<span class="code_comment">//
+</span>&nbsp;&nbsp;_Module.AddMessageLoop(&amp;theLoop);
+
+&nbsp;&nbsp;<span class="code_comment">//
+</span>&nbsp;&nbsp;<span class="code_comment">// agora &eacute; s&oacute; criar a janela e rodar o message loop
+</span>&nbsp;&nbsp;<span class="code_comment">//
+</span>&nbsp;&nbsp;wndMain.CreateEx(NULL, CRect(100,100,320,220),
+&nbsp;&nbsp;&nbsp;&nbsp;WS_CAPTION | WS_SYSMENU | WS_THICKFRAME);
+&nbsp;&nbsp;wndMain.ShowWindow(SW_SHOW);
+&nbsp;&nbsp;wndMain.UpdateWindow();
+
+&nbsp;&nbsp;<span class="keyword">int</span> nRet = theLoop.Run();
+
+&nbsp;&nbsp;_Module.RemoveMessageLoop();
+
+&nbsp;&nbsp;<span class="keyword">return</span> nRet;
+}
+
+<span class="keyword">int</span> WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, <span class="keyword">int</span>)
+{
+&nbsp;&nbsp;<span class="code_comment">//
+</span>&nbsp;&nbsp;<span class="code_comment">// primeiro inicializamos o COM, ATL e Common Controls
+</span>&nbsp;&nbsp;<span class="code_comment">//
+</span>&nbsp;&nbsp;::CoInitialize(NULL);
+&nbsp;&nbsp;_Module.Init(NULL, hInstance);
+&nbsp;&nbsp;AtlInitCommonControls(ICC_COOL_CLASSES | ICC_BAR_CLASSES);
+
+&nbsp;&nbsp;<span class="code_comment">//
+</span>&nbsp;&nbsp;<span class="code_comment">// e agora colocamos o programa para rodar
+</span>&nbsp;&nbsp;<span class="code_comment">//
+</span>&nbsp;&nbsp;<span class="keyword">int</span> nRet = Run();
+
+&nbsp;&nbsp;_Module.Term();
+&nbsp;&nbsp;::CoUninitialize();
+
+&nbsp;&nbsp;<span class="keyword">return</span> nRet;
+}
+</pre>
+</div>
+
+<p>Para compilar esse trecho de código é só instalar e configurar a WTL, criar um programa "Win32 Application" e substituir o código gerado pelo Wizard por esse. Além disso, quando você instala o WTL você terá um novo Wizard no Visual Studio para criar um "ATL/WTL Application".</p>
+
+<p>Mais Informações:<br/>
+<a href="http://sourceforge.net/projects/wtl/">WTL no SourceForge</a><br/>
+<a href="http://groups.yahoo.com/group/wtl/">Lista de discussão e suporte WTL</a><br/>
+<a href="http://www.codeproject.com/macro/WTLHelper.asp">WTLHelper</a><br/>
+<a href="http://www.codeproject.com/wtl/">Seção do CodeProject sobre WTL</a><br/>
+</p><br><p class="datetime">Em 19/01/2006 20:32, por  Rodrigo Strauss </p>
+</div>
+          </td>
+        </tr>
+
+
+
+<tr>
+<td class="topmenu"></td>
+<td>
+<br>
+<center>
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-2589539519655496";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text";
+google_ad_channel = "";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "FF5000";
+google_color_text = "000000";
+google_color_url = "FF5000";
+google_ui_features = "rc:6";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</center>
+</td>
+</tr>
+
+<tr>
+ <td class="topmenu"></td>
+ <td>
+  <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+   <tr>
+    <td><img src="../../images/rebarba3.png"></td>
+    <td align="right"><img src="../../images/rebarba4.png"></td>
+   </tr>
+  </table>
+ </td>
+</tr>
+
+<tr><td class="topmenu">&nbsp;</td><td class="topmenu">&nbsp;</td></tr>
+<tr><td class="topmenu">&nbsp;</td><td>
+<table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+</td>
+</tr>
+ <tr><td class="topmenu">&nbsp;</td>
+<td>
+
+<div class="content">
+<a name="comments"></a><h5>Comentários</h5><div class="post_comment">
+<a name="897"></a><B>Wanderley Caloni Jr</B>  | <a rel="nofollow" href="http://caloni.com.br">website</a> | <a rel="nofollow" href="mailto:wanderley@caloni.com.br">e-mail</a> | em 19/01/2006 | <a rel="nofollow" href="content.1bit/weblog/sopa_de_letrinhas_wtl#897">#</a><br>
+Só esqueceu de citar que agora o ATL está disponível no SDK!! Ou seja, usando Visual C++ 2005 Express Edition + SDK + WTL temos um ambiente de programação de aplicativos enxutos de graça =)<br><br>SDK:  <a rel="nofollow" href="http://www.codeproject.com/wtl/WTLExpress.asp">http://www.codeproject.com/wtl/WTLExpress.asp</a><br>Artigo do CodeProject que explica como usar o WTL junto do ATL que vem no SDK:  <a rel="nofollow" href="http://www.codeproject.com/article.asp?tag=20899492768138734">http://www.codeproject.com/article.asp?tag=20899492768138734</a>
+</div>
+<div class="post_comment">
+<a name="907"></a><B>Marcelo Santana</B>  | em 30/01/2006 | <a rel="nofollow" href="content.1bit/weblog/sopa_de_letrinhas_wtl#907">#</a><br>
+Você conhece a biblioteca SmartWin?  <a rel="nofollow" href="http://smartwin.sf.net">http://smartwin.sf.net</a><br><br>Também baseada em templates que encapsula Win32 API e que não usa "Macro Magic" como a WTL, muito mais typesafe... Acho ela muito boa.
+</div>
+<div class="post_comment">
+<a name="1913"></a><B>Rodrigo Pinho</B>  | em 26/05/2007 | <a rel="nofollow" href="content.1bit/weblog/sopa_de_letrinhas_wtl#1913">#</a><br>
+Se o problema da WTL era a falta de integração com IDE, ou falta de Wizards, tem duas ferramentas que ajudam nisto<br><br> <a rel="nofollow" href="http://salos.narod.ru/eng/WTLHelper/WTLHelper.html">http://salos.narod.ru/eng/WTLHelper/WTLHelper.html</a><br>Muito melhor que o ClassWizard.<br><br> <a rel="nofollow" href="http://salos.narod.ru/eng/WtlWiz/WtlWiz.html">http://salos.narod.ru/eng/WtlWiz/WtlWiz.html</a><br>Possui wizard para Aplicações com Spliter
+</div>
+<div class="post_comment">
+<a name="2136"></a><B>Marcelo Blauth</B>  | <a rel="nofollow" href="http://No">website</a> | <a rel="nofollow" href="mailto:marcelo-blauth@ig.com.br">e-mail</a> | em 28/12/2007 | <a rel="nofollow" href="content.1bit/weblog/sopa_de_letrinhas_wtl#2136">#</a><br>
+ Vc é filho de Elias Strauss? Comandante da Varig?<br>
+</div>
+<div class="post_comment_strauss">
+<a name="2137"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 29/12/2007 | <a rel="nofollow" href="content.1bit/weblog/sopa_de_letrinhas_wtl#2137">#</a><br>
+não
+</div>
+<div class="post_comment">
+<a name="2297"></a><B>Mounter</B>  | <a rel="nofollow" href="http://www.codimark.com/blog/">website</a> | em 11/06/2008 | <a rel="nofollow" href="content.1bit/weblog/sopa_de_letrinhas_wtl#2297">#</a><br>
+Olá, muito legal o tutorial, vou tentar mexer mais com a WinAPI no C++.<br><br>Até mais.
+</div>
+<div class="post_comment">
+<a name="2341"></a><B>Cleber Ramos</B>  | em 14/08/2008 | <a rel="nofollow" href="content.1bit/weblog/sopa_de_letrinhas_wtl#2341">#</a><br>
+Olá, gostei muito do tutorial. Parabens. Gostaria de saber WTL pode funcionar no visual studio 2008?<br><br>obrigado,<br>Cleber Ramos
+</div>
+<div class="post_comment_strauss">
+<a name="2347"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 15/08/2008 | <a rel="nofollow" href="content.1bit/weblog/sopa_de_letrinhas_wtl#2347">#</a><br>
+Funciona sim.
+</div>
+<div class="post_comment">
+<a name="2677"></a><B>Reginaldo</B>  | em 07/09/2010 | <a rel="nofollow" href="content.1bit/weblog/sopa_de_letrinhas_wtl#2677">#</a><br>
+Parabéns pelo artigo.<br>Sabe me indicar uma forma instalar WTL em alguma versão Express, 2008 ou 2010?<br><br>Obrigado.
+</div>
+<div class="post_comment_strauss">
+<a name="2678"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 08/09/2010 | <a rel="nofollow" href="content.1bit/weblog/sopa_de_letrinhas_wtl#2678">#</a><br>
+Veja  <a rel="nofollow" href="http://stackoverflow.com/questions/71659/how-to-add-wtl-and-atl-to-visual-studio-c-express-2008">http://stackoverflow.com/questions/71659/how-to-add-wtl-and-...</a>
+</div>
+<div class="post_comment">
+<a name="2765"></a><B>Cristiano</B>  | <a rel="nofollow" href="mailto:wesley_crystyano@hotmail.com">e-mail</a> | em 31/03/2011 | <a rel="nofollow" href="content.1bit/weblog/sopa_de_letrinhas_wtl#2765">#</a><br>
+muinto bom est sit ja tava desistin... bom continuo sem entend muinta koizs mais isto nao importa...axo q vo aprend muint aki vlw pela ajuda :)... no final da tudo serto...
+</div>
+
+<h5>Algo a dizer?</h5>
+<script language="JavaScript">
+function setCookie(name, value, expires, path, domain, secure) {
+  var curCookie = name + "=" + escape(value) +
+      ((expires) ? "; expires=" + expires.toGMTString() : "") +
+      ((path) ? "; path=" + path : "") +
+      ((domain) ? "; domain=" + domain : "") +
+      ((secure) ? "; secure" : "");
+  document.cookie = curCookie;
+}
+
+function getCookie(name) {
+  var dc = document.cookie;
+  var prefix = name + "=";
+  var begin = dc.indexOf("; " + prefix);
+  if (begin == -1) {
+    begin = dc.indexOf(prefix);
+    if (begin != 0) return null;
+  } else
+    begin += 2;
+  var end = document.cookie.indexOf(";", begin);
+  if (end == -1)
+    end = dc.length;
+  return unescape(dc.substring(begin + prefix.length, end));
+}
+
+function deleteCookie(name, path, domain) {
+  if (getCookie(name)) {
+    document.cookie = name + "=" +
+    ((path) ? "; path=" + path : "") +
+    ((domain) ? "; domain=" + domain : "") +
+    "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+  }
+}
+
+function CheckName()
+{
+  if(comment_form.name.value == '')
+  {
+    alert('Você esqueceu de informar o seu nome...');
+    comment_form.name.focus();
+    
+    return false;
+  }
+
+  if(comment_form.comment.value == '')
+  {
+    alert('O que você acha de escrever o comentário antes de tentar enviá-lo?');
+    comment_form.comment.focus();
+    
+    return false;
+  }
+
+  var now = new Date();
+
+  // um ano
+  now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+  setCookie("name", comment_form.name.value, now);
+  setCookie("email", comment_form.email.value, now);
+  setCookie("link", comment_form.link.value, now);
+  setCookie("hideemail", comment_form.hideemail.value, now);
+
+  return true;
+}
+
+</script>
+<form name="comment_form" method="POST" action="/comment.html" onsubmit="return CheckName();">
+<input type="hidden" name="article" value="weblog/1137713531"/>
+
+Nome:<br/>
+<input type="text" name="name" style="width: 250px;"/><br/>
+<br/>
+
+Site:<br/>
+<input type="text" name="link" style="width: 250px;" /><br/>
+<br/>
+
+E-mail:<br/>
+<input type="text" name="email" style="width: 250px;" />
+<br/><br/>
+
+Escreva o número vinte e seis:<br/>
+<input type="text" name="idade" style="width: 250px;" />
+<br/><br/>
+
+<input type="checkbox" name="hideemail"/>&nbsp;Não mostre meu e-mail no site, não serve pra nada mesmo...
+<br/><br/>
+
+Comentário<br/>
+<textarea style="WIDTH: 500px; HEIGHT: 300px" name="comment" rows="18" cols="50"></textarea><br/>
+<br/>
+<input type="submit" value="Dizer"/><br/><br/><br/>
+<div style="width:500px;font-size:8pt;">
+<b>Os comentários devem ser sobre assuntos relativos ao post</b>, eu provavelmente apagarei comentários totalmente offtopic. Se quiser me enviar uma mensagem, use o <a href="http://www.1bit.com.br/content.1bit/contact">formulário de contato</a>. E não esqueça: isso é um site pessoal e eu me reservo o direito de apagar qualquer comentário ofensivo ou inapropriado.
+</div>
+</form>
+
+<script language="JavaScript">
+// cookie de nome
+var name = getCookie("name");
+if (name && name != 'null')
+{
+  comment_form.name.value = name;
+  comment_form.email.value = getCookie("email");
+  comment_form.link.value = getCookie("link");
+  comment_form.hideemail.value = getCookie("hideemail");
+}
+
+</script>
+
+</div>
+
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png" alt="rebarba"></td>
+              <td align="right"><img src="../../images/rebarba4.png" alt="rebarba"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right" style="color:#999999;">
+::::
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+<META NAME="keywords" CONTENT="Rodrigo Strauss, programador, programação, Visual C++, C#, Windbg, Device Driver">
+<META NAME="description" CONTENT="Artigos sobre programação escritos por Rodrigo Strauss">
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>Dicas para particionamento e organiza&ccedil;&atilde;o do HD, parte 2  ::::  Rodrigo Strauss :: 1bit</title>
+    <link href="../../1bit.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
+
+  </head>
+  <body bottommargin="0" leftmargin="0" topmargin="0" rightmargin="0">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="../../images/logo2.png" border="0" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.1bit/links">Links</a> 
+			<span class="menusep">|</span>
+
+		    <a class="top_menu_link" href="content.1bit/contact">Contato</a> 
+			<span class="menusep">|</span>
+            
+            <a class="top_menu_link" href="content.1bit/about">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <a href="../.." style="text-decoration:none;">
+  <h2>Falatório</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="../.." style="text-decoration:none;">
+  <h2>Escovando 1 bit</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="content.1bit/weblog" style="text-decoration:none;">
+  <h2>WebLog</h2>
+ </a>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<table width="100%" border="0">
+<tr>
+<td>
+<h4><a href="content.1bit/weblog" style="text-decoration:none;">Rodrigo Strauss :::: WebLog</a></h4>
+</td>
+
+<td align="right">
+<a style="text-decoration:none;" href="content.1bit/weblog_archive">Arquivo</a><br><br>
+<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../images/xml.gif" border="0"/></a>
+
+</td>
+
+</tr>
+</table>
+<h5>Dicas para particionamento e organiza&ccedil;&atilde;o do HD, parte 2</h5><p>Nessa segunda parte, darei uma pequena explica&ccedil;&atilde;o do sistema de arquivos FAT. Depois faremos uma compara&ccedil;&atilde;o entre FAT e NTFS para podermos decidir qual tipo &eacute; melhor para qual finalidade.</p>
+
+<p>FAT &eacute; um sistema de arquivos que foi criado na d&eacute;cada de 80, originalmente para ser usado em disquetes. Foi o sistema de arquivos padr&atilde;o da Microsoft desde as primeiras vers&otilde;es do MS-DOS, e continua sendo o mais utilizado at&eacute; hoje, sendo suportado pelas &uacute;ltimas vers&otilde;es do Windows (XP, Server 2003 e Longhorn) e por diversos outros sistemas operacionas, como Linux e OS/2.</p>
+Primeiro vamos resumir a hist&oacute;ria do FAT:
+<ul>
+<li>FAT12: Primeira vers&atilde;o, foi projetada para disquetes. Nomes de arquivo no formato 8.3. O "12" vem do n&uacute;mero de bits usados para numerar os clusters;</li>
+<li>FAT16: Com o aparecimento dos primeiros HDs (naquele tempo alguns chamavam de "Winchester", lembram?), o FAT12 n&atilde;o era mais suficiente. Aumentaram ent&atilde;o o n&uacute;mero de clusters para 16 bits;</li>
+<li>VFAT: Com o surgimento do Windows 95, a Microsoft queria suportar nomes de arquivos longos, como no OS/2 (que usava HPFS). Ent&atilde;o foi feita uma adapta&ccedil;&atilde;o no FAT para ele suportasse nomes longos e ainda ficasse compat&iacute;vel com os aplicativos antigos;</li>
+<li>FAT32: Com o surgimento dos HDs maiores, o tamanho m&aacute;ximo de 2GB para um parti&ccedil;&atilde;o FAT16 tornou-se uma limita&ccedil;&atilde;o cr&iacute;tica. Ent&atilde;o o n&uacute;mero de clusters foi aumentado para 32 bits. Apesar de resolver o problema, o novo sistema de arquivos n&atilde;o era compat&iacute;vel com os sistemas operacionais mais antigos. O Windows NT4, por exemplo, n&atilde;o suporta FAT32 nativamente. o FAT32 tamb&eacute;m suporta nomes longos.</li>
+</ul>
+
+<p>Por ser um sistema de arquivos antigo, muitas das funcionalidades presentes nos sistemas de arquivos mais modernos n&atilde;o est&atilde;o dispon&iacute;veis. Para facilitar, vou enumerar as vantagens e desvantagens do FAT32:</p>
+
+<p>Vantagens:</p>
+<ul>
+<li>Como a estrutura &eacute; simples, o acesso aos arquivos &eacute; r&aacute;pido;</li>
+<li>&Eacute; compat&iacute;vel com praticamente todos os sistemas operacionais, como Windows 98, Windows NT 4, Linux, OS/2, etc.</li>
+</ul>
+
+<p>Desvantagens:</p>
+<ul>
+<li>N&atilde;o tem recursos de seguran&ccedil;a. N&atilde;o permite que o usu&aacute;rio ou administrador limite o acesso de determinados arquivos a determinados usu&aacute;rios;</li>
+<li>O controle anti falhas &eacute; muito simples e pouco eficiente. O FAT usa como sistema de seguran&ccedil;a para corrompimento dos metadados uma c&oacute;pia backup da tabela de aloca&ccedil;&atilde;o. Isso j&aacute; se mostrou ineficiente. Uma simples queda de energia durante uma opera&ccedil;&atilde;o que modifique os metadados pode tornar a parti&ccedil;&atilde;o inacess&iacute;vel.</li>
+</ul>
+
+<p>Em todas as compara&ccedil;&otilde;es que eu fizer daqui para frente, somente o FAT32 ser&aacute; considerado. O FAT16 tem a limita&ccedil;&atilde;o de 2GB no tamanho da parti&ccedil;&atilde;o, motivo suficiente para ser desconsiderado.</p>
+<p>Na terceira parte eu descreverei o NTFS.</p>
+
+<h6>Veja tamb&eacute;m</h6>
+<p>
+<a href="content.1bit/weblog/1091524453">Dicas para particionamento e organiza&ccedil;&atilde;o do HD, parte 1</a>
+</p><br><p class="datetime">Em 26/Aug/2004 15:47</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+          </td>
+        </tr>
+
+          <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png"></td>
+              <td align="right"><img src="../../images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+<tr><td class="topmenu">&nbsp;</td><td class="topmenu">&nbsp;</td></tr>
+<tr><td class="topmenu">&nbsp;</td><td>
+<table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+</td>
+</tr>
+ <tr><td class="topmenu">&nbsp;</td><td >
+<div class="content">
+<a name="comments"></a><h5>Comentários</h5>
+<h5>Algo a dizer?</h5>
+<form name="comment" method="POST" action="/comment.html">
+<input type="hidden" name="article" value="weblog/1093571241"/>
+Nome:<br/>
+<input type="text" name="name" style="width: 250px;"/><br/>
+<br/>
+
+Site ou e-mail:<br/>
+<input type="text" name="link" style="width: 250px;" /><br/>
+<br/>
+
+Comentário<br/>
+<textarea style="WIDTH: 300px; HEIGHT: 150px" name="comment" rows="9" cols="35"></textarea><br/>
+<br/>
+<input type="submit" value="Dizer"/>
+
+</form>
+
+</div>
+
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png"></td>
+              <td align="right"><img src="../../images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

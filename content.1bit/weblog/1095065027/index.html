@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+<META NAME="keywords" CONTENT="Rodrigo Strauss, programador, programação, Visual C++, C#, Windbg, Device Driver">
+<META NAME="description" CONTENT="Artigos sobre programação escritos por Rodrigo Strauss">
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>Dicas para particionamento e organiza&ccedil;&atilde;o do HD, parte 3  ::::  Rodrigo Strauss :: 1bit</title>
+    <link href="../../1bit.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
+
+  </head>
+  <body bottommargin="0" leftmargin="0" topmargin="0" rightmargin="0">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="../../images/logo2.png" border="0" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.1bit/links">Links</a> 
+			<span class="menusep">|</span>
+
+		    <a class="top_menu_link" href="content.1bit/contact">Contato</a> 
+			<span class="menusep">|</span>
+            
+            <a class="top_menu_link" href="content.1bit/about">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <a href="../.." style="text-decoration:none;">
+  <h2>Falatório</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="../.." style="text-decoration:none;">
+  <h2>Escovando 1 bit</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="content.1bit/weblog" style="text-decoration:none;">
+  <h2>WebLog</h2>
+ </a>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<table width="100%" border="0">
+<tr>
+<td>
+<h4><a href="content.1bit/weblog" style="text-decoration:none;">Rodrigo Strauss :::: WebLog</a></h4>
+</td>
+
+<td align="right">
+<a style="text-decoration:none;" href="weblog_archive">Arquivo</a><br><br>
+<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../images/xml.gif" border="0"/></a>
+
+</td>
+
+</tr>
+</table>
+<h5>Dicas para particionamento e organiza&ccedil;&atilde;o do HD, parte 3</h5><p>Como prometido, agora na terceira parte vou explicar um pouco sobre NTFS. Acho desnecess&aacute;rio dizer, mas isso &eacute; s&oacute; o b&aacute;sico sobre os sistemas de arquivos. Caso voc&ecirc; precise de maiores detalhes, procure a especifica&ccedil;&atilde;o ou maiores informa&ccedil;&otilde;es na web.</p>
+
+<p>O NTFS (NT File System) foi criado especialmente para o Windows NT, logo na sua primeira vers&atilde;o. Houve uma grande discuss&atilde;o durante o projeto do Windows NT sobre a viabilidade de criar-se um novo sistema de arquivos ou usar/adaptar um existente na &eacute;poca, como o FAT ou o HPFS. Sabemos hoje a decis&atilde;o que foi tomada.</p>
+
+<p>Os &uacute;nicos sistemas operacionais realmente compat&iacute;veis com NTFS s&atilde;o os da linha Windows NT: Windows NT 3.x, Windows NT 4.0, Windows 2000 (5.0), Windows XP (5.1), Windows Server 2003 (5.2) e a pr&oacute;xima vers&atilde;o, ainda em alfa, Windows Longhorn (6.0). Existem drivers para Linux, mas somente readonly. Para Windows 9x existe o <a href="http://www.sysinternals.com/ntw2k/freeware/ntfswin98.shtml"> NTFS for Windows 98</a> dos nossos geniais amigos da sysinternals, que usa os drivers do Windows NT para acessar as parti&ccedil;&otilde;es NTFS.</p>
+<p>Vamos &agrave;s vantagens e desvantagens do NTFS.</p>
+<p>Vantagens:</p>
+
+<ul>
+<li>NTFS possui journaling, que controla todas as modifica&ccedil;&otilde;es nos metadados da parti&ccedil;&atilde;o. Os metadados s&atilde;o as informa&ccedil;&otilde;es de como e onde est&atilde;o os dados e os arquivos na parti&ccedil;&atilde;o. Todas as modifica&ccedil;&otilde;es s&atilde;o gravadas em um log ANTES de serem efetuadas. Assim, caso um problema (como queda de energia) aconte&ccedil;a durante a grava&ccedil;&atilde;o, &eacute; poss&iacute;vel terminar ou reverter a opera&ccedil;&atilde;o na pr&oacute;xima vez que o computador for ligado. Note que isso garante a integridade da parti&ccedil;&atilde;o, mas n&atilde;o a integridade dos dados. O controle de dados &eacute; deixado por conta da aplica&ccedil;&atilde;o. Os bancos de dados (como SQL Server ou Oracle) fazem controle de integridade de dados;</li>
+<li>Possui suporte a metadados para os arquivos e pastas, o que permite, entre outras coisas, que as informa&ccedil;&otilde;es de permiss&atilde;o do arquivo sejam gravadas diretamente na parti&ccedil;&atilde;o. Por isso que voc&ecirc; consegue determinar permiss&otilde;es de acesso em uma parti&ccedil;&atilde;o NTFS, e n&atilde;o em uma parti&ccedil;&atilde;o FAT (usando Windows NT/2000/XP, &eacute; claro);</li>
+<li>Possui suporte a streams alternativas. Al&eacute;m de gravar no arquivo, voc&ecirc; pode criar um novo fluxo de dados para o arquivo e gravar informa&ccedil;&otilde;es separadamente. Isso permite, por exemplo, que voc&ecirc; mantenha diferentes vers&otilde;es dos dados do arquivo em streams diferentes;</li>
+<li>Tem menos problemas com fragmenta&ccedil;&atilde;o do que o FAT;</li>
+<li>Possui suporte nativo a criptografia e compacta&ccedil;&atilde;o (a partir do Windows 2000).</li>
+</ul>
+
+<p>Desvantagens:</p>
+<ul>
+<li>S&oacute; &eacute; 100% compat&iacute;vel com o Windows NT/2000/XP.</li>
+</ul>
+<p>(tentei encontrar mais desvantagens, mas n&atilde;o achei. Existem boatos de que FAT &eacute; mais r&aacute;pido do que NTFS, mas n&atilde;o achei nenhum estudo realmente conclusivo sobre isso)</p>
+<h6>Veja tamb&eacute;m</h6>
+<a href="content.1bit/weblog/1091524453">Dicas para particionamento e organiza&ccedil;&atilde;o do HD, parte 1</a><br>
+<a href="content.1bit/weblog/1093571241">Dicas para particionamento e organiza&ccedil;&atilde;o do HD, parte 2</a><br><br><p class="datetime">Em 12/Sep/2004 22:43</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+          </td>
+        </tr>
+
+          <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png"></td>
+              <td align="right"><img src="../../images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+<tr><td class="topmenu">&nbsp;</td><td class="topmenu">&nbsp;</td></tr>
+<tr><td class="topmenu">&nbsp;</td><td>
+<table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+</td>
+</tr>
+ <tr><td class="topmenu">&nbsp;</td><td >
+<div class="content">
+<a name="comments"></a><h5>Comentários</h5>
+<h5>Algo a dizer?</h5>
+<form name="comment" method="POST" action="/comment.html">
+<input type="hidden" name="article" value="weblog/1095065027"/>
+Nome:<br/>
+<input type="text" name="name" style="width: 250px;"/><br/>
+<br/>
+
+Site ou e-mail:<br/>
+<input type="text" name="link" style="width: 250px;" /><br/>
+<br/>
+
+Comentário<br/>
+<textarea style="WIDTH: 300px; HEIGHT: 150px" name="comment" rows="9" cols="35"></textarea><br/>
+<br/>
+<input type="submit" value="Dizer"/>
+
+</form>
+
+</div>
+
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png"></td>
+              <td align="right"><img src="../../images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

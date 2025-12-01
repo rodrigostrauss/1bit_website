@@ -1,0 +1,1102 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>Aulas de C++: como ensinar?  ::::  Rodrigo Strauss :: www.1bit.com.br</title>
+    <link href="../../1bit.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
+<!-- google analytics -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-75310-1";
+urchinTracker();
+</script>
+<!-- google analytics end -->
+
+  </head>
+  <body style="margin:0px 0px 0px 0px" bgcolor="#FFFFFF">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="../../images/logo_novo_2.png" border="0" alt="logo" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.1bit/contact">Contato</a> 
+			<span class="menusep">|</span>
+            
+            <a class="top_menu_link" href="content.1bit/about">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png" alt="rebarba"></td>
+              <td align="right"><img src="../../images/rebarba2.png" alt="rebarba"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <h2><a href="../../#artigos" style="text-decoration:none;">Artigos</a></h2>
+</div>
+
+<div class="left_menu_section">
+ <h2><a href="content.1bit/weblog" style="text-decoration:none;">Blog</a></h2>
+</div>
+
+<div class="left_menu_section">
+ <h2><a href="content.1bit/opensource" style="text-decoration:none;">Open Source</a></h2>
+</div>
+
+<!-- 
+<div class="left_menu_section">
+ <h2><a href="content.1bit/aulas" style="text-decoration:none;">Aulas online (ou nÃ£o) </a></h2>
+</div>
+-->
+
+
+<div id="google_translate_element"></div><script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'pt',
+    gaTrack: true,
+    gaId: 'UA-75310-1',
+  }, 'google_translate_element');
+}
+</script><script src="../..//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<br>
+
+<!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com.br/custom" target="_top">
+<table border="0" bgcolor="#eeeeee">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<br/>
+<input type="hidden" name="domains" value="www.1bit.com.br"></input>
+<label for="sbi" style="display: none">Digite os termos da sua pesquisa</label>
+<input type="text" name="q" size="23" maxlength="255" value="" id="sbi"></input>
+</td></tr>
+<tr>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" id="ss0"></input>
+<label for="ss0" title="Pesquisar na web"><font size="-2" color="black">Web</font></label></td>
+<td>
+<input type="radio" name="sitesearch" value="www.1bit.com.br" checked id="ss1"></input>
+<label for="ss1" title="Pesquisar www.1bit.com.br"><font size="-2" color="black">www.1bit.com.br</font></label></td>
+</tr>
+</table>
+<label for="sbb" style="display: none">Enviar formulÃ¡rio de pesquisa</label>
+<input type="submit" name="sa" value="Pesquisar" id="sbb"></input>
+<input type="hidden" name="client" value="pub-2589539519655496"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#0066CC;GL:1;DIV:#999999;VLC:336633;AH:center;BGC:FFFFFF;LBGC:FFFFFF;ALC:0066CC;LC:0066CC;T:000000;GFNT:666666;GIMP:666666;LH:50;LW:120;L:http://www.1bit.com.br/images/logo_novo_2.png;S:http://;FORID:1"></input>
+<input type="hidden" name="hl" value="pt"></input>
+</td></tr></table>
+</form>
+<!-- SiteSearch Google -->
+<br>
+
+<br>
+<br>
+<center>
+
+<a href="http://www.twitter.com/rodrigostrauss"><img src="http://twitter-badges.s3.amazonaws.com/follow_me-b.png" alt="Follow rodrigostrauss on Twitter"/></a>
+<br><br><br>
+
+<!--
+<a href="http://whos.amung.us/show/xopqoakh"><img src="http://whos.amung.us/cwidget/xopqoakh/fffffff6915a.png" alt="page counter" width="81" height="29" border="0" /></a>
+-->
+
+</center>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<h4><a href="content.1bit/weblog" style="text-decoration:none;">Rodrigo Strauss :: Blog</a></h4>
+<table border="0">
+<tr>
+<!-- 
+<td width="60">
+
+<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../images/xml.gif" border="0"/></a>
+</td>
+-->
+
+<td>
+
+<a href='http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Fwww.1bit.com.br%2Fweblog_rss.1bit'  target='blank'><img id='feedlyFollow' src='http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png' alt='follow us in feedly' width='66' height='20'></a>
+
+</td>
+
+<td>
+
+<a href="https://twitter.com/rodrigostrauss" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @rodrigostrauss</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+</td>
+
+<td align="right">
+
+
+
+
+<!--
+
+<script type="text/javascript">
+google_ad_client = "pub-2589539519655496";
+google_ad_width = 468;
+google_ad_height = 15;
+google_ad_format = "468x15_0ads_al";
+google_ad_channel = "";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "FF5000";
+google_color_text = "000000";
+google_color_url = "FF5000";
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+-->
+
+
+
+
+
+
+</td>
+</tr>
+</table>
+<br>
+<h5>Aulas de C++: como ensinar?</h5><p>Estou estudando uma proposta para dar aulas de C++, e estou pensando em uma didática interessante para as aulas. Tive uma conversa com o <a href="http://www.blakhalk.com.br/">Wanderly Caloni</a> sobre isso e quero deixar aqui registrado. Caso alguém tenha uma sugestão ou idéia sobre o assunto, coloque nos comentários desse post. Minha idéias ficaram bem claras nesse chat, o que dispensa maiores explicações. Vamos ao chat:
+</p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 09:42 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+como assim aulas teóricas?</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 09:43 Wanderley: <br>
+vc falando e uma lousa</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 09:44 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+impossível ensinar programação assim. </span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 09:44 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+Vai ser eu e um projetor, um aluno por micro</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span lang=EN-US style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 09:44 Wanderley: <br>
+mmmmmm...</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span lang=EN-US style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span lang=EN-US style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 09:44 Wanderley: <br>
+dai facilita MUITO</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span lang=EN-US style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 09:44 Wanderley: <br>
+ainda mais q o instrutor vai saber tirar duvidas eheheehheheh</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 09:44 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+sim, e vai ser assim</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 09:44 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+to pensando em adotar uma estratégia diferente</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 09:45 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+li uma coisa no comp.lang.c++.mod e fiquei pensativo</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 09:45 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+todo mundo q ensina C++ começa pela parte difícil</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 09:45 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+ponteiros, strcpy, etc</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 09:45 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+estou pensando em já começar usando std::string</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 09:45 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+e passando tudo por valor</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 09:48 Wanderley: <br>
+dai vai ser vb! =P</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 09:51 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+e qual o problema? Não é mais lógico ensinar primeiro a parte fácil e depois a
+difícil?</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 09:59 Wanderley: <br>
+em ambas as formas existem vantagens e desvantagens. no caso de comecar pelo
+mais facil, a desvantagem eh esconder desde o comeco detalhes essenciais para
+programar em C</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 10:00 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+não é esconder, é só começar pelo mais fácil. E eu vou dar aulas de C++, vou
+deixar claro pra eles que não é aula de C</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span lang=EN-US style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 10:02 Wanderley: <br>
+separar C de C++? mmmmmmmmmm... </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>=P</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 10:03 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+vou explicar as diferenças e similaridades e dizer que linguagem C é mais
+específica</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 10:04 Wanderley: <br>
+seilah. penso q sao coisas indivisiveis pq uma eh parte do todo</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 10:04 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+sim... mas como vc mesmo já disse, nós não sabemos programar em C. O C tem
+várias limitações e diferenças q não estamos acostumados</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 10:06 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+essas aulas vão ser muito boas pra mim, pq vão me fazer estudar mais coisas e
+mais termos. Se vc me perguntar o q é polimorfismo eu não sei explicar</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 10:06 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+vou ter q comprar o livro do Stroustrup urgente</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 10:06 Wanderley: <br>
+geralmente a pratica acaba sendo mais fixada na mente de quem realmente
+programa =P</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 10:07 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+EU CONSEGUI! Escrevi Stroustrup certo sem consultar! </span><span lang=EN-US
+style='font-size:9.0pt;font-family:"Lucida Sans Unicode";color:black'>Stroustrup,
+Stroustrup, Stroustrup!</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span lang=EN-US style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span lang=EN-US style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 10:07 </span><span lang=EN-US style='font-size:9.0pt;
+font-family:"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+Bjarne Stroustrup</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span lang=EN-US style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span lang=EN-US style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 10:07 </span><span lang=EN-US style='font-size:9.0pt;
+font-family:"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+Bjarne Stroustrup</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span lang=EN-US style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span lang=EN-US style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 10:07 </span><span lang=EN-US style='font-size:9.0pt;
+font-family:"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+Bjarne Stroustrup</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span lang=EN-US style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span lang=EN-US style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 10:07 </span><span lang=EN-US style='font-size:9.0pt;
+font-family:"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+</span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'><img width=16 height=16 src="http://www.1bit.com.br/images/chat_wanderley/image001.jpg"></span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span lang=EN-US style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 10:09 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+o seu Stroustrup é em portuga, né?</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 10:16 Wanderley: <br>
+eiuaheiuahieuaeihauhiauehiaueaiehiahuei<br>
+eh, sim<br>
+ta afim?</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 10:16 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+mais um clique na amazon e eu compro o meu <img width=16 height=16
+src="http://www.1bit.com.br/images/chat_wanderley/image002.jpg"></span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 10:17 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+e to pensando em comprar esse tb:</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span lang=EN-US style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 10:17 </span><span lang=EN-US style='font-size:9.0pt;
+font-family:"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+<a href="http://www.amazon.com/exec/obidos/tg/detail/-/0201749629">http://www.amazon.com/exec/obidos/tg/detail/-/0201749629</a></span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span lang=EN-US style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 10:21 Wanderley: <br>
+q baum!! =D</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 10:22 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+to quase comprando... mas eu tenho gasto uma puta grana com livros ultimamente</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 10:22 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+é sempre um bom gasto, mas é um gasto. E o bom é que livros de C++ nunca ficam
+desatualizados</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span lang=EN-US style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 10:27 Wanderley: <br>
+=D</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span lang=EN-US style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span lang=EN-US style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 10:28 </span><span lang=EN-US style='font-size:9.0pt;
+font-family:"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+vc já leu o blog do thiago adams?</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span lang=EN-US style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 10:29 Wanderley: <br>
+naum. qual o link?</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 10:33 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+<a href="http://planeta.terra.com.br/informatica/thiago_adams/codigo.htm">http://planeta.terra.com.br/informatica/thiago_adams/codigo.htm</a></span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 10:33 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+pena q não tem RSS</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 14:13 Wanderley: <br>
+onde vc viu a msg sobre ensinar c++ comecando pelo mais facil?</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 14:14 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+eu li uma mensagem no comp.lang.c++.moderated sobre um cara dizendo q o
+problema é q em C++ as pessoas começar pelo contrário, pelas coisas mais
+difíceis</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 14:14 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+vc não acha q ponteiro é uma ferramenta muito poderosa pra dar nas primeiras
+aulas?</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span lang=EN-US style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span lang=EN-US style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 14:15 Wanderley: <br>
+acho</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span lang=EN-US style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 14:15 Wanderley: <br>
+na primeira aula se dá variaveis e construções simples de programação</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 14:15 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+não é melhor que o cara que está começando use std::string ao invés de fazer um
+buffer overflow esperando pra acontecer?</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 14:16 Wanderley: <br>
+nao enquanto ele nao entender o funcionamento e os riscos de um buffer overflow</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 14:17 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+sim, mas acho q isso pode ser ensinado depois</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 14:17 Wanderley: <br>
+mas a lista do c++.moderated eh enorme <img width=16 height=16
+src="http://www.1bit.com.br/images/chat_wanderley/image003.jpg"><br>
+vc nao tem o link?</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 14:17 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+a maioria usa char* e não sabe o q é um buffer overflow</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 14:18 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+eu li ontem num post sobre c#, mas não lembro onde</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 14:18 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+esse cara não vai saber o q é um buffer overflow, mas pelo menos ele vai correr
+menos riscos</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 14:18 Wanderley: <br>
+a maioria faz isso pq nao aprendeu todos os conceitos. soh os necessarios pra
+sair programando...</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 14:19 Wanderley: <br>
+por isso q eu disse q eh vblizar o aprendizado: evitando riscos escondendo
+perigos <img width=16 height=16 src="http://www.1bit.com.br/images/chat_wanderley/image002.jpg"></span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 14:20 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+eu acho q é jogar o cara no fosso com leões só depois que ele conseguir matar
+um cachorro.</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 14:21 Wanderley: <br>
+qualquer abordagem eh valida qdo se trata de ensinar C ou C++ (ja li isso em
+algum livro eheheeh). mas existem vantagens e desvantagens em todas. eh
+vivendo, programando e aprendendo</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 14:22 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+minha experiência tem dito que fazer coisa low-level a toda hora por qualquer
+coisa prejudica o desenvolvimento. &quot;Humble thyself, reuse&quot;. </span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 14:23 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+se eu usar std::string não vou perder tempo com corrupção de memória. E SE
+FICAR LENTO, eu otimizo</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 14:24 Wanderley: <br>
+eu entendi. funciona. mas vc nao pode dizer q uma pessoa sabe c++ se ela nao
+consegue explicar o que eh uma string em C</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 14:39 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+claro, isso eu concordo</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 14:39 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+meu ponto é só que ela deve começar pelo mais fácil</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 14:47 Wanderley: <br>
+isso eh questao de gosto</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 14:47 Wanderley: <br>
+de objetivo tb</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 14:47 Wanderley: <br>
+ja q eles vao mexer com mfc, eh bom q se acostumem com a ideia de classe
+string, por ex</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 14:47 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+eu acho q é questão de didática e motivação</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 14:47 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+eu acho C difícil, imagina pra quem não sabe programar</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 14:48 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+é muito mais fácil alguém q nunca programou entender um<br>
+cout &lt;&lt; &quot;numero &quot; &lt;&lt; 5 &lt;&lt; endl;<br>
+do que<br>
+printf(&quot;numero %d\r\n&quot;,5);</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 14:49 Wanderley: <br>
+o Ritchie ensina muito bem as nuances da linguagem em seu livro. eh claro q a
+pessoa ja tem q ter um minimo de conceitos</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 14:49 Wanderley: <br>
+muito mais facil entender intuitivamente. mas nao tecnicamente <img width=16
+height=16 src="http://www.1bit.com.br/images/chat_wanderley/image002.jpg"></span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 14:50 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+as pessoas tem uma visão distorcida de C++, acham q é muito complicado. Se usar
+STL não é muito complicado.</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 14:51 Wanderley: <br>
+nao se nao der erro <img width=16 height=16
+src="http://www.1bit.com.br/images/chat_wanderley/image002.jpg"></span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 14:52 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+sim... e algumas coisas no STL tb são phoda. como tempo de vida de um interator</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 14:54 Wanderley: <br>
+mas, claro, se vc usa religiosamente como manda o figurino, tudo funciona</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 14:56 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+se vc usar char* como manda o figurino nunca dá buffer overflow</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 14:59 Wanderley: <br>
+aih q entra o grau de dificildade =P</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 15:00 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+sim. como é mais fácil usar o std::string sem fazer besteira me parece mais
+óbvio ensinar isso primeiro</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 15:00 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+do mesmo jeito que eu recomendo VB para iniciantes por ser mais fácil</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 15:00 Wanderley: <br>
+pior q nao eh. depende do gosto e/ou objetivo<br>
+eu recomendo basicao <img width=16 height=16
+src="http://www.1bit.com.br/images/chat_wanderley/image002.jpg"></span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 15:01 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+eu vou pensar bastante nisso. Quero criar uma geração que não use C só por
+costume (como a gente faz), e use realmente C++ e STL sempre (como eu quero
+fazer daqui pra frente)</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 15:02 Wanderley: <br>
+ohhhhhhhhhh <img width=16 height=16 src="http://www.1bit.com.br/images/chat_wanderley/image003.jpg"><br>
+nisso eu apoio. leia o livro do Stroustrup. ele eh um categorico dessa ideia</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 15:04 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+sim... no site dele ele diz que um livro de C++ que começa com printf já começa
+mal...</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 15:05 Wanderley: <br>
+ehehehehhehehehehhe. o legal eh q ele eh categorico, mas nao eh xiita, q fala q
+C++ deve ser usado soh com orientacao a objetos. eh o criador, neh. dai eh
+outra coisa <img width=16 height=16 src="http://www.1bit.com.br/images/chat_wanderley/image002.jpg"></span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 15:09 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+O Criador... <img width=16 height=16 src="http://www.1bit.com.br/images/chat_wanderley/image001.jpg"></span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span lang=EN-US style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 15:09 Wanderley: <br>
+ehehehehhehehehehheh</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span lang=EN-US style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span lang=EN-US style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 15:15 </span><span lang=EN-US style='font-size:9.0pt;
+font-family:"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+comprei o Stroustrup!</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span lang=EN-US style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span lang=EN-US style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 15:15 Wanderley: <br>
+=D</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span lang=EN-US style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span lang=EN-US style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 15:15 </span><span lang=EN-US style='font-size:9.0pt;
+font-family:"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+Esse chat merece um post. </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Autoriza?</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 15:15 Wanderley: <br>
+agora vc ouvirah a palavra tb. e logo estara pregando a palavra =P</span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>Today, 15:16 Wanderley: <br>
+se vc acha q merece, vai la <img width=16 height=16
+src="http://www.1bit.com.br/images/chat_wanderley/image002.jpg"></span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 15:16 </span><span style='font-size:9.0pt;font-family:
+"Lucida Sans Unicode";color:black'>Rodrigo Strauss: <br>
+A palavra do Criador, sem apóstulos, sem intermediários. É como se &quot;God
+himself&quot; tivesse escrito a Bíblia <img width=16 height=16
+src="http://www.1bit.com.br/images/chat_wanderley/image002.jpg"></span></p>
+
+<p class=MsoNormal style='margin-left:15.0pt;text-indent:-15.0pt;text-autospace:
+none'><span style='font-size:3.5pt;font-family:"Lucida Sans Unicode";
+color:black'>  </span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:#5D5D5D'>Today, 15:17 Wanderley: <br>
+</span><span style='font-size:9.0pt;font-family:"Lucida Sans Unicode";
+color:black'>eiuhaieuhaiuehiauheiauhieua eh vero. sem interpretacoes erroneas.
+eh o proprio!</span></p>
+<br><p class="datetime">Em 23/02/2005 20:36, por  Rodrigo Strauss </p>
+</div>
+          </td>
+        </tr>
+
+
+
+<tr>
+<td class="topmenu"></td>
+<td>
+<br>
+<center>
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-2589539519655496";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text";
+google_ad_channel = "";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "FF5000";
+google_color_text = "000000";
+google_color_url = "FF5000";
+google_ui_features = "rc:6";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</center>
+</td>
+</tr>
+
+<tr>
+ <td class="topmenu"></td>
+ <td>
+  <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+   <tr>
+    <td><img src="../../images/rebarba3.png"></td>
+    <td align="right"><img src="../../images/rebarba4.png"></td>
+   </tr>
+  </table>
+ </td>
+</tr>
+
+<tr><td class="topmenu">&nbsp;</td><td class="topmenu">&nbsp;</td></tr>
+<tr><td class="topmenu">&nbsp;</td><td>
+<table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+</td>
+</tr>
+ <tr><td class="topmenu">&nbsp;</td>
+<td>
+
+<div class="content">
+<a name="comments"></a><h5>Comentários</h5><div class="post_comment">
+<a name="828"></a><B>Hugo Parente</B>  | em 11/12/2005 | <a rel="nofollow" href="../#828">#</a><br>
+O próprio Stroustrup tem um artigo sobre como ensinar C++ como primeira linguagem ao invés do C... tem esse artigo na página dele, bem interessante.<br><br>Eu apoio a decisão de ensinar C++ primeiro em um nível mais alto (std::string, referências, etc) nada de ponteiros, só depois introduzir a baixaria herdada do C ;-).<br>
+</div>
+<div class="post_comment_strauss">
+<a name="832"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 11/12/2005 | <a rel="nofollow" href="../#832">#</a><br>
+Concordo que você em partes. Não se esqueça que sem ponteiros não existe polimorfismo, que é uma das principais características da orientação a objetos.
+</div>
+<div class="post_comment">
+<a name="1862"></a><B>Andréa Proto</B>  | <a rel="nofollow" href="mailto:abproto@hotmail.com">e-mail</a> | em 20/04/2007 | <a rel="nofollow" href="../#1862">#</a><br>
+Sou professora universitária de C++, e apliquei este método de ensino e estou obtendo ótimos resultados, certamente você também conseguirá.<br>Sucesso
+</div>
+
+<h5>Algo a dizer?</h5>
+<script language="JavaScript">
+function setCookie(name, value, expires, path, domain, secure) {
+  var curCookie = name + "=" + escape(value) +
+      ((expires) ? "; expires=" + expires.toGMTString() : "") +
+      ((path) ? "; path=" + path : "") +
+      ((domain) ? "; domain=" + domain : "") +
+      ((secure) ? "; secure" : "");
+  document.cookie = curCookie;
+}
+
+function getCookie(name) {
+  var dc = document.cookie;
+  var prefix = name + "=";
+  var begin = dc.indexOf("; " + prefix);
+  if (begin == -1) {
+    begin = dc.indexOf(prefix);
+    if (begin != 0) return null;
+  } else
+    begin += 2;
+  var end = document.cookie.indexOf(";", begin);
+  if (end == -1)
+    end = dc.length;
+  return unescape(dc.substring(begin + prefix.length, end));
+}
+
+function deleteCookie(name, path, domain) {
+  if (getCookie(name)) {
+    document.cookie = name + "=" +
+    ((path) ? "; path=" + path : "") +
+    ((domain) ? "; domain=" + domain : "") +
+    "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+  }
+}
+
+function CheckName()
+{
+  if(comment_form.name.value == '')
+  {
+    alert('Você esqueceu de informar o seu nome...');
+    comment_form.name.focus();
+    
+    return false;
+  }
+
+  if(comment_form.comment.value == '')
+  {
+    alert('O que você acha de escrever o comentário antes de tentar enviá-lo?');
+    comment_form.comment.focus();
+    
+    return false;
+  }
+
+  var now = new Date();
+
+  // um ano
+  now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+  setCookie("name", comment_form.name.value, now);
+  setCookie("email", comment_form.email.value, now);
+  setCookie("link", comment_form.link.value, now);
+  setCookie("hideemail", comment_form.hideemail.value, now);
+
+  return true;
+}
+
+</script>
+<form name="comment_form" method="POST" action="/comment.html" onsubmit="return CheckName();">
+<input type="hidden" name="article" value="weblog/1109201789"/>
+
+Nome:<br/>
+<input type="text" name="name" style="width: 250px;"/><br/>
+<br/>
+
+Site:<br/>
+<input type="text" name="link" style="width: 250px;" /><br/>
+<br/>
+
+E-mail:<br/>
+<input type="text" name="email" style="width: 250px;" />
+<br/><br/>
+
+Escreva o número vinte e seis:<br/>
+<input type="text" name="idade" style="width: 250px;" />
+<br/><br/>
+
+<input type="checkbox" name="hideemail"/>&nbsp;Não mostre meu e-mail no site, não serve pra nada mesmo...
+<br/><br/>
+
+Comentário<br/>
+<textarea style="WIDTH: 500px; HEIGHT: 300px" name="comment" rows="18" cols="50"></textarea><br/>
+<br/>
+<input type="submit" value="Dizer"/><br/><br/><br/>
+<div style="width:500px;font-size:8pt;">
+<b>Os comentários devem ser sobre assuntos relativos ao post</b>, eu provavelmente apagarei comentários totalmente offtopic. Se quiser me enviar uma mensagem, use o <a href="http://www.1bit.com.br/content.1bit/contact">formulário de contato</a>. E não esqueça: isso é um site pessoal e eu me reservo o direito de apagar qualquer comentário ofensivo ou inapropriado.
+</div>
+</form>
+
+<script language="JavaScript">
+// cookie de nome
+var name = getCookie("name");
+if (name && name != 'null')
+{
+  comment_form.name.value = name;
+  comment_form.email.value = getCookie("email");
+  comment_form.link.value = getCookie("link");
+  comment_form.hideemail.value = getCookie("hideemail");
+}
+
+</script>
+
+</div>
+
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png" alt="rebarba"></td>
+              <td align="right"><img src="../../images/rebarba4.png" alt="rebarba"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right" style="color:#999999;">
+::::
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>

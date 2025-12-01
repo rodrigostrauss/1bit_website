@@ -1,0 +1,658 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>FAQ:  Programação Win32 em C/C++  ::::  Rodrigo Strauss :: www.1bit.com.br</title>
+    <link href="../../1bit.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
+<!-- google analytics -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-75310-1";
+urchinTracker();
+</script>
+<!-- google analytics end -->
+
+  </head>
+  <body style="margin:0px 0px 0px 0px" bgcolor="#FFFFFF">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="../../images/logo_novo_2.png" border="0" alt="logo" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.1bit/contact">Contato</a> 
+			<span class="menusep">|</span>
+            
+            <a class="top_menu_link" href="content.1bit/about">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png" alt="rebarba"></td>
+              <td align="right"><img src="../../images/rebarba2.png" alt="rebarba"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <h2><a href="../../#artigos" style="text-decoration:none;">Artigos</a></h2>
+</div>
+
+<div class="left_menu_section">
+ <h2><a href="content.1bit/weblog" style="text-decoration:none;">Blog</a></h2>
+</div>
+
+<div class="left_menu_section">
+ <h2><a href="content.1bit/opensource" style="text-decoration:none;">Open Source</a></h2>
+</div>
+
+<!-- 
+<div class="left_menu_section">
+ <h2><a href="content.1bit/aulas" style="text-decoration:none;">Aulas online (ou nÃ£o) </a></h2>
+</div>
+-->
+
+<br>
+
+<!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com.br/custom" target="_top">
+<table border="0" bgcolor="#eeeeee">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<br/>
+<input type="hidden" name="domains" value="www.1bit.com.br"></input>
+<label for="sbi" style="display: none">Digite os termos da sua pesquisa</label>
+<input type="text" name="q" size="23" maxlength="255" value="" id="sbi"></input>
+</td></tr>
+<tr>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" id="ss0"></input>
+<label for="ss0" title="Pesquisar na web"><font size="-2" color="black">Web</font></label></td>
+<td>
+<input type="radio" name="sitesearch" value="www.1bit.com.br" checked id="ss1"></input>
+<label for="ss1" title="Pesquisar www.1bit.com.br"><font size="-2" color="black">www.1bit.com.br</font></label></td>
+</tr>
+</table>
+<label for="sbb" style="display: none">Enviar formulÃ¡rio de pesquisa</label>
+<input type="submit" name="sa" value="Pesquisar" id="sbb"></input>
+<input type="hidden" name="client" value="pub-2589539519655496"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#0066CC;GL:1;DIV:#999999;VLC:336633;AH:center;BGC:FFFFFF;LBGC:FFFFFF;ALC:0066CC;LC:0066CC;T:000000;GFNT:666666;GIMP:666666;LH:50;LW:120;L:http://www.1bit.com.br/images/logo_novo_2.png;S:http://;FORID:1"></input>
+<input type="hidden" name="hl" value="pt"></input>
+</td></tr></table>
+</form>
+<!-- SiteSearch Google -->
+<br>
+
+<br>
+<br>
+<center>
+
+<a href="http://www.twitter.com/rodrigostrauss"><img src="http://twitter-badges.s3.amazonaws.com/follow_me-b.png" alt="Follow rodrigostrauss on Twitter"/></a>
+<br><br><br>
+
+<!--
+<a href="http://whos.amung.us/show/xopqoakh"><img src="http://whos.amung.us/cwidget/xopqoakh/fffffff6915a.png" alt="page counter" width="81" height="29" border="0" /></a>
+-->
+
+</center>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<h4><a href="content.1bit/weblog" style="text-decoration:none;">Rodrigo Strauss :: Blog</a></h4>
+<table border="0">
+<tr>
+<!-- 
+<td width="60">
+
+<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../images/xml.gif" border="0"/></a>
+</td>
+-->
+
+<td>
+
+<a href='http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Fwww.1bit.com.br%2Fweblog_rss.1bit'  target='blank'><img id='feedlyFollow' src='http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png' alt='follow us in feedly' width='66' height='20'></a>
+
+</td>
+
+<td>
+
+<a href="https://twitter.com/rodrigostrauss" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @rodrigostrauss</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+</td>
+
+<td align="right">
+
+
+
+
+<!--
+
+<script type="text/javascript">
+google_ad_client = "pub-2589539519655496";
+google_ad_width = 468;
+google_ad_height = 15;
+google_ad_format = "468x15_0ads_al";
+google_ad_channel = "";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "FF5000";
+google_color_text = "000000";
+google_color_url = "FF5000";
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+-->
+
+
+
+
+
+
+</td>
+</tr>
+</table>
+<br>
+<h5>FAQ:  Programação Win32 em C/C++</h5><p>Continuando o meu projeto de projeto de FAQ C++, vou falar hoje sobre Win32.</p>
+
+<p><b>O que é Win32 e para que serve?</b><br>
+Já expliquei isso em <a href="http://www.1bit.com.br/content.1bit/weblog/sopa_de_letrinhas_win32">outro post</a>.</p>
+
+<p><b>Ouvi falar que Win32 é complicado, isso é verdade?</b><br>
+Isso tem lá seu fundo de verdade, alguns assuntos são extremamente complicados, os mais usuais nem tanto. De qualquer forma, essa complicação tem motivo: como a Win32 API é o acesso mais baixo nível que se pode ter ao sistema (considerando user-mode), ela deve possibilitar que você a use para fazer tudo que é possível no Windows. Por isso, muitas vezes, você chama uma função de 8 parâmetros mais só passa 2. Esses outros 6 parâmetros são usados em situações não muito comuns, mas que devem ser cobertas pela API. Além disso, como essa API é C (e não C++), não é possível fazer overload das funções com versões mais simples para os usos mais simples, como é feito muitas vezes nas classes do .NET Framework e em bibliotecas C++.</p>
+
+<p>Vou exemplificar isso usando a famosa função <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dllproc/base/createprocess.asp">CreateProcess</a> como exemplo. Essa função pede 10 parâmetros, mas em 99% dos casos você só usa o <i>LPTSTR lpCommandLine</i>. Além dos parâmetros que você passa como NULL, existem alguns que você é obrigado a preencher, como o <i>LPSTARTUPINFO lpStartupInfo</i>, e o <i>LPPROCESS_INFORMATION lpProcessInformation</i>. Veja um exemplo <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dllproc/base/creating_processes.asp">adaptado da MSDN</a>:</p>
+
+<div class="code">
+<pre>
+#include &lt;windows.h&gt;
+#include &lt;stdio.h&gt;
+
+void main()
+{
+    STARTUPINFO si;
+    PROCESS_INFORMATION p;
+
+    //
+    // dica: muitas estruturas no Windows têm uma variável membro chamada
+    // <i>cb</i> ou <i>cbSize</i>. Esse membro deve ser preenchido com o sizeof()
+    // da estrutura ANTES de chamar a função. Se você não fizer isso a função 
+    // retornará um erro. Esse é um erro comum de iniciantes (eu apanhei muito...)
+    //
+    ZeroMemory(&si, sizeof(si));
+    si.cb = sizeof(si);
+
+    ZeroMemory(&p, sizeof(p));
+
+    //
+    // Abrindo o Bloco de Notas
+    //
+    if( !CreateProcess( NULL,   // Sem módulo 
+        "C:WINDOWS\\notepad.exe", // linha de comando para o executável 
+        NULL,
+        NULL,
+        FALSE,            // O processo criado não herdará os handles
+        0,
+        NULL,
+        NULL,
+        &si,              // Ponteiro para STARTUPINFO
+        &p )             // Ponteiro para PROCESS_INFORMATION 
+    ) 
+    {
+        printf( "Erro em CreateProcess: 0x%X", GetLastError() );
+        return;
+    }
+
+    //
+    // O CreateProcess preencheu as estruturas e colocou handles nelas
+    // como não vamos usar os handles, precisamos fechá-los...
+    //
+    CloseHandle(p.hProcess);
+    CloseHandle(p.hThread);
+}
+</pre>
+</div>
+
+<p><b>O que eu preciso saber antes de estudar Win32?</b><br>
+Você precisa ter prática em programação C/C++. A API Win32 é exportada como funções C, mas é usada a partir do C++ sem problemas.
+</p>
+
+<p><b>Quais livros de Win32 você recomenda?</b><br>
+Primeiramente: eu indico que você leia os livros que vou indicar :-) Eu acho muito mais difícil estudar Win32 com tutoriais e lendo a MSDN. Não acho que exista muito matérial para iniciantes na Internet, e, <a href="http://www.1bit.com.br/content.1bit/bom_programador">como eu já disse</a>, vale muito mais a pena comprar um livro e ler do que ficar procurando na Internet.</p>
+
+<p>O primeiro livro que você deve ler é o 
+<a href="http://www.amazon.com/exec/obidos/redirect?link_code=ur2&amp;camp=1789&amp;tag=rodrstra1bit-20&amp;creative=9325&amp;path=tg/detail/-/157231995X">Programming Windows</a><img src="http://www.assoc-amazon.com/e/ir?t=rodrstra1bit-20&amp;l=ur2&amp;o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> do Charles Petzold, considerado a Bíblia definitiva sobre o assunto. Ele já está na quinta edição, e é essencial para que você entenda como a <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/gdi/wingdistart_9ezp.asp">GDI do Windows</a> funciona. Ele é hardcore do meio pra frente (eu não tive paciência para ler a parte de toolbar), se você não tiver paciência leia até o capítulo 11 (página 566). Isso já será suficiente para entender como as coisas funcionam no Windows, e será muito útil MESMO QUE VOCÊ USE Windows Forms (afinal, WinForms nada mais é do que uma camada .NET sobre a GDI).</p>
+
+<p><b>Nossa, Win32 é complicado mesmo... <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/winui/winui/windowsuserinterface/windowing/windowclasses/usingwindow.asp">100 linhas para fazer uma janelinha branca e feia</a>? Existe algo mais fácil?</b><br>
+Existe. Hoje em dia, quase ninguém mais usa API diretamente ("à la Petzold" como é conhecido). A GDI é complexa pelo mesmo motivo que eu já expliquei, ela é muito flexível e é um dos motivos do sucesso do Windows. <a href="http://www.1bit.com.br/content.1bit/flexibilidade">Poder e flexibilidade</a> sempre têm um custo, que geralmente é a complexibilidade.</p>
+
+<p>Para resolver isso, foram criadas, por diversas empresas, bibliotecas que encapsulam a Win32 API para facilitar o seu uso (o .NET Framework é uma delas). A biblioteca provida pelo Microsoft Visual C++ é a MFC (Microsoft Foundation Classes), que encapsula uma boa parte da Win32 API em objetos C++. Além disso, a IDE do Visual C++ possui diversos wizards que geram classes e código e facilitam muito a programação. Usar dialogs (forms) em MFC é quase tão fácil quanto VB6. Existem outras bibliotecas, como a VCL/CLX do Delphi e do C++ Builder e o WTL da Microsoft (que é a que eu mais gosto).</p>
+
+<p>Leia algo sobre MFC depois de ler o Petzold. Pode ser <a href="http://www.amazon.com/exec/obidos/search-handle-url/field-keywords=mfc%20programming">qualquer livro</a>, entendendo como funciona o Win32 e a GDI MFC não será um problema.</p>
+
+<p><b>O livro do Petzold cobre extensivamente a GDI (gráficos). E o resto?</b><br>
+Depois de ler o Petzold e algo sobre MFC, leia o <a href="http://www.amazon.com/exec/obidos/redirect?link_code=ur2&amp;camp=1789&amp;tag=rodrstra1bit-20&amp;creative=9325&amp;path=ASIN/1572315482">Advanced Windows</a><img src="http://www.assoc-amazon.com/e/ir?t=rodrstra1bit-20&amp;l=ur2&amp;o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> do Jeffrey Richter, outro clássico. Pronto. Isso já é suficiente para você ser um programador Win32. Só 3 livros :-)
+
+<p><a name="faq_win32_vale"></a><b>Meus amigos dizem que a API Win32 está ultrapassada e não vale a pena estudar isso. É verdade?</b><br>
+Não, não é. Você anda convivendo demais com <a href="http://www.1bit.com.br/content.1bit/weblog/ms_marketing">Piranhas.NET</a>. Explique para os seus amigos que TODOS os aplicativos para Windows hoje são feitos em Win32, já que <b>ela é o Windows</b>. No Windows Longhorn (previsto para 2006/2007) <a href="http://msdn.microsoft.com/Longhorn/understanding/pillars/default.aspx">ALGUMAS NOVAS APIs</a> serão disponibilidas como classes .NET. O Windows vai ficar cada vez mais .NET, mas isso deve levar no mínimo uns 5 anos. Não se esqueça que o .NET foi lançado em 2001 e a maioria dos aplicativos comerciais ainda são feitos em C e C++, usando a API Win32 (que por enquanto é <b>a API do Windows</b>)</p>
+
+<p><a name="faq_win32_material"></a><b>Meus amigos disseram que existe mais material de estudos e livros falando de .NET do que de Win32. É verdade?</b><br>
+Não é verdade que existem mais livros sobre .NET. A API Win32 existe desde de 1993, e uma procura por livros na Amazon retornará vários livros. Procure "MFC" na Amazon, depois procure "Windows Forms" e veja a diferença. Além disso, no <a href="http://www.codeproject.com">Code Project</a> tem muito mais coisa útil em MFC do que em .NET.
+
+<p><a name="faq_win32_material"></a><b>Você me deixou em dúvida. Se o .NET é tão ruim assim, então eu devo abandoná-lo e fazer tudo em C++?</b><br>
+Primeiro: Eu nunca disse que o .NET é ruim. Na verdade eu acho ele muito bom para resolver os problemas que ele se propõe. Mas, tem seus problemas como qualquer API/Framework/Arquitetura. O grande problema é que no Brasil as pessoas acreditam no pessoal de marketing da Microsoft sem pensar se isso resolve o problema, e acham que .NET resolve todos os problemas. <a href="http://www.1bit.com.br/content.1bit/flexibilidade">Nada resolve todos os problemas</a>.
+
+<p>Como eu já disse, <a href="http://www.1bit.com.br/content.1bit/weblog/planeta_cpp">hoje tudo é C++ e Win32</a> e vai levar anos (talvez mais de uma década) para que o .NET seja realmente a plataforma de programação do Windows. Você acha mesmo que a Microsoft, Adobe/Macromedia e outros vão refazer todos os aplicativos em C#? Além disso, C++ ainda é a coisa mais portável que existe (em termos de código fonte), e esse é o motivo dele ter sido usado pela Mozilla Foundation (Firefox, Thunderbird, etc), pela Adobe (Photoshop), etc. E se isso conta, em Linux quase tudo é C e C++, o kernel (C), Gnome (C), KDE, (C++), etc. O fator multiplataforma do .NET ainda é incerto, e depende de implementações de terceiros (como o Mono).</p>
+
+Eu já escrevi <a href="http://www.1bit.com.br/content.1bit/managed">um artigo sobre perspectivas para o NET</a> a quase 1 ano atrás, e acho que ela continua a mesma. As duas arquiteturas são importantes, não troque o .NET pelo Win32, aprenda os dois e use o que for melhor para cada caso. Só não fique sentado esperando o .NET virar a plataforma oficial do Windows, você vai perder vários anos de mercado e da sua vida.</p><br><p class="datetime">Em 11/07/2005 14:37, por  Rodrigo Strauss </p>
+</div>
+          </td>
+        </tr>
+
+
+
+<tr>
+<td class="topmenu"></td>
+<td>
+<br>
+<center>
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-2589539519655496";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text";
+google_ad_channel = "";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "FF5000";
+google_color_text = "000000";
+google_color_url = "FF5000";
+google_ui_features = "rc:6";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</center>
+</td>
+</tr>
+
+<tr>
+ <td class="topmenu"></td>
+ <td>
+  <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+   <tr>
+    <td><img src="../../images/rebarba3.png"></td>
+    <td align="right"><img src="../../images/rebarba4.png"></td>
+   </tr>
+  </table>
+ </td>
+</tr>
+
+<tr><td class="topmenu">&nbsp;</td><td class="topmenu">&nbsp;</td></tr>
+<tr><td class="topmenu">&nbsp;</td><td>
+<table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+</td>
+</tr>
+ <tr><td class="topmenu">&nbsp;</td>
+<td>
+
+<div class="content">
+<a name="comments"></a><h5>Comentários</h5><div class="post_comment">
+<a name="433"></a><B>Fabio Galuppo</B>  | em 14/07/2005 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#433">#</a><br>
+Excelente artigo (assim como os outros) :)<br><br>Bom, para contribuir com a galera do C++ que está interessada em Win32 (ou vice versa) - "alguma coisa Win32 com cara/feeling de C++":<br><br>class Process<br>{<br>public:<br>  struct CannotBeCreatedException<br>  { <br>    CannotBeCreatedException( const string& reason ) : reason(reason){}  <br>    <br>    string reason; <br>  };<br><br>private:<br>  struct ReasonFunctor<br>  {<br>    ~ReasonFunctor(){ LocalFree( Buffer_ ); }<br>		<br>    string operator()()<br>    {			<br>      if ( FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | <br>			  FORMAT_MESSAGE_FROM_SYSTEM | <br>			  FORMAT_MESSAGE_IGNORE_INSERTS,<br>			  NULL,<br>			  GetLastError(),<br>			  MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),<br>			  reinterpret_cast&lt;char*&gt;( &Buffer_ ),								<br>			  0,<br>			  NULL )<br>      )<br>      { <br>        return static_cast&lt;char*&gt;( Buffer_ );				<br>      }<br>      else<br>      {<br>        return "Unknown";<br>      }			<br>    }<br><br>  private:<br>    LPVOID Buffer_;<br>  };<br><br>  struct STARTUPINFO_ : public STARTUPINFO<br>  {<br>    STARTUPINFO_()<br>    {<br>      ZeroMemory(this, sizeof(STARTUPINFO_));<br>      this-&gt;cb = sizeof(STARTUPINFO_);<br>    }<br><br>    LPSTARTUPINFO ptr()<br>    {<br>      return this;<br>    }<br>  };<br><br>  struct PROCESS_INFORMATION_ : public PROCESS_INFORMATION<br>  {	<br>    PROCESS_INFORMATION_()<br>    {<br>      ZeroMemory( this, sizeof(PROCESS_INFORMATION_) );<br>    }<br><br>    ~PROCESS_INFORMATION_()<br>    {<br>      if( INVALID_HANDLE_VALUE != this-&gt;hProcess )<br>      {<br>        CloseHandle( this-&gt;hProcess );<br>	if( INVALID_HANDLE_VALUE != this-&gt;hThread )<br>	  CloseHandle( this-&gt;hThread );			<br>      }<br>    }<br><br>    LPPROCESS_INFORMATION ptr()<br>    {<br>      return this;<br>    }<br>  };<br><br>public:<br>  static void Start( const string& processName ) throw(...)<br>  {<br>    STARTUPINFO_ si;<br>    PROCESS_INFORMATION_ p;<br>    	<br>    if( !CreateProcess(	NULL, <br>			const_cast&lt;char*&gt;( processName.c_str() ),<br>			NULL,<br>			NULL,<br>			false,           <br>			0,<br>			NULL,<br>			NULL,<br>			si.ptr(),              <br>			p.ptr() ) <br>    )		<br>    {			<br>      throw CannotBeCreatedException( ReasonFunctor()() );<br>    }<br>  }<br>};<br><br>para usar:<br><br>try<br>{<br>  Process::Start( "C:\\Windows\\Notepad.exe" );<br>}<br>catch( Process::CannotBeCreatedException ex )<br>{<br>  MessageBox( NULL, ex.reason.c_str(), "", 0 );<br>}<br><br>Falou ;)<br><br>Qual será o próximo tema? Definitivamente o melhor blog em português que temos no momento... ;)<br>  
+</div>
+<div class="post_comment_strauss">
+<a name="434"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 14/07/2005 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#434">#</a><br>
+Isso soa bem mais C++ moderno :-) <br><br>O primórdio do projeto que acabou virando o .NET era transformar a API do Windows em objetos COM - que não usa tudo de C++ mais já é bem melhor do que [extern "C"].<br><br>Ainda estou em dúvida do próximo, mas acho que vou acabar escrevendo alguma coisa sobre COM. E o próximo da série de WinDbg já está no forno.
+</div>
+<div class="post_comment">
+<a name="493"></a><B>Evandro</B>  | <a rel="nofollow" href="mailto:esmjunior@gmail.com">e-mail</a> | em 29/07/2005 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#493">#</a><br>
+Gostaria de saber mais sobre as API´s do windows e com a programação em c... Valeu.
+</div>
+<div class="post_comment_strauss">
+<a name="494"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 29/07/2005 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#494">#</a><br>
+A melhor forma de conhecer mais é ler os livros que eu indiquei no post
+</div>
+<div class="post_comment">
+<a name="917"></a><B>ramiro</B>  | em 13/02/2006 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#917">#</a><br>
+Como e usado o win32 no delphi?
+</div>
+<div class="post_comment_strauss">
+<a name="919"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 13/02/2006 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#919">#</a><br>
+Não a pessoa mais indicada para te responder isso, Delphi não é minha praia
+</div>
+<div class="post_comment">
+<a name="1461"></a><B>FRANCISCO GOMES</B>  | em 29/08/2006 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#1461">#</a><br>
+Na realidade não é um comentário e sim uma dúvida. Gostaria muito que você me ajudasse :<br><br>Estou fazendo um programinha em delphi que lê a hora do relógio e quando esta for igual a uma determinada hora, um outro programa é carregado na tela. Até aí tudo bem. O problema é que este outro programa que é carregado não está sendo sobreposto a outras janelas que estão em uso (WORD ou EXCEL ou E-MAIL, etc).<br>Como eu faço para dar prioridade de abertura para o form que eu estou abrindo no delphi ???<br><br>Peço a sua ajuda.<br>OBRIGADO ...
+</div>
+<div class="post_comment_strauss">
+<a name="1462"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 29/08/2006 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#1462">#</a><br>
+Não sou a pessoa mais indicada para te responder isso, Delphi não é minha praia...
+</div>
+<div class="post_comment">
+<a name="1558"></a><B>Rimack Zelnick</B>  | <a rel="nofollow" href="http://www.pcprog.cjb.net">website</a> | <a rel="nofollow" href="mailto:rick.mack@ig.com.br">e-mail</a> | em 21/10/2006 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#1558">#</a><br>
+ola Rodrigo, meu nome é Rimack e eu sou iniciante em C/C++ eu estou querendo mais informacoes de como criar programas para win32 entao a pergunta é o seguinte: Que livro voce me indicaria para fazer aplicacoes em C/C++ ?<br><br>Obrigado
+</div>
+<div class="post_comment_strauss">
+<a name="1559"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 22/10/2006 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#1559">#</a><br>
+Dê uma lida em  <a rel="nofollow" href="http://www.1bit.com.br/content.1bit/weblog/faq_cpp_start">http://www.1bit.com.br/content.1bit/weblog/faq_cpp_start</a>
+</div>
+<div class="post_comment">
+<a name="1574"></a><B>breno</B>  | em 02/11/2006 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#1574">#</a><br>
+Advanced Windows do richter foi lancado ha quase 10 anos.<br>e de acordo com o proprio titulo cobre a plataforma windows 95!<br><br>vc disse que é um bom material. confio, pois em todos os lugares que o procurei ele estava ao lado de cinco estrelas. mas agora bateu uma duvida: o que for aprendido nele pode ser ultilizado no windows xp? nao estaria ele meio desatualizado?<br>alguma outra indicacao?
+</div>
+<div class="post_comment_strauss">
+<a name="1577"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 03/11/2006 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#1577">#</a><br>
+Ele cobre o Windows 95 e o Windows NT 3.51. 98% da API Win32 ainda é a mesma desde aquela época, ele não está desatualizado. Tanto que ainda não lançaram outro, provavelmente porque não há necessidade.
+</div>
+<div class="post_comment">
+<a name="1590"></a><B>JULIO QUENI</B>  | em 09/11/2006 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#1590">#</a><br>
+<br>Bom dia, boa tarde, boa noite conforme a disposiçao de tempo.<br>é com todo o gosto e prazer que li os seus comentarios.sou um sr da idade acima indicada e comecei a aprender progrmar pela primeira vez.mas nesta altura que escrevo ja vou no segundo mes de aprendizagem  mas estou a deparar com muitas dificuldades tais como:<br><br>Primeiro pensava que motivo de nao assimilaçao era lingua e falta de computador,mas agora ja falo mais ou menos a lingua italiana e comprei um computador mas continuei com enormes dificuldades. confesso que o que nao me falta é a vontade de aprender.estou a trabalhar na linguagem C++, ja fiz o primeiro exame sem éxito.Epero e gostava que  Sr.Paulo me ajude ultrapassar essa barreira, porque o que gostei de ser na vida é programador.por isso passo todo o tempo agarrado a programaçao, mas realmente me falta a base.Com esse seu comentàario devo mudar de mentalidade e deixar desculpas e trabalhar arduamente nem se for preciso passar noites a exercitar. por isso gostava de pedir Sr. ajuda no sentido de ser meu orientador pedagogico e de me facultar ou aconselhar os livros que achou essencial para essa fase.Parte de principio que nao sei nadinha e devo ter exame no mes de janeiro.neste momento falo de Array e Puntatori.<br>Gostava bastante de receber uma ajuda da sua parte. fiquei imocionado ao ler comentarios que mostram claramente o seu perfil. dedicado,humilde....<br>Peço desculpas de lhe tratar de Sr. porque a pessoa que nao gostam.mas espero que isso nao vai ser motivo de nao me responder.<br>Desejo-lhe sucessos na carreira e com muita sorte.<br>JULIO QUENI
+</div>
+<div class="post_comment_strauss">
+<a name="1591"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 09/11/2006 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#1591">#</a><br>
+¿
+</div>
+<div class="post_comment">
+<a name="1850"></a><B>Glauco</B>  | em 12/04/2007 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#1850">#</a><br>
+O livrinho difícil de comprar sem cartão de crédito internacional. Muito bom o artigo.
+</div>
+<div class="post_comment">
+<a name="1909"></a><B>Romulo Ferrer</B>  | <a rel="nofollow" href="mailto:romulo.ferrer@gmail.com">e-mail</a> | em 25/05/2007 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#1909">#</a><br>
+Olá pessoal, sou iniciante na programação cpp para windows e gostei muito da materia e dos comentarios...A parti de agora serei um frequentador desse site, e o que eu puder ajudar e contribuir, farei! Após ler, as coisas ainda estão escuras, mas ja baixei o primeiro livro para estudar. Logo estarei aqui com mais duvidas...<br>um abraço a todos!!!<br>
+</div>
+<div class="post_comment">
+<a name="2054"></a><B>will ricco</B>  | em 02/10/2007 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2054">#</a><br>
+legal
+</div>
+<div class="post_comment">
+<a name="2057"></a><B>Márcio</B>  | <a rel="nofollow" href="http://null">website</a> | <a rel="nofollow" href="mailto:null">e-mail</a> | em 04/10/2007 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2057">#</a><br>
+Usa a API FindWindow para pegar o manipulador da janela do Word depois usa SetForeground para colocar ela na frente.
+</div>
+<div class="post_comment">
+<a name="2058"></a><B>Rodrigo Petarli Brandão</B>  | <a rel="nofollow" href="http://www.puro.uff.br">website</a> | <a rel="nofollow" href="mailto:rodrigobrandao18@yahoo.com.br">e-mail</a> | em 04/10/2007 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2058">#</a><br>
+Olá Rodrigo.<br><br>    Faço faculdade de Ciência da Computação, e em uma das disciplinas (Sistemas Operacionais 1) fui solicitado pela professora para montar um programa que fizesse algumas tarefas que um shell faz (executar processos, listar arquivos,etc). <br>    O primeiro lugar que consultei foi o site da microsoft MSDN, que tem bastante conteúdo até, mas nada muito explicado. Estou com uma dúvida sobre um tipo de struct chamado HANDLE (além de outros), que vejo que toda hora é usado como parâmetro para várias funções. Em qual arquivo .h posso ver estas estrutras? No windows.h não tem muita coisa. Você conhece algum site bom como referência?<br><br>PS: Estou "conseguindo" o livro do Petzold, mas estou procurando algo como uma lista de referência mesmo.<br><br>Obrigado pela atenção.<br><br>Rodrigo Petarli Brandão.
+</div>
+<div class="post_comment_strauss">
+<a name="2061"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 05/10/2007 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2061">#</a><br>
+Existem vários tutoriais de Win32. Veja  <a rel="nofollow" href="http://www.google.com/search?q=win32%20tutorial">http://www.google.com/search?q=win32%20tutorial</a>
+</div>
+<div class="post_comment">
+<a name="2293"></a><B>Edson</B>  | <a rel="nofollow" href="http://null">website</a> | <a rel="nofollow" href="mailto:null">e-mail</a> | em 05/06/2008 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2293">#</a><br>
+Olá Rodrigo,<br>Tentei compilar o primeiro código utilizando o CreateProcess, no bcc55 da Borland, e GetLastError() retornou o erro 0x3.<br>Qual seria o problema?<br><br>Obrigado
+</div>
+<div class="post_comment_strauss">
+<a name="2307"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 21/06/2008 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2307">#</a><br>
+Edson, use o programa "Error Lookup" que vem junto com o Visual Studio para descobrir a descrição do código de erro. Ou coloque o sufixo ",hr" no watch (ex: "3,hr").<br><br>O erro 3 é caminho não encontrado. Veja se o executável existe e se você não esqueceu de colocar '\\' ao invés de '\'.
+</div>
+<div class="post_comment">
+<a name="2316"></a><B>Will</B>  | em 08/07/2008 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2316">#</a><br>
+Strauss,<br><br>Acho que vc se esqueceu de \\ após o C: na chamada do CreateProcess()<br><br>Onde se lê:<br>        "C:WINDOWS\\notepad.exe", // linha de comando para o executável <br><br>Entendo que deveria estar:<br>        "C:\\WINDOWS\\notepad.exe", // linha de comando para o executável <br><br>Tenho lido muito seu blog e vc está de parabéns! Muito conteúdo ÚTIL. Coisa rara de se achar na internet hj em dia :-)<br><br>[ ]'z<br><br>WB::
+</div>
+<div class="post_comment">
+<a name="2604"></a><B>Pompeo</B>  | <a rel="nofollow" href="http://www.adentech.com.br">website</a> | <a rel="nofollow" href="mailto:mkyx@ig.com.br">e-mail</a> | em 02/03/2010 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2604">#</a><br>
+Olá Rodrigo,<br>Estou iniciando em DEV C++ e estou precisando de manuais ou apostilas que detalhem os comandos para construir um programa para administração remota, tipo pcanywhere, teamviewer, showmypc, etc<br>Obrigado.<br><br>Pompeo<br>
+</div>
+<div class="post_comment">
+<a name="2674"></a><B>Wagner</B>  | em 02/09/2010 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2674">#</a><br>
+Olá Rodrigo,<br>Pode me indicar algum livro sobre WIN32 em português?<br><br>Grato.
+</div>
+<div class="post_comment_strauss">
+<a name="2675"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 03/09/2010 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2675">#</a><br>
+Procure alguma tradução do livro do Charles Petzold. 
+</div>
+<div class="post_comment">
+<a name="2676"></a><B>Reginaldo</B>  | em 05/09/2010 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2676">#</a><br>
+Rodrigo,<br>E agora, 5 anos depois, com Windows 7 a todo vapor, o que você me diz de .NET? Ainda vale a pena aprender Win API?<br>Essa API mudou alguma coisa com o Windows 7?<br><br>Parabéns pelo blog.
+</div>
+<div class="post_comment_strauss">
+<a name="2679"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 08/09/2010 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2679">#</a><br>
+.NET melhorou e evoluiu em termos de facilidades, Win32 ganhou mais recursos. <br><br>Ainda vale estudar Win32 API, mas C# fica cada vez melhor. Eu não usaria Win32 puro para fazer um aplicação hoje em dia, só se fosse muito especializado.
+</div>
+<div class="post_comment">
+<a name="2705"></a><B>Michel</B>  | em 29/10/2010 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2705">#</a><br>
+Rodrigo, <br><br>Sou um afortunado.<br>Achei os livros de Petzold e Richter nos sebos (hehehehe!!!)<br>E já mergulhei em Win32. Valeu mesmo pelas dicas, ambos os livros são de "outro mundo".<br><br>Por outro lado, tb programo em C# e estou maravilhado com a plataforma WCF para aplicações Client/Server, de modo que eu pretendo fazer as minhas aplicações clientes em Win32 se comunicarem com meu Server WCF usando a Interop COM/.NET.<br><br>Será que funciona bem essa Interoperação entre as plataformas? <br><br>P.S. Parabéns pelo blog!!<br><br>[]'s<br>Michel
+</div>
+<div class="post_comment_strauss">
+<a name="2706"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | <a rel="nofollow" href="mailto:rodrigo@1bit.com.br">e-mail</a> | em 29/10/2010 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2706">#</a><br>
+Você pode usar C# para o WPF e integrr tudo via C++/CLI.
+</div>
+<div class="post_comment">
+<a name="2801"></a><B>Fábio</B>  | em 10/06/2011 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2801">#</a><br>
+Será que pra quem estuda Windows API e descobriu todas as velharias clássicas como Inside Windows NT, Advanced Windows, Inside Windows 2000 e muito mais... sem esquecer da última edição do Windows Internals :) achará um lugar no mercado no futuro? Agora com essa mania WinMin  e completa faxina na Windows parece que estudar como o sistema funciona torna o futuro incerto para alguém como eu que quer não só entender e programar em C/C++ como trabalhar com isso...
+</div>
+<div class="post_comment_strauss">
+<a name="2802"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | em 13/06/2011 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2802">#</a><br>
+Eu não chamaria de velharias, já que praticamente todos os software que são parte do Windows e grande parte dos softwares comerciais são construídos sobre essa plataforma. .NET apesar de ser uma boa plataforma, é mais uma camada de abstração sobre o Windows, coisa que nem todos podem pagar o preço para ter.<br><br>Pelo que entendi, MinWin além de ser o Windows Executive completo (para mais detalhes veja o Windows Internals), não será vendido como um produto separado. Todos os livros que você citou se aplicam diretamente às APIs que continuam sendo expostas nessa teórica "versão".<br><br>Sim, vale a pena trabalhar com isso. Trabalho com isso até hoje e tenho visto bastante procura por profissionais com essas qualificações.<br>
+</div>
+<div class="post_comment">
+<a name="2803"></a><B>Fabio Galuppo</B>  | <a rel="nofollow" href="http://fabiogaluppo.wordpress.com">website</a> | em 13/06/2011 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2803">#</a><br>
+Complementando.<br><br>Para fazer "system programming" no Windows é necessário conhecer bem a Windows API e seus subsistemas. Para usar DirectX é bom conhecer o lado "consumer" do COM, e a estrutura de Message Pump. Mesmo no mundo da CLR (.NET), isto tem valor, pois quando você investigar um "system call" provavelmente encontrará um p/invoke para uma API (por exemplo: a classe File chama a Win32Native.CreateFile).<br><br>É extremanente válido tais conhecimentos!<br><br>Quanto ao MinWin, o Windows vem desde o Vista sofrendo Refactoring. Este artigo é muito interessante, e pode dar mais explicações:  <a rel="nofollow" href="http://blogs.mcafee.com/mcafee-labs/windows-7-kernel-api-refactoring">http://blogs.mcafee.com/mcafee-labs/windows-7-kernel-api-ref...</a>
+</div>
+<div class="post_comment">
+<a name="2804"></a><B>Fábio</B>  | em 13/06/2011 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2804">#</a><br>
+Obrigado pelos esclarecimentos Rodrigo e Fábio :-)<br><br>
+</div>
+<div class="post_comment">
+<a name="2811"></a><B>Fábio</B>  | em 13/07/2011 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2811">#</a><br>
+E será que mesmo alguém sem formação superior hoje em dia consegue emprego para programar baixo nível nessa área?
+</div>
+<div class="post_comment_strauss">
+<a name="2812"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | <a rel="nofollow" href="mailto:rodrigo@1bit.com.br">e-mail</a> | em 13/07/2011 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2812">#</a><br>
+Sim. Se você souber o que está fazendo.
+</div>
+<div class="post_comment">
+<a name="2869"></a><B>William</B>  | <a rel="nofollow" href="mailto:planet_heel@hotmail.com">e-mail</a> | em 09/11/2011 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2869">#</a><br>
+É verdade que não há material muito bom na internet para iniciantes. Então tem alguma dica de livro que eu (como iniciante em C/C++) poderia comprar para aprender conceitos básicos???
+</div>
+<div class="post_comment_strauss">
+<a name="2876"></a><B>Rodrigo Strauss</B>  | <a rel="nofollow" href="http://www.1bit.com.br">website</a> | <a rel="nofollow" href="mailto:rodrigo@1bit.com.br">e-mail</a> | em 16/11/2011 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2876">#</a><br>
+William, é o livro do Petzold mesmo.
+</div>
+<div class="post_comment">
+<a name="2910"></a><B>ninguém</B>  | em 04/02/2012 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2910">#</a><br>
+não tenho nada a dizer, obrigado por perguntar.
+</div>
+<div class="post_comment">
+<a name="2941"></a><B>Juliano Bueno</B>  | em 21/05/2012 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#2941">#</a><br>
+Eu acho interessante esses artigos que não se perdem com o tempo...<br><br>Muito bom seu post, isto pq, estamos em 2012 e ele ainda é muito atual! Sua idéias são muito sensatas e inteligentes...<br><br>Parabéns Rodrigo, seu trabalho é sensacional, tenho buscado acompanhar mais de perto nos últimos dias lendo seu material on-line!
+</div>
+<div class="post_comment">
+<a name="3076"></a><B>Adriano</B>  | <a rel="nofollow" href="http://www.tecnonetapa.blogspot.com">website</a> | <a rel="nofollow" href="mailto:adrianoandrade@windowslive.com">e-mail</a> | em 12/06/2015 | <a rel="nofollow" href="content.1bit/weblog/faq_win32#3076">#</a><br>
+Poxa artigo bacana! Parabéns!
+</div>
+
+<h5>Algo a dizer?</h5>
+<script language="JavaScript">
+function setCookie(name, value, expires, path, domain, secure) {
+  var curCookie = name + "=" + escape(value) +
+      ((expires) ? "; expires=" + expires.toGMTString() : "") +
+      ((path) ? "; path=" + path : "") +
+      ((domain) ? "; domain=" + domain : "") +
+      ((secure) ? "; secure" : "");
+  document.cookie = curCookie;
+}
+
+function getCookie(name) {
+  var dc = document.cookie;
+  var prefix = name + "=";
+  var begin = dc.indexOf("; " + prefix);
+  if (begin == -1) {
+    begin = dc.indexOf(prefix);
+    if (begin != 0) return null;
+  } else
+    begin += 2;
+  var end = document.cookie.indexOf(";", begin);
+  if (end == -1)
+    end = dc.length;
+  return unescape(dc.substring(begin + prefix.length, end));
+}
+
+function deleteCookie(name, path, domain) {
+  if (getCookie(name)) {
+    document.cookie = name + "=" +
+    ((path) ? "; path=" + path : "") +
+    ((domain) ? "; domain=" + domain : "") +
+    "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+  }
+}
+
+function CheckName()
+{
+  if(comment_form.name.value == '')
+  {
+    alert('Você esqueceu de informar o seu nome...');
+    comment_form.name.focus();
+    
+    return false;
+  }
+
+  if(comment_form.comment.value == '')
+  {
+    alert('O que você acha de escrever o comentário antes de tentar enviá-lo?');
+    comment_form.comment.focus();
+    
+    return false;
+  }
+
+  var now = new Date();
+
+  // um ano
+  now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+  setCookie("name", comment_form.name.value, now);
+  setCookie("email", comment_form.email.value, now);
+  setCookie("link", comment_form.link.value, now);
+  setCookie("hideemail", comment_form.hideemail.value, now);
+
+  return true;
+}
+
+</script>
+<form name="comment_form" method="POST" action="/comment.html" onsubmit="return CheckName();">
+<input type="hidden" name="article" value="weblog/1121103440"/>
+
+Nome:<br/>
+<input type="text" name="name" style="width: 250px;"/><br/>
+<br/>
+
+Site:<br/>
+<input type="text" name="link" style="width: 250px;" /><br/>
+<br/>
+
+E-mail:<br/>
+<input type="text" name="email" style="width: 250px;" />
+<br/><br/>
+
+Escreva o número vinte e seis:<br/>
+<input type="text" name="idade" style="width: 250px;" />
+<br/><br/>
+
+<input type="checkbox" name="hideemail"/>&nbsp;Não mostre meu e-mail no site, não serve pra nada mesmo...
+<br/><br/>
+
+Comentário<br/>
+<textarea style="WIDTH: 500px; HEIGHT: 300px" name="comment" rows="18" cols="50"></textarea><br/>
+<br/>
+<input type="submit" value="Dizer"/><br/><br/><br/>
+<div style="width:500px;font-size:8pt;">
+<b>Os comentários devem ser sobre assuntos relativos ao post</b>, eu provavelmente apagarei comentários totalmente offtopic. Se quiser me enviar uma mensagem, use o <a href="http://www.1bit.com.br/content.1bit/contact">formulário de contato</a>. E não esqueça: isso é um site pessoal e eu me reservo o direito de apagar qualquer comentário ofensivo ou inapropriado.
+</div>
+</form>
+
+<script language="JavaScript">
+// cookie de nome
+var name = getCookie("name");
+if (name && name != 'null')
+{
+  comment_form.name.value = name;
+  comment_form.email.value = getCookie("email");
+  comment_form.link.value = getCookie("link");
+  comment_form.hideemail.value = getCookie("hideemail");
+}
+
+</script>
+
+</div>
+
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png" alt="rebarba"></td>
+              <td align="right"><img src="../../images/rebarba4.png" alt="rebarba"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right" style="color:#999999;">
+::::
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>

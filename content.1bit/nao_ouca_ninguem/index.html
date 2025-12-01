@@ -1,0 +1,453 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+<META NAME="keywords" CONTENT="Rodrigo Strauss, programador, programação, Visual C++, C#, Windbg, Device Driver">
+<META NAME="description" CONTENT="Artigos sobre programação escritos por Rodrigo Strauss">
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>Rodrigo Strauss :: 1bit</title>
+    <link href="../../1bit.css" type="text/css" rel="stylesheet">
+  </head>
+  <body bottommargin="0" leftmargin="0" topmargin="0" rightmargin="0">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="../../images/logo2.png" border="0" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.html?id=ainda_nao">Arquivo</a> 
+			<span class="menusep">|</span>
+            
+            <a class="top_menu_link" href="content.html?id=ainda_nao">Editar</a> 
+            <span class="menusep">|</span> 
+            
+            <a class="top_menu_link" href="../about/">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <a href="../../index.html" style="text-decoration:none;">
+  <h2>Falatório</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="../../index.html" style="text-decoration:none;">
+  <h2>Escovando 1 bit</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="../weblog/" style="text-decoration:none;">
+  <h2>WebLog</h2>
+ </a>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<h4>
+	Ouça o que eu digo: não ouça ninguém
+</h4>
+Por Rodrigo Strauss
+<h5>
+	Introdução
+</h5>
+<p>
+	Existem algumas dicas que valem não somente para programadores, mas para 
+	qualquer tipo de profissional, e essa é uma delas. Não acredite nas coisas que 
+	você escuta, pelo menos não até que você confirme isso com uma outra fonte mais 
+	confiável ou consiga uma segunda opinião. Sua informação pode estar incompleta, fora de contexto, ou 
+	simplesmente, errada mesmo.
+</p>
+<h5>
+	Era uma vez
+</h5>
+<p>
+	Minha esposa está grávida. No último ultra-som que ela fez, com aproximadamente 
+	20 semanas de gravidez (essa história de contar tempo em semanas não entra na 
+	minha cabeça...) foi diagnosticado que ela&nbsp;está com a placenta baixa. A 
+	explicação dada pela médica que fez o ultra-som, foi de que a placenta 
+	baixa é caracterizada pela posição incorreta da placenta dentro do útero. Ela 
+	está baixa, ou seja, muito próxima ou sobre o colo do útero.
+</p>
+<p>
+	Como uma pessoa completamente normal, qual foi a primeira reação da minha 
+	esposa? Vou procurar na Internet sobre placenta baixa. E foi então o que ela 
+	fez.
+</p>
+<h5>
+	Coleta de Informações
+</h5>
+<p>
+	Entre as informações que ela encontrou, estavam:
+</p>
+<UL>
+	<LI>
+	Confirmação do que a médica (que só fez o ultra-som, não é a médica do 
+	pré-natal) falou;
+	<LI>
+	Mulheres dizendo que têm placenta baixa e não é nada de mais;
+	<LI>
+	Placenta baixa causa, geralmente, nascimento prematuro ou a obrigatoriedade de 
+	uma cesariana, já que a placenta está obstruindo a saída do bebê;
+	<LI>
+		Existe&nbsp;a possibilidade da placenta ir naturalmente para o lugar correto 
+		com o passar do tempo.
+	</li>
+</ul>
+<p>
+	Mulher grávida, por ação de diversos hormônios, ficam muito emotivas. Algumas 
+	choram por qualquer coisa (minha esposa contou de uma grávida que chorou com o 
+	desenho do Bob Esponja...) outras ficam extremamente irritadas (uma TPM 
+	vitaminada). Acho que eu não preciso dizer mais nada sobre o estado emocional 
+	dela depois do diagnóstico e dessas informações. Minha sorte é que ela faz 
+	parte do grupo das que choram por qualquer coisa...
+</p>
+<h5>
+	E o diagnóstico é...
+</h5>
+<p>
+	Até que chegou o dia de fazer a consulta de pré-natal. Fomos lá, eu, o futuro 
+	papai estreante, com zilhares de perguntas para fazer ao médico, e a futura 
+	mamãe, pronta para chorar à primeira palavra que o médico dissesse.
+</p>
+<p>
+	(Quando chegamos ao hospital para pegar o resultado dos exames, ouvimos das 
+	atendentes a declaração padrão, estamos sem sistema, não podemos entregar o 
+	resultados dos exames agora. COMO ASSIM UM HOSPITAL SEM SISTEMA? Já fiz 
+	sistemas muito menos críticos, e nós tinhamos 2 planos de contingência. Mas 
+	isso eu deixo para comentar outra hora.)
+</p>
+<p>
+	Munido da pilha de documentos e exames, o médico então nos chama. Já chegamos 
+	falando do diagnóstico e perguntando sobre as conseqüências e sobre o que 
+	deveria ser feito. Foi então que o médico olhou o ultra-som e confirmou o 
+	diagnóstico da médica, a placenta realmente estava baixa. O que a médica 
+	esqueceu de dizer é que <b>é normal ter placenta baixa nesse período da gravidez</b>. 
+	Placenta baixa só é diagnosticada como uma anormalidade quando a gravidez passa 
+	de 30 semanas (faça como eu, divida isso por quatro para saber o tempo em uma 
+	unidade mais corriqueira, como, meses).
+</p>
+<p>
+	Além disso, tem mais: o que causa parto prematuro é placenta prévia, e não 
+	placenta baixa. Além da explicação do médico, minha esposa falou que leu em 
+	algum outro lugar que a informação que estava do site onde ela leu isso estava 
+	errada.
+</p>
+<h5>
+	Um erro atrás do outro
+</h5>
+<p>
+	O que geralmente acontece no caso da queda de um avião, é uma sucessão de erros 
+	graves em uma seqüência particularmente desastrosa. Nesse caso específico não 
+	foi tão grave assim (ai de mim se ela souber que eu disse que não foi tão 
+	grave...), mas foi um conjunto de informações equivocadas que nasceram de uma 
+	informação incompleta. Isso acaba gerando uma bola de neve, ou o famoso 
+	telefone sem fio. Engraçado lembrar que brincávamos disso quando criança, e 
+	agora telefone sem fio não é mais um brincadeira, é algo que acontece mesmo no 
+	trabalho.
+</p>
+<P>Imagine o que aconteceria caso não tivessemos o médico para confirmar? Mesmo que 
+	não assumíssemos essas informações como verdadeiras, ainda estariamos cheios de 
+	dúvidas.&nbsp;E com certeza, pensando na possibilidade de que todas as 
+	informações que foram encontradas fossem corretas. Quando você não tem 
+	informações suficientes, você é obrigado a obter uma conclusão com as 
+	informações que você tem. Por mais que essa sua conclusão não seja tão 
+	conclusiva assim.</p>
+<h5>
+	Você já parou para pensar no que eu escrevi até agora?
+</h5>
+<p>
+	Eu não entendo absolutamente nada de obstetrícia. Você acha realmente&nbsp;que 
+	as coisas que eu disse aqui sobre placenta prévia ou sobre hormônios&nbsp;são 
+	dignas de confiança? Além do fato de eu não ter a mínima qualificação para 
+	escrever sobre isso, essa história pode não ser verdadeira. E de fato, essa 
+	história está incompleta, já que eu a resumi para que o artigo não virasse uma 
+	tese sobre diagnósticos médicos. Não bastasse isso, nada me impede de 
+	simplesmente ter inventado essa história para ilustrar esse meu artigo. É 
+	necessário uma boa dose de criatividade para inventar uma história dessas, mas 
+	todos sabemos a Internet está cheia&nbsp;de desocupados e pessoas com 
+	criatividade de sobra.
+</p>
+<p>
+	Eu tenho uma justificativa de que isso é um site de programação e realmente 
+	tudo o que eu falar sobre medicina aqui não deve ser levado a sério. Mas não é 
+	assim que as coisas acontecem. Para uma pessoa que não tem noções de inglês e 
+	não entende de informática, o nome desse site não quer dizer absolutamente nada, e pode 
+	até ser um termo médico .
+</p>
+<P>O Google deve indexar esse artigo pouco tempo depois de publicado. Como temos 
+	aqui termos como gravidez, exame, placenta prévia e cesariana, é bem 
+	capaz que uma mulher procurando informações sobre gravidez no Google venha, por 
+	engano, a ler esse artigo. Aqui ela vai ler a história da minha esposa e pode 
+	chegar a conclusão de que, como a gravidez dela ainda não chegou em 30 semanas, 
+	o diagnóstico de placenta-qualquer-coisa que ela recebeu é algo que não merece 
+	preocupação. Afinal, as características do problema dela são muito parecidas com 
+	o que eu escrevi aqui. Só que, provavelmente, o problema dela deve ser algo 
+	totalmente diferente. Sabe aquela história que as pessoas falam, de que é só 
+	colocar mais memória no computador que ele fica mais rápido? Então...
+</p>
+<p>
+	As pessoas não podem deixar de se expressar simplesmente pelo fato de que 
+	alguém pode interpretar suas palavras de uma forma equivocada, mas é bom que 
+	saibamos que essa possibilidade existe e é bastante comum. Mas uma coisa é 
+	fato: a grande maioria das pessoas não pensa muito nisso antes de falar alguma 
+	coisa.
+</p>
+<h5>
+	Nenhuma opinião é totalmente isenta
+</h5>
+<p>
+	Bom, chega de medicina por hoje. Vamos voltar à informática.
+</p>
+<p>
+	Quando se fala de tecnologia, toda pessoa tem uma preferência, uma simpatia. Eu 
+	sempre trabalhei com tecnologia Microsoft. Estou acostumado com a política de 
+	produtos deles, e tenho sempre uma noção do que esperar de um software 
+	Microsoft. Esse é meu mundo, são as coisas que eu convivo no dia a dia. Eu já 
+	mexi com Linux e PHP, mas estou longe de ser um profissional com experiência 
+	nessa área.&nbsp;
+</p>
+<P>
+	Eu consigo resolver problemas de componentes COM e DLLs faltantes pelo cheiro. 
+	Chega a ser até óbvio que eu diga que isso não é lá tão complicado. Mas é. O <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dndotnet/html/dplywithnet.asp">
+		Dll Hell</a> que todo mundo diz e a Microsoft tenta resolver não é 
+	problemático pra mim, porque eu sei como resolver.
+</p>
+<p>
+	Eu já cheguei a usar somente Linux durante 4 meses. Desisti porque Linux não 
+	tem Visual C++ e eu simplesmente não consegui satisfazer as dependências 
+	necessárias para que o <A href="http://www.kdevelop.org/">KDevelop</a> funcionasse, 
+	nem com o maravilhoso <A href="http://www.debian.org/doc/manuals/apt-howto/ch1.en.html">
+		APT</a> do Debian. Aí está o Dll Hell do Linux, as dependências 
+	intermináveis entre os pacotes. A diferença é que desse inferno eu não consegui 
+	me livrar. Qual a tendência? Que eu fale que o gerenciamento de pacotes do 
+	Linux é uma porcaria. Talvez seja. Mas eu não tenho gabarito técnico suficiente 
+	para afirmar isso.
+</p>
+<p>
+	Todo programador Microsoft vai falar que Java é lento. Todo programador Linux 
+	vai falar que o Windows é extremamente inseguro. Só que o programador Microsoft 
+	viu essa informação em um paper da Microsoft, e o programador Linux leu isso no <a href="http://www.slashdot.org/">
+		Slashdot</a>. Como a opinião deles pode ser isenta e confiável se as fontes 
+	deles não são?
+</p>
+<h5>
+	WHERE IssoMeInteressa = TRUE
+</h5>
+<p>
+	Existe muita coisa boa na Internet, mas nem tudo pode ser encarado com verdade 
+	absoluta. Por exemplo, eu acho que os artigos&nbsp;que o <a href="http://www.joelonsoftware.com/">
+		Joel Spolsky</a> escreve são muito bons. Mas existem algumas coisas que ele 
+	escreve que eu simplesmente não concordo. Mas eu não deixo de ler por causa 
+	disso, eu filtro as coisas que ele diz, aproveitando o que me interessa. Eu 
+	acho <a href="http://www.joelonsoftware.com/articles/APIWar.html">as opiniões dele quanto a .NET muito radicais</a>.Mesmo assim eu leio, 
+	estudo os argumentos e paro pra pensar se ele tem razão.
+</p>
+<p>
+	Isso é uma coisa importante. Mesmo que você não concorde, leia. Leia com 
+	bastante senso crítico, mas leia. Falta de informação é um problema imensamente 
+	maior do que o excesso de informação. Com excesso de informação você pode 
+	ter&nbsp;o trabalho de filtrar tudo que você absorveu, mas depois disso você 
+	conseguirá formular uma opinião convicta e com embasamento suficiente. Se você 
+	não tem informação, você simplesmente não tem nada.
+</p>
+<h5>
+	Sem informação, não há decisão
+</h5>
+<p>
+	Um tempo atrás eu resolvi de uma vez por todas descobrir o que faz o tal&nbsp; <a href="http://www.ibm.com/software/tivoli/">
+		Tivoli</a>, da IBM.&nbsp;Ouvi dizer&nbsp;que é um software de 
+	gerenciamento, o que não me diz absolutamente nada. Entrei no site da IBM e 
+	baixei uma apresentação sobre o Tivoli. Tirando o fato de que o conteúdo da 
+	apresentação deixava a desejar, uma coisa me chamou a atenção: A interface 
+	gráfica das ferramentas que foram mostradas é simplesmente horrível. Para ser 
+	sincero, eu não esperava algo tão tosco de uma empresa do porte da IBM. Apesar 
+	da brincadeira com meus&nbsp;colegas (programadores Microsoft...) sobre tamanha 
+	tosquice, eu ainda continuo na mesma. Agora eu sei que o Tivoli é uma 
+	ferramenta de gerenciamento de sei-lá-o-que com uma interface gráfica horrível. 
+	Ainda considero que estou no mesmo lugar, já que uma interface gráfica mal 
+	feita e fora de padrão <STRONG>não necessariamente</strong> determina se um 
+	software é bom ou não. Mas eu continuo sem saber o que é o Tivoli.
+</p>
+<p>
+	Eu leio os <a href="http://blogs.msdn.com/">blogs da Microsoft</a>. Mas também 
+	leio o <a href="http://www.slashdot.org/">Slashdot</a>, até mando links para 
+	serem publicados lá. Eu costumo visitar a página da Microsoft, mas também 
+	visito a página do <a href="http://www.gnome.org/">Gnome</a>, do <a href="http://www.kde.org/">
+		KDE</a>, do <a href="http://www.debian.org/">Debian</a>, do <A href="http://go-mono.org">
+		Mono</a>, etc. Isso me municia de informações que podem ser muito úteis na 
+	hora em que eu precisar tomar alguma decisão. Mas sei que para tudo que está 
+	escrito, sempre haverá uma outra versão em outro lugar, com uma visão muitas 
+	vezes totalmente oposta. E isso é uma das coisas que eu irei procurar: o outro 
+	lado. Um vendedor de carros sempre diz que os carros da marca dele são muito 
+	bons, e os das outras marcas nem tanto.
+</p>
+<h5>
+	Resumo final
+</h5>
+<p>
+	Vou resumir aqui tudo o que eu escrevi nesse artigo
+</p>
+<UL>
+	<LI>
+	Nunca confie em uma informação de uma fonte só, ela pode ser tendenciosa ou 
+	insuficiente. Se um site diz que é muito difícil configurar replicação de SQL 
+	Server quando o servidor SQL não é o mesmo do servidor IIS, procure a mesma 
+	informação em outro lugar. Além do fato de que quem escreveu pode não ter 
+	capacidade técnica suficiente para isso, ele pode ter tentado uma vez só. Você 
+	já viu configuração de servidor funcionar na primeira tentativa?
+	<LI>
+	Quando ouvir de alguém a opinião sobre um determinado software ou produto, 
+	nunca considere essa opinião como sendo correta. Não escreva um laudo técnico 
+	sobre um software que você ouviu falar que não funciona. A pessoa que te disse 
+	também pode somente ter ouvido falar.
+	<LI>
+	Confiança, nesse caso, não funciona. Se sua mãe te envia um e-mail com um 
+	executável anexo e diz que o anexo é inofensivo, você o executa? Você pode 
+	confiar muito na sua mãe, mas ela continua não entendendo nada de computadores.
+	<LI>
+		Nada que foi escrito nesse artigo deve ser levado ao pé da letra. Sua mãe pode 
+		ser uma hacker, as informações médicas que existem na Internet podem estar 
+		sempre corretas. Ou simplesmente, as coisas que eu escrevi aqui podem estar 
+		incorretas. Ou até, minha experiência e meu conhecimento técnico não&nbsp;serem 
+		suficientes para escrever um artigo desses.
+	</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+          </td>
+        </tr>
+          <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png"></td>
+              <td align="right"><img src="../../images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+<tr><td class="topmenu">&nbsp;</td><td class="topmenu">&nbsp;</td></tr>
+<tr><td class="topmenu">&nbsp;</td><td>
+<table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+</td>
+</tr>
+ <tr><td class="topmenu">&nbsp;</td><td >
+<div class="content">
+<a name="comments"></a><h5>Comentários</h5>
+<h5>Algo a dizer?</h5>
+<form name="comment" method="POST" action="comment.html">
+<input type="hidden" name="article" value="_nao_ouca_ninguem"/>
+Nome:<br/>
+<input type="text" name="name" style="width: 250px;"/><br/>
+<br/>
+
+Site ou e-mail:<br/>
+<input type="text" name="link" style="width: 250px;" /><br/>
+<br/>
+
+Comentário<br/>
+<textarea style="WIDTH: 300px; HEIGHT: 150px" name="comment" rows="9" cols="35"></textarea><br/>
+<br/>
+<input type="submit" value="Dizer"/>
+
+</form>
+
+</div>
+
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png"></td>
+              <td align="right"><img src="../../images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

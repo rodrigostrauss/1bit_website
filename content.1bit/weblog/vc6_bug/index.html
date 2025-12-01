@@ -1,0 +1,522 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>Bug escabroso no Visual C++ 6.0  ::::  Rodrigo Strauss :: www.1bit.com.br</title>
+    <link href="../../1bit.css" type="text/css" rel="stylesheet">
+    <link rel="alternate" type="text/xml" title="RSS" href="http://www.1bit.com.br/weblog_rss.1bit">
+<!-- google analytics -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-75310-1";
+urchinTracker();
+</script>
+<!-- google analytics end -->
+
+  </head>
+  <body style="margin:0px 0px 0px 0px" bgcolor="#FFFFFF">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="../../images/logo_novo_2.png" border="0" alt="logo" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.1bit/contact">Contato</a> 
+			<span class="menusep">|</span>
+            
+            <a class="top_menu_link" href="content.1bit/about">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png" alt="rebarba"></td>
+              <td align="right"><img src="../../images/rebarba2.png" alt="rebarba"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <h2><a href="../../#artigos" style="text-decoration:none;">Artigos</a></h2>
+</div>
+
+<div class="left_menu_section">
+ <h2><a href="content.1bit/weblog" style="text-decoration:none;">Blog</a></h2>
+</div>
+
+<div class="left_menu_section">
+ <h2><a href="content.1bit/opensource" style="text-decoration:none;">Open Source</a></h2>
+</div>
+
+<!-- 
+<div class="left_menu_section">
+ <h2><a href="content.1bit/aulas" style="text-decoration:none;">Aulas online (ou nÃ£o) </a></h2>
+</div>
+-->
+
+
+<div id="google_translate_element"></div><script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'pt',
+    gaTrack: true,
+    gaId: 'UA-75310-1',
+  }, 'google_translate_element');
+}
+</script><script src="../..//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<br>
+
+<!-- SiteSearch Google -->
+<form method="get" action="http://www.google.com.br/custom" target="_top">
+<table border="0" bgcolor="#eeeeee">
+<tr><td nowrap="nowrap" valign="top" align="left" height="32">
+<a href="http://www.google.com/">
+<img src="http://www.google.com/logos/Logo_25wht.gif" border="0" alt="Google" align="middle"></img></a>
+<br/>
+<input type="hidden" name="domains" value="www.1bit.com.br"></input>
+<label for="sbi" style="display: none">Digite os termos da sua pesquisa</label>
+<input type="text" name="q" size="23" maxlength="255" value="" id="sbi"></input>
+</td></tr>
+<tr>
+<td nowrap="nowrap">
+<table>
+<tr>
+<td>
+<input type="radio" name="sitesearch" value="" id="ss0"></input>
+<label for="ss0" title="Pesquisar na web"><font size="-2" color="black">Web</font></label></td>
+<td>
+<input type="radio" name="sitesearch" value="www.1bit.com.br" checked id="ss1"></input>
+<label for="ss1" title="Pesquisar www.1bit.com.br"><font size="-2" color="black">www.1bit.com.br</font></label></td>
+</tr>
+</table>
+<label for="sbb" style="display: none">Enviar formulÃ¡rio de pesquisa</label>
+<input type="submit" name="sa" value="Pesquisar" id="sbb"></input>
+<input type="hidden" name="client" value="pub-2589539519655496"></input>
+<input type="hidden" name="forid" value="1"></input>
+<input type="hidden" name="ie" value="ISO-8859-1"></input>
+<input type="hidden" name="oe" value="ISO-8859-1"></input>
+<input type="hidden" name="cof" value="GALT:#0066CC;GL:1;DIV:#999999;VLC:336633;AH:center;BGC:FFFFFF;LBGC:FFFFFF;ALC:0066CC;LC:0066CC;T:000000;GFNT:666666;GIMP:666666;LH:50;LW:120;L:http://www.1bit.com.br/images/logo_novo_2.png;S:http://;FORID:1"></input>
+<input type="hidden" name="hl" value="pt"></input>
+</td></tr></table>
+</form>
+<!-- SiteSearch Google -->
+<br>
+
+<br>
+<br>
+<center>
+
+<a href="http://www.twitter.com/rodrigostrauss"><img src="http://twitter-badges.s3.amazonaws.com/follow_me-b.png" alt="Follow rodrigostrauss on Twitter"/></a>
+<br><br><br>
+
+<!--
+<a href="http://whos.amung.us/show/xopqoakh"><img src="http://whos.amung.us/cwidget/xopqoakh/fffffff6915a.png" alt="page counter" width="81" height="29" border="0" /></a>
+-->
+
+</center>
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<h4><a href="content.1bit/weblog" style="text-decoration:none;">Rodrigo Strauss :: Blog</a></h4>
+<table border="0">
+<tr>
+<!-- 
+<td width="60">
+
+<a style="text-decoration:none;" href="../../weblog_rss.1bit"><img src="../../images/xml.gif" border="0"/></a>
+</td>
+-->
+
+<td>
+
+<a href='http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Fwww.1bit.com.br%2Fweblog_rss.1bit'  target='blank'><img id='feedlyFollow' src='http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png' alt='follow us in feedly' width='66' height='20'></a>
+
+</td>
+
+<td>
+
+<a href="https://twitter.com/rodrigostrauss" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @rodrigostrauss</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+</td>
+
+<td align="right">
+
+
+
+
+<!--
+
+<script type="text/javascript">
+google_ad_client = "pub-2589539519655496";
+google_ad_width = 468;
+google_ad_height = 15;
+google_ad_format = "468x15_0ads_al";
+google_ad_channel = "";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "FF5000";
+google_color_text = "000000";
+google_color_url = "FF5000";
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+-->
+
+
+
+
+
+
+</td>
+</tr>
+</table>
+<br>
+<h5>Bug escabroso no Visual C++ 6.0</h5><p>Como eu já disse antes, <a href="http://www.1bit.com.br/content.1bit/weblog/vc6_is_tooo_old">o Visual C++ 6.0 é muito velho e tem sérios problemas para compilar o Boost</a>. E como ficar alocando e desalocando memória na mão é coisa de quem não sabe nada de C++ moderno, meu chefe/gerente criou uma classe de smart pointer com contador de referência para usarmos nos nossos projetos (sim, meu gerente programa e muito bem). Ele me passou a classe para colocar em alguns projetos, e depois de apagar todos os operadores de conversão automática (safety first!), eu encontrei um bug muito estranho no código que usava essa classe.</p>
+
+<p>O que eu consegui isolar é que o bug acontece quando existe um operador de atribuição que é um template. O VC6 se perde completamente, e <b>não gera o código que chama o operador</b>, fazendo com que a atribuição não seja feita e que ele compile um código que é inválido. Eu resumi o código ao menor caso de teste possível, e mudei o nome da classe para CStupidPtr. Bom, vamos ao código:</p>
+
+<div class="code">
+<style type="text/css">
+.code_comment { color: rgb(0,128,0) } 
+.keyword { color: rgb(0,0,255) } 
+.string { color: rgb(255,0,0) } 
+</style>
+
+<pre>
+<span class="code_comment">//
+</span><span class="code_comment">// Rode isso no Visual C++ 6.0 e veja o que acontece
+</span><span class="code_comment">//
+</span>
+<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;
+<span class="keyword">class</span> CStupidPtr
+{
+&nbsp;&nbsp;T* m_pT;
+<span class="keyword">public</span>: 
+
+&nbsp;&nbsp;CStupidPtr()
+&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;m_pT = 0;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;
+&nbsp;&nbsp;<span class="keyword">template</span>&lt; <span class="keyword">typename</span> TSrc &gt;
+&nbsp;&nbsp;CStupidPtr&lt;T&gt;&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> CStupidPtr&lt;TSrc&gt;&amp; p ) <span class="keyword">throw</span>()
+&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_comment">//
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_comment">// vamos colocar um break point for&ccedil;ado aqui para ver
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_comment">// se ele passa
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code_comment">//
+</span>&nbsp;&nbsp;&nbsp;&nbsp;__asm <span class="keyword">int</span> 3;
+
+&nbsp;&nbsp;&nbsp;&nbsp;m_pT = p.m_pT;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>( *<span class="keyword">this</span> );
+&nbsp;&nbsp;}
+
+<span class="keyword">public</span>:
+
+&nbsp;&nbsp;T* <span class="keyword">operator</span>-&gt;() <span class="keyword">const</span> <span class="keyword">throw</span>()
+&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> m_pT;
+&nbsp;&nbsp;}
+};
+
+<span class="keyword">struct</span> TEST
+{
+&nbsp;&nbsp;<span class="keyword">int</span> d;
+};
+
+<span class="keyword">int</span> main()
+{
+&nbsp;&nbsp;CStupidPtr&lt;TEST&gt; p;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;<span class="code_comment">//
+</span>&nbsp;&nbsp;<span class="code_comment">// essa linha N&Atilde;O &Eacute; GERADA PELO VC6, 
+</span>&nbsp;&nbsp;<span class="code_comment">// e não compila em uma versão mais nova do VC, pois é inválida
+</span>&nbsp;&nbsp;<span class="code_comment">// rode esse programa no debugger do VC6, passo a passo, e você verá
+</span>&nbsp;&nbsp;<span class="code_comment">// que essa linha é pulada pelo debugger.
+</span>&nbsp;&nbsp;<span class="code_comment">//
+</span>&nbsp;&nbsp;p = <span class="keyword">new</span> TEST();
+&nbsp;&nbsp;
+
+&nbsp;&nbsp;<span class="code_comment">//
+</span>&nbsp;&nbsp;<span class="code_comment">// t&atilde;!
+</span>&nbsp;&nbsp;<span class="code_comment">//
+</span>&nbsp;&nbsp;p-&gt;d = 10;
+
+&nbsp;&nbsp;<span class="keyword">return</span> 0;
+}</pre>
+</div>
+
+<p>Esse código funcionaria se houvesse uma conversão possível de T* para CStupidPtr<T>, o que parace acontecer quando esse código é compilado. Mas note que não existe nenhum operador ou construtor que faça a conversão. O que acontece é que não há conversão, não acontece nenhum erro durante a compilação (mesmo o código sendo inválido) e o VC6 não gera código para a linha de atribuição. E no final ganhamos um 0xC00000005 (access violation) de presente, já que o operador -&gt; retorna NULL.</p>
+
+<p>Olha que o acontece quando eu compilo esse código no Visual C++ 8:</p>
+<div class="code">
+<pre>
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 14.00.50727.42 for 80x86
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+vc6_bug.cpp
+vc6_bug.cpp(49) : error C2679: binary '=' : no operator found which takes a 
+                  right-hand operand of type 'TEST *' (or there is no acceptable conversion)
+        vc6_bug.cpp(35): could be 'CStupidPtr<T> &CStupidPtr<T>::operator =(const CStupidPtr<T> &)'
+        with
+        [
+            T=TEST
+        ]
+        while trying to match the argument list '(CStupidPtr<T>, TEST *)'
+        with
+        [
+            T=TEST
+        ]
+
+</pre>
+</div>
+
+<p>Pois é, o VC6 já está bem velhinho...</p><br><p class="datetime">Em 25/11/2005 03:42, por  Rodrigo Strauss </p>
+</div>
+          </td>
+        </tr>
+
+
+
+<tr>
+<td class="topmenu"></td>
+<td>
+<br>
+<center>
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-2589539519655496";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text";
+google_ad_channel = "";
+google_color_border = "FFFFFF";
+google_color_bg = "FFFFFF";
+google_color_link = "FF5000";
+google_color_text = "000000";
+google_color_url = "FF5000";
+google_ui_features = "rc:6";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</center>
+</td>
+</tr>
+
+<tr>
+ <td class="topmenu"></td>
+ <td>
+  <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+   <tr>
+    <td><img src="../../images/rebarba3.png"></td>
+    <td align="right"><img src="../../images/rebarba4.png"></td>
+   </tr>
+  </table>
+ </td>
+</tr>
+
+<tr><td class="topmenu">&nbsp;</td><td class="topmenu">&nbsp;</td></tr>
+<tr><td class="topmenu">&nbsp;</td><td>
+<table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+</td>
+</tr>
+ <tr><td class="topmenu">&nbsp;</td>
+<td>
+
+<div class="content">
+<a name="comments"></a><h5>Comentários</h5><div class="post_comment">
+<a name="738"></a><B>Wanderley Caloni Junior</B>  | <a rel="nofollow" href="http://www.caloni.com.br">website</a> | <a rel="nofollow" href="mailto:wanderley@caloni.com.br">e-mail</a> | em 24/11/2005 | <a rel="nofollow" href="../#738">#</a><br>
+Lamentável! Pior que a própria existência de uma função que recebe uma referência const mascara o problema de conversão. Nessas horas até um internal compiler error seria bem-vindo. Tudo menos o silêncio. Parece que foi feito um try-catch em volta desse trecho e o catch ficou quietinho...<br><br>Interessante que se usarmos a notação direta o erro vem à tona (apesar de diferente do VC mais novo):<br><br>p.operator = ( new TEST() );<br><br>error C2784: 'class CStupidPtr&lt;struct TEST&gt; &__thiscall CStupidPtr&lt;struct TEST&gt;::operator =(const class CStupidPtr&lt;T&gt; &)' : could not deduce template argument for 'const class CStupidPtr&lt;`template-param
+</div>
+<div class="post_comment">
+<a name="772"></a><B>Rodrigo Pinho Pereira de Souza</B>  | em 06/12/2005 | <a rel="nofollow" href="../#772">#</a><br>
+Estão discutindo na lista do boost, sobre parar o suporte para os compiladores que não suportam C++ 100%.<br><br>Em fim, eles querem reduzir o numero de Workarrounds(Gambiarras) dentro do boost.<br><br>Alguns argumentos que foi utilizado foram:<br>- Eu quero ver o boost compilando sem warnings ou erros<br>- Quero um código mais limpo<br><br><br>A Sugestões foram várias, até uma bem escabrosa:<br>- Se o desenvolvedor estiver usando um compilador não conformante, ele que faça o workarround. Teve um cara que usa Borland C que não gostou muito da ideia, mas  .... acho que isto não vai ser aceito.<br><br>Porém, tenho certeza que eles não mais oferecerão suporte ao Visual C 6.0. Ou seja, qualquer erro que dê, quando vc compilar com VC 6.0, não poderá ser submetido como bug. Os test cases serão excluídos, e se vc quiser usar, vc que arrume o boost para se adequar ao boost.<br><br><br>Particularmente, eu até tentei usar o boost com o VC 6, mas é muito ruim vc compilar uma coisa simples, e ver mais de 100 warnings ....  Como se sentir seguro que aquele código rodará sem falhas depois ????<br><br>Meu sonho, é que um dia a empresa em que trabalhamos decida usar o VC 7.1 ao menos, para que então, possa usar o boost.
+</div>
+
+<h5>Algo a dizer?</h5>
+<script language="JavaScript">
+function setCookie(name, value, expires, path, domain, secure) {
+  var curCookie = name + "=" + escape(value) +
+      ((expires) ? "; expires=" + expires.toGMTString() : "") +
+      ((path) ? "; path=" + path : "") +
+      ((domain) ? "; domain=" + domain : "") +
+      ((secure) ? "; secure" : "");
+  document.cookie = curCookie;
+}
+
+function getCookie(name) {
+  var dc = document.cookie;
+  var prefix = name + "=";
+  var begin = dc.indexOf("; " + prefix);
+  if (begin == -1) {
+    begin = dc.indexOf(prefix);
+    if (begin != 0) return null;
+  } else
+    begin += 2;
+  var end = document.cookie.indexOf(";", begin);
+  if (end == -1)
+    end = dc.length;
+  return unescape(dc.substring(begin + prefix.length, end));
+}
+
+function deleteCookie(name, path, domain) {
+  if (getCookie(name)) {
+    document.cookie = name + "=" +
+    ((path) ? "; path=" + path : "") +
+    ((domain) ? "; domain=" + domain : "") +
+    "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+  }
+}
+
+function CheckName()
+{
+  if(comment_form.name.value == '')
+  {
+    alert('Você esqueceu de informar o seu nome...');
+    comment_form.name.focus();
+    
+    return false;
+  }
+
+  if(comment_form.comment.value == '')
+  {
+    alert('O que você acha de escrever o comentário antes de tentar enviá-lo?');
+    comment_form.comment.focus();
+    
+    return false;
+  }
+
+  var now = new Date();
+
+  // um ano
+  now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+  setCookie("name", comment_form.name.value, now);
+  setCookie("email", comment_form.email.value, now);
+  setCookie("link", comment_form.link.value, now);
+  setCookie("hideemail", comment_form.hideemail.value, now);
+
+  return true;
+}
+
+</script>
+<form name="comment_form" method="POST" action="/comment.html" onsubmit="return CheckName();">
+<input type="hidden" name="article" value="weblog/1132900924"/>
+
+Nome:<br/>
+<input type="text" name="name" style="width: 250px;"/><br/>
+<br/>
+
+Site:<br/>
+<input type="text" name="link" style="width: 250px;" /><br/>
+<br/>
+
+E-mail:<br/>
+<input type="text" name="email" style="width: 250px;" />
+<br/><br/>
+
+Escreva o número vinte e seis:<br/>
+<input type="text" name="idade" style="width: 250px;" />
+<br/><br/>
+
+<input type="checkbox" name="hideemail"/>&nbsp;Não mostre meu e-mail no site, não serve pra nada mesmo...
+<br/><br/>
+
+Comentário<br/>
+<textarea style="WIDTH: 500px; HEIGHT: 300px" name="comment" rows="18" cols="50"></textarea><br/>
+<br/>
+<input type="submit" value="Dizer"/><br/><br/><br/>
+<div style="width:500px;font-size:8pt;">
+<b>Os comentários devem ser sobre assuntos relativos ao post</b>, eu provavelmente apagarei comentários totalmente offtopic. Se quiser me enviar uma mensagem, use o <a href="http://www.1bit.com.br/content.1bit/contact">formulário de contato</a>. E não esqueça: isso é um site pessoal e eu me reservo o direito de apagar qualquer comentário ofensivo ou inapropriado.
+</div>
+</form>
+
+<script language="JavaScript">
+// cookie de nome
+var name = getCookie("name");
+if (name && name != 'null')
+{
+  comment_form.name.value = name;
+  comment_form.email.value = getCookie("email");
+  comment_form.link.value = getCookie("link");
+  comment_form.hideemail.value = getCookie("hideemail");
+}
+
+</script>
+
+</div>
+
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png" alt="rebarba"></td>
+              <td align="right"><img src="../../images/rebarba4.png" alt="rebarba"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right" style="color:#999999;">
+::::
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>

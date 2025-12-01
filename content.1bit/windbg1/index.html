@@ -1,0 +1,441 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+<META NAME="keywords" CONTENT="Rodrigo Strauss, programador, programação, Visual C++, C#, Windbg, Device Driver">
+<META NAME="description" CONTENT="Artigos sobre programação escritos por Rodrigo Strauss">
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>Rodrigo Strauss :: 1bit</title>
+    <link href="../../1bit.css" type="text/css" rel="stylesheet">
+  </head>
+  <body bottommargin="0" leftmargin="0" topmargin="0" rightmargin="0">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="../../images/logo2.png" border="0" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.html?id=ainda_nao">Arquivo</a> 
+			<span class="menusep">|</span>
+            
+            <a class="top_menu_link" href="content.html?id=ainda_nao">Editar</a> 
+            <span class="menusep">|</span> 
+            
+            <a class="top_menu_link" href="../about/">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <a href="../../index.html" style="text-decoration:none;">
+  <h2>Falatório</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="../../index.html" style="text-decoration:none;">
+  <h2>Escovando 1 bit</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="../weblog/" style="text-decoration:none;">
+  <h2>WebLog</h2>
+ </a>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<h4>WinDbg: Debugger de gente grande (parte 1)</h4>
+<h5>O que é o WinDbg</h5>
+<p>Considerando a forma como o WinDbg é construído, ele não é realmente um 
+	debugger. O que ele faz é prover uma interface Windows, bem mais intuitiva, 
+	para os debuggers com interface linha de comando que são encontrados no <a href="http://www.microsoft.com/msdownload/platformsdk/sdkupdate/">
+		Platform SDK </a>e no <a href="http://www.microsoft.com/whdc/ddk/winddk.mspx">DDK</a>
+	: o kd (kernel mode) e o cdb (user mode). Ele usa a infra-estrutura desses 
+	debuggers para prover um&nbsp;ambiente mais parecido com o Visual Studio, com 
+	janelas de watch, breakpoints visuais em linhas de código e outras facilidades 
+	possíveis somente no mundo das janelinhas. Inclusive, a maioria das coisas que 
+	eu disser sobre o WinDbg também se aplicam aos dois debuggers, o kd e o cdb.</p>
+<p>O WinDbg não é o único debugger de gente grande que existe. Além dele, você pode 
+	usar também o <a href="http://www.compuware.com/products/driverstudio/softice.htm">SoftIce
+	</a>da Compuware, que inclusive, permite que você faça debug em modo kernel NA 
+	MESMA MÁQUINA, sem precisar de uma máquina adicional (como é o caso do WinDbg e 
+	do kd). O grande problema do SoftIce é que ele custa mais do que uma máquina de 
+	testes...</p>
+<p></p>
+<h5>Diferenças&nbsp;entre o WinDbg e o&nbsp;Visual Studio.NET</h5>
+<p>O Visual Studio.NET possui um debugger integrado diretamente no ambiente de 
+	desenvolvimento, o que&nbsp;permite que você desenvolva seu aplicativo e faça o 
+	debug dele usando o mesmo software. Isso facilita bastante as coisas, já que 
+	você não precisa operar diversos programas para desenvolver e fazer debug de um 
+	aplicativo.</p>
+<p>(No Visual Studio 2005, além de todas as ferramentas que já temos hoje, teremos 
+	ferramentas para testes, Code Coverage tests, Unit Tests, diagramas de classes, 
+	entre outras. Tudo isso integrado com a IDE)</p>
+<p>Segue agora uma lista com as principais diferenças entre os debugger do VS.NET e 
+	o WinDbg:</p>
+<ul>
+	<li>
+		Debug remoto por meio de debug Proxy, para quando você não pode efetuar conexão 
+		direta (via TCP/IP ou serial). Com o WinDbg, você conectar a um WinDbg em outra 
+		máquina, que então conecta&nbsp;em outra máquina&nbsp;para debug, como no 
+		diagrama abaixo<br>
+		<br>
+		<center><img src="windbg2.png"></center>
+		<br>
+	<li>
+	É um debugger com linha de comando (parecido com o AutoCAD e com o Command 
+	Windows do VS.NET), o que dá mais flexibilidade;
+	<li>
+	Metacomandos, onde você pode fazer pequenos scripts para facilitar o debug de 
+	coisas repetitivas;
+	<li>
+	Facilidade em colocar breakpoints em funções da API ou de DLLs de terceiros. 
+	Isso facilita bastante o estudar o funcionamente e fazer engenharia reversa de 
+	softwares;
+	<li>
+	Criar assembly inline e trocar código que está na memória;
+	<li>
+	Fazer debug de drivers e códigos que rodam em kernel mode. Para fazer esse tipo 
+	de debug, você deve colocar o código a ser depurado em uma segunda máquina, e 
+	conectá-la a sua máquina (com WinDbg) via cabo serial ou firewire;
+	<li>
+	O WinDbg não colore o código, como o Visual Studio;
+	<li>
+		O WinDbg só faz debug de managed code no Windows Longhorn (por enquanto, eu 
+		espero). Você consegue listar os métodos de um executável managed, mas não 
+		consegue colocar breakpoints. A documentação diz que é possível fazer isso com 
+		o framework 2.0 beta, mas eu não consegui. Se alguém conseguir, me conte como 
+		fez e eu coloco aqui :-)</li></ul>
+<p>Um item dessa lista fala sobre engenharia reversa. O conhecimento de engenharia 
+	reversa geralmente não é visto com bons olhos, pois está geralmente ligado ao 
+	crack de software. Mas ele é somente um dos usos da engenharia reversa. Você 
+	pode usá-la para descobrir porque um programa causa um GPF quando usa uma 
+	determinada API em uma determinada situação, entre outras utilidades. Esse 
+	conhecimento é muito útil no dia-a-dia, para resolver diversos problemas, 
+	principalmente os com programas cujo código fonte não está disponível (o 
+	Windows, por exemplo). Já tive problemas que só foram resolvidos depois que eu 
+	instalei a versão checked do Windows 2000 e fiz engenharia reversa de partes do 
+	WinLogon e da MSGINA.DLL, para ver como a autenticação do usuário funcionava.</p>
+<h5>Instalando</h5>
+<p>O WinDbg é gratuito e disponível para <a href="http://www.microsoft.com/whdc/ddk/debugging/default.mspx">
+		download</a> na página da Microsoft. Ele faz parte do pacote "Debugging 
+	Tools for Windows", que além do WinDbg, contém os debuggers que eu já citei (kd 
+	e cdb), a documentação e os headers para fazer extensões para os debuggers. Caso o 
+	WinDbg não faça aquilo que você precisa, você pode fazer uma DLL de extensão, que 
+	tem acesso à todas as informações de debug que o WinDbg tem.</p>
+<p>A instalação é bem no estilo "next-next-finish", sem maiores dificuldades.</p>
+<p></p>
+<h5>Fazendo os acertos finais</h5>
+<p>No Visual Studio.NET, o ambiente de desenvolvimento já está integrado com o 
+	debugger, e 99,99% das vezes, você fará debug de um aplicativo através do 
+	projeto que está aberto. Isso faz com o que o Visual Studio já saiba onde 
+	encontrar todas as informações necessárias para debug. Entre elas, onde está o 
+	arquivo com as informações de debug e a localização dos fontes do programa.</p>
+<p>
+	No WinDbg, essa informação é completamente desconhecida, já que não existe 
+	integração entre o projeto do VS.NET e o debugger. Nos aplicativos compilados 
+	em versão DEBUG, usando o Visual Studio.NET, as informações de debug são 
+	embutidas dentro do executável. Além disso, a localização dos fontes 
+	está dentro das informações de debug, o que faz com que o WinDbg os ache 
+	automaticamente.</p>
+<p>Em casos onde o aplicativo foi compilado em versão RELEASE (mas tem symbols) ou 
+	o caso de um aplicativo DEBUG sendo executado em outra máquina, precisamos 
+	informar ao WinDbg onde estão os symbols da aplicação (mais sobre isso depois) 
+	e onde estão os fontes. Para fazer isso, use os menus File &gt;&gt; Sources 
+	Path e File &gt;&gt; Symbols Path.</p>
+<h5>3, 2, 1: Launch!</h5>
+<p>Existem duas maneiras de fazer debug de um processo: iniciando o aplicativo 
+	diretamente no debugger, ou fazer um attach (anexar) em um processo que já 
+	esteja em execução.</p>
+<p>Para iniciar um aplicativo direto no debug, usamos o menu File&nbsp;&gt;&gt; 
+	Open Executable (CTRL+E). O programa será iniciado pelo WinDbg, com um 
+	breakpoint diretamente no loader do Windows, ou seja, antes do método Main ser 
+	executado. Agora é só colocar breakpoints onde for necessário e mandar seguir. 
+	Por falar em mandar seguir, ele tem teclas de atalho bem parecidas com o Visual 
+	Studio (F5, F9, F10 e F11), o que torna a adaptação bem menos traumática.</p>
+<p>Para essa nossa primeira experiência eu fiz um programinha simples em C++ que 
+	muda o fundo de tela para uma outra imagem (essa imagem vem junto com o Windows 
+	XP), usando o ActiveDesktop.</p>
+<div class="code">
+	<pre>
+#define _WINVER      0x500
+#define _WIN32_WINNT 0x500
+#define _WIN32_IE    0x500
+#define UNICODE
+#define _UNICODE
+
+#include &lt;atlstr.h&gt;
+#include &lt;atlbase.h&gt;
+#include &lt;wininet.h&gt;
+#include &lt;shlobj.h&gt;
+
+int wmain(int argc, WCHAR* argv[])
+{
+   HRESULT hr;
+   CComPtr&lt;IActiveDesktop&gt; pActiveDesktop;
+   ATL::CString strBuffer;
+
+   CoInitialize(0);
+
+   //
+   // pega a pasta do Windows
+   //
+   hr = SHGetFolderPath(NULL,
+                        CSIDL_WINDOWS,
+                        NULL,
+                        SHGFP_TYPE_CURRENT,
+                        strBuffer.GetBuffer(MAX_PATH));
+                        
+   strBuffer.ReleaseBuffer();
+   
+   if(FAILED(hr))
+      return hr;
+
+   //
+   // anexa o caminho do jpg
+   //
+   strBuffer += L"\\web\\wallpaper\\Crystal.jpg";
+   
+
+   //
+   // cria o objeto COM do ActiveDesktop
+   //
+   hr = CoCreateInstance(CLSID_ActiveDesktop,
+                         NULL,
+                         CLSCTX_ALL,
+                         IID_IActiveDesktop,
+                         (void**)&amp;pActiveDesktop);
+
+   if(FAILED(hr))
+      return hr;
+
+   //
+   // agora é só mudar o wallpaper
+   //
+   hr = pActiveDesktop-&gt;SetWallpaper(strBuffer,NULL);
+   
+   if(FAILED(hr))
+      return hr;
+
+   hr = pActiveDesktop-&gt;ApplyChanges(AD_APPLY_ALL);
+   
+   CoUninitialize();
+   
+   return hr;
+}
+	</pre>
+</div>
+<p>Esse programa usa ATL e é compilado em UNICODE (note o L antes da string). Você 
+	pode criar um projeto console no Visual C++ e colocar esse código (movendo a 
+	parte dos includes para o stdafx.h) no CPP ou compilar em linha de comando 
+	usando "cl [nome do arquivo].cpp /Zi /link".</p>
+<p>Caso você não tenha o Visual C++, você pode baixar o <a href="http://lab.msdn.microsoft.com/express/visualc/default.aspx">
+		Visual C++ 2005 Express</a> (com IDE e grátis) ou o <a href="http://msdn.microsoft.com/visualc/vctoolkit2003/">
+		Visual C++ Toolkit 2003 </a>(compilador de linha de comando, grátis), 
+	e&nbsp;depois instalar via web o <a href="http://www.microsoft.com/msdownload/platformsdk/sdkupdate/">Microsoft Platform SDK</a> (grátis também, instale 
+	só o [Core SDK &gt;&gt; Build Environment] e o [Internet Development SDK 
+	&gt;&gt; Build Environment]). Depois é só configurar o VC++&nbsp;para procurar 
+	os includes em Microsoft SDK\include.
+</p>
+<p>Com o&nbsp;programa compilado, vamos abri-lo no WinDbg. Sua tela de comando 
+	vai&nbsp;exibir um&nbsp;texto parecido com esse:</p>
+<div class="code">
+	<pre>
+Microsoft (R) Windows Debugger Version 6.3.0011.2
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+CommandLine: C:\TEMP\code\ds1\ds1.exe
+
+Executable search path is:
+
+ModLoad: 00400000 00410000 ds1.exe
+
+ModLoad: 77f50000 77ff7000 ntdll.dll
+ModLoad: 77e60000 77f46000 C:\WINDOWS\system32\kernel32.dll
+ModLoad: 77d40000 77dcc000 C:\WINDOWS\system32\USER32.dll
+ModLoad: 7e090000 7e0d1000 C:\WINDOWS\system32\GDI32.dll
+ModLoad: 77dd0000 77e5d000 C:\WINDOWS\system32\ADVAPI32.dll
+ModLoad: 78000000 78087000 C:\WINDOWS\system32\RPCRT4.dll
+ModLoad: 771b0000 772d4000 C:\WINDOWS\system32\ole32.dll
+ModLoad: 773d0000 77bc9000 C:\WINDOWS\system32\SHELL32.dll
+ModLoad: 77c10000 77c63000 C:\WINDOWS\system32\msvcrt.dll
+ModLoad: 70a70000 70ad5000 C:\WINDOWS\system32\SHLWAPI.dll
+(45c.a2c): Break instruction exception - code 80000003 (first chance)
+eax=00241eb4 ebx=7ffdf000 ecx=00000002 edx=77f51304 esi=00241eb4 edi=00241f48
+eip=77f75a58 esp=0012fb38 ebp=0012fc2c iopl=0 nv up ei pl nz na pe nc
+cs=001b ss=0023 ds=0023 es=0023 fs=003b gs=0000 efl=00000202
+ntdll!DbgBreakPoint:
+77f75a58 cc int 3
+0:000&gt;
+</pre>
+</div>
+<p>Aqui temos listadas as DLLs que foram carregadas com o seu programa e a função 
+	que está na pilha (ntdll!DbgBreakPoint). Agora vamos começar a controlar o 
+	programa. Com o foco no prompt do WinDbg (a linha abaixo da saída que tem 
+	0:000&gt; no começo), digite "P" e aperte ENTER. Você verá que na saída foi 
+	adicionada mais um DUMP da situação dos registradores. O "P" é equivalente ao 
+	F10 do Visual Studio. Assim como o "G" é equivalente ao F5 e o "T" ao F11.</p>
+<h5>Seguindo passo a passo</h5>
+<p>Siga o código usando F11. Você notará que logo mais você entrará na função 
+	ntdll!LdrpInitializeProcess. Isso faz parte do Loader do Windows. Isso serve 
+	para notar que o breakpoint inicial do programa é feito ANTES do método wmain. 
+	Nós poderíamos seguir com F11 até chegar ao nosso wmain, mas isso levaria 
+	bastante tempo. O mais fácil é colocar um breakpoint no nosso método wmain. 
+	Para fazer isso, usamos o comando</p>
+<p>bp ds1!wmain</p>
+<p>Considerando que ds1 é o nome do nosso executável. Como existem várias funções 
+	no nosso executável e também nas DLLs que foram carregadas, é necessário 
+	informar em qual módulo reside a função onde queremos o breakpoint. O comando 
+	funciona sem qualificar o módulo da função, mas isso fará que o WinDbg procure 
+	a função em todos os módulos carregados, o que é bem mais demorado.</p>
+<p>Agora que temos nosso breakpoint na função wmain, pressione F5 (comando "G") 
+	para seguirmos até o nosso programa, que é o que interessa. Se os arquivos 
+	fontes estão na mesma pasta onde a compilação foi feita, o WinDbg deve abrir 
+	automaticamente o fontes, como vemos a seguir:</p>
+<p><center><img src="windbg3.png"></center>
+	<h5>O que tem nessa variável?</h5>
+<p>
+	Temos duas formas principais para visualizar o conteúdo das nossas variáveis: 
+	usando a janela de watch ou o comando DT. Para usar a janela de watch, é só 
+	exibi-la usando o menu View&nbsp;&gt;&gt; Watch. Na janela de watch, basta 
+	digitar o nome da variável em algum campo em branco. Usando o comando DT, basta 
+	digitar DT [nome da variável], como no exemplo abaixo:</p>
+<p><center><img src="windbg4.png"></center>
+	<h5>Esse não é o fim</h5>
+<p>Aqui vimos os comandos básicos do WinDbg, que nos permite efetuar o 
+	procedimentos mais comuns em uma sessão de debug. Vimos como controlar o 
+	programa e visualizar o conteúdo das variáveis. Nos próximos artigos veremos 
+	mais coisas sobre o WinDbg.</p>
+<h5>Veja também</h5>
+<b><a href="windbg2.html">WinDbg: Debugger de gente grande (parte 2)</a></b>
+
+
+
+</div>
+          </td>
+        </tr>
+          <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png"></td>
+              <td align="right"><img src="../../images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+<tr><td class="topmenu">&nbsp;</td><td class="topmenu">&nbsp;</td></tr>
+<tr><td class="topmenu">&nbsp;</td><td>
+<table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba1.png"></td>
+              <td align="right"><img src="../../images/rebarba2.png"></td>
+              </tr>
+            </table>
+</td>
+</tr>
+ <tr><td class="topmenu">&nbsp;</td><td >
+<div class="content">
+<a name="comments"></a><h5>Comentários</h5>
+<h5>Algo a dizer?</h5>
+<form name="comment" method="POST" action="comment.html">
+<input type="hidden" name="article" value="_windbg1"/>
+Nome:<br/>
+<input type="text" name="name" style="width: 250px;"/><br/>
+<br/>
+
+Site ou e-mail:<br/>
+<input type="text" name="link" style="width: 250px;" /><br/>
+<br/>
+
+Comentário<br/>
+<textarea style="WIDTH: 300px; HEIGHT: 150px" name="comment" rows="9" cols="35"></textarea><br/>
+<br/>
+<input type="submit" value="Dizer"/>
+
+</form>
+
+</div>
+
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="../../images/rebarba3.png"></td>
+              <td align="right"><img src="../../images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
