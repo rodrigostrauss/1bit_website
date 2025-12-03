@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: content.1bit/weblog_archive
+Disallow: content.1bit/weblog_categ

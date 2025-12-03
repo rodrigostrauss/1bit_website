@@ -1,0 +1,145 @@
+<br />
+<b>Deprecated</b>:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in <b>/home/xbitc49/public_html/cn.php</b> on line <b>2</b><br />
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<rss version="2.0">
+<channel>
+<title>RodrigoStrauss::WebLog();</title>
+<language>pt-br</language>
+<link>http://www.1bit.com.br/content.1bit/weblog</link>
+<description>Rodrigo Strauss - WebLog</description>
+<webMaster>weblog@1bit.com.br</webMaster>
+<managingEditor>weblog@1bit.com.br</managingEditor>
+<item><title>C++11: Inicialização uniforme</title><link>http://www.1bit.com.br/content.1bit/weblog/cpp11_uniform_initialization</link><guid isPermaLink="true">http://www.1bit.com.br/content.1bit/weblog/cpp11_uniform_initialization</guid><comments>http://www.1bit.com.br/content.1bit/weblog/cpp11_uniform_initialization#comments</comments><description>&lt;p&gt;Algumas mudanças no C++11 são tão grandes que têm o potencial de deixar a linguagem muito melhor, porém irreconhecível. Além do recurso de lambda (do que eu já falei) os recursos de inicialização uniforme e nova sintaxe para declaração de funções são desse tipo. Hoje vou falar sobre Uniform Initialization (ou inicialização uniforme em bom português). 
+
+&lt;p&gt;O C++ tem a característica de não ser uma linguagem uniforme. Isso quer dizer que uma sequência específica de tokens pode ter significados diferentes dependendo do contexto. Isso causa diversos problemas, entre ele uma dificuldade bem maior para escrever um parser (interpretador) para a linguagem. Veja a seguinte expressão:
+
+&lt;div id=&quot;selectable&quot;&gt;
+				&lt;ol class=&quot;cpp&quot;&gt;&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;MeuObjeto algumaCoisa&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;10&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;&quot;lala&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;sy4&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+			&lt;/div&gt;
+
+&lt;p&gt;Esse código pode significar duas coisas: uma declaração de função que retorna MeuObjeto ou a declaração de uma varíavel do tipo meu objeto que tem um construtor com dois parâmetros. Isso existe devido à algo que é chamado de &lt;a href=&quot;https://en.wikipedia.org/wiki/Most_vexing_parse&quot;&gt;Most Vexing Parser&lt;/a&gt;, ou Interpretador Mais Vexaminoso na língua de Camões. Nesse caso específico, essa linha será interpretada como uma declaração de função, algo bem inconviniente caso o trecho acima esteja dentro de uma função:
+
+&lt;div id=&quot;selectable&quot;&gt;
+				&lt;ol class=&quot;cpp&quot;&gt;&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;class&lt;/span&gt; MeuObjeto&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&lt;span class=&quot;br0&quot;&gt;{&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&lt;span class=&quot;kw2&quot;&gt;public&lt;/span&gt;&lt;span class=&quot;sy4&quot;&gt;:&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&amp;nbsp; MeuObjeto&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kw4&quot;&gt;int&lt;/span&gt; a, string b&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;}&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li2&quot;&gt;&lt;div class=&quot;de2&quot;&gt;&lt;span class=&quot;br0&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sy4&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;int&lt;/span&gt; main&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&lt;span class=&quot;br0&quot;&gt;{&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&amp;nbsp; &lt;span class=&quot;co1&quot;&gt;// Parece algo normal, mas isso é um erro de compilação&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li2&quot;&gt;&lt;div class=&quot;de2&quot;&gt;&amp;nbsp; &lt;span class=&quot;co1&quot;&gt;// Isso será interpretado como uma declaração de função&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&amp;nbsp; MeuObjeto algumaCoisa&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;10&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;&quot;lala&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;sy4&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&lt;span class=&quot;br0&quot;&gt;}&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+			&lt;/div&gt;
+
+&lt;p&gt;Para resolver esse problema, entre outros, foi criada a inicialização uniforme:
+
+&lt;div id=&quot;selectable&quot;&gt;
+				&lt;ol class=&quot;cpp&quot;&gt;&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;int&lt;/span&gt; main&lt;span class=&quot;br0&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&lt;span class=&quot;br0&quot;&gt;{&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&amp;nbsp; &lt;span class=&quot;co1&quot;&gt;// Como usamos colchetes ao invés de parenteses, &lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&amp;nbsp; &lt;span class=&quot;co1&quot;&gt;// o compilador sabe com certeza que isso é uma chamada&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li2&quot;&gt;&lt;div class=&quot;de2&quot;&gt;&amp;nbsp; &lt;span class=&quot;co1&quot;&gt;// de construtor (e não uma declaração de função)&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&amp;nbsp; MeuObjeto algumaCoisa&lt;span class=&quot;br0&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;10&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;&quot;lala&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sy4&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&lt;span class=&quot;br0&quot;&gt;}&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+			&lt;/div&gt;
+
+&lt;p&gt;Mas como sempre, a forma anterior de fazer as coisas continua valendo. Lembrem-se: o C++ tem como premissa continuar compatível com todo código fonte que já foi escrito até hoje. Essa é a maldição e a benção do C++: a linguagem evolui e fica competitiva em relação às linguagens mais novas, mas os programadores podem continuar fazendo as coisas da forma antiga e, muitas vezes, pouco recomendáveis. Um exemplo é a parte de gerenciamento de memória. Vou repetir o que digo em quase toda palestra: se você está usando &lt;i&gt;new&lt;/i&gt; e &lt;i&gt;delete&lt;/i&gt; você está fazendo isso errado.
+
+&lt;p&gt;O recurso de inicialização uniforme permite que toda inicialização de instâncias de objetos e estruturas usem essa nova sintaxe:
+
+&lt;div id=&quot;selectable&quot;&gt;
+				&lt;ol class=&quot;cpp&quot;&gt;&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&lt;span class=&quot;co1&quot;&gt;// Lembrando que tipos fundamentais também aceitam&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&lt;span class=&quot;co1&quot;&gt;// a sintaxe de construtor&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;int&lt;/span&gt; i &lt;span class=&quot;br0&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sy4&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li2&quot;&gt;&lt;div class=&quot;de2&quot;&gt;&lt;span class=&quot;co1&quot;&gt;// Inclusive um construtor vazio (nesse caso i2 == 0)&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&lt;span class=&quot;kw4&quot;&gt;int&lt;/span&gt; i2 &lt;span class=&quot;br0&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sy4&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;co1&quot;&gt;// empty braces initialize the object to it's default (0)&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&lt;span class=&quot;co1&quot;&gt;// a std:string é uma classe, e aceita uma string&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&lt;span class=&quot;co1&quot;&gt;// literal no construtor&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li2&quot;&gt;&lt;div class=&quot;de2&quot;&gt;std&lt;span class=&quot;sy4&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;me2&quot;&gt;string&lt;/span&gt; s &lt;span class=&quot;br0&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;st0&quot;&gt;&quot;hello&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sy4&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;MeuObjeto algumaCoisa &lt;span class=&quot;br0&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;10&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;&quot;lala&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sy4&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;&amp;nbsp;&lt;/div&gt;&lt;/li&gt;
+&lt;li class=&quot;li1&quot;&gt;&lt;div class=&quot;de1&quot;&gt;MeuObjeto muitasCoisas&lt;span class=&quot;br0&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;sy1&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;10&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;&quot;lala&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;}&lt;/span&gt;, &lt;span class=&quot;br0&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nu0&quot;&gt;20&lt;/span&gt;, &lt;span class=&quot;st0&quot;&gt;&quot;lili&quot;&lt;/span&gt;&lt;span class=&quot;br0&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;br0&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;sy4&quot;&gt;;&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+			&lt;/div&gt;
+
+&lt;p&gt;É uma pequena mudança que resolve grandes problemas.&lt;p&gt;&lt;b&gt;&lt;a href=&quot;http://www.1bit.com.br/content.1bit/weblog/cpp11_uniform_initialization#comments&quot;&gt;3 coment&amp;aacute;rio(s)&lt;/a&gt;&lt;/b&gt;&lt;/p&gt;</description><pubDate>Wed, 17 Feb 2016 09:43:55 GMT</pubDate></item><item><title>Semântica</title><link>http://www.1bit.com.br/content.1bit/weblog/semantica</link><guid isPermaLink="true">http://www.1bit.com.br/content.1bit/weblog/semantica</guid><comments>http://www.1bit.com.br/content.1bit/weblog/semantica#comments</comments><description>&lt;p&gt;É engraçado como a semântica da maioria dos mortais não vale para programação. &quot;Legado&quot; da forma que aprendi na escola é algo bom, que é passado entre as gerações. &lt;a href=&quot;http://www.dicio.com.br/legado&quot;&gt;O dicionário confirma&lt;/a&gt;. Mas o significado dessa palavra mudou no decorrer dos anos. Pelo menos para nós, escovadores de bits.
+
+&lt;p&gt;Para quem trabalha com programação, &quot;legado&quot; é aquele código antigo que ninguém quer dar manutenção e que todo mundo culpa por todos os problemas. Problemas em produção? É culpa do código legado. O projeto levou o  dobro do tempo? É porque &quot;precisamos contornar o legado&quot;. O sistema dá problema em produção todo dia? &quot;É só a parte do legado, o que fizemos no último ano funciona&quot;. O sistema e a empresa continua com problemas, mas parece que culpar o legado isenta todo mundo de toda e qualquer responsabilidade. 
+
+&lt;p&gt;Então começamos um projeto novo para &quot;resolver o legado&quot;, depois de convencer todo mundo. Sempre pensamos que, dessa vez, vamos fazer diferente e montar uma arquitetura que é robusta, escalável e que vai ajudar a empresa a crescer, sem os problemas do passado. Afinal, agora somos mais espertos e entendemos mais sobre programação. Mas isso &lt;b&gt;**nunca**&lt;/b&gt; acontece. Por que? 
+
+&lt;p&gt;Nós estamos hoje construindo o legado de amanhã. Tanto no bom sentido quanto no mal sentido (mais uma vez me lembro como é engraçado em programação a palavra &quot;legado&quot; ter um conotação ruim por si só). Daqui alguns anos, o código que estamos escrevendo hoje também será um &quot;código legado&quot;. E por que isso? Existem vários motivos, o principal é: não conseguimos prever o futuro. Isso simplesmente não é possível. No futuro as necessidades serão outras, as técnicas serão outras, e pricipalmente as pessoas e suas visões de mundo serão outras. Todas as tentativas que eu vi de fazer um sistema que seria genérico o suficiente para prever o futuro acabou gerando um meta framework super genérico que só piorava a situação. 
+
+&lt;p&gt;O framework genérico caseiro é um erro clássico de grandes empresas, quase sempre obra dos ditos &quot;Arquitetos de Software&quot;. Já vi vários casos onde a empresa faz seu próprio framework e bibliotecas internas para coisas simples como acesso à banco de dados, só para garantir que os programadores vão &quot;fazer a coisa certa&quot;. Aí todo mundo passa boa parte do tempo contornando esse framework interno que foi feito por uma &quot;equipe de arquitetura&quot; que não tem programadores ou engenheiros de software experientes. Geralmente as equipes de arquitetura são formadas por pessoas que querem um salário maior e menos pressão por prazo e qualidade. Como um deles já me disse uma vez, &quot;no Word sempre compila, ser arquiteto é bem mais fácil&quot;.
+
+&lt;p&gt;E algumas vezes a proposta para &quot;resolver o levado&quot; é jogá-lo fora e recomeçar. &lt;b&gt;**A IDEIA MAIS ESTÚPIDA DO PLANETA**&lt;/b&gt;. &lt;a href=&quot;http://www.joelonsoftware.com/articles/fog0000000069.html&quot;&gt;O Joel já disso isso faz tempo e parece que ninguém entendeu&lt;/a&gt;. Você não pega um código fonte que funciona e simplesmente joga fora. Você pode reorganizá-lo e substituir as partes problemáticas aos poucos, mas trocar tudo de uma vez é algo que eu nunca vi funcionar. Nunca.
+
+&lt;p&gt;Software não é algo estático, ele precisa estar sempre em evolução. O legado é eterno. A atenção que damos para ele determina se o legado será bom ou ruim. Ao invés de fazer um projeto novo a cada 4 ou 5 anos, devemos manter o software evoluindo sempre. A Microsoft refaz o Word de tempos em tempos? E o Linux, ele passa por uma reformulação geral a cada 5 anos? Não. Software de qualidade está sempre evoluindo. É assim que deve ser.
+
+&lt;p&gt;Lembre-se: código fonte é código fonte. Bonito ou feio, novo ou velho. E é nossa responsabilidade fazer com que o ele continue funcionando. Então, por favor, deixe de frescura, abra aquele código fonte antigo, entenda como ele funciona e mantenha tudo funcionando e evoluindo. É o seu legado.&lt;p&gt;&lt;b&gt;&lt;a href=&quot;http://www.1bit.com.br/content.1bit/weblog/semantica#comments&quot;&gt;1 coment&amp;aacute;rio(s)&lt;/a&gt;&lt;/b&gt;&lt;/p&gt;</description><pubDate>Thu, 19 Nov 2015 09:56:55 GMT</pubDate></item><item><title>C++11: Range based for loop</title><link>http://www.1bit.com.br/content.1bit/weblog/cpp11_range_based_for</link><guid isPermaLink="true">http://www.1bit.com.br/content.1bit/weblog/cpp11_range_based_for</guid><comments>http://www.1bit.com.br/content.1bit/weblog/cpp11_range_based_for#comments</comments><description>&lt;p&gt;Todos os programadores C++ sabem que para percorrer qualquer tipo de container devemos usar iterators e nunca um índice. Certo? Na dúvida, eu já escrevi uma extensa série sobre STL, e &lt;a href=&quot;http://www.1bit.com.br/content.1bit/weblog/stl_tutorial_4&quot;&gt;escrevi um post só sobre iterators&lt;/a&gt;. Lembre-se que se você usa C++ sem STL você está usando C com classes.
+
+&lt;p&gt;Apesar do acesso via iterator ter inúmeras vantagens, ele requer uma dose grande código repetitivo. E isso é incompatível com o fato de que nós, programadores, somos preguiçosos por natureza. Afinal, muita gente começou a programar para automatizar tarefas repetitivas. Como resolver isso?
+
+&lt;p&gt;Dois iterators definem um range (intervalo em pt-br). Eles delimitam o início desse intervalo, com o primeiro item inclusive e o segundo item exclusive (ou seja, o último item de um range **nunca** é válido e aponta para um item após o último item válido). Todos os algoritmos da STL ou compatíveis com a STL trabalham em cima de um par de iterators que define os itens que serão tratados pelo algoritmo (&lt;a href=&quot;http://www.1bit.com.br/content.1bit/weblog/stl_tutorial_5&quot;&gt;eu também já escrevi sobre algoritmos&lt;/a&gt;)
+
+&lt;p&gt;Para percorrer todos os itens de um container (seja ele um vector ou um unordered_map) usando um &lt;i&gt;for&lt;/i&gt; nomal, você precisa percorrê-lo do begin() até o end(). Apesar de os containers da STL não implementarem um interface que obrigue isso - já que a STL não usa polimorfismo e sim programação genérica - existe um concept que define que &lt;i&gt;container.begin()&lt;/i&gt; e &lt;i&gt;container.end()&lt;/i&gt; precisam retornar iterators para o início e o fim do container. &lt;a href=&quot;https://www.sgi.com/tech/stl/Container.html&quot;&gt;A página da saudosa Silicon Graphics sobre STL tem essas definições bem explicadas e documentadas&lt;/a&gt;.
+
+&lt;p&gt;Sabendo disso, esse é o código para percorrer todos os itens de um container:
+
+&lt;script src=&quot;https://gist.github.com/rodrigostrauss/5dc5f2ac23bf750b8337.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Repetitivo e verbose, certo? O conceito de iterators foi criado para que você possa aplicar um algoritmo à qualquer intervalo de um container, mas na maioria das vezes você faz isso sobre todos os itens. O &lt;i&gt;range based for&lt;/i&gt; é um loop que &quot;extrai&quot; automaticamente o range completo de qualquer coisa que você passar para ele. 
+
+&lt;p&gt;Veja como fica o código acima usando &lt;i&gt;range based for&lt;/i&gt;:
+
+&lt;script src=&quot;https://gist.github.com/rodrigostrauss/1867fab739a62e2ec39d.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;A partir do C++11 o jeito preferido de pegar os iterators é usando as funções livres &lt;i&gt;begin()&lt;/i&gt; e &lt;i&gt;end()&lt;/i&gt;. Por que? Porque isso torna o código mais genérico. O vector possui begin() e end(), mas o array C não possui e o container de um framework de terceiros também não. Usando as funções livres permite que você crie especializações delas para containers que não sigam os concepts das STL. Veja isso:
+
+&lt;script src=&quot;https://gist.github.com/rodrigostrauss/c48e6f0dd5df98acde51.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Sim, você entendeu direito. O range based for é só um syntax sugar.&lt;p&gt;&lt;b&gt;&lt;a href=&quot;http://www.1bit.com.br/content.1bit/weblog/cpp11_range_based_for#comments&quot;&gt;0 coment&amp;aacute;rio(s)&lt;/a&gt;&lt;/b&gt;&lt;/p&gt;</description><pubDate>Thu, 01 Oct 2015 12:25:21 GMT</pubDate></item><item><title>Índice para a série de posts sobre o Itanium, por Raymond Chen</title><link>http://www.1bit.com.br/content.1bit/weblog/raymond_chen_itanium</link><guid isPermaLink="true">http://www.1bit.com.br/content.1bit/weblog/raymond_chen_itanium</guid><comments>http://www.1bit.com.br/content.1bit/weblog/raymond_chen_itanium#comments</comments><description>&lt;p&gt;O Raymond Chen escreveu uma série sobre o assembly do Itanium. Apesar do Itanium ter sido um fiasco comercial sua arquitetura é genial e a série vale a leitura.
+
+&lt;p&gt;Não tem índice para os tópicos da série no site dele. Então eu batuquei um regex no teclado e fiz um índice.
+
+&lt;p&gt;&lt;a href=&quot;http://blogs.msdn.com/b/oldnewthing/archive/2015/07/27/10630772.aspx&quot;&gt;Parte 1&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;http://blogs.msdn.com/b/oldnewthing/archive/2015/07/28/10631038.aspx&quot;&gt;Parte 2&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;http://blogs.msdn.com/b/oldnewthing/archive/2015/07/29/10631311.aspx&quot;&gt;Parte 3&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;http://blogs.msdn.com/b/oldnewthing/archive/2015/07/30/10631650.aspx&quot;&gt;Parte 3b&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;http://blogs.msdn.com/b/oldnewthing/archive/2015/07/30/10631649.aspx&quot;&gt;Parte 4&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;http://blogs.msdn.com/b/oldnewthing/archive/2015/07/31/10631975.aspx&quot;&gt;Parte 5&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;http://blogs.msdn.com/b/oldnewthing/archive/2015/08/03/10632545.aspx&quot;&gt;Parte 6&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;http://blogs.msdn.com/b/oldnewthing/archive/2015/08/04/10632777.aspx&quot;&gt;Parte 7&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;http://blogs.msdn.com/b/oldnewthing/archive/2015/08/05/10633044.aspx&quot;&gt;Parte 8&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;http://blogs.msdn.com/b/oldnewthing/archive/2015/08/06/10633287.aspx&quot;&gt;Parte 9&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;http://blogs.msdn.com/b/oldnewthing/archive/2015/08/07/10633553.aspx&quot;&gt;Parte 10&lt;/a&gt;&lt;br&gt;&lt;p&gt;&lt;b&gt;&lt;a href=&quot;http://www.1bit.com.br/content.1bit/weblog/raymond_chen_itanium#comments&quot;&gt;0 coment&amp;aacute;rio(s)&lt;/a&gt;&lt;/b&gt;&lt;/p&gt;</description><pubDate>Sat, 26 Sep 2015 01:37:57 GMT</pubDate></item><item><title>Sobre a Microsoft e o open source</title><link>http://www.1bit.com.br/content.1bit/weblog/microsoft_open_source</link><guid isPermaLink="true">http://www.1bit.com.br/content.1bit/weblog/microsoft_open_source</guid><comments>http://www.1bit.com.br/content.1bit/weblog/microsoft_open_source#comments</comments><description>&lt;p&gt;Muito se tem falado sobre esse novo movimento da Microsoft em direção ao open souce. Para muitos da velha guarda, ver a mesma empresa tida como monopolista dos anos 90 fazendo isso tem gerado muita desconfiança. Como uma empresa de software proprietário vai aderir ao movimento open source?
+
+&lt;p&gt;Sim, a Microsoft aderiu ao modelo de código aberto. Mas as pessoas esqueceram o X da questão: &lt;a href=&quot;http://www.gnu.org/philosophy/free-software-for-freedom.en.html&quot;&gt;código aberto é diferente de software livre&lt;/a&gt;. A governança open source virou algo mais eficiente que a governança fechada. Quanto mais feedback dos usuários, melhor. Quando os usuários são técnicos, como nós programadores, melhor ainda. E como adoramos código fonte, ficamos mais felizes e damos mais feedback. Com podemos ver o código fonte, dizemos onde o erro está e até mandamos a correção pronta. Qual empresa não gostaria que seus clientes e usuários ajudassem a arrumar seu próprio produto?
+
+&lt;p&gt;Inacreditavelmente, hoje em dia muita gente gosta da Microsoft (com a exceção dos fanáticos do free software, é claro). No &lt;a href=&quot;http://news.ycombinator.com&quot;&gt;Hacker News&lt;/a&gt;, onde me parece que a maioria do pessoal é de Linux, há um sentimento geral positivo em relação à Microsoft. É irônico ver isso depois de todos esses anos... Levei bastante tempo para entender como a Microsoft funciona e como ela pensa. Já li muita coisa, já assisti muita coisa (como o Channel9) e já visitei a Microsoft em Redmond 2 vezes, uma como representante do grupo C &amp; C++ Brasil e outra como MVP. Minha carreira sempre orbitou em volta de softwares da Microsoft e eu comecei a programar usando um software deles, o GW Basic. Tenho usado bastante Linux ultimamente, mas isso não me afastou do Windows e, principalmente, do Visual Studio.
+
+&lt;p&gt;Apesar de gostar da Microsoft no geral, eu não concordo com tudo que eles fazem. Esse costume horrendo que eles têm de implementar parcialmente os padrões (principalmente os padrão ISO do C++) segundo a visão puramente mercadológica é uma abominação. Eles levaram tempo para entender que implementar o padrão C++ era mais importante do que implementar só a parte que eles usam. Isso só chegou esse ano, para meu total desgosto e desespero. Mas mesmo assim continuei com o Visual C++ por causa da qualidade. Eu já tentei migrar para o GCC. Mas a qualidade do ferramental da Microsoft é muito alta e acabei ficando com o ecosistema do Visual Studio. Apesar do &lt;a href=&quot;http://www.1bit.com.br/content.1bit/weblog/bye_bye_cpp_cli&quot;&gt;Fora o famigerado C++/CLI&lt;/a&gt;...
+
+&lt;p&gt;Mas uma coisa é inegável: a Microsoft é uma máquina extremamente eficiente de fazer software. Eles foram durante muitos anos a única empresa do mundo que sabia fazer software. Todas as empresas que competiram com eles caíram, a Netscape, a Borland, a Word Perfect, a Lotus. E não era por monopólio ou coisas assim, como gostam de dizer. Foi por competência em Engenharia de Software. O Excel venceu o Lotus 1-2-3 porque era melhor. O Word venceu o WordPerfect porque, versão após versão, ficou melhor. E o Internet Explorer ficou melhor que o Netscape.
+
+&lt;p&gt;&lt;i&gt;Eu sei o que você está pensando. Blablaba monopólio blablabla. O IE continua vindo junto com o Windows, e mesmo assim todo mundo baixa o Chrome e o Firefox. Hoje o Internet Explorer é basicamente uma ferramenta gigante que serve para baixar outros browsers. Poderia ter sido assim na época. &lt;a href=&quot;http://www.joelonsoftware.com/articles/fog0000000069.html&quot;&gt;Mas a Netscape foi estúpida o suficiente para fazer a maior estupidez que uma empresa pode fazer: jogar fora o código fonte porque ele &quot;está feio &quot;e comerçar tudo de novo&lt;/a&gt;.&lt;/i&gt;
+
+&lt;p&gt;Voltando ao open source. A coisa é simples. Eles estão se adaptando ao mercado, como eles sempre fizeram. A Microsoft nunca foi inovadora, como a Apple ou mesmo o Google. Eles inovaram várias vezes (o Visual Basic foi o precursor de todos as IDEs modernas), mais o foco deles não é a inovação. É fazer software direito. E nisso eles são muito bons, é inegável.
+
+&lt;p&gt;Eles levaram bastante tempo para entrar na Internet, tentando levar as pessoas para a MSN, que era uma rede separada, tipo a Compuserve. Depois foi uma versão do IE atrás da outra e a Netscape morreu pela própria incompetência (novamente, alguém aí usa IE só porque vem junto com o Windows?).
+
+&lt;p&gt;Eles levaram tempo para entrar no mercado de nuvem. Hoje o Azure fatura milhões.
+
+&lt;p&gt;Eles levaram tempo para entender o mercado de mobile. O Windows Phone... é.... mmm... está aí.
+
+&lt;p&gt;E agora eles entenderam o modelo de negócio open source e estão se adaptando. Como sempre fizeram. E garanto que vão fazer isso melhor do que gente que está aí faz tempo, como IBM e outros, pelo simples fato de que eles entendem de software como ninguém. Até onde sei, o modelo aberto do .NET já nasceu mais aberto que o Java...&lt;p&gt;&lt;b&gt;&lt;a href=&quot;http://www.1bit.com.br/content.1bit/weblog/microsoft_open_source#comments&quot;&gt;0 coment&amp;aacute;rio(s)&lt;/a&gt;&lt;/b&gt;&lt;/p&gt;</description><pubDate>Thu, 27 Aug 2015 11:01:58 GMT</pubDate></item></channel>
+</rss>

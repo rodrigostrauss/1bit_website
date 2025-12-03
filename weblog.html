@@ -1,0 +1,448 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+<meta charset="utf-8">
+<META NAME="keywords" CONTENT="Rodrigo Strauss, programador, programação, Visual C++, C#, Windbg, Device Driver">
+<META NAME="description" CONTENT="Artigos sobre programação escritos por Rodrigo Strauss">
+<META NAME="author" CONTENT="Rodrigo Strauss">
+<META NAME="ROBOTS" CONTENT="ALL">
+    <title>Rodrigo Strauss :: 1bit</title>
+    <link href="1bit.css" type="text/css" rel="stylesheet">
+  </head>
+  <body bottommargin="0" leftmargin="0" topmargin="0" rightmargin="0">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+        <tr>
+          <td class="header" valign="middle" bgcolor="#ffffff" height="77" colspan="2">&nbsp;
+<a href="http://www.1bit.com.br"><img src="images/logo2.png" border="0" /></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td class="topmenu" align="right" height="30">
+		    <a class="top_menu_link" href="content.html?id=ainda_nao">Arquivo</a> 
+			<span class="menusep">|</span>
+            
+            <a class="top_menu_link" href="content.html?id=ainda_nao">Editar</a> 
+            <span class="menusep">|</span> 
+            
+            <a class="top_menu_link" href="about.html">Sobre...</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="images/rebarba1.png"></td>
+              <td align="right"><img src="images/rebarba2.png"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="menu" valign="top" width="175">
+
+<div class="left_menu_section">
+ <a href="index.html" style="text-decoration:none;">
+  <h2>Falatório</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="index.html" style="text-decoration:none;">
+  <h2>Escovando 1 bit</h2>
+ </a>
+</div>
+
+<div class="left_menu_section">
+ <a href="weblog.html" style="text-decoration:none;">
+  <h2>WebLog</h2>
+ </a>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br>
+          </td>
+          <td valign="top">
+<div class="content">
+<h4><a href="weblog.html" style="text-decoration:none;">Rodrigo Strauss :::: WebLog</a></h4>
+<a href="weblog_rss.html"><img src="xml.gif" border="0"/></a><br>
+<h5><a class="weblog_link" href="weblog.html?p1=1092109311">Depois da praia, vamos nos purificar</a></h5><p>No meu post de sexta-feita, eu usei o par&acirc;metro de linha de comando <b>"/clr:pure"</b> para compilar o meu "Eu gostaria de estar na praia" (convenhamos que &eacute; melhor do que Hello World...). Agora que eu terminei de baixar o .NET Framwork SDK 2.0, usei o ildasm para verificar o c&oacute;digo gerado. Olha o que temos:</p>
+
+<p><img src="http://www.1bit.com.br/1092109311_1.png" /></p>
+
+<p>Reconhecemos as se&ccedil;&otilde;es do execut&aacute;vel e v&aacute;rias fun&ccedil;&otilde;es da runtime do C/C++. Isso pode deixar um programador purista triste, j&aacute; que carregamos algumas coisas que s&atilde;o do velho Visual C++. </p>
+<p>Agora vamos mudar o par&acirc;metro para <b>"/clr:safe"</b>. Olhe o que temos agora:</p>
+
+<p><img src="http://www.1bit.com.br/1092109311_2.png" /></p>
+
+<p>Agora sim, um execut&aacute;vel .NET puro, suficiente para agradar os puristas. Lembre-se que usando <b>"/clr:safe"</b>, n&atilde;o podemos usar nada que n&atilde;o seja seguro e verific&aacute;vel pela runtime. Um simples "#include &lt;windows.h&gt;" ir&aacute; gerar milhares de erros, j&aacute; que as fun&ccedil;&otilde;es e estruturas da Win32 API n&atilde;o s&atilde;o verific&aacute;veis.</p><p class="datetime">Em 09/Aug/2004 17:41</p><h5><a class="weblog_link" href="weblog.html?p1=1092081238">Como usar o Visual C++ 2005 Express para fazer programas SUBSYSTEM:Windows</a></h5><p><a href="http://www.1bit.com.br/windbg1.html">No artigo sobre WinDbg</a>, eu disse que caso o leitor n&atilde;o tivesse o Visual C++, ele poderia baixar o Visual C++ 2005 Express e o Platform SDK para fazer programas Windows. Agora eu vou explicar os passos necess&aacute;rios para isso.</p>
+<p>1. Baixe o <a href="http://lab.msdn.microsoft.com/express/visualc/default.aspx">Visual C++ Express 2005</a>.</p>
+<p>2. Instale o <a href="http://www.microsoft.com/msdownload/platformsdk/sdkupdate/">Microsoft Platform SDK via web</a>. Instale somente o [Core SDK >> Build Environment] e o [Internet Development SDK >> Build Environment]. Infelizmente, mas infelizmente mesmo, n&atilde;o &eacute; poss&iacute;vel usar o <a href="http://www.mozilla.org/products/firefox/">Firefox</a> para fazer a instala&ccedil;&atilde;o, s&oacute; Internet Explorer mesmo. (igual ao novo site da MSDN brasileira... shame...).</p>
+<p>3. Agora vamos configurar o Visual C++. Menu "Tools" >> "Options". No TreeView, "Projects And Solutions" >> "VC++ Directories". Depois, no ComboBox "Show Directories for:" insira Program Files\Microsoft SDK\include em "Include Files" e Program Files\Microsoft SDK\lib em "Library Files".</p>
+<p>4. Reinicie o Visual C++ 2005 Express</p>
+<p>Para testar, abra o Visual C++ e crie um novo projeto "Win32" >> "Console Application" (&eacute; isso mesmo, console application). Quando abrir a tela com as configura&ccedil;&otilde;es do novo projeto, escolha "Windows Application". Caso voc&ecirc; tente compilar o projeto, ver&aacute; v&aacute;rios erros de linker, j&aacute; que o projeto n&atilde;o est&aacute; configurado para fazer link com as libs das dlls Win32.</p>
+<p>Agora vamos arrumar o problema do linker: entre nas propriedades do projeto, "Configuration Properties" >> "Linker" >> "Input". Em "Additional Dependencies", coloque "kernel32.lib user32.lib gdi32.lib" (assim mesmo, separadas por espa&ccedil;os). Isso deve ser feito em todos os projetos Win32.</p>
+<p>Pronto. Agora divirta-se!</p>
+<p class="datetime">Em 09/Aug/2004 09:53</p><h5><a class="weblog_link" href="weblog.html?p1=1091842922">Visual C++ 2005 Managed Extensions: o in&iacute;cio</a></h5><p>Hoje eu resolvi fazer minhas primeiras experi&ecirc;ncias com Managed C++ 2005, para ver se &eacute; realmente simples como eu acredito que seja. Minha primeira experi&ecirc;ncia rid&iacute;cula, serve para ilustrar como a compila&ccedil;&atilde;o &eacute; quase t&atilde;o simples como C# ou VB.NET.</p>
+<h6>C&oacute;digo fonte</h6>
+
+<pre>
+<div class="code2">
+int Main()
+{
+  System::String^ str;
+  str = L"Eu queria estar na praia";
+
+  System::Console::WriteLine(str);
+	
+  return 0;
+}
+</div>
+</pre>
+
+
+<h6>A compila&ccedil;&atilde;o</h6>
+<pre>
+<div class="code2">
+cl mcpp1.cpp /clr:pure /link /entry:"Main" /subsystem:console
+Microsoft (R) C/C++ Optimizing Compiler Version 14.00.40607.16
+for Microsoft (R) .NET Framework version 2.00.40607.16
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+mcpp1.cpp
+Microsoft (R) Incremental Linker Version 8.00.40607.16
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:mcpp1.exe
+/clrimagetype:pure
+/entry:Main
+/subsystem:console
+mcpp1.obj
+</div>
+</pre>
+
+<h6>O resultado</h6>
+<pre>
+<div class="code2">
+Eu queria estar na praia
+</div>
+</pre>
+<p>Simples, r&aacute;pido e f&aacute;cil. Agora eu tenho um aut&ecirc;ntico e leg&iacute;timo execut&aacute;vel 100% managed para ser consumido pelo .NET Framework 2.0 beta 1. Agora &eacute; s&oacute; esperar terminar o download do SDK do framework 2.0, e usar o ildasm para ver se est&aacute; realmente tudo OK.</p>
+<p>Mas, na verdade,  eu gostaria de estar na praia.</p><p class="datetime">Em 06/Aug/2004 15:42</p><h5><a class="weblog_link" href="weblog.html?p1=1091743583">Depois dizem que computa&ccedil;&atilde;o &eacute; uma ci&ecirc;ncia exata</a></h5><p>Eu ainda vivo na idade da pedra, e como tal, minha c&acirc;mera fotogr&aacute;fica n&atilde;o &eacute; digital. Tirei umas fotos na semana passada e decidi tirar meu scanner da caixa para enviar algumas fotos para os amigos.</p>
+<p>Meu scanner (que eu saiba) n&atilde;o tem driver para Windows XP, somente para Windows 2000. F&aacute;cil: pego a VMWare com Windows 2000 que eu uso pra fazer debug dos drivers que eu fa&ccedil;o, instalo o scanner, software do scanner e pronto. Isso &eacute; o que eu pensava em minha v&atilde; inoc&ecirc;ncia.</p>
+<p>Subi a VMware e espetei o scanner na USB. O Windows XP reconheceu o "VMWare USB Device" e cinco segundos depois meu micro reinicia. Antes de xingar o scanner ou qualquer outra coisa, eu pensei como eu sou est&uacute;pido por n&atilde;o ter configurado o Windows para n&atilde;o reiniciar automaticamente depois de um BugCheck (tela azul) e para fazer o dump completo.</p>
+<p>Com o micro reiniciado, configurei tudo, subi a VMware e espetei o scanner. Como esperado, tela azul de novo, e 5 minutos depois eu tinha o dump. Reiniciei o micro novamente e abri o dump no <a href="http://www.1bit.com.br/windbg1.html">WinDbg</a> para descobrir quem eu deveria xingar: a VMware, a Microsoft ou a Genius, fabricante do scanner.</p>
+<p>Esperei uns 20 minutos at&eacute; o WinDbg baixar os symbols para os drivers da minha m&aacute;quina. Uma longa espera para algu&eacute;m que s&oacute; que encontrar um culpado. Consegui ver que algum driver tentou liberar mem&oacute;ria duas vezes e disparou um <a href="http://www.microsoft.com/resources/documentation/Windows/XP/all/reskit/en-us/Default.asp?url=/resources/documentation/Windows/XP/all/reskit/en-us/prmd_stp_czgw.asp">BAD_POOL_CALLER</a>. Quando vou olhar qual foi o driver que fez a besteira, tive uma infeliz surpresa: foi o firewall (Tiny Personal Firewall)...</p>
+<p>Isso siginifica que o driver est&aacute; fazendo hook do que n&atilde;o deve, at&eacute; porque o TCPIP.SYS nem estava na pilha. Ou eu arrumo um outro firewall ou termino logo o meu...</p>
+<p><i>Depois que voc&ecirc; descobre como s&atilde;o feitas as salsichas, o molho de tomate e os drivers de antiv&iacute;rus com "real time scan", seus h&aacute;bitos mudam bastante... :-)</i></p><p class="datetime">Em 05/Aug/2004 12:06</p><h5><a class="weblog_link" href="weblog.html?p1=1091691965">Porque programar drivers (kernel mode) &eacute; mais legal do que programar aplicativos (user mode)</a></h5><ul>
+<li>Voc&ecirc; est&aacute; dentro do kernel do sistema.</li>
+
+<li>Voc&ecirc; precisa de um bom conhecimento da <a href="http://www.microsoft.com/MSPress/books/4354.asp">arquitetura do kernel do Windows</a>. Isso torna voc&ecirc; um melhor programador user mode.</li>
+
+<li>Programa&ccedil;&atilde;o em kernel mode &eacute; algo cr&iacute;tico. O BUILD configura o compilador C para tratar <b>warnings</b> como <b>errors</b>.</li>
+
+<li>Voc&ecirc; n&atilde;o pode errar. Um simples GPF ou divis&atilde;o por zero &eacute; tela azul na hora!</li>
+
+<li>Em kernel mode voc&ecirc; &eacute; obrigado a usar seus conhecimentos de ci&ecirc;ncias da computa&ccedil;&atilde;o: arquitetura de computadores, 
+listas ligadas, etc.</li>
+
+<li>Os samples do DDK (<a href="http://www.microsoft.com/ddk/">Driver Development Kit</a>) s&atilde;o mais bem organizados e mais bem comentados do que os samples de user mode. O c&oacute;digo tamb&eacute;m &eacute; muito mais bonito. :-)</li>
+
+<li>A API do kernel do Windows (<a href="http://www.amazon.com/exec/obidos/tg/detail/-/1578701996/002-4827235-3080016?v=glance">Native API</a>) &eacute; muita mais concisa e bem organizada do que a Win32 e algumas partes do .NET Framework.</li>
+
+<li>N&atilde;o existe programa&ccedil;&atilde;o para banco de dados em kernel mode. Nada de VB, nada de ADO.NET, nada de DataAdapter, nada de SQL, nada de fazer procedures. Praticamente o para&iacute;so... :-)</li>
+
+<li>Em kernel mode, voc&ecirc; s&oacute; pode usar Assembly, C ou C++. E muitos programadores pregam que voc&ecirc; use somente C.</li>
+
+<li>Temos ferramentas como o <a href="http://support.microsoft.com/?kbid=244617">Driver Verifier</a> e o <a href="http://www.osr.com/ddk/ddtools/checked_3lv7.htm">Windows Checked Build</a> para verificar se estamos fazendo tudo OK. Hoje temos o <a href="http://www.microsoft.com/windows/appcompatibility/appverifier.mspx">Application Verifier</a> para user mode, mas isso &eacute; novo e quase ningu&eacute;m conhece. O pessoal que programa em kernel mode (pelo menos os que sabem o que est&atilde;o fazendo) usa o Driver Verifier sempre.</li>
+
+<li>Especializa&ccedil;&atilde;o. Poucas pessoas programam em kernel mode.</li>
+</ul><p class="datetime">Em 04/Aug/2004 21:46</p><h5><a class="weblog_link" href="weblog.html?p1=1091651273">C++:  a linguagem mais poderosa para programa&ccedil;&atilde;o .NET</a></h5><p>O artigo <a href="http://msdn.microsoft.com/visualc/default.aspx?pull=/library/en-us/dnvs05/html/VS05Cplus.asp">C++: The Most Powerful Language for .NET Framework Programming</a> s&oacute; ajuda a confirmar a minha opini&atilde;o de que, com as novas managed extensions inclu&iacute;das no Visual C++ 8.0 (Visual Studio 2005), eu nunca terei que usar outra linguagem para programar em .NET.<p/>
+<p>Continuarei com os templates, com o pr&eacute;-processador, com o otimizador, com a possibilidade de usar API Win32 sem precisar usar DllImport (que &eacute; o Declare do VB6, nada mais, nada menos), possibilidade de alocar objetos na pilha, etc. Sem contar o gerenciamento de projeto, build steps, op&ccedil;&otilde;es para configurar compilador e linker, o respeito que a Microsoft tem com programadores Visual C++, etc.</p>
+<p>Ah, e &eacute; claro, o fato de que a integra&ccedil;&atilde;o de controle de vers&atilde;o (Source Safe, Clear Case) funciona com o Visual C++ e N&Atilde;O FUNCIONA com VB.NET.</p>
+<p class="datetime">Em 04/Aug/2004 10:27</p><h5><a class="weblog_link" href="weblog.html?p1=1091524453">Dicas para particionamento e organiza&ccedil;&atilde;o do HD, parte 1</a></h5><p>Eu tenho visto por a&iacute; muita gente com HDs gigantescos, todos com uma parti&ccedil;&atilde;o s&oacute;. Apesar de isso n&atilde;o causar problemas no uso di&aacute;rio, um melhor particionamento pode ajudar bastante quem precisa de performance e organiza&ccedil;&atilde;o. Por isso eu resolvi escrever alguma coisa sobre isso. Se ficar bom, talvez eu coloque mais &aacute;gua no feij&atilde;o e tranforme isso em um artigo. (Antes eu tenho que terminar o WinDbg parte 3).</p>
+
+<h6>Dica 1: nunca crie somente uma parti&ccedil;&atilde;o</h6>
+
+<p>A primeira dica &eacute; a mais simples. Qual o motivo? Com uma parti&ccedil;&atilde;o s&oacute;, fica mais dif&iacute;cil organizar suas coisas e mais dif&iacute;cil de fazer backup e seu HD fica mais fragmentado.</p>
+
+<p>Crie no m&iacute;nimo duas parti&ccedil;&otilde;es, uma para o sistema operacional e para os programas, e outra para os seus dados. Instale o sistema operacional e os programas que voc&ecirc; mais usa na primeira parti&ccedil;&atilde;o e desfragmente a parti&ccedil;&atilde;o. Guarde seus dados na outra parti&ccedil;&atilde;o.<p>
+
+<h6>Dica 2: Mude as pastas padr&atilde;o para o "Meus Documentos", "Favoritos", etc</h6>
+
+<p>Por padr&atilde;o, o Windows coloca a pasta "My Documents" em <b>"c:\Documents And Settings\[username]\My Documents"</b>. Isso torna infernal o processo de backup, j&aacute; que se voc&ecirc; usar <b>xcopy</b> para fazer backup voc&ecirc; ter&aacute; que digitar esse caminho imenso ou coloc&aacute;-lo no .BAT.</p>
+
+<p>Resolva o problema: <a href="http://www.microsoft.com/windowsxp/downloads/powertoys/xppowertoys.mspx">baixe o TweakUI</a> no site da Microsoft, entre em My Computer >> Special Folders e saia mudando. Mude o "My Documents" para algo como "d:\rodrigo" e "My music" para algo como "d:\mp3". Mude tamb&eacute;m a localiza&ccedil;&atilde;o do "Desktop" para dentro de "My Documents", como "d:\rodrigo\desktop". Menos uma pasta separada para voc&ecirc; lembrar na hora do backup. E a pasta do desktop &eacute; a mais f&aacute;cil de esquecer na hora do backup.</p>
+
+<p>Use sempre nomes f&aacute;ceis para as pastas, e as coloque na parti&ccedil;&atilde;o de dados. Assim, voc&ecirc; pode programar o backup para copiar todas essas pastas, que s&atilde;o mais f&aacute;ceis de lembrar. Um dia voc&ecirc; vai decidir formatar o HD, e assim ficar&aacute; mais f&aacute;cil lembrar o que copiar, e voc&ecirc; ter&aacute; menos medo na hora de escolher a op&ccedil;&atilde;o "Yes, format my entire HD now!".</p>
+
+<h6>Dica 3: Fa&ccedil;a backup, fa&ccedil;a backup, fa&ccedil;a backup, fa&ccedil;a backup, fa&ccedil;a backup, fa&ccedil;a backup, fa&ccedil;a backup</h6>
+
+<p>Nunca &eacute; suficiente dizer. As pessoas geralmente s&oacute; lembram do backup quando alguma desgra&ccedil;a acontece. O backup n&atilde;o precisa ser em uma fita DAT com um software de milhares de d&oacute;lares. Um simples arquivo RAR ou ZIP com seus arquivos mais importantes enviado para um disco virtual j&aacute; resolve o problema. Voc&ecirc; pode fazer o backup dos seus documentos uma vez por semana, e das mp3 a cada m&ecirc;s. O importante &eacute; que voc&ecirc; fa&ccedil;a isso regularmente.</p>
+
+<h6>Dica 4: Teste o backup!</h6>
+
+<p>J&aacute; vi o caso de uma empresa que fazia o backup regularmente, mas nunca testou se o backup era restaurado corretamente. Adivinhe o que aconteceu na hora de restaurar o backup? Voc&ecirc; pode esquecer de configurar a ferramenta de backup para incluir as subpastas. Erros simples como esse se tornar&atilde;o catastr&oacute;ficos na hora que voc&ecirc; precisar do backup.</p>
+
+<h6>Futuramente...</h6>
+
+<p>Diferen&ccedil;as entre NTFS e FAT32, qual tipo usar em que caso, usando 3 ou mais parti&ccedil;&otilde;es</p>
+<p class="datetime">Em 02/Aug/2004 23:14</p><h5><a class="weblog_link" href="weblog.html?p1=1091338806">Iniciando o desenvolvimento b&aacute;sico de drivers</a></h5><p>Pois &eacute;, o pessoal da Microsoft resolveu retirar o desenvolvimento de drivers do ostracismo. 
+Republicaram o artigo <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dndevice/html/driverHowTo.asp">"How to develop a Windows Driver"</a>. Um artigo bem curto,
+que fala o b&aacute;sico sobre desenvolvimento de drivers: arrumar uma c&oacute;pia do DDK, usar o checked build, 
+compilar usando o BUILD, e, &eacute; claro, certificar seu driver junto &agrave; Microsoft.</p><p class="datetime">Em 31/Jul/2004 19:40</p><h5><a class="weblog_link" href="weblog.html?p1=1091224652">C++: O esquecido operador v&iacute;rgula</a></h5><p>Um operador que &eacute; pouco usado, mas bastante &uacute;til em C++, &eacute; o operador v&iacute;rgula. Resumidamente, ele avalia todas as instru&ccedil;&otilde;es separadas pela v&iacute;rgula, mas retorna sempre a &uacute;ltima. Olhe um exemplo:</p>
+<pre>
+<div class="code2">
+int a, b, c;
+
+b = 2;
+c = 3;
+
+a = (b,c);
+
+</div>
+</pre>
+<p>Nesse caso, o valor da vari&aacute;vel <b>a</b> ser&aacute; 3.<p>
+<p>Uma das particularidades do operador v&iacute;rgula, &eacute; que ele tem a menor preced&ecirc;ncia entre todos os operadores. Vamos tirar os par&ecirc;nteses:</p>
+<pre>
+<div class="code2">
+int a, b, c;
+
+b = 2;
+c = 3;
+
+a = b,c;
+
+</div>
+</pre>
+<p>Agora o valor da vari&aacute;vel <b>a</b> ser&aacute; 2, j&aacute; que pela preced&ecirc;ncia, <b>a = b</b> &eacute; a primeira express&atilde;o, e <b>c</b> &eacute; a segunda express&atilde;o.</P>
+<br>
+<p><b>Usos realmente &uacute;teis</b></p>
+
+<p>O uso mais comum para o operador v&iacute;rgula &eacute; inicializar mais de uma vari&aacute;vel em um loop, como no exemplo abaixo:</p>
+<pre>
+<div class="code2">
+int b,c;
+
+for(int a = 10, b = 20, c = 30 ; a < 10 ; a += --b, c++)
+{
+}
+</div>
+</pre>
+<p>Nesse caso, n&oacute;s declaramos a vari&aacute;vel <b>a</b> e atribu&iacute;mos o valor 20 &agrave; vari&aacute;vel <b>b</b>.<p>
+<p>Outro &oacute;timo uso do operador v&iacute;rgula &eacute; para fazer valida&ccedil;&atilde;o de casts n&atilde;o seguros. Existem lugares onde, apesar do par&acirc;metro ser do tipo void* ou void**, voc&ecirc; sempre deve passar um tipo determinado. Um exemplo cl&aacute;ssico, &eacute; a fun&ccedil;&atilde;o CoCreateInstance, que tem a seguinte assinatura:
+<pre>
+<div class="code2">
+STDAPI CoCreateInstance(
+  REFCLSID rclsid,
+  LPUNKNOWN pUnkOuter,
+  DWORD dwClsContext,
+  REFIID riid,
+  LPVOID * ppv
+);
+</div>
+</pre>
+<p>O &uacute;ltimo par&acirc;metro, apesar de ser LPVOID* (ou seja, void**), espera um tipo definido. Ele quer um ponteiro para um ponteiro que possa ser convertido para IUnknown*.<p> Olhe o c&oacute;digo a seguir, que tem um dos erros mais comuns em programa&ccedil;&atilde;o COM:</p>
+<pre>
+<div class="code2">
+HRESULT hr;
+IUnknown* pUnk;
+
+hr = CoCreateInstance(CLSID_BLA,
+                      NULL,
+                      CLSCTX_ALL,
+                      IID_IUNKNOWN,
+                      <b>(void**)pUnk</b>);
+</div>
+</pre>
+<p>Encontrou o erro? Na realidade, <b>&amp;pUnk</b> deveria ser passado, e n&atilde;o somente <b>pUnk</b> como foi passado. Com isso voc&ecirc; vai ganhar um belo GPF de presente. Como estamos usando cast C, o compilador n&atilde;o reclama, e nosso c&oacute;digo &eacute; compilado sem problemas. E aqui n&atilde;o podemos usar static_cast, porque IUnknown** n&atilde;o pode ser convertido para void**.</p>
+<p>Vamos agora a uma solu&ccedil;&atilde;o usando o operador v&iacute;rgula e uma macro:</p>
+<pre>
+<div class="code2">
+HRESULT hr;
+IUnknown* pUnk;
+
+//
+// IC = interface cast
+//
+#define IC(ppUnk) (static_cast<IUnknown*>(*ppUnk),(void**)ppUnk)
+
+hr = CoCreateInstance(CLSID_BLA,
+                      NULL,
+                      CLSCTX_ALL,
+                      IID_IUNKNOWN,
+                      <b>IC(&amp;pUnk)</b>);
+</div>
+</pre>
+
+<p>O que fizemos aqui foi o seguinte: a macro primeiro checa se o apontado do que foi passado pode ser convertido para IUnknown*, usando static_cast. Essa primeira express&atilde;o (<b>static_cast(*ppUnk)</b>) vai verificar a validade do ponteiro em tempo de compila&ccedil;&atilde;o, mas n&atilde;o surtir&aacute; nenhum efeito em tempo de execu&ccedil;&atilde;o. A segunda express&atilde;o (<b>(void**)ppUnk</b>) far&aacute; ent&atilde;o o cast que deve ser feito para a chamada da fun&ccedil;&atilde;o. Vamos agora tentar compilar com o mesmo erro do primeiro exemplo:</p>
+<pre>
+<div class="code2">
+HRESULT hr;
+IUnknown* pUnk;
+
+#define IC(ppUnk) (static_cast<IUnknown*>(*ppUnk),(void**)ppUnk)
+
+hr = CoCreateInstance(CLSID_BLA,
+                      NULL,
+                      CLSCTX_ALL,
+                      IID_IUNKNOWN,
+                      <b>IC(pUnk)</b>);
+
+-----------------------------------
+error C2440: 'static_cast' : cannot convert from 'IUnknown' to 'IUnknown *'
+No user-defined-conversion operator available 
+that can perform this conversion, or the operator 
+cannot be called
+</div>
+</pre>
+<p>E como todo ponteiro para interface COM pode ser convertido para IUnknown*, resolvemos nosso problema.<p>
+<p>Se voc&ecirc; quiser mais informa&ccedil;&otilde;es sobre verifica&ccedil;&otilde;es em tempo de compila&ccedil;&atilde;o e c&oacute;digos nesse estilo, <a href="http://www.google.com/search?&amp;q=metaprogramming">procure sobre metaprogramming</a> e estude muito, mas muito mesmo sobre templates.</p><p class="datetime">Em 30/Jul/2004 11:57</p><h5><a class="weblog_link" href="weblog.html?p1=1091221155">"Windows Internals" no forno!</a></h5><p>Hoje recebi a newsletter do site <a href="http://www.sysinternals.com">Sysinternals</a>, dizendo que o Mark Russinovich e o Dave Solomon est&atilde;o quase terminando o "Windows Internals", que &eacute; a pr&oacute;xima edi&ccedil;&atilde;o melhorada do <a href="http://www.amazon.com/exec/obidos/tg/detail/-/0735610215/102-9085759-1470503?v=glance">Inside Windows 2000</a>. Essa nova vers&atilde;o cobrir&aacute; as modifica&ccedil;&otilde;es feitas no kernel do Windows XP e 2003, e trar&aacute; mais cap&iacute;tulos sobre resolu&ccedil;&otilde;es de problemas e uso de dumps.</p><p class="datetime">Em 30/Jul/2004 10:59</p><h5><a class="weblog_link" href="weblog.html?p1=1091150664">Por que os administradores de rede n&atilde;o se limitam a administrar a rede?</a></h5><p>Era uma vez uma empresa. Era uma vez uma reuni&atilde;o entre os gerentes da &aacute;rea de desenvolvimento e os administradores de rede. Tudo corria bem na reuni&atilde;o, at&eacute; que um administrador de rede diz a seguinte p&eacute;rola:</p>
+
+<p><i>- Estamos pensando em bloquear o MSN Messenger, porque ele acaba com a produtividade das pessoas.</i></p>
+
+<p>Depois disso, o gerente de desenvolvimento tenta explicar que o MSN Messenger agiliza o trabalho, que ele gerencia pessoas que est&atilde;o em outras unidades da empresa e que essa &eacute; uma forma &aacute;gil de comunica&ccedil;&atilde;o, etc...</p>
+
+<p>Agora, a pergunta: <b>O que um administrador de rede entende de produtividade?</b> Ele &eacute; um administrador de rede, um psic&oacute;logo ou um profissional de RH? Provavelmente, esse administrador de rede s&oacute; usa o MSN Messenger para bater papo com os amiguinhos mesmo...</p><p class="datetime">Em 29/Jul/2004 15:24</p><h5><a class="weblog_link" href="weblog.html?p1=1091135290">10 ferramentas que todo programador .NET deve ter</a></h5><p>Na MSDN Magazine desse m&ecirc;s, saiu um artigo sobre as <a href="http://msdn.microsoft.com/msdnmag/issues/04/07/MustHaveTools/default.aspx">10 ferramentas que todo programador .NET deve ter</a>. &Eacute; um artigo bem resumido, mas que &eacute; legal para quem precisa somente das refer&ecirc;ncias.</p>
+<p>Como um continua&ccedil;&atilde;o desse artigo, eu recomendo o livro <a href="http://www.amazon.com/exec/obidos/tg/detail/-/078214327X/103-3265207-4487805?v=glance">Coder To Developer</a>. &Eacute; um livro curto (+-350 p&aacute;ginas) que explica um pouco da metotodologia por tr&aacute;s das ferramentas e fala sobre como fazer um software do in&iacute;cio ao fim, do projeto ao setup.</p><p class="datetime">Em 29/Jul/2004 11:08</p><h5><a class="weblog_link" href="weblog.html?p1=1091132977">Lembra daquelas hist&oacute;rias de suporte?</a></h5><p>Quem nunca juntou os amigos para tirar um sarro lembrando daquelas hist&oacute;rias de suporte e de perguntas est&uacute;pidas de usu&aacute;rios? Encontrei <a href="http://rinkworks.com/stupid/">um site recheado dessas hist&oacute;rias</a>. Olhe uma:</p>
+
+Cliente: "Eu quero meus CDs de volta."<br>
+Suporte: "Seu CD est&aacute; em um drive com defeito?"<br>
+Cliente: "S&oacute; um que n&atilde;o."<br>
+Suporte: "O que?"<br>
+Cliente: "N&atilde;o &eacute; uma unidade 4x? Ent&atilde;o, eu j&aacute; coloquei 3 CDs, mas ele n&atilde;o aceita o quarto e nem devolve meus outros 3."<br><p class="datetime">Em 29/Jul/2004 10:29</p><h5><a class="weblog_link" href="weblog.html?p1=1090876401">Hist&oacute;ria do Pentium</a></h5><p>O pessoal da <a href="http://arstechnica.com">ArsTechinica</a> publicou um <a href="http://arstechnica.com/cpu/004/pentium-1/pentium-1-1.html">&oacute;timo artigo sobre hist&oacute;ria do Pentium</a>, sob o ponto de vista t&eacute;cnico e hist&oacute;rico. Bem interesante, principalmente para quem &eacute; interessado em arquitetura de computadores e tem curiosidade sobre o funcionamento de processadores.</p><p class="datetime">Em 26/Jul/2004 11:13</p><h5><a class="weblog_link" href="weblog.html?p1=1090875467">Novos iPAQs</a></h5><p>Meu velho 3650 parece uma carro&ccedil;a velha perto dos <a href="http://www.engadget.com/entry/1884568467945435/">novos iPAQs</a>. Um deles tem um processador de 624 Mhz, mais do que o meu Pentium III 600 que eu estava usando&nbsp;para desenvolver&nbsp;com&nbsp;Visual Studio.NET / <a href="http://www.1bit.com.br/content.html?id=windbg1">WinDbg</a>&nbsp;/ VMWare at&eacute; uma semana atr&aacute;s.</p>
+
+    <p>Eu acho que n&atilde;o vai demorar muito para que um iPAQ rode uma m&aacute;quina virtual com um Windows 9x/NT dentro.&nbsp;Eu j&aacute; li alguma coisa, n&atilde;o me lembro onde, dizendo que estavam portando o <a href="http://bochs.sourceforge.net/">bochs</a>&nbsp;para PocketPC.</p><p class="datetime">Em 26/Jul/2004 10:57</p><h5><a class="weblog_link" href="weblog.html?p1=1090873927">Kernel mode dev lives!</a></h5> <p>A MSDN est&aacute; publicando artigos sobre desenvolvimento de drivers com uma certa regularidade. Parece que o pessoal de kernel mode da Microsoft resolveu aparecer... <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dndevice/html/IRQL_Sched.asp">O ultimo &eacute; sobre thread context e IRQLs</a>.</p>
+
+    <p>Ser&aacute; que isso vai ajudar a reduzir nossa depend&ecirc;ncia do pessoal da <a href="http://www.osr.com">OSR</a> e da <a href="http://www.pcausa.com">PCAUSA</a>?</p>
+<p class="datetime">Em 26/Jul/2004 10:32</p><h5><a class="weblog_link" href="weblog.html?p1=1090872906">Como escrever um comparativo t&eacute;cnico tendencioso e sem fundamentos</a></h5>    <p>Um sujeito que trabalha para a Oracle, fez um <a href="http://otn.oracle.com/pub/articles/hull_asp.html">comparativo simplesmente rid&iacute;culo entre ASP.NET e PHP</a>. Escreveu um monte de abobrinhas malhando o ASP.NET e favorecendo o PHP, sem apontar dados concretos sobre os problemas que ele diz que o ASP.NET tem. Eu acho o PHP realmente muito bom, mas tentar divulg&aacute;-lo as custas de um comparativo rid&iacute;culo desses, j&aacute; &eacute; sacanagem.</p>
+
+<p>E, pelo jeito, <a href="http://weblogs.asp.net/bleroy/articles/193608.aspx">eu n&atilde;o fui o &uacute;nico que n&atilde;o gostou muito desse artigo</a>. Olhe no final o rating do artigo, a maioria dos leitores tamb&eacute;m achou o artigo uma porcaria.... :-)</p><p class="datetime">Em 26/Jul/2004 10:15</p><h5><a class="weblog_link" href="weblog.html?p1=1090655681">Tudo muda, o tempo todo</a></h5><p>Eu estava lendo o <a href="http://www.amazon.com/exec/obidos/tg/detail/-/0735618038/002-2356291-3612859?v=glance">Programming the Microsoft Windows Driver Model</a>, do Walter Oney para tirar umas d&uacute;vidas sobre <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/kmarch/hh/kmarch/IRPs_ac1b8c23-bbc5-4d81-bbdd-255977d3b85c.xml.asp">IRPs</a>, e acabei abrindo o livro na parte que ele explica <a href="http://www.microsoft.com/msj/0197/exception/exception.aspx">como funcionam as exce&ccedil;&otilde;es</a> em kernel mode. Ele tamb&eacute;m falava sobre o que acontece quando uma exce&ccedil;&atilde;o &eacute; disparada e como usar blocos de __try/__except e __try/__finally para tratar uma exce&ccedil;&atilde;o.</p>
+
+    <p>Nessa parte ele explica que quando uma exce&ccedil;&atilde;o &eacute; disparada, o kernel sai procurando na pilha algu&eacute;m que a trate. Depois ele fala que isso pode gerar problemas de performance, j&aacute; que &eacute; necess&aacute;rio percorrer toda a pilha atr&aacute;s de alguma fun&ccedil;&atilde;o que lide com essa exce&ccedil;&atilde;o. Eu tamb&eacute;m me lembro que muita gente n&atilde;o usa as exce&ccedil;&otilde;es em C++ por causa de performance (fora os <a href="http://www.joelonsoftware.com/items/2003/10/13.html">motivos apontados pelo Joel</a>).</p>
+
+    <p>Performance, performance, performance. Hoje em dia, muitas dessas pessoas que falavam isso est&atilde;o usando .NET, que tem um problema de performance muito maior, j&aacute; que a runtime roda MUITO c&oacute;digo al&eacute;m do seu. (Isso me lembra de programadores C reclamando que o compilador C++ gera c&oacute;digo que eles n&atilde;o pediram, como o do copy constructor). &Eacute; engra&ccedil;ado como a no&ccedil;&atilde;o de prioridade performance/facilidade muda com o tempo. O jeito &eacute; <a href="http://www.1bit.com.br/nao_ouca_ninguem.html">n&atilde;o dar muito ouvidos</a> e testar qual metodologia e linguagem que melhor resolve o seu problema.</p><p class="datetime">Em 23/Jul/2004 21:54</p><h5><a class="weblog_link" href="weblog.html?p1=1090618454">Por isso que eu n&atilde;o compro livro traduzido....</a></h5><p>Lan&ccedil;aram o famoso livro sobre "Refactoring" em portugu&ecirc;s. Os caras tiveram a capacidade de traduzir "Refactoring" para <a href="http://shopping.terra.com.br/artmed/product.asp?dept%5Fid=660&amp;pf%5Fid=26917&amp;pga=1&amp;tpceid=6JRCLPLEEB1L9KF47V2C3BKKA5AAFP7A">refatora&ccedil;&atilde;o</a>... n&atilde;o &eacute; de matar? Por isso que eu compro <a href="http://www.amazon.com/exec/obidos/tg/detail/-/0201485672/104-3715719-2331164?v=glance">direto da amazon</a>...</p><p class="datetime">Em 23/Jul/2004 11:34</p><h5><a class="weblog_link" href="weblog.html?p1=1090499999">Curso de Spam no SEBRAE</a></h5><p>Esses dias encontrei um amigo que montou uma empresa de consultoria na &aacute;rea de telefonia. Ele veio me mostrar os impressos de divulga&ccedil;&atilde;o da empresa, e me contou que estava fazendo divulga&ccedil;&atilde;o via e-mail. Quando eu perguntei como ele conseguia os e-mails, ele falou que um conhecido dele o tinha emprestado um CD com milh&otilde;es de e-mails e com os programas para envi&aacute;-los... </p><p>Eu expliquei que isso era spam, que era ilegal, que nenhuma empresa decente faz esse tipo de coisa, que as pessoas ficam irritadas com e-mails n&atilde;o solicitados, etc, etc. Foi quando ele argumentou que o e-mail era o meio mais barato de divulgar a empresa, e que se 0,01% dos milh&otilde;es de e-mails derem retorno j&aacute; &eacute; uma grande coisa.</p><p>No final ele me contou que fez um curso no SEBRAE, e foi l&aacute; que ele aprendeu as vantagens da "divulga&ccedil;&atilde;o por e-mail"..</p><p class="datetime">Em 22/Jul/2004 02:39</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+          </td>
+        </tr>
+          <tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="images/rebarba3.png"></td>
+              <td align="right"><img src="images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+<tr><td class="topmenu">&nbsp;</td><td class="topmenu">&nbsp;</td></tr>
+<tr><td class="topmenu">&nbsp;</td><td>
+<table style="MARGIN: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="images/rebarba1.png"></td>
+              <td align="right"><img src="images/rebarba2.png"></td>
+              </tr>
+            </table>
+</td>
+</tr>
+ <tr><td class="topmenu">&nbsp;</td><td >
+<div class="content">
+<a name="comments"></a><h5>Comentários</h5>
+<h5>Algo a dizer?</h5>
+<form name="comment" method="POST" action="comment.html">
+<input type="hidden" name="article" value="_weblog"/>
+Nome:<br/>
+<input type="text" name="name" style="width: 250px;"/><br/>
+<br/>
+
+Site ou e-mail:<br/>
+<input type="text" name="link" style="width: 250px;" /><br/>
+<br/>
+
+Comentário<br/>
+<textarea style="WIDTH: 300px; HEIGHT: 150px" name="comment" rows="9" cols="35"></textarea><br/>
+<br/>
+<input type="submit" value="Dizer"/>
+
+</form>
+
+</div>
+
+</td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+          <td class="topmenu"></td>
+          <td>
+          <table style="margin: 0px" cellspacing="0" cellpadding="0" width="100%" border="0">
+            <tr>
+              <td><img src="images/rebarba3.png"></td>
+              <td align="right"><img src="images/rebarba4.png"></td>
+            </tr>
+          </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="topmenu">&nbsp;</td>
+          <td class="topmenu" height="25" align="right">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+    </table>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
