@@ -1,3 +1,6 @@
 User-agent: *
-Disallow: content.1bit/weblog_archive
-Disallow: content.1bit/weblog_categ
+Disallow: /content.1bit/weblog_archive
+Disallow: /content.1bit/weblog_categ
+Disallow: /content.1bit/busca
+
+Sitemap: https://1bit.com.br/sitemap.xml
